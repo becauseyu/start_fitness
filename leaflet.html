@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--加入leaflet CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <!--加入leaflet js(一定要在css之後)-->
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+    <!--加入jquery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <!--地圖的放置位置-->
+    <div id="mapid" style="width: 50%;"></div>
+
+</body>
+
+<script>
+    //利用jQuery將地圖的高度設置與螢幕同高
+    (function ($) {
+        $(document).ready(function () {
+            $('#mapid').height(window.innerHeight);
+        });
+    })($)
+    //建立map容器(同時建立)
+    // var myMap = L.map('mapid', {
+    //     //設定中心位置（暫定先是AnyTime Fitness）
+    //     center: [24.15098859875372, 120.65095303464386],
+    //     //ZOOM:縮放等級
+    //     zoom: 20
+    // });
+    //先建立map容器，再建立中心做標與縮放程度
+    var myMap = L.map('mapid').setView([24.15098859875372, 120.65095303464386], 20);
+    //加入地圖底圖
+    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        //地圖可以縮放的最大等級
+        maxZoom: 18,
+        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    }).addTo(myMap);
+</script>
+
+</html>
