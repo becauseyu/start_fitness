@@ -1,0 +1,503 @@
+[
+    {
+        "name": "健身工廠Fitness Factory(水楠廠)",
+        "town": "北屯區",
+        "inteoduce": "水湳廠為健身工廠在大台中地區的第六家廠館，是專為熱愛健身的朋友打造的專業訓練廠館！ 水湳廠鄰進水湳經貿園區以及迪卡儂北屯店，周邊環境、交通十分便利，提供全民運動及鄰近商圈運動的新選擇！水湳廠全館五樓地板面積700坪，提供會員專屬汽車停車場、複合式心肺有氧區、專業重量訓練區、女性專用訓練區、會員休息區以及貼心的淋浴間，全面引進國外專業健身器材，全新打造舒適環境，落實運動生活化的目標。",
+        "picture": "https://www.fitnessfactory.com.tw/images/1582635136%E6%B0%B4%E6%B9%B3%E5%A0%B4%E5%AE%98%E7%B6%B2.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2425-5858",
+        "address": "中清路二段1029號",
+        "coordinates": "24.190298692649844, 120.66123919792514"
+    },
+    {
+        "name": "健身效應 Effect Gym",
+        "town": "北屯區",
+        "inteoduce": "台中最強悍、最專業、最知名的教練團隊，精通各種訓練、復健、放鬆、按摩、營養規劃等專長，提供專業健身場所、專業個人教練，量身訂做專屬課程，打造完美體態，改變人生從現在開始！",
+        "picture": "https://upload.cc/i1/2022/06/18/AO4ogD.png",
+        "open": "08:00-00:00",
+        "tel": "04-2293-8551",
+        "address": "中清路二段7號",
+        "coordinates": "24.173916281993424, 120.67119654136614"
+    },
+    {
+        "name": "希摩健康生活會館XIMO",
+        "town": "北屯區",
+        "inteoduce": "XIMO希摩健康生活會館為首家提倡中醫學養生，互動智能健身，輕運動概念的全人健康運動場館。",
+        "picture": "http://www.ximolife.com/archive/album/1/tw/4/image002.jpg",
+        "open": "12:00-00:00",
+        "tel": "04-2299-0468",
+        "address": "文心路四段141號3樓",
+        "coordinates": "24.17382895430764, 120.67565385041529"
+    },
+    {
+        "name": "健身工廠Fitness Factory(水楠廠)",
+        "town": "北屯區",
+        "inteoduce": "水湳廠為健身工廠在大台中地區的第六家廠館，是專為熱愛健身的朋友打造的專業訓練廠館！ 水湳廠鄰進水湳經貿園區以及迪卡儂北屯店，周邊環境、交通十分便利，提供全民運動及鄰近商圈運動的新選擇！水湳廠全館五樓地板面積700坪，提供會員專屬汽車停車場、複合式心肺有氧區、專業重量訓練區、女性專用訓練區、會員休息區以及貼心的淋浴間，全面引進國外專業健身器材，全新打造舒適環境，落實運動生活化的目標。",
+        "picture": "https://assets.website-files.com/62721374129fe36587dc6452/627dca7432a6b5684bbc160a_CJH_7479.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2425-5858",
+        "address": "中清路二段1029號",
+        "coordinates": "24.190101951630616, 120.66124350178463"
+    },
+    {
+        "name": "中力健身中心(北屯馆)",
+        "town": "北屯區",
+        "inteoduce": "中力連鎖健身中心，台中市最資深的傳統健身房。沒有花俏的裝潢，堅持自然、環保、健康的路線。提供最完善的器材設備，為健身主流族群的最愛。",
+        "picture": "https://upload.cc/i1/2022/06/18/V2Raow.jpg",
+        "open": "09:00-23:00",
+        "tel": "0902-117-197",
+        "address": "昌平東五路86號",
+        "coordinates": "24.186306916564877, 120.68979920664097"
+    },
+    {
+        "name": "MAX健身俱樂部(北屯店)",
+        "town": "北屯區",
+        "inteoduce": "美式健身房，運動之於健康，是您一輩子最寶貴的資產。",
+        "picture": "https://upload.cc/i1/2022/06/18/aiVwr5.jpg",
+        "open": "08:00-23:00",
+        "tel": "04-2239-5555",
+        "address": "北屯區軍福十九路1號",
+        "coordinates": "24.1801016557479, 120.72109956451847"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中崇徳店)",
+        "town": "北屯區",
+        "inteoduce": "崇德World Gym目前擁有三層樓，1700坪，一樓大廳挑高氣派，B1主要是團體有氧教室與盥洗三溫暖，1F是自由重量訓練與特殊訓練區，2F是心肺有氧及基礎固定式重訓器材，崇德店還有攀岩牆提供不同運動需求會員使用，館內器材與課程多元豐富，就等你一起來運動！",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipNvev-Stqv6uYyWa2vJMS1fwmKjFgXY-NP93zvo=w426-h240-k-no",
+        "open": "06:00-00:00",
+        "tel": "04-2233-7666",
+        "address": "崇德路二段16號1F",
+        "coordinates": "24.16887956070714, 120.68558478817323"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中東山店)",
+        "town": "北屯區",
+        "inteoduce": "北屯唯一六星級科技健身房，獨棟三層樓佔地超過千坪，擁有奧林匹克標準游泳池、Hoist連動式器材、獨家Stages Flight互動式飛輪及反重力體適能，附設SPA水療池、蒸氣室、烤箱等設施，再加上每週豐富多元的有氧團體課程。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipPHWEiGyp8INwpvLlLUrFZ9xUmZGecYKUTQHDlU=w426-h240-k-no",
+        "open": "06:00-00:00",
+        "tel": "04-2436-8800",
+        "address": "東山路一段310號",
+        "coordinates": "24.17587773420645, 120.72136249661715"
+    },
+    {
+        "name": "ONCE Fitness單次健身(東山店)",
+        "town": "北屯區",
+        "inteoduce": "為您打造完美體態、最佳狀態，更可由國際證照教練為你量身打造專業計畫，高CP值保證便宜，變瘦或變美的同時荷包不哭泣",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipNkJlZTeA3PwYGSnj4SS3F_eeZd4e1QALzwW0mk=w408-h306-k-no",
+        "open": "08:00-00:00",
+        "tel": "04-2436-4353",
+        "address": "東山路一段50之18號2樓",
+        "coordinates": "24.169924749020925, 120.70170246280607"
+    },
+    {
+        "name": "成吉思汗(台中旗艦館)",
+        "town": "北屯區",
+        "inteoduce": "成吉思汗 台中旗艦館，服務品質專業最好優質首選健身館，24小時全年無休",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipOW0a5l28kYRJqXjarSiuMWUMRvNYTz3uQS8AVk=w408-h306-k-no",
+        "open": "00:00-00:00",
+        "tel": "04-2247-3898",
+        "address": "崇德二路二段218號",
+        "coordinates": "24.17774423141476, 120.68479351141613"
+    },
+    {
+        "name": "健身狂【北屯2館】",
+        "town": "北屯區",
+        "inteoduce": "百坪大空間！多樣化的健身設備！提供多樣的重訓/有氧器材，想運動不怕沒地方只怕你沒有決心！入會可自由使用一館及二館所有設備不限時間及次數  心動不如馬上行動，趕快把握機會預約參觀♡",
+        "picture": "https://maniafitness.weebly.com/uploads/1/3/3/7/133726443/published/101059464-557835284918391-5841747862974627840-n.jpg?1599534751",
+        "open": "09:00-23:00",
+        "tel": "0905-520-166",
+        "address": "南興一路218號",
+        "coordinates": "24.17296518355943, 120.7021165893808"
+    },
+    {
+        "name": "RE Fitness",
+        "town": "北屯區",
+        "inteoduce": "RE這兩個英文字有著重新、往回的詞意，而正與我們想幫助大眾找回以往健康體態與身體功能，重新戴起正面能量以及生活型態的改善，讓現今高壓的環境，得身心靈的紓解，也象徵兩位創辦人對運動產業的態度與用心",
+        "picture": "https://tcrefitness.com/wp-content/uploads/2021/12/image13.jpg",
+        "open": "09:00-18:00",
+        "tel": "090-8793-796",
+        "address": "東光路892巷一號",
+        "coordinates": "24.16940641955688, 120.70148570345017"
+    },
+    {
+        "name": "健身工廠Fitness Factory(中清廠)",
+        "town": "北區",
+        "inteoduce": "中清廠自2017年開始營運，座落於中清路一段登峰21大廈B1，鄰近曉明女中和通豪大飯店，交通便利。中清廠的開設為附近住宅區注入一股健康樂活氣息，帶入時尚運動新氛圍。 全館樓地板面積約1100坪，提供完善複合式心肺有氧區、專業重量訓練區、多功能有氧教室、飛輪教室、會員休息區，全面引進國外專業健身器材，全新打造舒適環境，多樣化的運動設施滿足您不同訓練需求，落實運動生活化的目標。",
+        "picture": "https://www.fitnessfactory.com.tw/images/1522226178%E4%B8%AD%E6%B8%85%E5%BB%A0.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2298-8333",
+        "address": "中清路一段652號B1",
+        "coordinates": "24.16890515686523, 120.67314099359226"
+    },
+    {
+        "name": "養肌聯盟台中肌場(梅川店)",
+        "town": "北區",
+        "inteoduce": "專業教練團隊，優質健身環境，專業健身器材設備，協助您達成運動健身目標。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipPdqV3kwOU6IYpSE8boPSrsCaf8o1-q7u5fJkQd=w408-h271-k-no",
+        "open": "06:00-00:00",
+        "tel": "04-2299-1360",
+        "address": "梅川西路四段229號",
+        "coordinates": "24.172111650112562, 120.67861560072363"
+    },
+    {
+        "name": "ACTION FITNESS 啟動健身房(五權館)",
+        "town": "北區",
+        "inteoduce": "啟動健身中心提供平價且高品質的健身服務品牌，也是台中第一間有以分計費，月費，訂閱制以及更多元化彈性收費方案的健身房。另外場館使用電子APP方式入場，除了進出場電子化 之外還能直接購買會籍、訂閱會籍、 查看點數、查詢會籍時效、即時人流 查詢、團課時間表查詢及團課預約等等功能。我們除了提供顧客高品質的健身環境、器材及課程外，也提供運動諮詢，結合了肌力與體能訓練專業諮詢、體適能訓練、營養師諮詢顧問，健身訓練研習、物理治療師顧問團隊、運動按摩等，是健身業當中的新興潛力品牌，時尚且富含能量的健身環境，秉持著專業安全健康的服務，符合現代人的忙碌生活習慣。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipM0UZEgmJiYb4M-s1TwmLQ2aIFlJ5r9uZB-tSxq=w482-h240-k-no",
+        "open": "07:00-00:00",
+        "tel": "04-2206-9666",
+        "address": "五權路375號11樓",
+        "coordinates": "24.152804332186488, 120.68065406023523"
+    },
+    {
+        "name": "奧美伽24H智能健身會館(台中漢口店)",
+        "town": "北區",
+        "inteoduce": "OMEGA FITNESS 24H智能健身會館，科技健身｜智能運動｜24H健康不打烊。奧美伽首創 AI 科技智能運動館，個人專屬智能手環，結合智能APP紀錄完整運動數據，精準掌握所有健身紀錄。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipOV6DV3vR6wAxk-7Oc8f0r5CTqtmAfYkoh3NaLk=w408-h271-k-no",
+        "open": "00:00-00:00",
+        "tel": "04-2236-3030",
+        "address": "漢口路四段367號B1",
+        "coordinates": "24.167232672732958, 120.68287553045018"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中進化北店)",
+        "town": "北區",
+        "inteoduce": "台中第一間Express系列健身房，一層樓大平面運動空間，擁有Hoist連動式器材、Hammer外掛式器材及喬山器材，還有全台獨家 MYZONE心率帶系統，及TRX、多功能草皮、眼手協調訓練區等，附設蒸氣室、烤箱，再加上近百台的心肺器材。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/jhn/cardio-zone-1.JPG",
+        "open": "06:00-00:00",
+        "tel": "04-2201-0222",
+        "address": "進化北路365號B1",
+        "coordinates": "24.163045783410492, 120.67931618955949"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中一中店)",
+        "town": "北區",
+        "inteoduce": "World Gym一中店座落於台中市熱鬧繁華、商業及娛樂兼具的中友百貨商圈，擁有Hoist、Hammer等專業器材，加上多功能草皮訓練區，以及搭配MYZONE心率帶，讓訓練更有效率。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/TE/power-strength-zone-3.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2225-2000",
+        "address": "三民路三段125號2F-4F",
+        "coordinates": "24.14942263054245, 120.68340157303592"
+    },
+    {
+        "name": "美力健身房",
+        "town": "北區",
+        "inteoduce": "台中最多人推薦【美力健身中心】超過300坪以上的運動大空間，採用NBA、美國大聯盟使用之專業訓練器材，榮獲全國前十大最受歡迎健身房，擁有奥運舉重國手等級專業健美教練等。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipMMTcVHJLX6cp3hmNiJI2uHMDqXEeNm_1zIjIj-=w426-h240-k-no",
+        "open": "09:00-22:00",
+        "tel": "04-2220-1986",
+        "address": "精武路338號2、3、6",
+        "coordinates": "24.146354087749707, 120.68304181141559"
+    },
+    {
+        "name": "Souls Fitness（魂．覺醒）健身俱樂部(中清館)",
+        "town": "北區",
+        "inteoduce": "過往在健身產業的經驗，我看到的是公司越大，但素質落差也越大，而我親身經歷，看到這個現象並沒有持續調整，而我想要重新改變！於是我創了覺醒健身",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipMZKJJyFL4CgbArL3A82gnTC-H-dPxj7kzDtEfi=w408-h306-k-no",
+        "open": "09:00-23:30",
+        "tel": "04-2202-0506",
+        "address": "中清路一段100號B1",
+        "coordinates": "24.15438120307019, 120.67738011165874"
+    },
+    {
+        "name": "ONCE Fitness單次健身(中清店)",
+        "town": "北區",
+        "inteoduce": "為您打造完美體態、最佳狀態，更可由國際證照教練為你量身打造專業計畫，高CP值保證便宜，變瘦或變美的同時荷包不哭泣",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipO5VyZbzcBK16aevFSrCRFMlDsL9WhWtCimr8QI=w426-h240-k-no",
+        "open": "08:00-00:00",
+        "tel": "04-2261-0227",
+        "address": "中清路一段100號2樓",
+        "coordinates": "24.154636202526078, 120.67755321323148"
+    },
+    {
+        "name": "MAX健身俱樂部(文心店)",
+        "town": "北區",
+        "inteoduce": "美式健身房，運動之於健康，是您一輩子最寶貴的資產。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipNiP3_ZPcPyiVaoOZT3oMPmOwaDSgOo8g2OBPOp=w408-h306-k-no",
+        "open": "08:00-23:00",
+        "tel": "04-2296-7777",
+        "address": "北區文心路四段208號",
+        "coordinates": "24.174057026536126, 120.67708114444433"
+    },
+    {
+        "name": "Fitbox Gym健身中心(太原館)",
+        "town": "北區",
+        "inteoduce": "FITBOX打造「銅板」健身新時代。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipMM3JtwHkkWzQH-whTKWH5o5VFjI2cDhFj6HB4y=w408-h305-k-no",
+        "open": "07:30-00:00",
+        "tel": "04-2206-8268",
+        "address": "太原路一段530-1號",
+        "coordinates": "24.16485947411973, 120.67304294794127"
+    },
+    {
+        "name": "健身工廠Fitness Factory(文心南廠)",
+        "town": "南區",
+        "inteoduce": "文心南廠為健身工廠在大台中地區的第六家廠館，選址於台中南區的愛買復興店內，結合賣場的便利性，提供給台中南區、烏日區、大里區市民全新的運動新選擇！ 全館樓地板面積近1000坪，提供完善複合式心肺有氧區、專業重量訓練區、多功能有氧教室、飛輪教室、會員休息區以及貼心的淋浴間(含蒸氣室與烤箱)，全面引進國外專業健身器材，全新打造舒適環境，落實運動生活化的目標。",
+        "picture": "https://www.fitnessfactory.com.tw/images/1564465738%E6%96%87%E5%BF%83%E5%8D%97%E5%AE%98%E7%B6%B2%E6%93%9A%E9%BB%9E%E4%BB%8B%E7%B4%B9.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2262-8333",
+        "address": "復興路一段359號3F",
+        "coordinates": "24.11644206081899, 120.65400318652696"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中學府店)",
+        "town": "南區",
+        "inteoduce": "World Gym學府店採整層樓平面的寬敞運動空間，放眼望去全是豐富的器材與設施，且動線規劃明確，還有室內游泳池等。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/XF/worldgym-fitness-gym-taichung-1.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-3608-8888",
+        "address": "學府路170號B1",
+        "coordinates": "24.129798575828726, 120.6739489067459"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中東興店)",
+        "town": "南區",
+        "inteoduce": "Express高規格高配備豪華經濟健身房，獨立獨棟二層樓運動空間，擁有國際級器材，再加上MYZONE科技運動系統，讓運動更有效率。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/TCDX/worldgym-1.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2260-6600",
+        "address": "東興路一段81號",
+        "coordinates": "24.122834215994445, 120.65558373931981"
+    },
+    {
+        "name": "Souls Fitness（魂．覺醒）健身俱樂部(復興館)",
+        "town": "南區",
+        "inteoduce": "過往在健身產業的經驗，我看到的是公司越大，但素質落差也越大，而我親身經歷，看到這個現象並沒有持續調整，而我想要重新改變！於是我創了覺醒健身",
+        "picture": "https://pic03.eapple.com.tw/soulsfitness/js_l_img04.png",
+        "open": "09:00-23:30",
+        "tel": "04-2265-5539",
+        "address": "復興北路517號B1",
+        "coordinates": "24.115213233036712, 120.64976693354333"
+    },
+    
+    {
+        "name": "健身工廠Fitness Factory(新時代廠)",
+        "town": "東區",
+        "inteoduce": "新時代廠座落於台中市中心， 大魯閣新時代購物中心9樓， 距離台中火車站後站步行只要2分鐘， 結合百貨商圈和鐵路交通的便利性。全館約850坪寬敞的運動空間。 提供完善複合式心肺有氧區、專業重量訓練區、多功能有氧教室、飛輪教室、會員休息區，全面引進國外專業健身器材，全新打造舒適環境，並有健身工廠資深有氧師資群，提供多樣運動健身選擇，落實運動生活化的目標。",
+        "picture": "https://www.fitnessfactory.com.tw/images/152050935816.%E6%96%B0%E6%99%82%E4%BB%A3%E5%BB%A0.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2225-6555",
+        "address": "復興路四段186號9F",
+        "coordinates": "24.136808612572313, 120.68764881643432"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中美村店)",
+        "town": "西區",
+        "inteoduce": "World Gym美村店擁有1800坪超大空間，B1大廳挑高氣派，健身器材分層擺放，配備有氧心肺區、重訓區、團體有氧教室、男女賓(內有三溫暖設備)，區域規劃明確，一次滿足所有需求。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/TC/worldgym-fitness-taichung.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2326-2166",
+        "address": "美村路一段22號B1",
+        "coordinates": "24.154811541873443, 120.66174899325408"
+    },
+    {
+        "name": "養肌聯盟台中肌場(柳川店)",
+        "town": "西區",
+        "inteoduce": "專業教練團隊，優質健身環境，專業健身器材設備，協助您達成運動健身目標。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipNxVFxmF2vj_OYPP_YFMOb27sXndt0kczzChtNS=w408-h544-k-no",
+        "open": "10:00-22:00",
+        "tel": "0979-709-330",
+        "address": "柳川東路二段131號3樓",
+        "coordinates": "24.1401475554856, 120.66891903226859"
+    },
+    {
+        "name": "健身工廠Fitness Factory(精明廠)",
+        "town": "西區",
+        "inteoduce": "精明廠自2013年營運迄今，健身工廠首次跨足大台中地區於精明商圈內設立中部第一家分廠，位於大隆路上，鄰近七期、五期重劃區，為時尚百貨、高級住宅區注入一股健康樂活氣息，打造台中都會區第一首選健身品牌。全館樓地板面積約莫1400坪。 提供完善複合式心肺有氧區、專業重量訓練區、多功能有氧教室、飛輪教室、休閒遊戲區，全面引進國外專業健身器材，全新打造舒適環境，落實運動生活化的目標。",
+        "picture": "https://www.fitnessfactory.com.tw/images/1616396585152050931913.%E7%B2%BE%E6%98%8E%E5%BB%A0.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2326-1155",
+        "address": "大隆路20號B1",
+        "coordinates": "24.15744853331556, 120.65556065956893"
+    },
+    {
+        "name": "健身工廠Fitness Factory(福科廠)",
+        "town": "西屯區",
+        "inteoduce": "福科廠為健身工廠在台中市區的第七家廠館！全館共2層樓地板面積約930坪，附設大型停車場，提供完善複合式心肺有氧區、專業重量訓練區、多功能有氧教室、飛輪教室、會員休息區以及貼心的淋浴間(含蒸氣室與烤箱)，全面引進國外專業健身器材，全新打造舒適環境，落實運動生活化的目標。",
+        "picture": "https://www.fitnessfactory.com.tw/images/1648005386%E7%A6%8F%E7%A7%91%E5%A4%96%E8%A7%80.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2462-3888",
+        "address": "福裕路111號",
+        "coordinates": "24.18258707433274, 120.6272938386772"
+    },
+    {
+        "name": "ACTION FITNESS 啟動健身房(中科館)",
+        "town": "西屯區",
+        "inteoduce": "啟動健身中心提供平價且高品質的健身服務品牌，也是台中第一間有以分計費，月費，訂閱制以及更多元化彈性收費方案的健身房。另外場館使用電子APP方式入場，除了進出場電子化 之外還能直接購買會籍、訂閱會籍、 查看點數、查詢會籍時效、即時人流 查詢、團課時間表查詢及團課預約等等功能。我們除了提供顧客高品質的健身環境、器材及課程外，也提供運動諮詢，結合了肌力與體能訓練專業諮詢、體適能訓練、營養師諮詢顧問，健身訓練研習、物理治療師顧問團隊、運動按摩等，是健身業當中的新興潛力品牌，時尚且富含能量的健身環境，秉持著專業安全健康的服務，符合現代人的忙碌生活習慣。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipM0UZEgmJiYb4M-s1TwmLQ2aIFlJ5r9uZB-tSxq=w482-h240-k-no",
+        "open": "07:00-00:00",
+        "tel": "04-2465-8899",
+        "address": "國安一路168號5樓",
+        "coordinates": "24.1921753,120.5458526"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中東海店)",
+        "town": "西屯區",
+        "inteoduce": "World Gym東海店雙棟三層樓寬敞運動空間700坪，擁有專業知名重量訓練器材Matrix、Hammer、Hoist、近百台有氧器材及重訓器材，搭配MYZONE心率系統、紓壓必備烤箱，還有台中獨家戶外休息區。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/tcdh/worldgym-tcdh.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2465-5555",
+        "address": "玉門路81號",
+        "coordinates": "24.187767314123114, 120.61004800744895"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中西屯店)",
+        "town": "西屯區",
+        "inteoduce": "西屯World Gym位於台中市中心，是交通的樞紐，從各區域來都很方便，為獨棟式健身房，外觀紅色明顯，內部設施擺放分層，1F、2F為心肺區，B1為重訓區、團體課教室、男女賓(內有三溫暖)，可直接至不同樓層做想運動的項目，區域規劃明確，另外還有室外籃球場，一次滿足所有需求。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/XT/1-worldgym-fitness-gym-taichung.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2707-5522",
+        "address": "西屯路二段258號1F",
+        "coordinates": "24.172523219268495, 120.64741411804569"
+    },
+    {
+        "name": "優漾健身(西屯店)",
+        "town": "西屯區",
+        "inteoduce": "優漾複合運動 All Young Sports Complex 為中台灣發軔的運動新品牌。「運動的品質，決定健康的價值」，是優漾複合運動會館投身健康產業的初衷。具備多元、專業與安全就是高品質的運動，優漾藉由結合「優漾健身」、「優漾羽球」以及「優漾防護」三大專業服務項目，讓高品質的運動成為您生活中的一部分。",
+        "picture": "https://pic03.eapple.com.tw/allyoung/ab_07.png",
+        "open": "06:00-00:00",
+        "tel": "04-2462-3000",
+        "address": "福科路207號",
+        "coordinates": "24.181147683000763, 120.62743481963857"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中黎明店)",
+        "town": "南屯區",
+        "inteoduce": "World Gym黎明店擁有1800坪超大空間，店內設有手扶梯；近百台心肺有氧設備、三百多樣重訓器材、SPA水療池、烤箱、蒸氣室，還有溫水游泳池、百坪有氧教室、RealRyder搖擺飛輪教室，動線規劃明確。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/LM/1-worldgym-fitness-gym-taichung.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2250-3322",
+        "address": "黎明路二段425號1F",
+        "coordinates": "24.15457583223929, 120.63453425071495"
+    },
+    {
+        "name": "FITZONE(台中公益店)",
+        "town": "南屯區",
+        "inteoduce": "FITZONE公益店提供60分鐘心率訓練團體教練課程，多元化的訓練課程，加上獨家高坡度跑步機、獨家水阻式划船機、TRX、啞鈴、壺鈴、BOSU、Dynamax球、階梯、徒手訓練，搭配獨家MYZONE心率帶系統，讓運動更有效率、數據化、遊戲化，可以即時看到自己的努力程度，確保達到有效燃燒脂肪。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/FZTC/taichung-fitzone-worldgym-1.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2323-3333",
+        "address": "大墩路632號1F",
+        "coordinates": "24.150716069576728, 120.65005961308516"
+    },
+    {
+        "name": "優漾健身(南屯店)",
+        "town": "南屯區",
+        "inteoduce": "優漾複合運動 All Young Sports Complex 為中台灣發軔的運動新品牌。「運動的品質，決定健康的價值」，是優漾複合運動會館投身健康產業的初衷。具備多元、專業與安全就是高品質的運動，優漾藉由結合「優漾健身」、「優漾羽球」以及「優漾防護」三大專業服務項目，讓高品質的運動成為您生活中的一部分。",
+        "picture": "image.png",
+        "open": "06:00-00:00",
+        "tel": "04-2380-5000",
+        "address": "文心南五路三段239號",
+        "coordinates": "24.149384922342684, 120.63022104663497"
+    },
+    {
+        "name": "中力健身中心(南屯馆)",
+        "town": "南屯區",
+        "inteoduce": "中力連鎖健身中心，台中市最資深的傳統健身房。沒有花俏的裝潢，堅持自然、環保、健康的路線。提供最完善的器材設備，為健身主流族群的最愛。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipNK1gbd8itKrTb0-eo_G7XyvvMXj-If2LRJ8OKI=w426-h240-k-no",
+        "open": "09:00-23:00",
+        "tel": "04-2472-2020",
+        "address": "文心南六路268巷28號",
+        "coordinates": "24.131657832298416, 120.64731594582449"
+    },
+    {
+        "name": "Anytime Fitness 台中公益店",
+        "town": "南屯區",
+        "inteoduce": "Anytime Fitness——目前在全世界已經擁有超過5,000間分店，台中首家24小時健身中心，我們打造出輕鬆自在、沒有壓力的運動環境，歡迎所有人來運動。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipNH3rmkgnaBQ55rdZHW8HXb01sNpcnNmd4Wqan8=w408-h272-k-no",
+        "open": "00:00-00:00",
+        "tel": "0423270866",
+        "address": "公益路二段51號B1",
+        "coordinates": "24.150652089247046, 120.65091613069175"
+    },
+    {
+        "name": "Fitbox Gym健身中心(公益館)",
+        "town": "南屯區",
+        "inteoduce": "FITBOX打造「銅板」健身新時代。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipO3hCjrF6LY1knvmRv1nR4KBuBnggCA9qu-xRZz=w408-h305-k-no",
+        "open": "07:30-00:00",
+        "tel": "04-2323-5123",
+        "address": "大墩十二街292號",
+        "coordinates": "24.150156850799057, 120.64792736437798"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中烏日店)",
+        "town": "烏日區",
+        "inteoduce": "烏日唯一科技健身房，整層大平面面積，擁有Hoist連動式器材、Hammer Strength，附設SPA水療池、蒸氣室、烤箱等設施，再加上每週豐富多元的有氧團體課程。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/TCWR/worldgym-taichung-tcwr-2.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2338-8822",
+        "address": "光日路52號",
+        "coordinates": "24.10364488575706, 120.62444972287102"
+    }, 
+    {
+        "name": "World Gym世界健身俱樂部(台中豐原店)",
+        "town": "豐原區",
+        "inteoduce": "豐原唯一科技健身房，獨棟四層樓近1500坪，擁有奧林匹克標準游泳池、Hoist連動式器材、中台灣獨家Stages Flight互動式飛輪及反重力體適能，附設SPA水療池、蒸氣室、烤箱等設施，再加上每週豐富多元的有氧團體課程和飛輪課。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/FY/worldgym-taichung-fengyuan-2.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2523-1000",
+        "address": "南陽路508號",
+        "coordinates": "24.252276485628954, 120.72190989163336"
+    },
+    {
+        "name": "健身工廠Fitness Factory(豐原廠)",
+        "town": "豐原區",
+        "inteoduce": "豐原廠自2016年營運迄今，鄰近廟東夜市與太平洋SOGO百貨，位於家樂福豐原店4F，距離豐原交流道約5分鐘路程，完善停車服務，交通相當便利；豐原廠的開幕為廟東傳統商圈，帶起時尚運動新風潮。全館樓地板面積約莫850坪。 提供完善複合式心肺有氧區、專業重量訓練區、多功能有氧教室、飛輪教室、休閒遊戲區，全面引進國外專業健身器材，全新打造舒適環境，落實運動生活化的目標。",
+        "picture": "https://www.fitnessfactory.com.tw/images/152050933114.%E8%B1%90%E5%8E%9F%E5%BB%A0.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2529-5333",
+        "address": "成功路500號4F",
+        "coordinates": "24.253500160318254, 120.70577490790465"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中大雅店)",
+        "town": "大雅區",
+        "inteoduce": "World Gym大雅店在大雅市中心，是大雅第一間科技旗艦健身房，聘請全新設計團隊，採光明亮、顏色鮮明，五層樓近1500坪運動空間，有全台獨家RealRyder搖擺飛輪以及近百台的重訓器材和虛擬實境心肺訓練器材。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/TCDY/worldgym-1.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2565-2222",
+        "address": "民生路一段100號1F",
+        "coordinates": "24.229736830083265, 120.64706553126517"
+    },
+    {
+        "name": "Fitbox Gym健身中心(大雅館)",
+        "town": "大雅區",
+        "inteoduce": "FITBOX打造「銅板」健身新時代。",
+        "picture": "https://lh5.googleusercontent.com/p/AF1QipOMexvuK6XeAkEz-bjzOlZHOx6iByc7PG6CZG7t=w408-h544-k-no",
+        "open": "07:30-00:00",
+        "tel": "04-2568-6655",
+        "address": "中清路三段1090號2F",
+        "coordinates": "24.222242282478373, 120.64711572400691"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中沙鹿店)",
+        "town": "沙鹿區",
+        "inteoduce": "World Gym沙鹿店獨棟大平面空間、佔地超過千坪，擁有各大國際品牌器材、獨家MYZONE心率系統，附設SPA水療池、烤箱等設施，再加上每週豐富多元有氧團體課程。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/WG/wg-cardio-zone-2.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2631-7888",
+        "address": "英才路30號",
+        "coordinates": "24.22926721117931, 120.57410944601406"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中清水店)",
+        "town": "清水區",
+        "inteoduce": "World Gym清水店為獨棟四層樓高建築，動線規劃安全明確，包括運動效率極高的獨家RealRyder搖擺飛輪課程以及三溫暖養身設備等。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/CS/worldgym-fitness-taichung-3.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2622-1888",
+        "address": "中山路129號",
+        "coordinates": "24.267770183582613, 120.5739377846951"
+    },
+    {
+        "name": "World Gym世界健身俱樂部(台中大甲店)",
+        "town": "大甲區",
+        "inteoduce": "大甲World Gym為台中海線旗艦健身房，提供三層樓舒適、明亮的挑高空間，且擁有Hoist、Hammer及喬山連動式器材，再加上每週豐富多元的有氧團體課程。",
+        "picture": "https://www.worldgymtaiwan.com/files/club/DJ/worldgym-taichung-fitness-1.jpg",
+        "open": "06:00-00:00",
+        "tel": "04-2686-1222",
+        "address": "仁愛街25號1F",
+        "coordinates": "24.34722590014703, 120.61837281123601"
+    }
+]
