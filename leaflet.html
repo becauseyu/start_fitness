@@ -31,34 +31,60 @@
 </body>
 
 <script>
-    //利用jQuery將地圖的高度設置與螢幕同高
-    (function ($) {
-        $(document).ready(function () {
-            $('#mapid').height(window.innerHeight);
-        });
-    })($)
-    //建立map容器(同時建立)
-    // var myMap = L.map('mapid', {
-    //     //設定中心位置（暫定先是AnyTime Fitness）
-    //     center: [24.15098859875372, 120.65095303464386],
-    //     //ZOOM:縮放等級
-    //     zoom: 20
-    // });
+    // //開頭可利用jQuery將地圖的高度設置與螢幕同高
+    // $(function(){
+    //     $(document).ready(function(){
+
+    //     })
+    // })
+
+    $('#mapid').height(window.innerHeight);
     //先建立map容器，再建立中心做標與縮放程度
-    var myMap = L.map('mapid').setView([24.15098859875372, 120.65095303464386], 20);
-    //加入地圖底圖
+    var myMap = L.map('mapid').setView([24.15098859875372, 120.65095303464386], 18);
+    //加入地圖底圖( titleLayer:底圖圖層)
     L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         //地圖可以縮放的最大等級
         minZoom: 12,
         maxZoom: 18,
         attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
     }).addTo(myMap);
-    //maker:增加標記 
-    //bindPopup()在標記增加跳出文字(支援html格式)
-    L.marker([24.15098859875372, 120.65095303464386]).bindPopup(
-        "<span class='markTitle'>Anytime Fitness</span><br /><span class='markText'>公益路二段51號B1</span>"
-    ).addTo(myMap)
 
+
+    //以下可以在沒有綁定jquery的ready事件時，直接在console裡面輸入查看效果(都是map.function)
+
+    //以下為Modifying map state 改變map的狀態
+    //setZoom(int) :設定map的room
+    //zoomOut(int) :在原有room上縮小(原z-outZ)
+    //zoomIn(int) :在原有room上放大(原z+InZ)
+    //fitBounds([[,],[,]]): 界定邊界範圍，為東北角及西南角的點座標(經緯度) [ [東北角的lat,東北角的len],[西南角的lat,西南角的len] ]
+    //panTo([座標]):在不改變zoom的情況下，改變中心位置(直接切換)
+    //flyTo([新中央座標,新zoom等級) :同時改變中央座標與zoom等級(以動畫方式呈現)
+
+
+    //以下為Getting map state 回傳map狀態
+    //getCenter() :得到現在的中央位置
+    //getRoom() :得到現在的zoom等級
+    //getBound() :回傳的邊界範圍，以東北角及西南角的點座標表示
+    //getMaxRoom() :回傳目前設定的最大room
+    //getMinRoom() :回傳目前設定的最小room
+
+    //以下為Layers and controls 設定縮放控制、圖層、popup、tooltip等功能
+    //addLayer(marker) :新增已經製作好的mark，建立新圖層，addLayer()裡面須放入物件
+    var fitness = L.marker([24.15098859875372, 120.65095303464386])
+
+    //addcontrol(control.zoom物件) 新增zoom物建，這邊設定新的位置在右上角 
+    //removecontrol((control.zoom物件) 移除zoom物件
+    var zoomControl = L.control.zoom({ position: 'topright' })
+
+    //openPopup()
+    //maker:增加標記
+    //bindPopup()在標記增加跳出文字(支援html格式)
+    // L.marker([24.15098859875372, 120.65095303464386]).bindPopup(
+    //     "<span class='markTitle'>Anytime Fitness</span><br /><span class='markText'>公益路二段51號B1</span>"
+    // ).addTo(myMap)
+    // L.marker([24.171817392680648, 120.67364690670004]).bindPopup(
+    //     "<span class='markTitle'>瑪麗亞的家</span><br /><span class='markText'>北平路二段47號</span>"
+    // ).addTo(myMap)
 
 </script>
 
