@@ -18,7 +18,10 @@
     <title>Document</title>
 </head>
 <style>
-
+    .markTitle {
+        font-weight: bold;
+        font-size: 16px;
+    }
 </style>
 
 <body>
@@ -46,9 +49,17 @@
     //加入地圖底圖
     L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         //地圖可以縮放的最大等級
+        minZoom: 12,
         maxZoom: 18,
         attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
     }).addTo(myMap);
+    //maker:增加標記 
+    //bindPopup()在標記增加跳出文字(支援html格式)
+    L.marker([24.15098859875372, 120.65095303464386]).bindPopup(
+        "<span class='markTitle'>Anytime Fitness</span><br /><span class='markText'>公益路二段51號B1</span>"
+    ).addTo(myMap)
+
+
 </script>
 
 </html>
