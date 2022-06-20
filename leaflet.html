@@ -69,15 +69,29 @@
     //getMinRoom() :回傳目前設定的最小room
 
     //以下為Layers and controls 設定縮放控制、圖層、popup、tooltip等功能
-    //addLayer(marker) :新增已經製作好的mark，建立新圖層，addLayer()裡面須放入物件
+    //addLayer(marker) :新增已經製作好的marker，建立新圖層，addLayer()裡面須放入物件
     var fitness = L.marker([24.15098859875372, 120.65095303464386])
+    myMap.addLayer(fitness)
 
     //addcontrol(control.zoom物件) 新增zoom物建，這邊設定新的位置在右上角 
     //removecontrol((control.zoom物件) 移除zoom物件
     var zoomControl = L.control.zoom({ position: 'topright' })
+    myMap.addControl(zoomControl);
 
     //openPopup()
-    //maker:增加標記
+
+    //UI Layers leaflet內建的圖層用法
+    //maker([latlen]):增加標記(點圖層)
+    //加入方式:
+    //(1)myMap.addLayer(marker)
+    var MariaHome = L.marker([24.171817392680648, 120.67364690670004])
+    myMap.addLayer(MariaHome);
+    //(2)marker.addTo(myMap)
+    var MariaOlsHome = L.marker([24.11720350028176, 120.63022536613188])
+    MariaOlsHome.addTo(myMap);
+
+    
+
     //bindPopup()在標記增加跳出文字(支援html格式)
     // L.marker([24.15098859875372, 120.65095303464386]).bindPopup(
     //     "<span class='markTitle'>Anytime Fitness</span><br /><span class='markText'>公益路二段51號B1</span>"
