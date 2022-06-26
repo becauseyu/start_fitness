@@ -39,7 +39,7 @@
         color: white;
         background-color: rgb(255, 61, 61);
         border: 1px solid gray;
-        border-radius: 12px;
+        border-radius: 5px;
         font-size: 18px;
     }
 
@@ -47,7 +47,7 @@
         color: white;
         background-color: rgb(62, 255, 127);
         border: 1px solid gray;
-        border-radius: 12px;
+        border-radius: 5px;
         font-size: 18px;
 
     }
@@ -56,7 +56,7 @@
         color: white;
         background-color: rgb(248, 134, 58);
         border: 1px solid gray;
-        border-radius: 12px;
+        border-radius: 5px;
         font-size: 18px;
 
     }
@@ -85,8 +85,6 @@
                         <option selected>台中市</option>
                     </select>
                     <select name="" id="" class="townList">
-
-
                     </select>
                     <select name="" id="" class="gymList">
                     </select>
@@ -180,7 +178,7 @@ $rowCenter = $resCenter->fetch_object();
     //先建立map容器，再建立中心做標與縮放程度
     var myMap = L.map('mapid').setView([centerList.lat, centerList.lon], 18);
     //加入地圖底圖( titleLayer:底圖圖層)
-    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
         //地圖可以縮放的最大等級
         minZoom: 12,
         maxZoom: 18,
@@ -247,7 +245,7 @@ $rowCenter = $resCenter->fetch_object();
             `<span class='popTitle'>${name}</span>
                 <hr />
                 <span class='popAddr'>台中市${town}${addr}</span><br/>
-                <span class='popRes'>可預約inbody數量:<span class=${countJudge}>${count}</span></span>
+                <span class='popRes'>可供預約的數量:<button id='res' class=${countJudge}>${count}</button></span>
                 <hr/>
                 <button class='btn btn-info' onclick= >點我預約inbody</button>
                     `
@@ -256,7 +254,7 @@ $rowCenter = $resCenter->fetch_object();
 
     }
 
-    //藉由點擊marker傳回內容
+    //藉由點擊marker改變table內容
     function showGymName(e) {
         //透過點擊抓到座標
         var gym = e.latlng
@@ -275,14 +273,15 @@ $rowCenter = $resCenter->fetch_object();
             let count = dataList[i].res
             let lat = dataList[i].lat;
             let lon = dataList[i].lon;
-            if( lat == targetlat  ){
+            if (lat == targetlat) {
                 $('.gymTitle').html(name)
                 $('.gymaddr').html('台中市' + town + addr)
                 $('.gympic').attr('src', pic)
                 $('.gymtel').html(tel)
                 $('.gymopen').html(open)
                 $('.gymintr').html(intr)
-
+                $('.townList').val(0)
+                $('.gymList').val(0)
 
             }
         }
@@ -290,13 +289,29 @@ $rowCenter = $resCenter->fetch_object();
 
     }
 
+    // //透過選取鄉鎮市後顯示鄉鎮市範圍(待修正) //目前問題點：他是用累加的，是不是要用layer分開比較好
+    fetch("./taichung_dist.json")
+        .then(response => response.json())
+        .then(json => {
+            var distList = json.features
+            var nameList = []
+            // console.log(distList) //全部的區名
+            for (i = 0; i < distList.length; i++) {
+                var distName = distList[i].properties.T_Name
+                nameList.push(distName)
+            }
+            console.log(nameList) //得到所有的行政區清單(array)
+
+            
+
+        });
 
 
     // 從資料庫抓取鄉鎮市資料並加到畫面(以後新增資料庫才能連動)
     $(function() {
         let allTown = [];
         let TownStr = '';
-        TownStr += '<option disabled selected>請選擇鄉鎮市</option>'
+        TownStr += '<option value="0" disabled selected>請選擇鄉鎮市區</option>'
         for (let i = 0; i < dataList.length; i++) {
             // 取出 data 資料裡的縣市名稱
             const townName = dataList[i].town;
@@ -315,12 +330,12 @@ $rowCenter = $resCenter->fetch_object();
     })
 
     // 選擇鄉鎮市後連動健身房並添加到select
-    $('.gymList').html(`<option value="" disabled selected>請選擇健身房</option>`);
+    $('.gymList').html(`<option value="0" disabled selected>請選擇健身房</option>`);
     // 使用函式並帶入參數 e 來取得鄉鎮區的名字
     function addGymList(e) {
         // 取得點到的
         let townValue = e.target.value;
-        let gymStr = `<option value="" disabled selected>請選擇健身房</option>`;
+        let gymStr = `<option value="0" disabled selected>請選擇健身房</option>`;
         let allGym = [];
         let newGymnList = '';
         // 然後用迴圈來取得符合條件的鄉鎮區名
@@ -348,6 +363,8 @@ $rowCenter = $resCenter->fetch_object();
     }
 
 
+
+
     //選擇鄉鎮市後跳轉地圖
     function goTownView(e) {
         // 先取得鄉鎮區 select 中的 value，也就是鄉鎮區的名稱
@@ -363,10 +380,11 @@ $rowCenter = $resCenter->fetch_object();
             if (townTarget == town) {
                 lat = lat
                 lon = lon
-                myMap.setView([lat, lon], 15)
+                myMap.setView([lat, lon], 14)
 
             }
         }
+
     }
     //選擇健身房名稱後後跳轉地圖+內容
     function goGymView(e) {
