@@ -1,41 +1,31 @@
 
+
 $(function () {
-
-
-	//小計
-	// 發生事情的那一列
-	var row = $(this).find('.table-content');
-
-	//數量&單價
-	var price = $(row).find('.price').val();
-	var qty = $(row).find('input').eq(1).val();
-
-	// //(4)印在小計上
-	$(row).find('span').text(qty * price);
-
-	console.log(qty);
-	console.log(price);
-
-
-
 	// 數量條 
-	$('[data-quantity="plus"]').click(function () {
+	$('[data-quantity="plus"]').on('click', function () {
 		//發生事情的那區塊
 		var who = $(this).closest('.qty-cen').find('input[name=quantity]');
-
 		// input欄位的目前數值	
 		currentVal = parseInt($(who).val());
-
 		if (!isNaN(currentVal)) {
 			// Increment
 			$(who).val(currentVal + 1);
 		} else {
 			$(who).val(0);
 		}
+
+		// 當按加時 重新抓數值
+		var qty = $(who).val();
+		var price = $(this).closest('.table-content').find('.price').val();
+
+		$(this).closest('.table-content').find('.total').html(qty * price);
+
 	});
 
+
+
 	//發生事情的按鈕
-	$('[data-quantity="minus"]').click(function () {
+	$('[data-quantity="minus"]').on('click', function () {
 
 		//發生事情的那區塊
 		var who = $(this).closest('.qty-cen').find('input[name=quantity]');
@@ -50,17 +40,39 @@ $(function () {
 			$(who).val(0);
 		};
 
+		// 當按減時 重新抓數值
+		var qty = $(who).val();
+
+		var price = $(this).closest('.table-content').find('.price').val();
+
+		$(this).closest('.table-content').find('.total').html(qty * price);
+
 	});
 
 
+	// 當輸入事件發生
+	// 抓到 輸入的值 與合計
+	$('#qty').on('change', function () {
 
+		var price = $('#qty').closest('.table-content').find('.price').val();
+		var qty = $(this).val();
+		$(this).closest('.table-content').find('.total').html(qty * price);
 
+		console.log(qty);
+		console.log(price);
 
-
-
-
-
-
+	});
 
 });
+
+
+
+
+
+
+
+
+
+
+
 
