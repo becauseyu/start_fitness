@@ -1,0 +1,343 @@
+/* -------------------- */
+.try {
+    border: 1px solid black;
+    background-color: rgb(237, 254, 215);
+}
+
+.try1 {
+    border: 1px solid black;
+    background-color: rgb(225, 236, 246);
+}
+
+.try3 {
+    background-color: rgb(170, 220, 233);
+    width: 100%;
+    height: 10rem;
+    border: 1px solid black;
+}
+
+
+
+/* --------進度條------- */
+/* 引入字型 */
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+/* 給一個 scope 設定變數 */
+:root {
+    /* 已完成進度的顏色 */
+    --line-border-fill: #3498db;
+
+    /* 未完成進度的顏色 */
+    --line-border-empty: #c6c5c5;
+}
+
+
+.progress-size {
+    font-family: 'Muli', sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 20vh;
+    overflow: hidden;
+
+}
+
+.progress-container {
+    /* 讓這個元素成為 flexbox 的 container */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* relative-absolute */
+    position: relative;
+    max-width: 100%;
+    width: 400px;
+}
+
+.progress-container::before {
+    content: '';
+    background-color: var(--line-border-empty);
+    height: 4px;
+    width: 100%;
+
+    /* 使用 relative-absolute */
+    position: absolute;
+
+    /* 調整 absolute 的位置到高度的 50%，距離左側 0 */
+    top: 50%;
+    left: 0;
+
+    /* 因為這個元素自身的寬度，所以需要往上調自身寬度的 50% 回來才會回到正中間 */
+    transform: translateY(-50%);
+}
+
+.progress {
+    /* 這裡使用了事先定義的已完成進度顏色 */
+    background-color: var(--line-border-fill);
+
+
+    /* height 一樣 4px，width在切版時可以先放成 50%，調整好再改回進度為 0% 的狀態 */
+    /* 附圖為 50% 的狀態 */
+    height: 4px;
+    width: 0%;
+
+    /* 一樣使用 relative-absolute把已完成進度條也放到正確位置上 */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    /* 這裡用 transition 做出一點動畫效果*/
+    transition: 0.4s ease;
+}
+
+.circle {
+    /* 底色白色，文字顏色和邊框灰色 */
+    background-color: #fff;
+    color: #999;
+    border: 3px solid #999;
+
+    /* 把元素畫成寬高為 30px 的圓形 */
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    font-weight: 500;
+    font-size: 20px;
+
+
+    /* 用 flexbox 排版把文字放到正中間 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 一樣加上動畫效果 */
+    transition: 0.4s ease;
+
+    z-index: 1;
+}
+
+.circle.active {
+    border-color: var(--line-border-fill);
+}
+
+.btnr {
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 10px;
+    margin: 5px;
+    font-size: 10px;
+}
+
+.btnr:active {
+    transform: scale(0.98);
+}
+
+.btnr:focus {
+    outline: 0;
+}
+
+.btn:disabled {
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}
+
+/* -------------------- */
+
+
+.btn-number {
+    border-radius: 0px;
+    background-color: #98c6fa;
+    width: auto;
+
+}
+
+.plus-minus-input .input-group-field {
+    text-align: center;
+}
+
+.plus-minus-input .input-group-field::-webkit-inner-spin-button,
+.plus-minus-input .input-group-field ::-webkit-outer-spin-button {
+    appearance: none;
+
+}
+
+.qty-cen {
+    justify-content: center;
+    position: relative;
+    display: flex;  
+}
+
+.input-width {
+    width: 100px;
+
+}
+
+
+
+
+
+
+/* -------------------- */
+
+
+
+
+
+
+/* --------購物車資訊------- */
+
+
+
+.table-01 {
+    margin: 20px;
+
+}
+
+
+.table-header {
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 800;
+    font-size: 18px;
+    border: 1px solid #ebe7de;
+    background-color: #fac9a6;
+
+}
+
+.table-content {
+    border-radius: 5px;
+    padding: 15px;
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid #ebe7de;
+    background-color: #fffaf5;
+    align-items: center;
+
+}
+
+
+.image {
+    width: 90px;
+    height: 90px;
+}
+
+.order-form {
+    border-radius: 5px;
+    border: 1px solid #ebe7de;
+    margin: 10px;
+    padding: 10px;
+    padding-bottom: 20px;
+    background-color: #fffaf5;
+
+}
+
+.section-header {
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 500;
+    background-color: #fac9a6;
+    border: 1px solid #ebe7de;
+    margin-bottom: 0px;
+}
+
+.order-form-content {
+    border-radius: 5px;
+    border: 1px solid #ebe7de;
+    padding: 15px;
+    background-color: #fffaf5;
+
+}
+
+.table-content:hover {
+    background-color: #fff1e5;
+}
+
+.justify-content {
+    justify-content: center;
+}
+
+.form-box {
+    border-radius: 5px;
+    border: 1px solid rgb(247, 236, 213);
+    background-color: rgb(255, 247, 212);
+}
+
+.box-shadow {
+    box-shadow: 4px 6px 4px 6px rgba(80, 70, 70, 0.7);
+}
+
+/* 結帳第三頁 */
+
+.checkiocn1 {
+    font-size:100px; 
+}
+
+.checkicon{
+    color: rgb(25, 199, 57);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.check-text {
+    margin: 5px;
+    font-weight: 700;
+    font-size: 30px;    
+}
+
+.center-box {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.text-size {
+    font-size: 30px; 
+    font-weight: 400;
+}
+
+.text-size1 {
+    font-size: 16px; 
+    font-weight: 300;
+    padding: 10px;
+}
+
+.section-header1 {
+    height: 3vh;
+    font-weight: 500;
+    padding-bottom: 25px;
+    background-color: #fac9a6;
+    border: 1px solid #ebe7de;
+
+}
+
+.order-form-content1 {
+    border-radius: 5px;
+    border: 1px solid #ebe7de;
+    padding-bottom: 25px;
+    background-color: #fffaf5;
+    height: 80vh;
+
+}
+
+
+.form-box1 {
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid rgb(247, 236, 213);
+    background-color: rgb(255, 247, 212);
+}
+
+
+.box-shadow1 {
+    box-shadow: 2px 3px 2px 3px rgba(80, 70, 70, 0.7);
+}
+/* -------------------- */
