@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--加入jquery-->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery.toast.js"></script>
+    <link href="./css/jquery.toast.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!--加入bootstrap-->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/bootstrap.min.js"></script>
+    <!--加入Font Awesome-->
+    <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
+    <title>Log In 會員登入</title>
+    <style>
+        /*初始值*/
+        body {
+            font-family: monospace, Tahoma, Geneva, Verdana, sans-serif;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .content-tabset {
+            margin: 0 auto;
+            width: 80%;
+            height: 500px;
+            border: 3px solid rgb(142, 180, 227);
+        }
+
+        .nav-li {
+            width: 50%;
+            text-align: center;
+            line-height: 40px;
+
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .selected {
+            background-color: rgb(139, 170, 199);
+            color: white;
+        }
+
+        /*icon*/
+        #checkEye {
+            position: absolute;
+            top: 50%;
+            right: 60px;
+            z-index: 10;
+            transform: translateY(-50%);
+        }
+
+        .checkEye2 {
+            position: absolute;
+            top: 50%;
+            right: 60px;
+            z-index: 10;
+            transform: translateY(-50%);
+        }
+
+        /*span*/
+
+        #who {
+            color: rgba(53, 121, 214, 0.745);
+
+        }
+
+        .memo {
+            color: gray;
+            font-size: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="content-tabset">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-li selected" id="login">會員登入</li>
+                            <li class="nav-li" id="register">註冊會員</li>
+                        </ul>
+                        <form id='login_form' class="m-5">
+                            <p align="center">親愛的 <span id="who">訪客</span> 您好：</p>
+                            <p align="center">會員登入：</p>
+                            <div class="input-group mb-3">
+                                <input id="account" name="account" type="text" class="form-control ml-5 mr-5"
+                                    placeholder="帳號" aria-label="Username" aria-describedby="basic-addon1" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input id="password" name="password" type="password" class="form-control ml-5 mr-5"
+                                    placeholder="密碼" aria-label="Password" aria-describedby="basic-addon1" required>
+                                <i id="checkEye" class="fas fa-eye-slash"></i>
+                            </div>
+                            <input id="remember" type="checkbox" class="ml-5">記住我
+                            <div class="input-group mb-3">
+                                <input class='btn-block ml-5 mr-5 btn btn-success' type="submit" value="登入">
+                            </div>
+                            <p align="center"><a href="#">忘記密碼?</a></p>
+                        </form>
+                        <form id='register_form' class="m-5 hidden">
+                            <p align="center">註冊會員：</p>
+                            <span class="memo ml-5 ">*請輸入6~10位英數字組合而成的帳號(有大小寫之分)*</span>
+                            <div class="input-group mb-1">
+                                <input id="account" name="account" type="text" class="form-control ml-5 mr-5"
+                                    placeholder="帳號" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <span class="memo ml-5 ">*請輸入6~12位英數字組合而成的密碼，請至少含一個英文大寫*</span>
+                            <div class="input-group mb-1">
+                                <input name="password" type="text" class="password2 form-control ml-5 mr-5"
+                                    placeholder="密碼" aria-label="Password" aria-describedby="basic-addon1">
+                                <i class="checkEye2 fas fa-eye"></i>
+                            </div>
+                            <div class="input-group mb-3 ">
+                                <input name="password" type="text" class="password2 form-control ml-5 mr-5"
+                                    placeholder="請再次輸入密碼" aria-label="Password" aria-describedby="basic-addon1">
+                                <i class="checkEye2 fas fa-eye"></i>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input id="email" name="email" type="email" class="form-control ml-5 mr-5"
+                                    placeholder="信箱" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input class='btn-block ml-5 mr-5 btn btn-info' type="submit" value="註冊">
+                            </div>
+                            <p align="center">已有會員?請點此<button class="btn btn-success" id="change_login">登入</button></p>
+                        </form>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+</body>
+<script>
+    //點選登入/註冊顯示內容及標籤變色
+    $('#login').on('click', function () {
+        $('#login_form').removeClass('hidden')
+        $('#login').addClass('selected')
+        $('#register_form').addClass('hidden')
+        $('#register').removeClass('selected')
+
+    })
+
+    $('#register').on('click', function () {
+        $('#login_form').addClass('hidden')
+        $('#login').removeClass('selected')
+        $('#register_form').removeClass('hidden')
+        $('#register').addClass('selected')
+    })
+
+    $('#change_login').on('click', function () {
+        $('#login_form').removeClass('hidden')
+        $('#login').addClass('selected')
+        $('#register_form').addClass('hidden')
+        $('#register').removeClass('selected')
+    })
+
+
+    //記住我
+    //頁面初始化時，如果cookie有抓到帳號密碼就先填入
+    var user = $.cookie('user')
+    var password = $.cookie('pswd')
+    // console.log(user)
+    if (user) {
+        $('#account').val(user)
+        $('#password').val(password)
+        $("#remember").attr('checked', "checked")
+    }
+    //核取方塊勾選狀態發生改變時，如果未勾選則清除cookie
+    $('#remember').on('change', function () {
+        if (!this.checked) {
+            $.removeCookie('user');
+            $.removeCookie('pswd');
+        }
+    });
+    //表單提交事件觸發時，如果核取方塊是勾選狀態則儲存cookie
+    $('form').on('submit', function () {
+        var account = $('#account').val()
+        var password = $('#password').val()
+        if ($("#remember").prop("checked")) {
+            //預設存在cookie 15天
+            $.cookie('user', account, { expires: 15 });
+            $.cookie('pswd', password, { expires: 15 });
+        }
+    });
+
+
+
+    //實現點取眼睛可以看到密碼
+    //登入
+    $("#checkEye").click(function () {
+        if ($(this).hasClass('fa-eye-slash')) {
+            $("#password").attr('type', 'text');
+        } else {
+            $("#password").attr('type', 'password');
+        }
+        $(this).toggleClass('fa-eye').toggleClass('fa-eye-slash');
+    });
+    //註冊
+    $(".checkEye2").click(function () {
+        if ($(this).hasClass('fa-eye')) {
+            $(".password2").attr('type', 'password');
+        } else {
+            $(".password2").attr('type', 'text');
+        }
+        $('.checkEye2').toggleClass('fa-eye').toggleClass('fa-eye-slash');
+    });
+
+
+</script>
+
+</html>
