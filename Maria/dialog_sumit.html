@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--加入jquery-->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery.toast.js"></script>
+    <link href="./css/jquery.toast.css" rel="stylesheet">
+    <!--加入bootstrap-->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/bootstrap.min.js"></script>
+    <!--加入jQuery ui(dialog)-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="myForm" action="http://google.com">
+        <label for="search">Search For:</label>
+        <input type="text" id="search" name="q">
+        <button type="submit">Find</button>
+    </form>
+
+
+</body>
+
+<script>
+    $("form").dialog({
+        open: function () {
+            // On open, hide the original submit button
+            $(this).find("[type=submit]").hide();
+        },
+        buttons: [
+            {
+                text: "Find",
+                click: $.noop,
+                type: "submit",
+                form: "myForm" // <-- Make the association
+            },
+            {
+                text: "Close",
+                click: function () {
+                    $(this).dialog("close");
+                }
+            }
+        ]
+    });
+</script>
+
+</html>
