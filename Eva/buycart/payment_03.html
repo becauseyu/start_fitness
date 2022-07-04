@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(2)送貨資訊-購物車</title>
+
+  <!--    Stylesheets-->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- My.css -->
+  <link rel="stylesheet" href="../css/buycart.css">
+
+  <!-- icon -->
+  <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <!--  假的navbar  -->
+  <nav class="mb-1 navbar navbar-expand-md  navbar navbar-dark bg-dark ">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse " id="navbarCollapse">
+        <ul class="navbar-nav ms-auto pt-2">
+          <li class="nav-item active">
+            <a class="nav-link" href="./indexFull.html">首頁</a>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./aboutMe.html">認識我們</a>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="./img_pg.html">攝影作品</a>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="./indexFull.html#project">包套方案</a>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">新人推薦</a>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">聯絡我們</a>
+
+        </ul>
+      </div>
+      <div>
+        <form class="ps-lg-5">
+          <!-- Button trigger modal -->
+          <button id="myBtn" type="button" class="btn btn-outline-primary" data-toggle="modal"
+            data-target="#exampleModal">
+            立即諮詢
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!--  進度條  -->
+  <section class="container progress-size">
+    <div class="">
+      <div class="progress-container">
+        <!-- 進度條本體 -->
+        <div class="progress" id="progress"></div>
+        <!-- 進度條的圈圈（Steps） -->
+        <div class="circle active">1</div>
+        <div class="circle">2</div>
+        <div class="circle">3</div>
+      </div>
+
+      <!-- 前進後退按鈕 -->
+      <div class="">
+        <button class="btnr" id="prev" disabled>Prev</button>
+        <button class="btnr" id="next">Next</button>
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+  <div class="p-4 mb-5 container form-box1 box-shadow1">
+    <!-- 成功訂貨 -->
+    <section class="center-box pt-1 row">
+      <div class="col-9">
+        <div class="order-form-content1">
+          <div class="section-header1"></div>
+          <div class="checkicon">
+            <i class="fa-solid fa-circle-check checkiocn1"></i>
+            <p class="check-text">
+              您的訂單已成功送出 ^ ^
+            </p>
+          </div>
+          <div class="text-size">
+            訂單編號: 202207020088
+          </div>
+          <div class="text-size1">
+            <p>請妥善保管此編號，如需取消或更改訂單，請您撥打客服或是線上詢問</p>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+    </section>
+  </div>
+
+
+  <!--假的腳-->
+  <footer class="footer" id="contact">
+    <hr class="mx-auto text-primary " style="height:3px; width:1000px;" />
+    <p style="text-align: center;">©2008 FULLHOUSE WEDDING PHOTOGRAPHY. ALL RIGHT RESERVED.</p>
+
+  </footer>
+
+  <!-- script 放body尾 -->
+  <script src="../js/cart-01.js"></script>
+
+
+</body>
+
+</html>

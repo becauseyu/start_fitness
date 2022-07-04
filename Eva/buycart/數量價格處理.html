@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(1)數量價格處理</title>
+
+
+  <!--    Stylesheets-->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- My.css -->
+  <link rel="stylesheet" href="../css/buycart.css">
+
+  <!-- icon -->
+  <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <!--  進度條  -->
+  <section class="container progress-size">
+    <div class="">
+      <div class="progress-container">
+        <!-- 進度條本體 -->
+        <div class="progress" id="progress"></div>
+        <!-- 進度條的圈圈（Steps） -->
+        <div class="circle active">1</div>
+        <div class="circle">2</div>
+        <div class="circle">3</div>
+      </div>
+
+      <!-- 前進後退按鈕 -->
+      <div class="">
+        <button class="btnr" id="prev" disabled>Prev</button>
+        <button class="btnr" id="next">Next</button>
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+  <!--購物表格-->
+  <section class="container mt-5  shopping-cart">
+    <div class="table-01" id="car">
+      <div class=" table-header text-center  row">
+        <div class="col-8 col-sm-4 col-md-4">商品資料</div>
+        <div class="col-4 col-sm-2 col-md-2">單件價格</div>
+        <div class="col-6 col-sm-3 col-md-3">數量</div>
+        <div class="col-5 col-sm-2 col-md-2">小計</div>
+        <div class="col-1 col-sm-1 col-md-1"></div>
+      </div>
+      <!--每一列-->
+      <div class="row table-content ">
+        <div class="col-8 col-sm-4 col-md-4 text-center d-flex">
+          <div class="col-sm-6  cart-items"><img src="../asset/caritem/800x.webp" class="image float-right"></div>
+          <div class="col-sm-6  text-left">
+            <h4>微微奶茶</h4>有含糖包｜一盒10入
+          </div>
+        </div>
+        <div class="col-4 col-sm-2 col-md-2 text-center ">NT$300
+          <input class="price" type="hidden" value="300">
+        </div>
+        <div class="col-6 col-sm-3 col-md-3 text-center ">
+          <div class="input-group plus-minus-input qty-cen">
+            <div class="input-group-button">
+              <button type="button" class="btn btn-number" data-quantity="minus" data-field="quantity">
+                <i class="fa fa-minus"></i>
+              </button>
+            </div>
+            <input class="input-group-field input-width qty" type="text" name="quantity" value="0">
+            <div class="input-group-button">
+              <button type="button" class="btn btn-number plus" data-quantity="plus" data-field="quantity">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-5 col-sm-2 col-md-2 text-center">NT$ <span class="total"></span></div>
+        <div class="col-1 col-sm-1 col-md-1 text-center">
+          <a class="btn"><i class="fa fa-times"></i></a>
+        </div>
+      </div>
+
+
+    </div>
+
+  </section>
+
+  <div class="container ">
+    <div class="row">
+      <!--左:付款方式-->
+      <section class="col-sm-7 col-md-8">
+        <p class="h5 section-header">
+          選擇送貨及付款方式
+        </p>
+        <div class="order-form-content">
+          <form name="cartForm">
+            <div class="form-group">
+              <label for="order-delivery-method" class="h5 pt-1">送貨方式</label>
+              <select id="order-delivery-method" class="form-control">
+                <option value="" selected="">
+                  新竹物流宅配</option>
+                <option value="">7-11 取貨不付款
+                </option>
+                <option value="">7-11 取貨付款
+                </option>
+              </select>
+              <p class="pt-2">．如訂單量較大或是有缺貨狀況，寄出時間將有所延遲，敬請見諒<br>
+                ．若收到商品外箱有明顯破損，可以拒收並錄影存留，當下也請聯絡我們，謝謝<br>
+                ．一般狀況訂單將於下單後隔天寄出(不包含例假日)<br>
+                ．寄出後２－３天會送達指定地點，【週末不配送】<br>
+            </div>
+
+            <div class="form-group pt-2">
+              <label for="order-payment-method" class="h5">付款方式</label>
+              <span class="select-cart-form">
+                <select id="order-payment-method" class="form-control">
+                  <option value="5fe1d213dda79c0035c07c67" ng-non-bindable="">信用卡</option>
+                  <option value="5fe1d2cb0c8796001187dd3a" ng-non-bindable="">
+                    超商代碼（需持代碼至超商印出帳單繳費）</option>
+                  <option value="5fe1d28f5787c80014836860" selected="" ng-non-bindable="">ATM
+                    虛擬代碼繳費（需持代碼至實體ATM或網路銀行繳費）</option>
+                </select>
+              </span>
+            </div>
+          </form>
+        </div>
+
+
+      </section>
+      <!--右:訂單資訊-->
+      <section class="col-sm-5 col-md-4">
+        <div class="h5 section-header">
+          訂單資訊
+        </div>
+        <div class="order-form-content">
+          <div>
+            <div class="">
+              <p class="">合計: &nbsp;NT$
+                <span class="total"></span>
+              </p>
+            </div>
+
+
+            <div class="pt-1">
+              <span class="">
+                運費:&nbsp;
+              </span>
+              <span class="">
+                免運
+              </span>
+            </div>
+
+
+            <hr class="">
+            <span class="pull-left">訂單總金額<span class="hidden-sm hidden-md hidden-lg"> (3
+                件)</span>:&nbsp;</span>
+            <span class="pull-right">NT$3,183</span>
+
+
+          </div>
+          <a class="mt-3 btn btn-primary btn-block " href="./payment_02.html">前往結帳</a>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <!-- script 放body尾 -->
+  <!-- <script src="../js/cart-01.js"></script> -->
+  <script src="../js/plusandminus_01.js"></script>
+
+
+</body>
+
+</html>
