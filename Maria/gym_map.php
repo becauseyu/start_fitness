@@ -45,6 +45,10 @@
         color: gray;
     }
 
+    .hidden{
+        display: none;
+    }
+
     /*markFamily*/
     .redRes {
         color: white;
@@ -117,12 +121,11 @@
         background: #e84343 !important;
     }
 
-    .resText {
-        background-color: gray;
-        border: 1px solid black;
-        color: white;
-        line-height: 30px;
 
+    .memo {
+        font-size: 12px;
+        color: red;
+        font-weight: bold;
     }
 </style>
 
@@ -176,11 +179,22 @@
     </div>
     <!----------------------------------Dialog area-------------------------------------------->
     <div id="dialog_div" title="立即預約您的inbody檢測!！">
-        <!--title:設定dialog的標題-->
-        <p style='margin-bottom: 0px'><span class="con_title"><label for="id_text">您欲預約的健身房:</label></span><span class="necessary"> *必填</span></p>
-        <p id='resGym' class='resText'></p>
-        <p style='margin-bottom: 0px'><span class="con_title">尚可預約數量:</span><span id='resCount'> 0 </span></p>
-        <input type="datetime">
+        <form method="post" id='inbodyRes' action="./inbody.php">
+            <!--title:設定dialog的標題-->
+            <span class="con_title">您欲預約的健身房:</span>
+            <br>
+            <input id='resGym'  type='text' class='form-control'disabled ></input>
+            <input id='resGym2' name='resGym' type='text' class='form-control hidden' ></input>
+            <span class="con_title">尚可預約數量:</span><span id='resCount'> 0 </span>
+            <hr>
+            <span class="con_title"><label for='resname'>預約大名（真實姓名）：</label><span class='memo'>*必填</span></span>
+            <br>
+            <input require id='resName' name='resName' type="text" class='form-control' >
+            <span class="con_title"><label for='restel'>聯絡電話(僅供手機)：</label><span class='memo'>*必填</span></span>
+            <input require id='resTel' name='resTel' type="text" class='form-control' >
+            <input type="submit" value="送出">
+        </form>
+
 
     </div>
 </body>
@@ -376,6 +390,10 @@ $rowCenter = $resCenter->fetch_object();
     $(function() {
 
         $("#dialog_div").dialog({
+            open: function() {
+                // On open, hide the original submit button
+                $(this).find("[type=submit]").hide();
+            },
             autoOpen: false, //自動開啟，預設開啟(true)，這邊改為false
             show: "blind", //設定開啟樣式
             hide: "none", //設定關閉樣式
@@ -384,7 +402,9 @@ $rowCenter = $resCenter->fetch_object();
                     open: function() {
                         $(this).addClass('yescls')
                     },
-                    click: function() {}
+                    click: function(){},
+                    type:'submit',
+                    form:'inbodyRes' //透過form與原本的form連結，就可以做submit事件
                 },
                 {
                     text: "取消",
@@ -405,6 +425,8 @@ $rowCenter = $resCenter->fetch_object();
 
 
     });
+
+
     //點擊開啟預約表單(dialog)
     function openRes(btn) {
         //抓到觸發點的資訊
@@ -424,7 +446,8 @@ $rowCenter = $resCenter->fetch_object();
             let id = data.id;
             if (name == targetname) {
                 // console.log(name)
-                $('#resGym').text(name)
+                $('#resGym').val(name)
+                $('#resGym2').val(name)
                 $('#resCount').text(count)
 
             }
@@ -432,6 +455,11 @@ $rowCenter = $resCenter->fetch_object();
         //開啟對話框
         $("#dialog_div").dialog("open"); //設定點按鈕時會跳出diolog
         return false;
+
+    }
+
+    //dialog 送出後的預約事件
+    function inbodyRes() {
 
     }
 
