@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--加入leaflet CSS-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
     <!--加入leaflet js(一定要在css之後)-->
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
     <!--加入jquery-->
     <script src="./js/jquery.js"></script>
     <script src="./js/jquery.toast.js"></script>
@@ -462,9 +462,12 @@ $rowCenter = $resCenter->fetch_object();
                 $('#resTime').html(`<option value="0" disabled selected>請選擇時段</option>`);
                 let timeStr = `<option value="0" disabled selected>請選擇時段</option>`;
                 let time = [];
-                // console.log(open) //得到 00:00 ~ 00:00的格式
+                // console.log(open) //得到 00:00 - 00:00的格式
                 var open_time = open.split('-')
                 console.log(open_time) //得到array[00:00,00:00] 
+                open_start = (open_time[0].split(':'))[0]
+                open_end = (open_time[1].split(':'))[0]
+                console.log(open_start)
                 // 然後用迴圈來取得符合條件的鄉鎮區名
                 // for (let i = 0; i < dataList.length; i++) {
                 //     //先宣告 townMatch 為 data 資料中的縣市名
@@ -634,16 +637,21 @@ $rowCenter = $resCenter->fetch_object();
                 // console.log(distList)
                 //再來找目標
                 var targetPoly;
+                //把所有的polygon包裝成一包
+                var allPoly = new L.LayerGroup();
+                for (let i = 0; i < distList.length; i++) {
+                    var distPoly = distList[i];
+                    allPoly.addLayer(distPoly) //把所有鄉鎮市的圖層包成一個layerGroup
+                }
+                // console.log(allPoly)
                 for (let i = 0; i < distList.length; i++) {
                     var distName = distList[i].properties.T_Name
                     var distPoly = L.geoJSON(distList[i]) //轉成polyg事件
                     if (distName == town) {
-                        targetPoly = distPoly
+                        allPoly.clearLayers(); //每次開始前先清除全部
+                        myMap.addLayer(distPoly);
                     }
                 }
-                //新增原本有的
-                myMap.addLayer(targetPoly)
-
             })
 
         //==========================================================問題點======================================================================//
