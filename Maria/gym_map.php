@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <title>gym_map</title>
 </head>
 <style>
@@ -45,7 +46,7 @@
         color: gray;
     }
 
-    .hidden{
+    .hidden {
         display: none;
     }
 
@@ -182,16 +183,24 @@
         <form method="post" id='inbodyRes' action="./inbody.php">
             <!--title:設定dialog的標題-->
             <span class="con_title">您欲預約的健身房:</span>
-            <br>
-            <input id='resGym'  type='text' class='form-control'disabled ></input>
-            <input id='resGym2' name='resGym' type='text' class='form-control hidden' ></input>
+            <br />
+            <input id='resGym' type='text' class='form-control' disabled></input>
+            <input id='resGym2' name='resGym' type='text' class='form-control hidden'></input>
             <span class="con_title">尚可預約數量:</span><span id='resCount'> 0 </span>
             <hr>
             <span class="con_title"><label for='resname'>預約大名（真實姓名）：</label><span class='memo'>*必填</span></span>
-            <br>
-            <input require id='resName' name='resName' type="text" class='form-control' >
+            <br />
+            <input require id='resName' name='resName' type="text" class='form-control'>
             <span class="con_title"><label for='restel'>聯絡電話(僅供手機)：</label><span class='memo'>*必填</span></span>
-            <input require id='resTel' name='resTel' type="text" class='form-control' >
+            <input require id='resTel' name='resTel' type="text" class='form-control'>
+            <span class="con_title"><label for='resDate'>預約日期</label><span class='memo'>*必填</span></span>
+            <input id='resdate' name='resdate' type="date">
+            <br />
+            <span class="con_title"><label for='resTime'>預約時段</label><span class='memo'>*必填</span></span>
+            <select id='resTime' name='resTime' value=''>
+                <option value="0" disabled selected>請選擇時段</option>
+
+            </select>
             <input type="submit" value="送出">
         </form>
 
@@ -402,9 +411,9 @@ $rowCenter = $resCenter->fetch_object();
                     open: function() {
                         $(this).addClass('yescls')
                     },
-                    click: function(){},
-                    type:'submit',
-                    form:'inbodyRes' //透過form與原本的form連結，就可以做submit事件
+                    click: function() {},
+                    type: 'submit',
+                    form: 'inbodyRes' //透過form與原本的form連結，就可以做submit事件
                 },
                 {
                     text: "取消",
@@ -449,19 +458,51 @@ $rowCenter = $resCenter->fetch_object();
                 $('#resGym').val(name)
                 $('#resGym2').val(name)
                 $('#resCount').text(count)
+                //依造營業方式產生預約時段表
+                $('#resTime').html(`<option value="0" disabled selected>請選擇時段</option>`);
+                let timeStr = `<option value="0" disabled selected>請選擇時段</option>`;
+                let time = [];
+                // console.log(open) //得到 00:00 ~ 00:00的格式
+                var open_time = open.split('-')
+                console.log(open_time) //得到array[00:00,00:00] 
+                // 然後用迴圈來取得符合條件的鄉鎮區名
+                // for (let i = 0; i < dataList.length; i++) {
+                //     //先宣告 townMatch 為 data 資料中的縣市名
+                //     let townMatch = dataList[i].town;
+                //     //用 if 來判斷，如果鄉鎮市 select 的值跟 data 資料裡的鄉鎮市名相同，就把所有的健身房name push 到 allGym 這個陣列裡
+                //     if (townValue == townMatch) {
+                //         allId.push(dataList[i].id);
+                //         allGym.push(dataList[i].name);
+                //     }
+                // }
+                // // 然後使用 Set 方法來產生一個集合讓陣列元素不會重複
+                // newGymList = new Set(allGym);
+                // newGymIdx = new Set(allId);
+                // // 再從剛才的集合產生陣列
+                // newGymList = Array.from(newGymList);
+                // newGymIdx = Array.from(newGymIdx);
+                // for (let i = 0; i < newGymList.length; i++) {
+                //     // 把鄉鎮區名累加成字串
+                //     gymStr += `<option data-id="${newGymIdx[i]}" value="${newGymList[i]}">${newGymList[i]}</option>`
+                // }
 
+                // // 並把鄉鎮區名字串累加的結果用 HTML 放進 townSelector 裡
+                // $('.gymList').html(gymStr);
+
+                // }
             }
         }
+        //dialog裡的時段跳轉(依照營業時間不同跳轉)
+
         //開啟對話框
         $("#dialog_div").dialog("open"); //設定點按鈕時會跳出diolog
         return false;
 
-    }
 
-    //dialog 送出後的預約事件
-    function inbodyRes() {
 
     }
+
+
 
 
     //藉由點擊marker改變table內容
