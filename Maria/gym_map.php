@@ -193,8 +193,10 @@
             <input require id='resName' name='resName' type="text" class='form-control'>
             <span class="con_title"><label for='restel'>聯絡電話(僅供手機)：</label><span class='memo'>*必填</span></span>
             <input require id='resTel' name='resTel' type="text" class='form-control'>
+            <span class="con_title"><label for='resEmail'>聯絡信箱：</label><span class='memo'>*必填</span></span>
+            <input require id='resEmail' name='resEmail' type="email" class='form-control'>
             <span class="con_title"><label for='resDate'>預約日期</label><span class='memo'>*必填</span></span>
-            <input id='resdate' name='resdate' type="date">
+            <input id='resDate' name='resDate' type="date">
             <br />
             <span class="con_title"><label for='resTime'>預約時段</label><span class='memo'>*必填</span></span>
             <select id='resTime' name='resTime' value=''>
@@ -215,7 +217,7 @@ $result = $mysqli->query($sql); //傳回物件
 
 $data = [];
 $i = 0;
-while ($row = $result->fetch_object()) { //將資列轉為物件後，丟到data陣列裡
+while ($row = $result->fetch_object()) { //將資料轉為物件後，丟到data陣列裡
     $data[$i] = $row;
     $i++;
 }
@@ -411,7 +413,10 @@ $rowCenter = $resCenter->fetch_object();
                     open: function() {
                         $(this).addClass('yescls')
                     },
-                    click: function() {},
+                    click: function() {
+                        alert('感謝您的預約！請到信箱確認預約詳情。')
+
+                    },
                     type: 'submit',
                     form: 'inbodyRes' //透過form與原本的form連結，就可以做submit事件
                 },
@@ -458,41 +463,26 @@ $rowCenter = $resCenter->fetch_object();
                 $('#resGym').val(name)
                 $('#resGym2').val(name)
                 $('#resCount').text(count)
-                //依造營業方式產生預約時段表
+                //依造營業方式產生預約時段表(一小時一次))
                 $('#resTime').html(`<option value="0" disabled selected>請選擇時段</option>`);
                 let timeStr = `<option value="0" disabled selected>請選擇時段</option>`;
                 let time = [];
                 // console.log(open) //得到 00:00 - 00:00的格式
                 var open_time = open.split('-')
-                console.log(open_time) //得到array[00:00,00:00] 
-                open_start = (open_time[0].split(':'))[0]
-                open_end = (open_time[1].split(':'))[0]
-                console.log(open_start)
-                // 然後用迴圈來取得符合條件的鄉鎮區名
-                // for (let i = 0; i < dataList.length; i++) {
-                //     //先宣告 townMatch 為 data 資料中的縣市名
-                //     let townMatch = dataList[i].town;
-                //     //用 if 來判斷，如果鄉鎮市 select 的值跟 data 資料裡的鄉鎮市名相同，就把所有的健身房name push 到 allGym 這個陣列裡
-                //     if (townValue == townMatch) {
-                //         allId.push(dataList[i].id);
-                //         allGym.push(dataList[i].name);
-                //     }
-                // }
-                // // 然後使用 Set 方法來產生一個集合讓陣列元素不會重複
-                // newGymList = new Set(allGym);
-                // newGymIdx = new Set(allId);
-                // // 再從剛才的集合產生陣列
-                // newGymList = Array.from(newGymList);
-                // newGymIdx = Array.from(newGymIdx);
-                // for (let i = 0; i < newGymList.length; i++) {
-                //     // 把鄉鎮區名累加成字串
-                //     gymStr += `<option data-id="${newGymIdx[i]}" value="${newGymList[i]}">${newGymList[i]}</option>`
-                // }
+                // console.log(open_time) //得到array[00:00,00:00] 
+                open_start = parseInt((open_time[0].split(':'))[0])
+                open_end = parseInt((open_time[1].split(':'))[0]) - 1
+                //把營業時間每一小時就加到選項中
+                for (let i = open_start; i <= open_end; i++) {
+                    if (i < 10) {
+                        timeStr += `<option value="0${i}:00" >0${i}:00</option>`
+                    } else {
+                        timeStr += `<option value="${i}:00">${i}:00</option>`
+                    }
+                }
+                // console.log(timeStr)
+                $('#resTime').html(timeStr); //最後放到預約時間中
 
-                // // 並把鄉鎮區名字串累加的結果用 HTML 放進 townSelector 裡
-                // $('.gymList').html(gymStr);
-
-                // }
             }
         }
         //dialog裡的時段跳轉(依照營業時間不同跳轉)
