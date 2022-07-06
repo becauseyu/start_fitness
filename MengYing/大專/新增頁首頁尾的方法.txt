@@ -1,5 +1,12 @@
 1)請在畫面的最前面與最下放加入以下程式碼
 
+
+
+<head>
+<!-- 插入頁首css -->
+<link href="/MengYing/大專/_css/head.css" rel="stylesheet">
+</head>
+
 <body>
 <!-- 頁首  -->
 <div class='headerpage'>
