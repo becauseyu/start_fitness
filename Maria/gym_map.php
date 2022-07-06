@@ -182,8 +182,8 @@
         </div>
 
     </div>
-     <!-- 頁尾 -->
-     <div class='footerpage'>
+    <!-- 頁尾 -->
+    <div class='footerpage'>
     </div>
     <!----------------------------------Dialog area-------------------------------------------->
     <div id="dialog_div" title="立即預約您的inbody檢測!！">
@@ -215,7 +215,7 @@
 
 
     </div>
-   
+
 
 </body>
 
@@ -270,6 +270,7 @@ $rowCenter = $resCenter->fetch_object();
     $('#mapid').height(window.innerHeight);
     //先建立map容器，再建立中心做標與縮放程度
     var myMap = L.map('mapid').setView([centerList.lat, centerList.lon], 18);
+    var allPoly = new L.LayerGroup();
     //加入地圖底圖( titleLayer:底圖圖層)
     var base = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
         //地圖可以縮放的最大等級
@@ -472,7 +473,8 @@ $rowCenter = $resCenter->fetch_object();
                 $('#resGym').val(name)
                 $('#resGym2').val(name)
                 $('#resCount').text(count)
-                //依造營業方式產生預約時段表(一小時一次))
+                //dialog裡的時段跳轉(依照營業時間不同跳轉)
+                //依造營業時間產生預約時段表(一小時一次))
                 $('#resTime').html(`<option value="0" disabled selected>請選擇時段</option>`);
                 let timeStr = `<option value="0" disabled selected>請選擇時段</option>`;
                 let time = [];
@@ -494,7 +496,6 @@ $rowCenter = $resCenter->fetch_object();
 
             }
         }
-        //dialog裡的時段跳轉(依照營業時間不同跳轉)
 
         //開啟對話框
         $("#dialog_div").dialog("open"); //設定點按鈕時會跳出diolog
@@ -636,22 +637,36 @@ $rowCenter = $resCenter->fetch_object();
                 // console.log(distList)
                 //再來找目標
                 var targetPoly;
-                //把所有的polygon包裝成一包
-                var allPoly = new L.LayerGroup();
-                for (let i = 0; i < distList.length; i++) {
-                    var distPoly = distList[i];
-                    allPoly.addLayer(distPoly) //把所有鄉鎮市的圖層包成一個layerGroup
-                }
-                // console.log(allPoly)
+                // //把所有的polygon包裝成一包
+                // for (let i = 0; i < distList.length; i++) {
+                //     var distPoly = distList[i];
+                //     allPoly.addLayer(distPoly) //把所有鄉鎮市的圖層包成一個layerGroup
+                // }
+                // // console.log(allPoly)
+                // for (let i = 0; i < distList.length; i++) {
+                //     var distName = distList[i].properties.T_Name
+                //     var distPoly = L.geoJSON(distList[i]) //轉成polyg事件
+                //     if (distName == town) {
+                //         allPoly.clearLayers(); //每次開始前先清除全部
+                //         myMap.addLayer(distPoly);
+                //     }
+                // }
                 for (let i = 0; i < distList.length; i++) {
                     var distName = distList[i].properties.T_Name
-                    var distPoly = L.geoJSON(distList[i]) //轉成polyg事件
+                    var distPoly = L.geoJSON(distList[i]) //轉成polygon事件
                     if (distName == town) {
+                        
+                        // myMap.removeLayer(allPoly);
                         allPoly.clearLayers(); //每次開始前先清除全部
-                        myMap.addLayer(distPoly);
+                        // myMap.addLayer(distPoly);
+                        allPoly.addLayer(distPoly);
+                        allPoly.addTo(myMap);
                     }
                 }
             })
+
+                
+            
 
         //==========================================================問題點======================================================================//
 
