@@ -87,6 +87,9 @@
 </head>
 
 <body>
+    <!-- 頁首  -->
+    <div class="headerpage">
+    </div>
     <div id="content">
         <div class="container">
             <div class="row">
@@ -139,10 +142,11 @@
                             <div class="input-group mb-3">
                                 <input class='btn-block ml-5 mr-5 btn btn-info' type="submit" value="註冊">
                             </div>
-                            <p align="center">已有會員?請點此<button class="btn btn-success" id="change_login">登入</button></p>
+                            <p align="center">已有會員?請點此<button class="btn btn-success" id="change_login">登入</button>
+                            </p>
                         </form>
                     </div>
-
+                    <img src="">
 
                 </div>
 
@@ -151,10 +155,18 @@
 
         </div>
     </div>
-    </div>
+    <!-- 頁尾 -->
+    <div class='footerpage'>
 
+    </div>
 </body>
+
 <script>
+
+    $('.headerpage').load('/MengYing/大專/LAB/header.html')
+    $('.footerpage').load('/MengYing/大專/LAB/footer.html')
+
+
     //點選登入/註冊顯示內容及標籤變色
     $('#login').on('click', function () {
         $('#login_form').removeClass('hidden')

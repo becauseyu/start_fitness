@@ -21,6 +21,8 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <!--加入smtpJS(email)-->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <title>gym_map</title>
 </head>
 <style>

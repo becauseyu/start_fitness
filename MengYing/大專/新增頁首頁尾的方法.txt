@@ -1,0 +1,26 @@
+1)請在畫面的最前面與最下放加入以下程式碼
+
+<body>
+<!-- 頁首  -->
+<div class='headerpage'>
+</div>
+.
+你
+自
+己
+得
+內
+文
+.
+
+
+<!-- 頁尾 -->
+<div class='footerpage'>
+</div>
+</body>
+<script>
+$('.headerpage').load('/MengYing/大專/LAB/header.html')
+$('footerpage').load('/MengYing/大專/LAB/footer.html')
+
+
+</script>
