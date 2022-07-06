@@ -21,8 +21,8 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-    <!--加入smtpJS(email)-->
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!-- 插入頁首css -->
+    <link href="/MengYing/大專/_css/head.css" rel="stylesheet">
     <title>gym_map</title>
 </head>
 <style>
@@ -133,6 +133,8 @@
 </style>
 
 <body>
+    <div class='headerpage'>
+    </div>
     <!--地圖的放置位置-->
     <div id="content">
         <div class="row">
@@ -180,6 +182,9 @@
         </div>
 
     </div>
+     <!-- 頁尾 -->
+     <div class='footerpage'>
+    </div>
     <!----------------------------------Dialog area-------------------------------------------->
     <div id="dialog_div" title="立即預約您的inbody檢測!！">
         <form method="post" id='inbodyRes' action="./inbody.php">
@@ -210,6 +215,8 @@
 
 
     </div>
+   
+
 </body>
 
 <?php
@@ -229,12 +236,12 @@ $center = "SELECT * FROM taichung_gym WHERE name = 'Anytime Fitness 台中公益
 $resCenter = $mysqli->query($center); //傳回物件
 $rowCenter = $resCenter->fetch_object();
 
-
-
 ?>
 
 
 <script>
+    $('.headerpage').load('/MengYing/大專/LAB/header.html')
+    $('footerpage').load('/MengYing/大專/LAB/footer.html')
     //將php匯出的資料先以JSON傳送
 
     //全部data
