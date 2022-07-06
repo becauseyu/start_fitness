@@ -655,12 +655,10 @@ $rowCenter = $resCenter->fetch_object();
                     var distName = distList[i].properties.T_Name
                     var distPoly = L.geoJSON(distList[i]) //轉成polygon事件
                     if (distName == town) {
-                        
-                        // myMap.removeLayer(allPoly);
-                        allPoly.clearLayers(); //每次開始前先清除全部
-                        // myMap.addLayer(distPoly);
-                        allPoly.addLayer(distPoly);
-                        allPoly.addTo(myMap);
+                        myMap.fitBounds(distPoly.getBounds()) //抓取layerGroup的bound，然後縮放程符合的畫面
+                        allPoly.clearLayers(); //每次開始前先清除layer裡的所有內容
+                        allPoly.addLayer(distPoly);//再加入正確的
+                        allPoly.addTo(myMap);//顯示到地圖上
                     }
                 }
             })
