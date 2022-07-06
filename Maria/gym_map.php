@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--加入leaflet CSS-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
     <!--加入leaflet js(一定要在css之後)-->
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
     <!--加入jquery-->
     <script src="./js/jquery.js"></script>
     <script src="./js/jquery.toast.js"></script>
@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <!--加入smtpJS(email)-->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <title>gym_map</title>
 </head>
 <style>
@@ -45,7 +48,7 @@
         color: gray;
     }
 
-    .hidden{
+    .hidden {
         display: none;
     }
 
@@ -182,16 +185,26 @@
         <form method="post" id='inbodyRes' action="./inbody.php">
             <!--title:設定dialog的標題-->
             <span class="con_title">您欲預約的健身房:</span>
-            <br>
-            <input id='resGym'  type='text' class='form-control'disabled ></input>
-            <input id='resGym2' name='resGym' type='text' class='form-control hidden' ></input>
+            <br />
+            <input id='resGym' type='text' class='form-control' disabled></input>
+            <input id='resGym2' name='resGym' type='text' class='form-control hidden'></input>
             <span class="con_title">尚可預約數量:</span><span id='resCount'> 0 </span>
             <hr>
             <span class="con_title"><label for='resname'>預約大名（真實姓名）：</label><span class='memo'>*必填</span></span>
-            <br>
-            <input require id='resName' name='resName' type="text" class='form-control' >
+            <br />
+            <input require id='resName' name='resName' type="text" class='form-control'>
             <span class="con_title"><label for='restel'>聯絡電話(僅供手機)：</label><span class='memo'>*必填</span></span>
-            <input require id='resTel' name='resTel' type="text" class='form-control' >
+            <input require id='resTel' name='resTel' type="text" class='form-control'>
+            <span class="con_title"><label for='resEmail'>聯絡信箱：</label><span class='memo'>*必填</span></span>
+            <input require id='resEmail' name='resEmail' type="email" class='form-control'>
+            <span class="con_title"><label for='resDate'>預約日期</label><span class='memo'>*必填</span></span>
+            <input id='resDate' name='resDate' type="date">
+            <br />
+            <span class="con_title"><label for='resTime'>預約時段</label><span class='memo'>*必填</span></span>
+            <select id='resTime' name='resTime' value=''>
+                <option value="0" disabled selected>請選擇時段</option>
+
+            </select>
             <input type="submit" value="送出">
         </form>
 
@@ -206,7 +219,7 @@ $result = $mysqli->query($sql); //傳回物件
 
 $data = [];
 $i = 0;
-while ($row = $result->fetch_object()) { //將資列轉為物件後，丟到data陣列裡
+while ($row = $result->fetch_object()) { //將資料轉為物件後，丟到data陣列裡
     $data[$i] = $row;
     $i++;
 }
@@ -402,9 +415,12 @@ $rowCenter = $resCenter->fetch_object();
                     open: function() {
                         $(this).addClass('yescls')
                     },
-                    click: function(){},
-                    type:'submit',
-                    form:'inbodyRes' //透過form與原本的form連結，就可以做submit事件
+                    click: function() {
+                        alert('感謝您的預約！請到信箱確認預約詳情。')
+
+                    },
+                    type: 'submit',
+                    form: 'inbodyRes' //透過form與原本的form連結，就可以做submit事件
                 },
                 {
                     text: "取消",
@@ -449,19 +465,39 @@ $rowCenter = $resCenter->fetch_object();
                 $('#resGym').val(name)
                 $('#resGym2').val(name)
                 $('#resCount').text(count)
+                //依造營業方式產生預約時段表(一小時一次))
+                $('#resTime').html(`<option value="0" disabled selected>請選擇時段</option>`);
+                let timeStr = `<option value="0" disabled selected>請選擇時段</option>`;
+                let time = [];
+                // console.log(open) //得到 00:00 - 00:00的格式
+                var open_time = open.split('-')
+                // console.log(open_time) //得到array[00:00,00:00] 
+                open_start = parseInt((open_time[0].split(':'))[0])
+                open_end = parseInt((open_time[1].split(':'))[0]) - 1
+                //把營業時間每一小時就加到選項中
+                for (let i = open_start; i <= open_end; i++) {
+                    if (i < 10) {
+                        timeStr += `<option value="0${i}:00" >0${i}:00</option>`
+                    } else {
+                        timeStr += `<option value="${i}:00">${i}:00</option>`
+                    }
+                }
+                // console.log(timeStr)
+                $('#resTime').html(timeStr); //最後放到預約時間中
 
             }
         }
+        //dialog裡的時段跳轉(依照營業時間不同跳轉)
+
         //開啟對話框
         $("#dialog_div").dialog("open"); //設定點按鈕時會跳出diolog
         return false;
 
-    }
 
-    //dialog 送出後的預約事件
-    function inbodyRes() {
 
     }
+
+
 
 
     //藉由點擊marker改變table內容
@@ -593,16 +629,21 @@ $rowCenter = $resCenter->fetch_object();
                 // console.log(distList)
                 //再來找目標
                 var targetPoly;
+                //把所有的polygon包裝成一包
+                var allPoly = new L.LayerGroup();
+                for (let i = 0; i < distList.length; i++) {
+                    var distPoly = distList[i];
+                    allPoly.addLayer(distPoly) //把所有鄉鎮市的圖層包成一個layerGroup
+                }
+                // console.log(allPoly)
                 for (let i = 0; i < distList.length; i++) {
                     var distName = distList[i].properties.T_Name
                     var distPoly = L.geoJSON(distList[i]) //轉成polyg事件
                     if (distName == town) {
-                        targetPoly = distPoly
+                        allPoly.clearLayers(); //每次開始前先清除全部
+                        myMap.addLayer(distPoly);
                     }
                 }
-                //新增原本有的
-                myMap.addLayer(targetPoly)
-
             })
 
         //==========================================================問題點======================================================================//
