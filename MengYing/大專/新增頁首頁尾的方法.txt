@@ -4,6 +4,7 @@
 
 <head>
 <!-- 插入頁首css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="/MengYing/大專/_css/head.css" rel="stylesheet">
 </head>
 
