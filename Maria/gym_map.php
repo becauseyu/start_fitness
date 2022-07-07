@@ -54,6 +54,16 @@
     }
 
     /*markFamily*/
+    .intrMark {
+        border: 1px solid gray;
+        line-height: 40px;
+    }
+
+    .markicon {
+        width: 20px;
+
+    }
+
     .redRes {
         color: white;
         background-color: rgb(255, 61, 61);
@@ -80,17 +90,33 @@
 
     }
 
+    .blackRes {
+        color: white;
+        background-color: rgb(0, 0, 0);
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-size: 18px;
+
+    }
+
 
     /*tableFamily*/
+    .gymTitle {
+        font-size: 18px;
+        background-color: rgb(120, 168, 227);
+    }
+
+    .gym_table {
+        line-height: 40px;
+        text-align: center;
+        width: 850px;
+    }
+
     .gympic {
         height: 500px;
     }
 
-    #gym_data {
-        height: 100vh;
-        overflow: scroll;
 
-    }
 
     #gym_data h2 {
         color: rgb(142, 180, 227);
@@ -104,7 +130,7 @@
     }
 
     .ui-widget-header.ui-dialog-titlebar {
-        background: rgb(244, 143, 255);
+        background: rgb(251, 198, 92);
         border: 1px solid gray;
         color: #FFFFFF;
         font-weight: bold;
@@ -136,10 +162,10 @@
 <body>
     <div class='headerpage'>
     </div>
-    <!--地圖的放置位置-->
+    <!-- 地圖的放置位置 -->
     <div id="content">
-        <div class="row">
-            <div class="col" id="gym_data">
+        <div class="row m-5">
+            <div class="col table-responsive" id="gym_data">
                 <h2>健身地圖</h2>
                 <div class="areaList">
                     <select class='custom-select mb-3' aria-label=".form-select-lg example">
@@ -151,7 +177,7 @@
                     <select name="" id="" class="gymList custom-select mb-3">
                     </select>
                 </div>
-                <table>
+                <table border="2px" class='gym_table'>
                     <tr>
                         <th class='gymTitle' colspan="2"></th>
                     </tr>
@@ -159,7 +185,7 @@
                         <td colspan="2"><img class="gympic" src=''></td>
                     </tr>
                     <tr>
-                        <td>地址：</td>
+                        <td style="width:100px;">地址：</td>
                         <td class='gymaddr'></td>
                     </tr>
                     <tr>
@@ -173,15 +199,21 @@
                     <tr>
                         <td>介紹：</td>
 
-                        <td class='gymintr'></td>
+                        <td class='gymintr' style='text-align: left'></td>
                     </tr>
                 </table>
             </div>
             <div class="col">
+                <div class=intrMark>
+                    可預約的inbody檢測剩餘數量：
+                    <img class='markicon' src='https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png'>31以上
+                    <img class='markicon' src='https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png'>16~30
+                    <img class='markicon' src='https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png'>0~15
+
+                </div>
                 <div id="mapid"></div>
             </div>
         </div>
-
     </div>
     <!-- 頁尾 -->
     <div class='footerpage'>
@@ -242,7 +274,7 @@ $rowCenter = $resCenter->fetch_object();
 
 <script>
     $('.headerpage').load('/MengYing/大專/LAB/header.html')
-    $('footerpage').load('/MengYing/大專/LAB/footer.html')
+    $('.footerpage').load('/MengYing/大專/LAB/footer.html')
     //將php匯出的資料先以JSON傳送
 
     //全部data
@@ -306,6 +338,16 @@ $rowCenter = $resCenter->fetch_object();
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
     });
+
+    const blackIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
     //使用for迴圈添加marker
     for (i = 0; i < dataList.length; i++) {
         let data = dataList[i]
@@ -322,17 +364,28 @@ $rowCenter = $resCenter->fetch_object();
         //為inbody數量做出不同的樣式
         let countJudge;
         //依照預約數量顯示不同的marker顏色與預約數字
-        if (count >= 0 && count <= 15) {
+        if (count > 0 && count <= 15) {
             mark = redIcon;
             countJudge = "redRes";
         } else if (count > 15 && count <= 30) {
             mark = orangeIcon;
             countJudge = "orangeRes";
 
-        } else {
+        } else if(count <= 0){
+            mark = blackIcon;
+            countJudge = "blackRes"
+        }
+        else {
             mark = greenIcon;
             countJudge = "greenRes";
+        }
 
+        //依照預約數量，放入預約按鈕
+        let buttonJudge;
+        if(count>0){
+            buttonJudge = "btn-info"
+        }else{
+            buttonJudge = "btn-dark"
         }
         //添加marker
         L.marker([lat, lon], {
@@ -343,7 +396,7 @@ $rowCenter = $resCenter->fetch_object();
                 <span class='popAddr'>台中市${town}${addr}</span><br/>
                 <span class='popRes'>可供預約的數量:<button id='res' class=${countJudge}>${count}</button></span>
                 <hr/>
-                <button class='btn btn-info'  onclick=openRes(this) >點我預約inbody</button>
+                <button class='btn ${buttonJudge}' onclick=openRes(this) >點我預約inbody</button>
                     `
 
         ).addTo(myMap).on('click', showGymName)
@@ -469,45 +522,40 @@ $rowCenter = $resCenter->fetch_object();
             let lat = data.lat;
             let lon = data.lon;
             let id = data.id;
-            if (name == targetname) {
-                // console.log(name)
-                $('#resGym').val(name)
-                $('#resGym2').val(name)
-                $('#resCount').text(count)
-                //dialog裡的時段跳轉(依照營業時間不同跳轉)
-                //依造營業時間產生預約時段表(一小時一次))
-                $('#resTime').html(`<option value="0" disabled selected>請選擇時段</option>`);
-                let timeStr = `<option value="0" disabled selected>請選擇時段</option>`;
-                let time = [];
-                // console.log(open) //得到 00:00 - 00:00的格式
-                var open_time = open.split('-')
-                // console.log(open_time) //得到array[00:00,00:00] 
-                open_start = parseInt((open_time[0].split(':'))[0])
-                open_end = parseInt((open_time[1].split(':'))[0]) - 1
-                //把營業時間每一小時就加到選項中
-                for (let i = open_start; i <= open_end; i++) {
-                    if (i < 10) {
-                        timeStr += `<option value="0${i}:00" >0${i}:00</option>`
-                    } else {
-                        timeStr += `<option value="${i}:00">${i}:00</option>`
+            if (count > 0) { //預約數大於0才能預約
+                if (name == targetname) {
+                    // console.log(name)
+                    $('#resGym').val(name)
+                    $('#resGym2').val(name)
+                    $('#resCount').text(count)
+                    //dialog裡的時段跳轉(依照營業時間不同跳轉)
+                    //依造營業時間產生預約時段表(一小時一次))
+                    $('#resTime').html(`<option value="0" disabled selected>請選擇時段</option>`);
+                    let timeStr = `<option value="0" disabled selected>請選擇時段</option>`;
+                    let time = [];
+                    // console.log(open) //得到 00:00 - 00:00的格式
+                    var open_time = open.split('-')
+                    // console.log(open_time) //得到array[00:00,00:00] 
+                    open_start = parseInt((open_time[0].split(':'))[0])
+                    open_end = parseInt((open_time[1].split(':'))[0]) - 1
+                    //把營業時間每一小時就加到選項中
+                    for (let i = open_start; i <= open_end; i++) {
+                        if (i < 10) {
+                            timeStr += `<option value="0${i}:00" >0${i}:00</option>`
+                        } else {
+                            timeStr += `<option value="${i}:00">${i}:00</option>`
+                        }
                     }
+                    // console.log(timeStr)
+                    $('#resTime').html(timeStr); //最後放到預約時間中
+                    //開啟對話框
+                    $("#dialog_div").dialog("open"); //設定點按鈕時會跳出diolog
+                    return false;
+
                 }
-                // console.log(timeStr)
-                $('#resTime').html(timeStr); //最後放到預約時間中
-
-            }
+            } 
         }
-
-        //開啟對話框
-        $("#dialog_div").dialog("open"); //設定點按鈕時會跳出diolog
-        return false;
-
-
-
     }
-
-
-
 
     //藉由點擊marker改變table內容
     function showGymName(e) {
