@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var req = new XMLHttpRequest();
+    req.onload = function () {
+        // console.log(this.responseText);
+        // var data=this.responseText
+    };
+    req.open("get", "getData.php", true);
+    req.send();
+
+    var data = req.responseText;
+    console.log(data)
+    
+</script>
+
+</html>
