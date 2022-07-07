@@ -2,7 +2,7 @@
 CREATE TABLE `startfitness`.`inbody` (`id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `tel` VARCHAR(100) NOT NULL , `email` VARCHAR(256) NOT NULL , `gym` VARCHAR(100) NOT NULL , `date` DATE NOT NULL , `time` TIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 新增member table
-CREATE TABLE `startfitness`.`member` (`id` BIGINT(20) NOT NULL AUTO_INCREMENT , `name` VARCHAR(256) NOT NULL , `email` VARCHAR(256) NOT NULL , `tel` VARCHAR(128) NULL , `account` VARCHAR(128) NOT NULL , `password` VARCHAR(256) NOT NULL , `status` TINYINT(1) NOT NULL DEFAULT '1' , `permission` VARCHAR(50) NOT NULL DEFAULT 'member' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `startfitness`.`member` (`id` BIGINT(20) NOT NULL AUTO_INCREMENT , `name` VARCHAR(256) NOT NULL , `email` VARCHAR(256) NOT NULL , `tel` VARCHAR(128) NULL , `account` VARCHAR(128) NOT NULL , `password` VARCHAR(256) NOT NULL , `status` TINYINT(1) NOT NULL DEFAULT '1' , `verify` TINYINT NOT NULL DEFAULT '0' , `permission` VARCHAR(50) NOT NULL DEFAULT 'member' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 新增taichung_gym table
 CREATE TABLE `startfitness`.`taichung_gym` (`id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `town` VARCHAR(100) NOT NULL , `addr` VARCHAR(100) NOT NULL , `open` VARCHAR(100) NOT NULL , `tel` VARCHAR(100) NOT NULL , `lon` VARCHAR(100) NOT NULL , `lat` VARCHAR(100) NOT NULL , `pic` VARCHAR(256) NOT NULL , `intr` VARCHAR(256) NOT NULL , `res` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

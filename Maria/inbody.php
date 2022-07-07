@@ -8,16 +8,15 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 if (isset($_REQUEST['resName'])) {
     $name = $_REQUEST['resName'];
-    $tel = $_REQUEST['resTel'];
+    $phone = $_REQUEST['resTel'];
     $gym = $_REQUEST['resGym'];
     $email = $_REQUEST['resEmail'];
     $date = $_REQUEST['resDate'];
     $time = $_REQUEST['resTime'];
     // echo "$name:$tel:$gym:$email:$date:$time";
 
-
-    //用健身房名稱抓現在數量
-    $sqlCount = "SELECT name,res FROM `taichung_gym` WHERE name = '{$gym}' ";
+    //用健身房名稱抓健身房資訊(電話、地址、訂位數量、營業時間)
+    $sqlCount = "SELECT name,town,res,tel,addr,open FROM `taichung_gym` WHERE name = '{$gym}' ";
     // $hasGym = $result->num_rows; //傳回select語句後的筆數結果，之後可以做判斷
     $result = $mysqli->query($sqlCount);
     $row = $result->fetch_array();
@@ -25,6 +24,10 @@ if (isset($_REQUEST['resName'])) {
     // echo " {$row['res']} "; //得到現在的數量;
     $count = $row['res'];
     $count--;
+    $addr = $row['town'].$row['addr'];
+    $tel = $row ['tel'];
+    $picture= 'https://upload.cc/i1/2022/07/07/cYzknK.png';
+
 
     //每次預約後數量-1並更新
     $sqlMinus = "UPDATE `taichung_gym` SET res = '{$count}'  WHERE name = '{$gym}'";
@@ -34,6 +37,8 @@ if (isset($_REQUEST['resName'])) {
     //傳入訂單資料
     $sqlRes = "INSERT INTO inbody(name,tel,email,gym,date,time) VALUES ('{$name}','{$tel}','{$email}','{$gym}','{$date}','{$time}')";
     $result3 = $mysqli->query($sqlRes);
+
+    
 
     //寄送訂單email
     // 這邊就可以使用
@@ -46,12 +51,53 @@ if (isset($_REQUEST['resName'])) {
     $mail->Port = 465;                                 //Gamil的SMTP主機的埠號(Gmail為465)。
     $mail->CharSet = "utf-8";
     $mail->Username = "startfitness0809@gmail.com"; //Gamil帳號
-    $mail->Password = "jsifadwuzaatcklc";                 //Gmail密碼
+    $mail->Password = "jsifadwuzaatcklc";                 //Gmail密碼(要去申請應用程式密碼)
     $mail->From = "startfitness0809@gmail.com";        //寄件者信箱
     $mail->FromName = "動吃!動吃!";                  //寄件者姓名
     $mail->Subject = "感謝您在{$gym}的預約!"; //郵件標題
-    $mail->Body = "<img src='https://upload.cc/i1/2022/07/06/CKv67A.png
-    '>以下為您的預訂資訊：<br/>姓名:" . $name . "<br />信箱:" . $email . "<br />電話:" . $tel . "<br />" ; //郵件內容
+    $mail->Body = "
+    <table style='background-color: white;'>
+    <tr>
+        <td>
+            <img src='https://upload.cc/i1/2022/07/07/cYzknK.png' style='width:800px'>
+        </td>
+    </tr>
+    <tr>
+        <td align='center'>
+            <h1 style='color: rgb(223, 128, 34) ;'>感謝您在『動吃！動吃！』網站進行預約</h1>
+
+        </td>
+    </tr>
+    <tr>
+        <td align='center' style='font-size: 14px;color: gray;padding: 15px;'>
+            InBody是體脂機通過電流，測出體脂、量測、量測等的數據。<br />
+            多位教練說：“開始減肥前運動一定要測！”如此了解的身體組成，調整飲食才能對症下藥！
+        </td>
+    </tr>
+    <tr>
+        <td style='background-color: rgb(251,198,92);padding: 30px;font-size: 18px;'>
+            <h4>以下為您的預訂資訊：</h4>
+            <p style='margin:2px ;'>預約者姓名:' {$name} '</p>
+            <p style='margin:2px ;'>預約者電話:' {$phone} '</p>
+            <p style='margin:2px ;'>預約日期:' {$date} '</p>
+            <p style='margin:2px ;'>預約時間:' {$time} '</p>
+            <p style='margin:2px ;'>健身房名稱:{$gym}</p>
+            <p style='margin:2px ;'>健身房地址:{$addr}</p>
+            <p style='margin:2px ;'>健身房電話:{$tel}</p>
+
+        </td>
+    </tr>
+    <tr>
+        <td style='background-color: rgb(142,180,227);padding: 20px;'>
+            <p style='color:rgb(49, 45, 42);font-size: 14px;font-weight: bold;'>＊提醒您，當日請提早5-10分鐘至健身房櫃檯報到＊</p>
+            <p style='color:rgb(49, 45, 42);font-size: 14px;font-weight: bold;'>＊如資訊有問題，或行程有異動，請來信<a
+                    href='startfitness0809@gmail.com'>startfitness0809@gmail.com</a>告知＊</p>
+
+        </td>
+    </tr>
+
+</table>
+    " ; //郵件內容
     $mail->IsHTML(true);                             //郵件內容為html
     $mail->AddAddress("$email");            //收件者郵件及名稱
     if (!$mail->Send()) {
@@ -65,3 +111,4 @@ if (isset($_REQUEST['resName'])) {
     header('Location:gym_map.php');
 }
 ?>
+

@@ -22,6 +22,7 @@
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <!-- 插入頁首css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/MengYing/大專/_css/head.css" rel="stylesheet">
     <title>gym_map</title>
 </head>
@@ -627,7 +628,6 @@ $rowCenter = $resCenter->fetch_object();
             // console.log(town)
         }
 
-        //==========================================================問題點======================================================================//
 
         //想實現的功能二、選取鄉鎮市後框起範圍(無法成功只保留一區)
         fetch("./taichung_dist.json")
@@ -637,36 +637,19 @@ $rowCenter = $resCenter->fetch_object();
                 // console.log(distList)
                 //再來找目標
                 var targetPoly;
-                // //把所有的polygon包裝成一包
-                // for (let i = 0; i < distList.length; i++) {
-                //     var distPoly = distList[i];
-                //     allPoly.addLayer(distPoly) //把所有鄉鎮市的圖層包成一個layerGroup
-                // }
-                // // console.log(allPoly)
-                // for (let i = 0; i < distList.length; i++) {
-                //     var distName = distList[i].properties.T_Name
-                //     var distPoly = L.geoJSON(distList[i]) //轉成polyg事件
-                //     if (distName == town) {
-                //         allPoly.clearLayers(); //每次開始前先清除全部
-                //         myMap.addLayer(distPoly);
-                //     }
-                // }
+
                 for (let i = 0; i < distList.length; i++) {
                     var distName = distList[i].properties.T_Name
                     var distPoly = L.geoJSON(distList[i]) //轉成polygon事件
                     if (distName == town) {
+                        //allPoly是一個LayerGroup
                         myMap.fitBounds(distPoly.getBounds()) //抓取layerGroup的bound，然後縮放程符合的畫面
                         allPoly.clearLayers(); //每次開始前先清除layer裡的所有內容
-                        allPoly.addLayer(distPoly);//再加入正確的
-                        allPoly.addTo(myMap);//顯示到地圖上
+                        allPoly.addLayer(distPoly); //再加入正確的
+                        allPoly.addTo(myMap); //顯示到地圖上
                     }
                 }
             })
-
-                
-            
-
-        //==========================================================問題點======================================================================//
 
     }
     //選擇健身房名稱後後跳轉地圖+內容
