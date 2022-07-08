@@ -55,7 +55,6 @@
 
     /*markFamily*/
     .intrMark {
-        border: 1px solid gray;
         line-height: 40px;
     }
 
@@ -101,6 +100,10 @@
 
 
     /*tableFamily*/
+    .gymList {
+        width: 90%;
+    }
+
     .gymTitle {
         font-size: 18px;
         background-color: rgb(120, 168, 227);
@@ -109,11 +112,11 @@
     .gym_table {
         line-height: 40px;
         text-align: center;
-        width: 850px;
+        width: 90%;
     }
 
     .gympic {
-        height: 500px;
+        height: 300px;
     }
 
 
@@ -168,13 +171,13 @@
             <div class="col table-responsive" id="gym_data">
                 <h2>健身地圖</h2>
                 <div class="areaList">
-                    <select class='custom-select mb-3' aria-label=".form-select-lg example">
+                    <select class=' mb-3' aria-label=".form-select-lg example">
                         <option disabled selected>請選擇所在縣市</option>
                         <option selected>台中市</option>
                     </select>
-                    <select name="" id="" class="townList custom-select mb-3">
-                    </select>
-                    <select name="" id="" class="gymList custom-select mb-3">
+                    <select name="" id="" class="townList  mb-3">
+                    </select><br />
+                    <select name="" id="" class="gymList mb-3">
                     </select>
                 </div>
                 <table border="2px" class='gym_table'>
@@ -204,15 +207,19 @@
                 </table>
             </div>
             <div class="col">
-                <div class=intrMark>
-                    可預約的inbody檢測剩餘數量：
+                <div class="intrMark" align='center'>
+                    inbody預約的剩餘數量：
                     <img class='markicon' src='https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png'>31以上
                     <img class='markicon' src='https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png'>16~30
-                    <img class='markicon' src='https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png'>0~15
-
+                    <img class='markicon' src='https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png'>1~15
+                    <img class='markicon' src='https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png'>0
                 </div>
+
                 <div id="mapid"></div>
+                <a href="#">甚麼是inbody檢測？</a>
+
             </div>
+            
         </div>
     </div>
     <!-- 頁尾 -->
@@ -221,7 +228,6 @@
     <!----------------------------------Dialog area-------------------------------------------->
     <div id="dialog_div" title="立即預約您的inbody檢測!！">
         <form method="post" id='inbodyRes' action="./inbody.php">
-            <!--title:設定dialog的標題-->
             <span class="con_title">您欲預約的健身房:</span>
             <br />
             <input id='resGym' type='text' class='form-control' disabled></input>
@@ -241,8 +247,8 @@
             <span class="con_title"><label for='resTime'>預約時段</label><span class='memo'>*必填</span></span>
             <select id='resTime' name='resTime' value=''>
                 <option value="0" disabled selected>請選擇時段</option>
-
             </select>
+            <br />
             <input type="submit" value="送出">
         </form>
 
@@ -371,20 +377,19 @@ $rowCenter = $resCenter->fetch_object();
             mark = orangeIcon;
             countJudge = "orangeRes";
 
-        } else if(count <= 0){
+        } else if (count <= 0) {
             mark = blackIcon;
             countJudge = "blackRes"
-        }
-        else {
+        } else {
             mark = greenIcon;
             countJudge = "greenRes";
         }
 
         //依照預約數量，放入預約按鈕
         let buttonJudge;
-        if(count>0){
+        if (count > 0) {
             buttonJudge = "btn-info"
-        }else{
+        } else {
             buttonJudge = "btn-dark"
         }
         //添加marker
@@ -553,7 +558,7 @@ $rowCenter = $resCenter->fetch_object();
                     return false;
 
                 }
-            } 
+            }
         }
     }
 
