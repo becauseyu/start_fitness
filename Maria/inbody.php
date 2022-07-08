@@ -98,16 +98,14 @@ if (isset($_REQUEST['resName'])) {
 
 </table>
     " ; //郵件內容
-    $mail->IsHTML(true);                             //郵件內容為html
+    $mail->IsHTML(true);                     //郵件內容為html
     $mail->AddAddress("$email");            //收件者郵件及名稱
     if (!$mail->Send()) {
         echo "Error: " . $mail->ErrorInfo;
     } else {
         echo "<b>感謝您的留言，您的建議是我們前進的動力。</b>";
     }
-
-
-
+    
     header('Location:gym_map.php');
 }
 ?>
