@@ -164,9 +164,8 @@ $resCenter = $mysqli->query($center); //傳回物件
 $rowCenter = $resCenter->fetch_object();
 
 ?>
+<script src="../js/main.js"></script>
 <script>
-    $('.headerpage').load('/MengYing/大專/LAB/header.html')
-    $('.footerpage').load('/MengYing/大專/LAB/footer.html')
     //將php匯出的資料先以JSON傳送
 
     //全部data

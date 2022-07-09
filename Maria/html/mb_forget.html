@@ -18,10 +18,8 @@
     <!-- 頁首頁尾的css -->
     <link href="/MengYing/大專/_css/head.css" rel="stylesheet">
     <!-- 插入自己的css -->
-    <link href="../css/mb_login.css" rel="stylesheet">
-
-
-    <title>信箱驗證</title>
+    <link href="../css/main.css" rel="stylesheet">
+    <title>忘記密碼</title>
     <style>
 
     </style>
@@ -37,12 +35,18 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content-tabset">
-                        
-                        <div id='login_form' class="m-5">
-                            感謝您的註冊！請先至您　註冊的信箱　收取驗證信！
-                        
+                        <div id='forget' class="m-5">
+                            <form action="../php/forget.php" method="POST">
+                                <p align="center">忘記密碼：</p>
+                                <div class="input-group mb-3">
+                                    <input id="fg_email" name="fg_email" type="text" class="form-control ml-5 mr-5" placeholder="請輸入註冊信箱" aria-label="Email" aria-describedby="basic-addon1" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input class='btn-block ml-5 mr-5 btn btn-success' type="submit" value="重設密碼">
+                                </div>
+                            </form>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
@@ -53,8 +57,6 @@
 
     </div>
 </body>
-<script src="../js/mb_login.js"></script>
-
-
+<script src="../js/main.js"></script>
 
 </html>

@@ -5,10 +5,9 @@ require '../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-
-//將帳號新增到資料庫
 $account = $_REQUEST['re_account'];
 
+//將帳號新增到資料庫
 if (isset($account)) {
     $acc = $_REQUEST['re_account'];
     //密碼使用MD5雜湊放入
@@ -17,13 +16,13 @@ if (isset($account)) {
     $email = $_REQUEST['re_email'];
     //這邊新增一個參數為驗證碼，之後要拿來做驗證啟用
     $token = $psw;
-    $token_exptime = time(60 * 60 * 24); //驗證碼效期為24小時
+    $token_exptime = time(); //驗證碼效期為24小時
 
     $sql = "INSERT INTO member(account,psw,name,email) VALUES ('{$acc}','{$psw}','{$realName}','{$email}')";
     $result = $mysqli->query($sql);
 
     //發送驗證信
-   
+
     $mail = new PHPMailer(true);
     $mail->IsSMTP();                                    //設定使用SMTP方式寄信
     $mail->SMTPAuth = true;                        //設定SMTP需要驗證
@@ -53,7 +52,7 @@ if (isset($account)) {
         <td align='center' style='padding: 30px;font-size: 16px;'>
             親愛的{$acc}：<br/>
             請點選連結啟用您的帳號。<br/>
-            <a href='http://localhost:3000/Maria/php/confirmAcc.php?verify={$token}' target='_blank'>＞＞＞點此驗證您的信箱＜＜＜＜</a><br/>
+            <a href='http://localhost:3000/Maria/php/confirmAcc.php?verify={$token}&time={$token_exptime}' target='_blank'>＞＞＞點此驗證您的信箱＜＜＜＜</a><br/>
             如果以上網址無法點取，請將它複製到你的瀏覽器位址列中進入訪問，該連結24小時內有效。<br/>
             如果此次啟用請求非你本人所發，請忽略本郵件。<br/><p style='text-align:right'>
 
@@ -71,6 +70,68 @@ if (isset($account)) {
     "; //郵件內容
     $mail->IsHTML(true);                     //郵件內容為html
     $mail->AddAddress("$email");            //收件者郵件及名稱
-    $mail->Send();          
-    header('Location:../html/mb_confirm.html');
+    $mail->Send();
+    //設定幾秒後做頁面跳轉
+    header("refresh:2;url=../html/mb_login.html");
 }
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--加入jquery-->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.toast.js"></script>
+    <link href="../css/jquery.toast.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!--加入bootstrap-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+    <!--加入Font Awesome-->
+    <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
+    <!-- 頁首頁尾的css -->
+    <link href="/MengYing/大專/_css/head.css" rel="stylesheet">
+    <!-- 插入自己的css --> 
+    <link href="../css/main.css" rel="stylesheet">
+
+
+    <title>信箱驗證</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <!-- 頁首  -->
+    <div class="headerpage">
+    </div>
+    <div id="content" class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="content-tabset">
+
+                        <div id='login_form' class="m-5">
+                            感謝您的註冊！請先至您　註冊的信箱　收取驗證信！
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 頁尾 -->
+    <div class='footerpage'>
+
+    </div>
+</body>
+<script src="../js/main.js"></script>
+
+
+
+</html>

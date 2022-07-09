@@ -1,6 +1,3 @@
-$('.headerpage').load('/MengYing/大專/LAB/header.html')
-$('.footerpage').load('/MengYing/大專/LAB/footer.html')
-
 
 //點選登入/註冊顯示內容及標籤變色
 $('#login').on('click', function () {
