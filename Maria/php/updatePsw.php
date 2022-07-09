@@ -1,30 +1,16 @@
-<?php
-include_once('../php/mysqli.php');
+<?php 
+include('../php/mysqli.php');
 
-$verify = stripslashes(trim($_GET['verify'])); //得到驗證碼
-// echo $verify;
-$timeStamp = $_GET['time'] + (60 * 60 * 24); //得到驗證效期最後時間 UNIX(24小時)
-// echo date("Y-m-d",$timeStamp);
-$nowtime = time();
-$sql = "SELECT * FROM member WHERE psw = '{$verify}' ";
-$result = $mysqli->query($sql);
-// var_dump($result);
-$row =  $result->num_rows; //確認是否有符合的
+$nPsw =md5($_POST['fg_password']);
+$email =$_POST['fg_email'];
 
-$text = "";
 
-if ($row > 0) {
-    if ($nowtime > $timeStamp) {
-        $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
-        header('Location:../html/mb_login.html');
-    } else {
-        $sqlConfirm = "UPDATE member SET staId = 1 WHERE psw = '{$verify}'";
-        $mysqli->query($sqlConfirm);
-        $text = '驗證成功！將為您跳轉至登入頁面重新登入。';
-        //設定幾秒後做頁面跳轉
-        header("refresh:2;url=../html/mb_login.html");
-    }
-}
+//已信箱為條件去搜尋並更新密碼
+$sqlRenewPsw = "UPDATE member SET psw = '{$nPsw}' WHERE email = '{$email}'";
+$mysqli->query($sqlRenewPsw);
+
+header("refresh:2;url=../html/mb_login.html");
+
 
 ?>
 
@@ -49,10 +35,7 @@ if ($row > 0) {
     <link href="/MengYing/大專/_css/head.css" rel="stylesheet">
     <!-- 插入自己的css -->
     <link href="../css/main.css" rel="stylesheet">
-
-
-
-    <title>會員驗證是否成功</title>
+    <title>密碼更新成功</title>
     <style>
 
     </style>
@@ -68,9 +51,8 @@ if ($row > 0) {
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content-tabset">
-
-                        <div id='login_form' class="m-5">
-                            <?php echo $text; ?>
+                        <div class="m-5">
+                            密碼已更新完成，請重新登入！
                         </div>
 
                     </div>
@@ -84,6 +66,7 @@ if ($row > 0) {
     </div>
 </body>
 <script src="../js/main.js"></script>
+<script src="../js/mb_renewPsw.js"></script>
 
 
 

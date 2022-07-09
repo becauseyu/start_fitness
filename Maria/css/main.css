@@ -30,3 +30,49 @@
      color: red;
      font-weight: bold;
  }
+ /*icon*/
+#checkEye {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    z-index: 10;
+    transform: translateY(-50%);
+}
+
+.checkEye2 {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    z-index: 10;
+    transform: translateY(-50%);
+}
+
+/*spanfamily*/
+
+
+#who {
+    color: rgba(53, 121, 214, 0.745);
+
+}
+
+
+#validUpdate {
+    margin: 0 auto;
+    font-size: 12px;
+    background: yellow;
+    width: fit-content;
+    padding: 2PX;
+}
+
+.confirmSpan {
+    position: absolute;
+    top: 20%;
+    right: 10px;
+    z-index: 10;
+}
+
+/*classFamily*/
+
+.hidden{
+    display: none;
+}

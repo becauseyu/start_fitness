@@ -16,7 +16,7 @@ if (isset($acc)) {
     $result = $mysqli->query($sql);
     $row =  $result->num_rows; //確認是否有符合的
     $data = $result->fetch_array();
-    $status = $data['status'];
+    $status = $data['staId'];
     $email = $data['email'];
     $token = $psw;
     $token_exptime = time();
@@ -77,7 +77,7 @@ if (isset($acc)) {
         }
         //如果是1代表已完成驗證會員
         else if ($status = 1) {
-            header('Location:../html/mb_login.html');
+            header("Location:../html/mb_update.php?account={$acc}");
         }
     } else {
         header('Location:../html/mb_login.html');
@@ -112,7 +112,7 @@ else {
 
 
 
-    <title>信箱驗證</title>
+    <title>會員身分驗證</title>
     <style>
 
     </style>
@@ -128,7 +128,6 @@ else {
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content-tabset">
-
                         <div id='login_form' class="m-5">
                             您尚未完成 信箱驗證 ，這邊將自動重新發送驗證信，請立即到信箱查收！
                         </div>

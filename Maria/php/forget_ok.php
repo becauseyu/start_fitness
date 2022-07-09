@@ -1,30 +1,7 @@
 <?php
-include_once('../php/mysqli.php');
 
-$verify = stripslashes(trim($_GET['verify'])); //得到驗證碼
-// echo $verify;
-$timeStamp = $_GET['time'] + (60 * 60 * 24); //得到驗證效期最後時間 UNIX(24小時)
-// echo date("Y-m-d",$timeStamp);
-$nowtime = time();
-$sql = "SELECT * FROM member WHERE psw = '{$verify}' ";
-$result = $mysqli->query($sql);
-// var_dump($result);
-$row =  $result->num_rows; //確認是否有符合的
+header("refresh:3;url=../html/mb_login.html");
 
-$text = "";
-
-if ($row > 0) {
-    if ($nowtime > $timeStamp) {
-        $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
-        header('Location:../html/mb_login.html');
-    } else {
-        $sqlConfirm = "UPDATE member SET staId = 1 WHERE psw = '{$verify}'";
-        $mysqli->query($sqlConfirm);
-        $text = '驗證成功！將為您跳轉至登入頁面重新登入。';
-        //設定幾秒後做頁面跳轉
-        header("refresh:2;url=../html/mb_login.html");
-    }
-}
 
 ?>
 
@@ -49,10 +26,7 @@ if ($row > 0) {
     <link href="/MengYing/大專/_css/head.css" rel="stylesheet">
     <!-- 插入自己的css -->
     <link href="../css/main.css" rel="stylesheet">
-
-
-
-    <title>會員驗證是否成功</title>
+    <title>忘記密碼_成功</title>
     <style>
 
     </style>
@@ -68,9 +42,8 @@ if ($row > 0) {
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content-tabset">
-
-                        <div id='login_form' class="m-5">
-                            <?php echo $text; ?>
+                        <div id='forget' class="m-5">
+                        已將重設密碼請求發送至您的註冊信箱！請盡速至信箱重設密碼。
                         </div>
 
                     </div>
@@ -84,7 +57,8 @@ if ($row > 0) {
     </div>
 </body>
 <script src="../js/main.js"></script>
+<script>
 
-
+</script>
 
 </html>

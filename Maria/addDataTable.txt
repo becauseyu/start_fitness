@@ -5,7 +5,7 @@ CREATE TABLE `startfitness`.`inbody` (`id` INT NOT NULL AUTO_INCREMENT , `name` 
 CREATE TABLE `startfitness`.`taichung_gym` (`id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `town` VARCHAR(100) NOT NULL , `addr` VARCHAR(100) NOT NULL , `open` VARCHAR(100) NOT NULL , `tel` VARCHAR(100) NOT NULL , `lon` VARCHAR(100) NOT NULL , `lat` VARCHAR(100) NOT NULL , `pic` VARCHAR(256) NOT NULL , `intr` VARCHAR(256) NOT NULL , `res` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 新增member
-CREATE TABLE `startfitness`.`member` (`account` VARCHAR(100) NOT NULL , `psw` VARCHAR(100) NOT NULL , `name` VARCHAR(100) NOT NULL , `email` VARCHAR(128) NOT NULL , `tel` VARCHAR(128) NULL , INYINT(4) NOT NULL DEFAULT '0', PRIMARY KEY (`account`)) ENGINE = InnoDB;
+CREATE TABLE `startfitness`.`member` (`account` VARCHAR(100) NOT NULL , `psw` VARCHAR(100) NOT NULL , `name` VARCHAR(100) NOT NULL , `email` VARCHAR(100) NOT NULL , `tel` VARCHAR(100) NOT NULL DEFAULT '' , `point` INT NOT NULL DEFAULT '0' , `staId` TINYINT NOT NULL DEFAULT '0' , PRIMARY KEY (`email`), UNIQUE (`account`)) ENGINE = InnoDB;
 
 新增statusDetail
 CREATE TABLE `startfitness`.`statusdetail` (`staId` INT NOT NULL AUTO_INCREMENT , `staName` VARCHAR(100) NOT NULL , PRIMARY KEY (`staId`)) ENGINE = InnoDB;
