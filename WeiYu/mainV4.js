@@ -1,84 +1,137 @@
-import { Food, Player, HealthFood, JunkFood } from './Food3.js';
+import { Food, Player, HealthFood, JunkFood } from './Food4.js';
 
 
 // 執行必要參數
 var foodContainer = [];
 var JunkFoodContainer = [];
 var HealthFoodContainer = [];
+
 var player = [];
 var game = '';
 var isPlaying = false;
 
 
-// 遊戲長度(s)
-var gameTime = 60;
-
+// -------遊戲參數(s)--------------------------------------------------
+var gameTime = 60;  // 時間
+var canvas_update_time = 0.02; // canvas刷新頻率(秒)
 
 // 大小設置
-var canvas_width = 600;
-var canvas_height = 500;
+var canvas_width = 1000;
+var canvas_height = 1000;
 var start_button_width = '100px';
 
 
 
 //  食物參數 : 半徑、重量、目標、速度
+//------------以下好食物區-------------------------
 var defaultHealthFood = {
-    radius: 10,
+    radius: 30,
     weight: 1,
     speed: 10,
     liveTime: 5
 
 }
 
-var healthFood_apple = {
-    radius: 20,
-    weight: 1,
-    speed: 1,
-    liveTime: 5,
-    image: new Image()
+var healthFood_salmon = {
+    radius: 50,
+    weight: 3,
+    speed: -1,
+    liveTime: 10,
+    image: new Image(),
 }
- 
+
+var healthFood_cabbage = {
+    radius: 35,
+    weight: 2,
+    speed: 0,
+    liveTime: 5,
+    image: new Image(),
+}
+
+var healthFood_apple = {
+    radius: 25,
+    weight: 1,
+    speed: 0,
+    liveTime: 5,
+    image: new Image(),
+}
+
+
+
+//------------以下壞食物區------------------------
+// 
 var defaultJunkFood = {
-    radius: 30,
+    radius: 50,
     weight: 5,
     speed: 10,
     liveTime: 20,
+
 }
 
 
 
 var junkFood_fries = {
-    radius: 30,
+    radius: 50,
     weight: 5,
-    speed: 10,
-    liveTime: 20,
-    image: new Image()
+    speed: 15,
+    liveTime: 10,
+    image: new Image(),
 }
-junkFood_fries.image.src = './image/fries.jpg'; 
-healthFood_apple.image.src = './image/apple.jfif';
+
+var junkFood_burger = {
+    radius: 50,
+    weight: 10,
+    speed: 10,
+    liveTime: 10,
+    image: new Image(),
+}
+
+var junkFood_pizza = {
+    radius: 50,
+    weight: 20,
+    speed: 8,
+    liveTime: 10,
+    image: new Image(),
+}
 
 
+//--------------------------------------------
 
-
-
-
-
-
-
-
+// 玩家預設參數
 var playerData = {
     x: canvas_width / 2,
     y: canvas_height / 2,
-    weight: 70
+    weight: 70,
+    image: new Image()
 }
+
+//--------------------------------------------
+
+// 所有圖片載入
+junkFood_fries.image.src = './gameIMG/bsd_01.png';
+junkFood_burger.image.src = './gameIMG/bsd_02.png';
+junkFood_pizza.image.src = './gameIMG/bsd_03.png';
+healthFood_salmon.image.src = './gameIMG/good_01.png';
+healthFood_cabbage.image.src = './gameIMG/good_02.png';
+healthFood_apple.image.src = './gameIMG/good_03.png';
+playerData.image.src = './gameIMG/girl_70.png';
 
 
 // 關卡參數
 
 var level1_data = {
-    healthFood_total: 10,
-    junkFood_total: 5,
-    update_time: 1
+    healthFood_total: 8,
+    junkFood_total: 10,
+    update_time: 0.2,
+
+    healthFood: [{ name: 'healthFood_apple', cd: 1 },
+    { name: 'healthFood_cabbage', cd: 3 },
+    { name: 'healthFood_salmon', cd: 10 }],
+    
+    junkFood: [{ name: 'junkFood_fries', cd: 1 },
+    { name: 'junkFood_burger', cd: 3 },
+    { name: 'junkFood_pizza', cd: 10 }],
+    junkFood_CD: [0, 2, 9]
 }
 
 
@@ -108,10 +161,13 @@ window.onload = function () {
     var canvas = document.getElementById('canvas');
     canvas.width = canvas_width;
     canvas.height = canvas_height;
+    var gameBox = document.getElementById('gameBox');
 
     document.getElementById('start_button').style.width = start_button_width;
-    document.getElementById('start_button').style.top = -canvas_height / 2 + 'px';
-    document.getElementById('start_button').style.left = `calc(${canvas_width / 2}px - (${start_button_width}) / 2  )`;
+    document.getElementById('start_button').style.top =  `calc(${gameBox.offsetHeight*0.7}px)`;
+    document.getElementById('start_button').style.left = `calc(${gameBox.offsetWidth}px  / 2 - (${start_button_width}) / 2  )`;
+
+    
 
 
     var context = canvas.getContext('2d');
@@ -154,6 +210,7 @@ window.onload = function () {
         var [x, y] = randomXY(chaseWho);
         JunkFoodContainer = [...JunkFoodContainer, new JunkFood(x, y, chaseWho, foodName)];
     }
+
 
 
 
@@ -267,25 +324,137 @@ window.onload = function () {
         deleteDeadFoods(JunkFoodContainer);
         drawPlayer();
         drawFoods();
+        showTitle()
 
-        document.getElementById('weight').innerText = `現在體重 : ${player.weight}`;
+        // document.getElementById('weight').innerText = `現在體重 : ${player.weight}`;
     }
 
     //------------------------------------------------------------------------------------------
+    //  顯示參數
+    function showText() {
+        // 純粹測試用
+        context.font="50px sans-serif";
+        // context.textAlign = "center";
+        // context.fillText("現在體重",10,50);
+        context.fillText('剩餘時間 :',10,0.05*canvas_height);
+    }
+
+
+
+    function showTimeLeft(timeLeft) {
+        context.font="50px sans-serif";
+        context.textAlign = "left";
+        context.fillText(`剩餘時間 : ${timeLeft.toFixed(2)} s`,10,0.05*canvas_height);
+    }
+
+    function showTitle() {
+        context.font="50px sans-serif";
+        context.textAlign = "right";
+        context.fillText(`飲控遊戲`,canvas_width-10,0.05*canvas_height);
+       
+    }
+
+    
+    // 體重條
+    function drawWeightBar(barPercent) {
+        // 現在狀態
+        context.fillStyle = 'black';
+        context.fillRect(0,canvas_height*0.95,canvas_width*BarPercent,20);
+
+        // 安全範圍
+        save_percent = barPercent - 0.2
+        454554565wdwdwdwdwwddwdwdwdwdwdwdwdwdwdwfwfwfw
+
+        20220709 施工中
+
+        context.fillStyle = 'green';
+        context.fillRect(canvas_width*0.2,canvas_height*0.95,canvas_width*0.2,20);
+
+        // 危險區間
+        context.fillStyle = 'red';
+        context.fillRect(canvas_width*0.8,canvas_height*0.95,canvas_width*0.2,20);
+
+    }
+    
+
+drawWeightBar();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // 關卡設計
 
     function level_1() {
-        if (HealthFoodContainer.length < level1_data.healthFood_total) {
-            addHealthFood(player,healthFood_apple);
-        }
-        if (JunkFoodContainer.length < level1_data.junkFood_total) {
-            addJunkFoodBesideWall(player, junkFood_fries);
-        }
-        if (isPlaying) {
-            setTimeout(level_1, level1_data.update_time * 1000);
+
+        var healthFood_selection = level1_data.healthFood;
+        var junkFood_selection = level1_data.junkFood;
+
+        //  產生食物(怪物)
+        //  機制 : 隨機被選到的怪物會暫時離開選擇袋(進cd)，等到cd時間結束後會再回到袋子被選擇
+        function generate_foods() {
+            if (HealthFoodContainer.length < level1_data.healthFood_total) {
+                if (healthFood_selection.length) {
+                    var choose1 = healthFood_selection.splice(Math.floor(Math.random() * healthFood_selection.length), 1)[0];
+                    addHealthFood(player, eval(choose1.name));
+                    setTimeout(() => {
+                        healthFood_selection.push(choose1);
+                    }, choose1.cd * 1000)
+                }
+            }
+            if (JunkFoodContainer.length < level1_data.junkFood_total) {
+                if (junkFood_selection.length) {
+                    var choose2 = junkFood_selection.splice(Math.floor(Math.random() * junkFood_selection.length), 1)[0];
+                    addJunkFoodBesideWall(player, eval(choose2.name));
+                    setTimeout(() => {
+                        junkFood_selection.push(choose2);
+                    }, choose2.cd * 1000)
+                }
+            }
+
+
+            // 確定遊戲還在運作
+            if (isPlaying) {
+                setTimeout(generate_foods, level1_data.update_time * 1000);
+            }
+
         }
 
+        generate_foods();
+
+
+
     }
+
 
     //-------------------------------------------------------------------------------
     // 實際開始與結束
@@ -294,15 +463,19 @@ window.onload = function () {
         clearInterval(game);
         isPlaying = true;
         player = new Player(playerData);
+        var timeLeft = gameTime;
         level_1();
         game = setInterval(() => {
-            animate();
             if (!document.getElementById('canvas')) {
                 isPlaying = false;
                 clearInterval(game);
             }
 
-        }, 20);
+            animate();
+            timeLeft -= canvas_update_time;
+            showTimeLeft(timeLeft);
+
+        }, canvas_update_time*1000);
         setTimeout(gameover, gameTime * 1000);
     }
 
