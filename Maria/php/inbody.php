@@ -2,17 +2,19 @@
 <?php
 include('./mysqli.php');
 //把phpmailer帶進來
-require './vendor/autoload.php';
+require '../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-if (isset($_REQUEST['resName'])) {
-    $name = $_REQUEST['resName'];
-    $phone = $_REQUEST['resTel'];
-    $gym = $_REQUEST['resGym'];
-    $email = $_REQUEST['resEmail'];
-    $date = $_REQUEST['resDate'];
-    $time = $_REQUEST['resTime'];
+//如果姓名不為空值，才執行
+$name = $_REQUEST['resName'];
+$phone = $_REQUEST['resTel'];
+$gym = $_REQUEST['resGym'];
+$email = $_REQUEST['resEmail'];
+$date = $_REQUEST['resDate'];
+$time = $_REQUEST['resTime'];
+if (!empty($name) && !empty($phone) && !empty($gym) && !empty($email) && $time != 0 ) {
+
     // echo "$name:$tel:$gym:$email:$date:$time";
 
     //用健身房名稱抓健身房資訊(電話、地址、訂位數量、營業時間)
@@ -24,9 +26,9 @@ if (isset($_REQUEST['resName'])) {
     // echo " {$row['res']} "; //得到現在的數量;
     $count = $row['res'];
     $count--;
-    $addr = $row['town'].$row['addr'];
-    $tel = $row ['tel'];
-    $picture= 'https://upload.cc/i1/2022/07/07/cYzknK.png';
+    $addr = $row['town'] . $row['addr'];
+    $tel = $row['tel'];
+    $picture = 'https://upload.cc/i1/2022/07/07/cYzknK.png';
 
 
     //每次預約後數量-1並更新
@@ -38,9 +40,11 @@ if (isset($_REQUEST['resName'])) {
     $sqlRes = "INSERT INTO inbody(name,tel,email,gym,date,time) VALUES ('{$name}','{$tel}','{$email}','{$gym}','{$date}','{$time}')";
     $result3 = $mysqli->query($sqlRes);
 
-    
+
 
     //寄送訂單email
+    // 這邊就可以使用
+   //寄送訂單email
     // 這邊就可以使用
     $mail = new PHPMailer(true);
 
@@ -54,7 +58,7 @@ if (isset($_REQUEST['resName'])) {
     $mail->Password = "jsifadwuzaatcklc";                 //Gmail密碼(要去申請應用程式密碼)
     $mail->From = "startfitness0809@gmail.com";        //寄件者信箱
     $mail->FromName = "動吃!動吃!";                  //寄件者姓名
-    $mail->Subject = "感謝您在{$gym}的預約!"; //郵件標題
+    $mail->Subject = "感謝您在{$gym}的預約！"; //郵件標題
     $mail->Body = "
     <table style='background-color: white;'>
     <tr>
@@ -75,15 +79,17 @@ if (isset($_REQUEST['resName'])) {
         </td>
     </tr>
     <tr>
-        <td style='background-color: rgb(251,198,92);padding: 30px;font-size: 18px;'>
-            <h4>以下為您的預訂資訊：</h4>
-            <p style='margin:2px ;'>預約者姓名:' {$name} '</p>
-            <p style='margin:2px ;'>預約者電話:' {$phone} '</p>
-            <p style='margin:2px ;'>預約日期:' {$date} '</p>
-            <p style='margin:2px ;'>預約時間:' {$time} '</p>
-            <p style='margin:2px ;'>健身房名稱:{$gym}</p>
-            <p style='margin:2px ;'>健身房地址:{$addr}</p>
-            <p style='margin:2px ;'>健身房電話:{$tel}</p>
+        <td align='center' style='padding: 30px;font-size: 16px;'>
+            <div style='background-color: rgb(255, 195, 85);border-radius: 20px;padding: 10px;width: fit-content;'>
+                <p style='padding:2px ;font-weight: bold;'>以下為您的預訂資訊 </p>
+                <p style='padding:2px ;'>預約者姓名： {$name} </p>
+                <p style='padding:2px ;'>預約者電話：{$phone}</p>
+                <p style='padding:2px ;'>預約日期：{$date}</p>
+                <p style='padding:2px ;'>預約時間：{$time}</p>
+                <p style='padding:2px ;'>健身房名稱:{$gym}</p>
+                <p style='padding:2px ;'>健身房地址:{$addr}</p>
+                <p style='padding:2px ;'>健身房電話:{$tel}</p>
+            </div>
 
         </td>
     </tr>
@@ -97,18 +103,11 @@ if (isset($_REQUEST['resName'])) {
     </tr>
 
 </table>
+
     " ; //郵件內容
-    $mail->IsHTML(true);                             //郵件內容為html
-    $mail->AddAddress("$email");            //收件者郵件及名稱
-    if (!$mail->Send()) {
-        echo "Error: " . $mail->ErrorInfo;
-    } else {
-        echo "<b>感謝您的留言，您的建議是我們前進的動力。</b>";
-    }
-
-
-
-    header('Location:gym_map.php');
+    $mail->IsHTML(true);                     //郵件內容為html
+    $mail->AddAddress("$email");  
+    $mail->Send();          
+    header('Location:../html/gym_map.php');
 }
 ?>
-
