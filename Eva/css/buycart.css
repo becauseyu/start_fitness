@@ -1,16 +1,47 @@
+.font-red{
+     color: red;
+     font-weight: 600;
+}
+
+
 /* --------進度條------- */
 /* 引入字型 */
 @import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
 
 /* 給一個 scope 設定變數 */
 :root {
-    /* 已完成進度的顏色 */
-    --line-border-fill: #3498db;
-
     /* 未完成進度的顏色 */
     --line-border-empty: #c6c5c5;
 }
 
+.circle {
+    /* 底色白色，文字顏色和邊框灰色 */
+    background-color: #fff;
+    color: #999;
+    border: 4px solid #999;
+
+    /* 把元素畫成寬高為 30px 的圓形 */
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    font-weight: 500;
+    font-size: 20px;
+
+
+    /* 用 flexbox 排版把文字放到正中間 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 一樣加上動畫效果 */
+    transition: 0.4s ease;
+
+    z-index: 1;
+}
+
+.circle.active {
+    border-color: #fdb280;
+}
 
 .progress-size {
     font-family: 'Muli', sans-serif;
@@ -39,7 +70,7 @@
 .progress-container::before {
     content: '';
     background-color: var(--line-border-empty);
-    height: 4px;
+    height: 6px;
     width: 100%;
 
     /* 使用 relative-absolute */
@@ -55,12 +86,11 @@
 
 .progress {
     /* 這裡使用了事先定義的已完成進度顏色 */
-    background-color: var(--line-border-fill);
-
+    background-color: #fdb280;
 
     /* height 一樣 4px，width在切版時可以先放成 50%，調整好再改回進度為 0% 的狀態 */
     /* 附圖為 50% 的狀態 */
-    height: 4px;
+    height: 6px;
     width: 0%;
 
     /* 一樣使用 relative-absolute把已完成進度條也放到正確位置上 */
@@ -73,34 +103,6 @@
     transition: 0.4s ease;
 }
 
-.circle {
-    /* 底色白色，文字顏色和邊框灰色 */
-    background-color: #fff;
-    color: #999;
-    border: 3px solid #999;
-
-    /* 把元素畫成寬高為 30px 的圓形 */
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    font-weight: 500;
-    font-size: 20px;
-
-
-    /* 用 flexbox 排版把文字放到正中間 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* 一樣加上動畫效果 */
-    transition: 0.4s ease;
-
-    z-index: 1;
-}
-
-.circle.active {
-    border-color: var(--line-border-fill);
-}
 
 .btnr {
     background-color: var(--line-border-fill);
@@ -114,18 +116,6 @@
     font-size: 10px;
 }
 
-.btnr:active {
-    transform: scale(0.98);
-}
-
-.btnr:focus {
-    outline: 0;
-}
-
-.btn:disabled {
-    background-color: var(--line-border-empty);
-    cursor: not-allowed;
-}
 
 /* -------------------- */
 
@@ -134,7 +124,6 @@
     border-radius: 0px;
     background-color: #98c6fa;
     width: auto;
-
 }
 
 .plus-minus-input .input-group-field {
@@ -158,10 +147,26 @@
 
 }
 
+.button01 {
+    width: 240px;
+    font-weight: 500;
+    color: #fff;
+    background-color:  #2d84e1;
+    border-color: #004da0;
+}
 
-
-
-
+.button01:hover {
+    color: #fff;
+    background-color: #1d60a8;
+    border-color: #1a5594;
+  }
+  
+  .button01:focus, .button01.focus {
+    color: #fff;
+    background-color: #457ab4;
+    border-color: #175eaa;
+    box-shadow: 0 0 0 0.2rem rgba(87, 138, 192, 0.5);
+  }
 
 /* -------------------- */
 
@@ -249,7 +254,7 @@
 }
 
 .box-shadow {
-    box-shadow: 4px 6px 4px 6px rgba(80, 70, 70, 0.7);
+    box-shadow: 2px 3px 2px 3px rgba(221, 201, 201, 0.7);
 }
 
 /* 結帳第三頁 */
@@ -318,6 +323,6 @@
 
 
 .box-shadow1 {
-    box-shadow: 2px 3px 2px 3px rgba(80, 70, 70, 0.7);
+    box-shadow: 2px 3px 2px 2px rgba(142, 134, 134, 0.7);
 }
 /* -------------------- */

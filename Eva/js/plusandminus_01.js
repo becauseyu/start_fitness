@@ -1,6 +1,3 @@
-
-
-
 // 數量條 
 $('[data-quantity="plus"]').on('click', function () {
 	//發生事情的那區塊
@@ -17,12 +14,32 @@ $('[data-quantity="plus"]').on('click', function () {
 	// 當按加時 重新抓數值
 	var qty = $(who).val();
 	var price = $(this).closest('.table-content').find('.price').val();
-
 	$(this).closest('.table-content').find('.total').html(qty * price);
 
+
+	// 總計
+	// 抓每個小計
+	// 每個小計加起來
+	var bigTotal = 0;
+	var sum = 0;
+	$('#car').find('.total').each(function (idx, elm) {
+		sum = parseInt(elm.innerText);
+		bigTotal += sum;
+	});
+	$('.total02').html(bigTotal);
+
+	// 判斷價錢
+	// if 合計...else運費$60
+	if (bigTotal <= 2000) {
+		$('.fee').html('NT$60');
+		$('.total03').html(bigTotal + 60);
+	} else {
+		$('.fee').html('免運');
+		$('.total03').html(bigTotal);
+	};
+
+
 });
-
-
 
 //發生事情的按鈕
 $('[data-quantity="minus"]').on('click', function () {
@@ -42,32 +59,30 @@ $('[data-quantity="minus"]').on('click', function () {
 
 	// 當按減時 重新抓數值
 	var qty = $(who).val();
-
 	var price = $(this).closest('.table-content').find('.price').val();
-
 	$(this).closest('.table-content').find('.total').html(qty * price);
 
-	//總金額
-	//(1)找到欄位:
-	//(2)裡面的每一個(轉成數字整數),加入到總額裡面
+	// 總計
+	var bigTotal = 0;
+	var sum = 0;
+	$('#car').find('.total').each(function (idx, elm) {
 
+		sum = parseInt(elm.innerText);
+		bigTotal += sum;
+	});
+	$('.total02').html(bigTotal);
 
-	$('#car div').find('total').each(function (idx, elm) {
-	alert(`1: ${total.value}`);
-	alert(`2: ${elm.innerText}`);
-
-		if (elm.innerText.length == 0) {
-			elm.innerText = 0;
-		}
-		total.value = parseInt(total.value) + parseInt(elm.innerText);
-	})
-
-
-
-	
-
+	// 判斷運費
+	if (bigTotal <= 2000) {
+		$('.fee').html('NT$60');
+		$('.total03').html(bigTotal + 60);
+	} else {
+		$('.fee').html('免運');
+		$('.total03').html(bigTotal);
+	};
 
 });
+
 
 // 當輸入事件發生
 // 抓到 輸入的值 與 小計
@@ -77,8 +92,25 @@ $('.qty').on('change', function () {
 	var qty = $(this).val();
 
 	$(this).closest('.table-content').find('.total').html(qty * price);
-	// console.log(qty);
-	// console.log(price);
+
+	// 總計
+	var bigTotal = 0;
+	var sum = 0;
+	$('#car').find('.total').each(function (idx, elm) {
+		sum = parseInt(elm.innerText);
+		bigTotal += sum;
+	});
+	$('.total02').html(bigTotal);
+	
+
+	// 判斷運費
+	if (bigTotal <= 2000) {
+		$('.fee').html('NT$60');
+		$('.total03').html(bigTotal + 60);
+	} else {
+		$('.fee').html('免運');
+		$('.total03').html(bigTotal);
+	};
 
 
 
@@ -87,15 +119,8 @@ $('.qty').on('change', function () {
 
 
 
-	// total.value = 0;
-	// $('#car').find('.total').each(function (idx, elm) {
-	// 	console.log(`1: ${total.value}`);
-	// 	console.log(`2: ${elm.innerText}`);
-	// 	// if (elm.innerText.length == 0) {
-	// 	// 	elm.innerText = 0;
-	// 	// }
-	// 	// total3.value = parseInt(total3.value) + parseInt(elm.innerText);
-	// })
+
+
 
 
 

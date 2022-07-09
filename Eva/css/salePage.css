@@ -1,0 +1,113 @@
+.try {
+    background-color: rgb(210, 253, 222);
+}
+
+.try1 {
+    background-color: rgb(245, 233, 246);
+}
+
+.try2 {
+    background-color: rgb(252, 234, 224);
+}
+
+.try3 {
+    background-color: rgb(221, 252, 239);
+}
+
+.food-box {
+    border: 2px solid #f9589b;
+    height: 80px;
+    vertical-align: middle; 
+    align-items: center;
+    text-align: center;
+}
+
+.b1 {
+    border: 2px solid #5896f9;
+    border-radius: 5px;
+}
+
+.header-font {
+    color: rgb(36, 31, 24);
+    font-weight: 500;
+    font-size: 36px;
+}
+
+.SP-box {
+    border: 2px solid #f9589b;
+    height: 80px;
+    vertical-align: middle; 
+    justify-content: right;
+    align-items:center;
+    text-align: center;
+}
+
+.fa-solid{
+    font-size: 26px;
+}
+.fa-solid:hover {
+    color: rgb(243, 122, 41);
+}
+
+/* -----產品網頁------ */
+.image-sale {
+    border-radius: 5px;
+    width: 230px;
+    height: 230px;
+    margin: 2px;
+}
+
+.imgee {
+    object-fit: cover;
+    width: 220px;
+    height: 220px;
+}
+
+
+.photoshadow {
+    box-shadow: 4px 6px 4px rgba(213, 207, 197, 0.7);
+}
+
+.head-font {
+    font-weight: 700;
+    font-size: 18px;
+    color: rgb(76, 64, 47);
+}
+
+.head-font01 {
+    font-weight: 600;
+    font-size: 14px;
+    width: 140px;
+    color: rgb(134, 106, 72);
+    box-shadow:2px 1px 2px 1px rgba(221, 216, 216, 0.7);
+}
+
+.cen-brand {
+    text-align: center;
+    margin: 0px auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.price-font {
+    font-weight: 500;
+    font-size: 18px;
+    color: rgb(60, 58, 51);
+    margin-top: -10px;
+}
+
+.center-box {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-box{
+    object-fit: contain;
+    width: 90px;
+    height: 80px;
+}
+
+/* -------------------- */
