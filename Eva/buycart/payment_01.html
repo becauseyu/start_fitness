@@ -23,7 +23,7 @@
 
 <body>
   <!--  假的navbar  -->
-  <nav class="mb-1 navbar navbar-expand-md  navbar navbar-dark bg-dark ">
+  <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark ">
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@
   </nav>
   <!--  進度條  -->
   <section class="container progress-size">
-    <div class="">
+    <div class="mt-4">
       <div class="progress-container">
         <!-- 進度條本體 -->
         <div class="progress" id="progress"></div>
@@ -75,68 +75,89 @@
         <div class="circle">2</div>
         <div class="circle">3</div>
       </div>
-
-      <!-- 前進後退按鈕 -->
-      <div class="">
-        <button class="btnr" id="prev" disabled>Prev</button>
-        <button class="btnr" id="next">Next</button>
-      </div>
-
     </div>
-
-
 
   </section>
 
   <!--購物表格-->
-  <section class="container mt-5  shopping-cart">
-    <div class="table-01">
+  <section class="container mt-5 shopping-cart">
+    <div class="table-01 " id="car">
       <div class=" table-header text-center  row">
-        <div class="col-sm-4 ">商品資料</div>
-        <div class="col-sm-2 ">單件價格</div>
-        <div class="col-sm-3 ">數量</div>
-        <div class="col-sm-2 ">小計</div>
-        <div class="col-sm-1"></div>
+        <div class="col-8 col-sm-4 col-md-4">商品資料</div>
+        <div class="col-4 col-sm-2 col-md-2">單件價格</div>
+        <div class="col-6 col-sm-3 col-md-3">數量</div>
+        <div class="col-5 col-sm-2 col-md-2">小計</div>
+        <div class="col-1 col-sm-1 col-md-1"></div>
       </div>
       <!--每一列-->
-      <div class="row table-content ">
-        <div class="col-sm-4 text-center d-flex">
-          <div class="col-sm-6 cart-items"><img src="../asset/caritem/800x.webp" class="image float-right"></div>
-          <div class="col-sm-6 text-left">
-            <h4>微微奶茶</h4>有含糖包｜一盒10入
-          </div>
-        </div>
-        <div class="col-sm-2 text-center ">NT$239
-          <input class="price" type="hidden" value="239">
-        </div>
-        <div class="col-sm-3 text-center ">
-          <div class="input-group plus-minus-input qty-cen">
-            <div class="input-group-button">
-              <button type="button" class="btn btn-number" data-quantity="minus" data-field="quantity">
-                <i class="fa fa-minus"></i>
-              </button>
-            </div>
-            <input class="input-group-field input-width" type="text" name="quantity" value="0">
-            <div class="input-group-button">
-              <button type="button" class="btn btn-number" data-quantity="plus" data-field="quantity">
-                <i class="fa fa-plus"></i>
-              </button>
+      <div class="table-item">
+        <div class="row table-content ">
+          <div class="col-8 col-sm-4 col-md-4 text-center d-flex">
+            <div class="col-sm-6  cart-items"><img src="../asset/caritem/800x.webp" class="image float-right"></div>
+            <div class="col-sm-6  text-left">
+              <h4>微微奶茶</h4>有含糖包｜一盒10入
             </div>
           </div>
+          <div class="col-4 col-sm-2 col-md-2 text-center ">NT$300
+            <input class="price" type="hidden" value="300">
+          </div>
+          <div class="col-6 col-sm-3 col-md-3 text-center ">
+            <div class="input-group plus-minus-input qty-cen">
+              <div class="input-group-button">
+                <button type="button" class="btn btn-number" data-quantity="minus" data-field="quantity">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <input class="input-group-field input-width qty" type="text" name="quantity" value="0">
+              <div class="input-group-button">
+                <button type="button" class="btn btn-number plus" data-quantity="plus" data-field="quantity">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
 
+          </div>
+          <div class="col-5 col-sm-2 col-md-2 text-center">NT$ <span class="total">0</span></div>
+          <div class="col-1 col-sm-1 col-md-1 text-center">
+            <a class="btn"><i class="fa fa-times"></i></a>
+          </div>
         </div>
-        <div class="col-sm-2 text-center">NT$ <span></span></div>
-        <div class="col-sm-1 text-center">
-          <a class="btn"><i class="fa fa-times"></i></a>
+        <div class="row table-content ">
+          <div class="col-8 col-sm-4 col-md-4 text-center d-flex">
+            <div class="col-sm-6  cart-items"><img src="../asset/caritem/800x.webp" class="image float-right"></div>
+            <div class="col-sm-6  text-left">
+              <h4>微微奶茶</h4>有含糖包｜一盒10入
+            </div>
+          </div>
+          <div class="col-4 col-sm-2 col-md-2 text-center ">NT$100
+            <input class="price" type="hidden" value="100">
+          </div>
+          <div class="col-6 col-sm-3 col-md-3 text-center ">
+            <div class="input-group plus-minus-input qty-cen">
+              <div class="input-group-button">
+                <button type="button" class="btn btn-number" data-quantity="minus" data-field="quantity">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <input class="input-group-field input-width qty" type="text" name="quantity" value="0">
+              <div class="input-group-button">
+                <button type="button" class="btn btn-number plus" data-quantity="plus" data-field="quantity">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-5 col-sm-2 col-md-2 text-center">NT$ <span class="total">0</span></div>
+          <div class="col-1 col-sm-1 col-md-1 text-center">
+            <a class="btn"><i class="fa fa-times"></i></a>
+          </div>
         </div>
+
       </div>
 
     </div>
-
-
-
   </section>
-
 
   <div class="container ">
     <div class="row">
@@ -188,29 +209,35 @@
         <div class="order-form-content">
           <div>
             <div class="">
-              <span class="">小計: &nbsp;</span>
-              <span class="">NT$3,183 </span>
+              <span class="">合計: &nbsp;NT$
+                <span class="total02">0</span>
+              </span>
             </div>
-
 
             <div class="pt-1">
               <span class="">
                 運費:&nbsp;
               </span>
-              <span class="">
-                免運
+              <span class="fee">NT$60</span>
+            </div>
+
+            <div class="pt-1">
+              <span class="font-red">
+                *滿NT$2000免運費
               </span>
             </div>
 
 
+
             <hr class="">
-            <span class="pull-left">合計<span class="hidden-sm hidden-md hidden-lg"> (3
-                件)</span>:&nbsp;</span>
-            <span class="pull-right">NT$3,183</span>
+            <p class="pull-left">訂單總金額
+              <span class="">(3件)</span>:&nbsp;NT$
+              <span class="pull-right total03">0</span>
+            </p>
 
 
           </div>
-          <a class="mt-3 btn btn-primary btn-block " href="./payment_02.html">前往結帳</a>
+          <a class="mt-3 btn button01" href="./payment_02.html">前往結帳</a>
         </div>
 
       </section>

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>trytryfirst</title>
+  <title>saleDetail</title>
   <!--    Stylesheets-->
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <script src="../js/jquery.min.js"></script>
@@ -13,7 +13,7 @@
   <script src="../js/bootstrap.min.js"></script>
 
   <!-- My.css -->
-  <link rel="stylesheet" href="../css/trytryfirst01.css">
+  <link rel="stylesheet" href="../css/goods_data.css">
 
   <!-- icon -->
   <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
@@ -133,60 +133,10 @@
         </div>
       </div>
     </div>
-
-    <script>
-
-    // 小圖抓大圖
-    $('.smallImage01').on('click',function(){
-      var src = $(this).attr('src');
-      $('#bigImage').attr("src",src);
-    })
-
-    // 點字放口味欄
-    $('.item-icon').on('click',function(){
-      var who = $(this).closest('.item-icon').html();
-      $('.flaver').html(who);
-    })
-
-    $('.spicy').on('click',function(){
-      var src01 = $('.sm-box').find('.spicy').attr('src');
-      $('#bigImage').attr("src",src01);
-    })
-
-    $('.salt').on('click',function(){
-      var src01 = $('.sm-box').find('.salt').attr('src');
-      $('#bigImage').attr("src",src01);
-    })
-    
-    $('.black').on('click',function(){
-      var src01 = $('.sm-box').find('.black').attr('src');
-      $('#bigImage').attr("src",src01);
-    })
-
-    $('.mocha').on('click',function(){
-      var src01 = $('.sm-box').find('.mocha').attr('src');
-      $('#bigImage').attr("src",src01);
-    })
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-  </div>
   </div>
 
 
-
-
-
-  <script src="../js/plusandminus_01.js"></script>
+  <script src="../js/goods_data.js"></script>
 </body>
 
 </html>
