@@ -96,8 +96,6 @@ var r_password = $('#re_password')
 var r_name = $('#re_name')
 var r_email = $("#re_email")
 var tips = $('#validUpdate')
-//把所有inpput框的控制放入
-allFields = $([]).add(r_account).add(r_password).add(r_email).add(r_name)
 //email的認證條件另外放
 emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 

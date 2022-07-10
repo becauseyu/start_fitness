@@ -61,9 +61,8 @@ if (isset($email)) {
         $mail->AddAddress("$email");
         $mail->Send();
         $text = '';
-
-        //在自動跳轉回登入頁
-        // header("refresh:3;url=../html/mb_login.html");
+        //跳轉回認證正確訊息
+        header('Location:../php/forget_ok.php');
     }
     //代表了錯誤的信箱 
     else {

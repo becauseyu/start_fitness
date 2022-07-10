@@ -26,7 +26,7 @@
     <link href="/MengYing/大專/_css/head.css" rel="stylesheet">
     <!-- 插入自己的css -->
     <link href="../css/gym_map.css" rel="stylesheet">
-    <title>gym_map</title>
+    <title>健身地圖</title>
 </head>
 
 <body>

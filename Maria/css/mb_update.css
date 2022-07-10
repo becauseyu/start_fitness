@@ -1,0 +1,22 @@
+/*導覽列*/
+.nav-li {
+    width: 33%;
+    text-align: center;
+    line-height: 40px;
+
+}
+
+/*spanfamily*/
+
+.mb_status{
+    background-color: #c9ac91;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.validUpdate{
+    background-color: yellow;
+    width: fit-content;
+    font-size: 14px;
+
+}
