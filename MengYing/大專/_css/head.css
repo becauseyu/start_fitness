@@ -35,6 +35,8 @@
     right: 0;
 }
 
+
+
 /* 內容框 */
 .box {
     border: solid 0.5em #8EB4E3;
@@ -115,7 +117,7 @@
     /* border-radius: 0 5px 5px 0; */
 
 
-  
+
 }
 
 #mySidenavl a:hover {
@@ -140,5 +142,79 @@
 
 }
 
+/* NAVBAR導覽列 */
+.navbar .navbar-nav .nav-link:hover {
+    color: #000000;
+}
 
+.navbar .navbar-nav .nav-iteml {
+    position: relative;
+}
 
+.navbar .navbar-nav .nav-itemr {
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-iteml::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #8EB4E3;
+    width: 0%;
+    content: "";
+    height: 4px;
+    transition: all 0.5s;
+}
+
+.navbar .navbar-nav .nav-itemr::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #FBC65C;
+    width: 0%;
+    content: "";
+    height: 4px;
+    transition: all 0.5s;
+}
+
+.navbar .navbar-nav .nav-iteml:hover::after {
+    width: 100%;
+}
+
+.navbar .navbar-nav .nav-itemr:hover::after {
+    width: 100%;
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar {
+        padding: 20;
+    }
+
+    .navbar .navbar-brand {
+        padding: 0 0.7em;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        padding: 1em 0;
+    }
+
+    .navbar .navbar-nav .nav-iteml {
+        margin: 0 1em;
+    }
+
+    .navbar .navbar-nav .nav-itemr {
+        margin: 0 1em;
+    }
+}
+
+.navbar .navbar-nav .nav-iteml::after {
+    transition: all 0.5s;
+}
+
+.navbar .navbar-nav .nav-itemr::after {
+    transition: all 0.5s;
+}
