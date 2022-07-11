@@ -5,14 +5,13 @@ include('../php/mysqli.php');
 $acc = $_REQUEST['up_account'];
 $name = $_REQUEST['up_name'];
 $tel =$_REQUEST['up_tel'];
-$email =$_REQUEST['up_email'];
 // echo "{$name};{$tel};{$email};{$acc}";
 
 //已帳號為條件去更新資料
-$sqlRenewData = "UPDATE member SET name='{$name}',email = '{$email}' ,tel ='{$tel}' WHERE account = '{$acc}'";
+$sqlRenewData = "UPDATE member SET name='{$name}' ,tel ='{$tel}' WHERE account = '{$acc}'";
 $mysqli->query($sqlRenewData);
 
-// header("Location:../html/mb_update.php?account={$acc}");
+header("Location:../html/mb_update.php?account={$acc}");
 
 
 

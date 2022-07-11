@@ -76,3 +76,50 @@ function checkRegexp(o, regexp, n) { //物件,規則,名字
     }
 }
 
+//點選登入/註冊顯示內容及標籤變色
+$('#li_update').on('click', function () {
+    $('#li_update').addClass('selected')
+    $('#li_renewPsw').removeClass('selected')
+    $('#li_point').removeClass('selected')
+    $('#li_order').removeClass('selected')
+    $('#update_form').removeClass('hidden')
+    $('#renewPsw_form').addClass('hidden')
+    $('#point_form').addClass('hidden')
+    $('#order_form').addClass('hidden')
+
+    
+
+})
+
+$('#li_renewPsw').on('click', function () {
+    $('#li_update').removeClass('selected')
+    $('#li_renewPsw').addClass('selected')
+    $('#li_point').removeClass('selected')
+    $('#li_order').removeClass('selected')
+    $('#update_form').addClass('hidden')
+    $('#renewPsw_form').removeClass('hidden')
+    $('#point_form').addClass('hidden')
+    $('#order_form').addClass('hidden')
+})
+
+$('#li_point').on('click', function () {
+    $('#li_update').removeClass('selected')
+    $('#li_renewPsw').removeClass('selected')
+    $('#li_point').addClass('selected')
+    $('#li_order').removeClass('selected')
+    $('#update_form').addClass('hidden')
+    $('#renewPsw_form').addClass('hidden')
+    $('#point_form').removeClass('hidden')
+    $('#order_form').addClass('hidden')
+})
+
+$('#li_order').on('click', function () {
+    $('#li_update').removeClass('selected')
+    $('#li_renewPsw').removeClass('selected')
+    $('#li_point').removeClass('selected')
+    $('#li_order').addClass('selected')
+    $('#update_form').addClass('hidden')
+    $('#renewPsw_form').addClass('hidden')
+    $('#point_form').addClass('hidden')
+    $('#order_form').removeClass('hidden')
+})

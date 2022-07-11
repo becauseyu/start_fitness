@@ -15,14 +15,14 @@ if (isset($acc)) {
     $sql = "SELECT * FROM member WHERE account = '{$acc}' AND psw ='$psw'";
     $result = $mysqli->query($sql);
     $row =  $result->num_rows; //確認是否有符合的
-    $data = $result->fetch_array();
-    $status = $data['staId'];
-    $email = $data['email'];
-    $token = $psw;
-    $token_exptime = time();
-
     //如果帳號密碼正確
     if ($row > 0) {
+        $data = $result->fetch_array();
+        $status = $data['staId'];
+        $email = $data['email'];
+        $token = $psw;
+        $token_exptime = time();
+        $wrongPsw = '';
         //驗證是否完成驗證
         if ($status == 0) {
             $mail = new PHPMailer(true);
@@ -70,8 +70,11 @@ if (isset($acc)) {
                 </table>
                     "; //郵件內容
             $mail->IsHTML(true);
-            $mail->AddAddress("$email");
+            $mail->AddAddress("$email"); //收件者email
             $mail->Send();
+            //錯誤訊息為空值
+            $wrongPsw = '您尚未完成 信箱驗證 ，這邊將自動重新發送驗證信，請立即到信箱查收！';
+
             //在自動跳轉回登入頁
             header("refresh:3;url=../html/mb_login.html");
         }
@@ -80,11 +83,14 @@ if (isset($acc)) {
             header("Location:../html/mb_update.php?account={$acc}");
         }
     } else {
-        header('Location:../html/mb_login.html');
+        //顯示錯誤訊息
+        $wrongPsw = '帳號密碼錯誤';
+        header("refresh:3;url=../html/mb_login.html");
     };
 }
 //如果帳號密碼輸入錯誤就回到繼續回到登入頁
 else {
+
     header("url=../html/mb_login.html");
 }
 ?>
@@ -129,7 +135,7 @@ else {
                 <div class="col-sm-12">
                     <div class="content-tabset">
                         <div id='login_form' class="m-5">
-                            您尚未完成 信箱驗證 ，這邊將自動重新發送驗證信，請立即到信箱查收！
+                            <?php echo $wrongPsw ?>
                         </div>
 
                     </div>
