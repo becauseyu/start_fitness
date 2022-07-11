@@ -21,13 +21,26 @@
             height: min(90vh, 90vw);
             top: max(calc((90vh - 90vw) / 2), 5vh);
             left: max(calc((90vw - 90vh) / 2), 5vw);
-            
+
         }
 
-        #gameBox *{
+        #gameBox>* {
             position: relative;
+            text-align: center;
+            font-size: 30px;
+            align-items: center;
+
         }
 
+        #gameBox ul {
+            font-size: 20px;
+            /* text-align: left; */
+        }
+
+
+        #gameBox img {
+            height: 20px;
+        }
 
         canvas {
             position: absolute !important;
@@ -35,12 +48,11 @@
             height: 100%;
             border: 1px solid black;
             background-color: aqua;
-            
-            
+
+
         }
 
         #start_button {
-            position: absolute;
             width: 100px;
             /* height: 50px; */
             /* line-height : 50px; */
@@ -51,22 +63,51 @@
             font-size: 30px;
             border-radius: 20%;
         }
+
+        #initialWeight {
+            width: 100px;
+
+
+        }
     </style>
+
+
 </head>
 
 <body>
+
     <div id='gameBox'>
         <canvas id="canvas"></canvas>
+        <div id="rulePage">
+            <div><b>飲控遊戲</b></div>
+            <div>規則 : 根據吃到的食物好壞會增重或減重，請於60秒內控制好您的體重 </div>
+            <div>以下是健康食物</div>
+            <div class='foodList'>
+                <div> 蘋果 : <img src="./gameIMG/good_03.png" alt=""> 減 1 公斤 </div>
+                <div> 生菜 : <img src="./gameIMG/good_02.png" alt=""> 減 5 公斤</div>
+                <div> 新鮮鮭魚 :<img src="./gameIMG/good_01.png" alt=""> 減 20 公斤</div>
+            </div>
+            <div>以下是不健康食物</div>
+            <div class='foodList'>
+                <div> 薯條 : <img src="./gameIMG/bsd_01.png" alt=""> 減 3 公斤 </div>
+                <div> 漢堡 : <img src="./gameIMG/bsd_02.png" alt=""> 減 10 公斤 </div>
+                <div> 披薩 : <img src="./gameIMG/bsd_03.png" alt=""> 減 20 公斤 </div>
+            </div>
 
-    <div id="start_button">
-        <p>start<p>
-    </div>
-    
-    </div>
-    
 
-    <hr />   
-    
+            <div id="div_weight">
+                <label for="initialWeight">請輸入體重 : </label><input type="number" id="initialWeight"><span> kg</span>
+            </div>
+            <div id="start_button">
+                <p>start
+                <p>
+            </div>
+        </div>
+
+
+
+
+
 </body>
 
 </html>

@@ -261,7 +261,9 @@ export class Player extends GameCanvas {
         //    image: ,
         // }
         super();
+        this._weight = 0;
         this.weight = playerData.weight;
+        this.height = playerData.height;
         this.radius = this.weight / 2;
         this.speed = 500 / this.weight;
         this.x = playerData.x;
@@ -269,6 +271,8 @@ export class Player extends GameCanvas {
         this.targetX = this.x;
         this.targetY = this.y;
         this.image = playerData.image;
+        this.speed = playerData.speed;
+        
         // this.showLocation();
         this.move_controll_mode1();
 
@@ -290,7 +294,7 @@ export class Player extends GameCanvas {
         if (this.image != undefined) {
             this.context.beginPath();
             this.context.save();
-            this.context.arc(this.x, this.y, this.radius-1, 0, Math.PI * 2, true);
+            this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
             this.context.clip();
             this.context.drawImage(this.image, this.x - this.radius, this.y - this.radius, 2 * this.radius, 2 * this.radius);
             this.context.restore();
@@ -301,7 +305,7 @@ export class Player extends GameCanvas {
 
     move() {
         // 往目標方向緩速移動
-        this.speed = 500 / this.weight;
+        // this.speed = 500 / this.weight;      // 減速懲罰太高了，先不要
 
         var dx = this.targetX - this.x;
         var dy = this.targetY - this.y;
@@ -327,8 +331,30 @@ export class Player extends GameCanvas {
 
 
 
+    // 體重控制: 因為小於零會有bug，避免遊戲掛掉的防線
+    get weight() {
+        return this._weight;
+    }
+
+    set weight(weightValue) {
+        // if ((this._weight - weightValue) >= 20){
+        //     alert('你是不是減重太快了? 不要亂改數值好嗎?')
+        //     return;
+        // }
+        if (weightValue > 0) {
+            this._weight = weightValue;
+        }else{
+            this._weight = 1;
+        }
+    }
+
+
     imDead() {
         this.isLive = false;
     }
+
+
+
+
 
 }

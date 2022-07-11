@@ -6,7 +6,6 @@ var foodContainer = [];
 var JunkFoodContainer = [];
 var HealthFoodContainer = [];
 
-var player = [];
 var game = '';
 var isPlaying = false;
 
@@ -19,6 +18,7 @@ var canvas_update_time = 0.02; // canvas刷新頻率(秒)
 var canvas_width = 1000;
 var canvas_height = 1000;
 var start_button_width = '100px';
+var initialWeight_width = '50px';
 
 
 
@@ -26,7 +26,7 @@ var start_button_width = '100px';
 //------------以下好食物區-------------------------
 var defaultHealthFood = {
     radius: 30,
-    weight: 1,
+    weight: 2,
     speed: 10,
     liveTime: 5
 
@@ -34,7 +34,7 @@ var defaultHealthFood = {
 
 var healthFood_salmon = {
     radius: 50,
-    weight: 3,
+    weight: 20,
     speed: -1,
     liveTime: 10,
     image: new Image(),
@@ -42,7 +42,7 @@ var healthFood_salmon = {
 
 var healthFood_cabbage = {
     radius: 35,
-    weight: 2,
+    weight: 5,
     speed: 0,
     liveTime: 5,
     image: new Image(),
@@ -72,7 +72,7 @@ var defaultJunkFood = {
 
 var junkFood_fries = {
     radius: 50,
-    weight: 5,
+    weight: 3,
     speed: 15,
     liveTime: 10,
     image: new Image(),
@@ -87,7 +87,7 @@ var junkFood_burger = {
 }
 
 var junkFood_pizza = {
-    radius: 50,
+    radius: 70,
     weight: 20,
     speed: 8,
     liveTime: 10,
@@ -102,6 +102,8 @@ var playerData = {
     x: canvas_width / 2,
     y: canvas_height / 2,
     weight: 70,
+    height: 170,
+    speed : 10,
     image: new Image()
 }
 
@@ -127,7 +129,7 @@ var level1_data = {
     healthFood: [{ name: 'healthFood_apple', cd: 1 },
     { name: 'healthFood_cabbage', cd: 3 },
     { name: 'healthFood_salmon', cd: 10 }],
-    
+
     junkFood: [{ name: 'junkFood_fries', cd: 1 },
     { name: 'junkFood_burger', cd: 3 },
     { name: 'junkFood_pizza', cd: 10 }],
@@ -157,17 +159,30 @@ window.onload = function () {
     // window.addEventListener('resize', resize, false)	// 偵聽事件 resize
 
 
-    // 抓到canvas 調整大小先
+
+//*************************************************************************************** */
+//*************************************************************************************** */
+//*************************************************************************************** */
+//*************************************************************************************** */
+//*************************************************************************************** */
+//*************************************************************************************** */
+
+    // 抓到canvas 調整大小先，所有起始畫面調整都在這裡
     var canvas = document.getElementById('canvas');
     canvas.width = canvas_width;
     canvas.height = canvas_height;
     var gameBox = document.getElementById('gameBox');
+    var initialWeight = document.getElementById('initialWeight');
+    var start_button = document.getElementById('start_button'); 
 
-    document.getElementById('start_button').style.width = start_button_width;
-    document.getElementById('start_button').style.top =  `calc(${gameBox.offsetHeight*0.7}px)`;
-    document.getElementById('start_button').style.left = `calc(${gameBox.offsetWidth}px  / 2 - (${start_button_width}) / 2  )`;
-
+    // start_button.style.width = start_button_width;
+    // start_button.style.top = `calc(${gameBox.offsetHeight * 0.7}px)`;
+    // start_button.style.left = `calc(${gameBox.offsetWidth}px  / 2 - (${start_button_width}) / 2  )`;
     
+    // initialWeight.style.width = initialWeight_width;
+    // initialWeight.style.top = `calc(${gameBox.offsetHeight * 0.6}px)`;
+    // initialWeight.style.left = `calc(${gameBox.offsetWidth}px  / 2 - (${initialWeight_width}) / 2  )`;
+
 
 
     var context = canvas.getContext('2d');
@@ -282,7 +297,7 @@ window.onload = function () {
     }
 
     // draw player
-    function drawPlayer() {
+    function drawPlayer(player) {
         player.showLocation();
     }
 
@@ -317,15 +332,15 @@ window.onload = function () {
     //-------------------------------------------------------------------------------------------------------
     // 刷新畫面時應該做哪些動作
 
-    function animate() {
+    function animate(player) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         deleteDeadFoods(foodContainer);
         deleteDeadFoods(HealthFoodContainer);
         deleteDeadFoods(JunkFoodContainer);
-        drawPlayer();
+        drawPlayer(player);
         drawFoods();
         showTitle()
-
+        showWeight(player)
         // document.getElementById('weight').innerText = `現在體重 : ${player.weight}`;
     }
 
@@ -333,96 +348,100 @@ window.onload = function () {
     //  顯示參數
     function showText() {
         // 純粹測試用
-        context.font="50px sans-serif";
+        context.font = "50px sans-serif";
         // context.textAlign = "center";
         // context.fillText("現在體重",10,50);
-        context.fillText('剩餘時間 :',10,0.05*canvas_height);
+        context.fillText('剩餘時間 :', 10, 0.05 * canvas_height);
     }
 
 
 
     function showTimeLeft(timeLeft) {
-        context.font="50px sans-serif";
+        context.font = "50px sans-serif";
         context.textAlign = "left";
-        context.fillText(`剩餘時間 : ${timeLeft.toFixed(2)} s`,10,0.05*canvas_height);
+        context.fillText(`剩餘時間 : ${timeLeft.toFixed(2)} s`, 10, 0.05 * canvas_height);
     }
 
     function showTitle() {
-        context.font="50px sans-serif";
+        context.font = "50px sans-serif";
         context.textAlign = "right";
-        context.fillText(`飲控遊戲`,canvas_width-10,0.05*canvas_height);
-       
+        context.fillText(`飲控遊戲`, canvas_width - 10, 0.05 * canvas_height);
+
     }
 
-    
+
     // 體重條
-    function drawWeightBar(barPercent) {
-        // 現在狀態
+    function drawWeightBar(player, lockWeight = true) {
+        // 換算BMI
+        var playerWeight = player.weight;
+        var playerHeight = player.height;
+                        
+        var bmi = playerWeight / (playerHeight * 0.01) / (playerHeight * 0.01);
+        var bar_max = 40.5;
+        var bar_min = 13;
+
+        // 是否鎖上下限
+        if (lockWeight) {
+            if (bmi < bar_min) {bmi = bar_min;   player.weight = Math.floor(bar_min*playerHeight*playerHeight/10000)};
+            if (bmi > bar_max) {bmi = bar_max;   player.weight = Math.floor(bar_max*playerHeight*playerHeight/10000)};
+        }
+
+        var barPercent = (bmi - bar_min) / (bar_max - bar_min);
+       
+
+        // 現在狀態:全長 BMI = 13 ~ 40.5
+        var now_bar = 0;
+        if (barPercent >= 0) { now_bar = barPercent };
+        if (barPercent > 1) { now_bar = 1 };
         context.fillStyle = 'black';
-        context.fillRect(0,canvas_height*0.95,canvas_width*BarPercent,20);
+        context.fillRect(0, canvas_height * 0.95, canvas_width * now_bar, 20);
 
-        // 安全範圍
-        save_percent = barPercent - 0.2
-        454554565wdwdwdwdwwddwdwdwdwdwdwdwdwdwdwfwfwfw
+        // 安全範圍 BMI = 18.5~24
 
-        20220709 施工中
+        var save_bar = 0;
+        if (barPercent > 0.2) { save_bar = barPercent - 0.2 };
+        if (barPercent > 0.4) { save_bar = 0.2 };
 
         context.fillStyle = 'green';
-        context.fillRect(canvas_width*0.2,canvas_height*0.95,canvas_width*0.2,20);
+        context.fillRect(canvas_width * 0.2, canvas_height * 0.95, canvas_width * save_bar, 20);
 
-        // 危險區間
+        // 危險區間 BMI = 35~40.5
+        var danger_bar = 0;
+        if (barPercent > 0.8) { danger_bar = barPercent - 0.8 };
+        if (barPercent > 1) { danger_bar = 0.2 };
+
         context.fillStyle = 'red';
-        context.fillRect(canvas_width*0.8,canvas_height*0.95,canvas_width*0.2,20);
-
+        context.fillRect(canvas_width * 0.8, canvas_height * 0.95, canvas_width * danger_bar, 20);
     }
-    
-
-drawWeightBar();
 
 
-
-
-
-
+    function showWeight(player) {
+        context.font = "40px sans-serif";
+        context.textAlign = "left";
+        context.fillText(`現在體重 : ${player.weight.toFixed(0)} kg`, 10, 0.9 * canvas_height);
+    }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//---------------------------------------------------------------------------------------------------------
+//
+//
+//---------------------------------------------------------------------------------------------------------
 
 
 
     // 關卡設計
 
-    function level_1() {
+    function setLevel(player,levelData = level1_data) {
 
-        var healthFood_selection = level1_data.healthFood;
-        var junkFood_selection = level1_data.junkFood;
+        var healthFood_selection = levelData.healthFood;
+        var junkFood_selection = levelData.junkFood;
 
         //  產生食物(怪物)
         //  機制 : 隨機被選到的怪物會暫時離開選擇袋(進cd)，等到cd時間結束後會再回到袋子被選擇
         function generate_foods() {
-            if (HealthFoodContainer.length < level1_data.healthFood_total) {
+            if (HealthFoodContainer.length < levelData.healthFood_total) {
                 if (healthFood_selection.length) {
                     var choose1 = healthFood_selection.splice(Math.floor(Math.random() * healthFood_selection.length), 1)[0];
                     addHealthFood(player, eval(choose1.name));
@@ -431,7 +450,7 @@ drawWeightBar();
                     }, choose1.cd * 1000)
                 }
             }
-            if (JunkFoodContainer.length < level1_data.junkFood_total) {
+            if (JunkFoodContainer.length < levelData.junkFood_total) {
                 if (junkFood_selection.length) {
                     var choose2 = junkFood_selection.splice(Math.floor(Math.random() * junkFood_selection.length), 1)[0];
                     addJunkFoodBesideWall(player, eval(choose2.name));
@@ -459,28 +478,35 @@ drawWeightBar();
     //-------------------------------------------------------------------------------
     // 實際開始與結束
 
-    function start() {
+    function start(levelData = level1_data) {
         clearInterval(game);
         isPlaying = true;
-        player = new Player(playerData);
+        var player = new Player(playerData);
         var timeLeft = gameTime;
-        level_1();
+        setLevel(player,levelData);
+
         game = setInterval(() => {
             if (!document.getElementById('canvas')) {
                 isPlaying = false;
                 clearInterval(game);
             }
 
-            animate();
+            animate(player);
             timeLeft -= canvas_update_time;
+            if (timeLeft <= 0) { timeLeft = 0 };
             showTimeLeft(timeLeft);
+            drawWeightBar(player,true);
 
-        }, canvas_update_time*1000);
-        setTimeout(gameover, gameTime * 1000);
+
+            if (timeLeft <= 0) { gameover(player) };
+
+        }, canvas_update_time * 1000);
+
+
     }
 
 
-    function gameover() {
+    function gameover(player) {
         isPlaying = false;
         clearInterval(game);
         killFoods(foodContainer);
