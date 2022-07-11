@@ -19,6 +19,13 @@
      border: 3px solid rgb(142, 180, 227);
  }
 
+ .selected {
+    background-color: rgb(139, 170, 199);
+    color: white;
+}
+
+
+
  /*span family*/
  .memo {
      color: gray;
