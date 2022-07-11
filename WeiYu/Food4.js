@@ -20,6 +20,14 @@ export class GameCanvas {
 export class Food extends GameCanvas {
 
     constructor(x = 100, y = 200, chaseWho = '', foodName) {
+        // foodName = {
+        //     radius :,
+        //     weight :,
+        //     speed  :,
+        //     liveTime :,
+        //     image :,
+        // }
+
         super();
         this.isLive = true;
 
@@ -72,9 +80,9 @@ export class Food extends GameCanvas {
 
 
             //------------圖片切成圓形-----------------------------------
-            this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+            this.context.arc(this.x, this.y, this.radius * 0.9, 0, Math.PI * 2, true);
             this.context.clip();
-            this.context.drawImage(this.image, this.x-this.radius, this.y-this.radius , 2*this.radius , 2*this.radius);
+            this.context.drawImage(this.image, this.x - this.radius, this.y - this.radius, 2 * this.radius, 2 * this.radius);
 
 
             //---------只繪出不切圓
@@ -89,14 +97,7 @@ export class Food extends GameCanvas {
     }
 
     move() {
-        //------抖動
-        var dx = Math.random() - 0.5;
-        var dy = Math.random() - 0.5;
-        var speedX = dx / Math.sqrt(dx * dx + dy * dy) * this.speed;
-        var speedY = dy / Math.sqrt(dx * dx + dy * dy) * this.speed;
 
-        this.x += speedX;
-        this.y += speedY;
     }
 
     imDead() {
@@ -154,6 +155,32 @@ export class HealthFood extends Food {
 
     // }
 
+
+    move() {
+        //------抖動
+        var dx = Math.random() - 0.5;
+        var dy = Math.random() - 0.5;
+        var speedX = dx / Math.sqrt(dx * dx + dy * dy);
+        var speedY = dy / Math.sqrt(dx * dx + dy * dy);
+
+        this.x += speedX;
+        this.y += speedY;
+
+
+        // 往目標方向緩速逃離
+        dx = this.chaseWho.x - this.x;
+        dy = this.chaseWho.y - this.y;
+
+        speedX = dx / Math.sqrt(dx * dx + dy * dy) * this.speed;
+        speedY = dy / Math.sqrt(dx * dx + dy * dy) * this.speed;
+
+        this.x += speedX;
+        this.y += speedY;
+    }
+
+
+
+
     changeWeight() {
         this.chaseWho.weight -= this.weight;
     }
@@ -201,6 +228,7 @@ export class JunkFood extends Food {
 
         // 會加速
         this.speed += 0.01;
+        // this.radius *= 1.002;
     }
 
 
@@ -212,18 +240,39 @@ export class JunkFood extends Food {
 
 
 
+// -------玩家所有設定-----------
+// 預設參數
+// showlocation() 畫布畫下去
+// move() 移動方法
+// imDead 死亡
+// action() 動起來 
+// move_controll_mode1()用滑鼠控制玩家
+// ----------------------------------------
+
+
 //---------玩家---------------------------
 export class Player extends GameCanvas {
 
     constructor(playerData) {
+        // playerData = {
+        //     x: ,
+        //     y: ,
+        //     weight: ,
+        //    image: ,
+        // }
         super();
+        this._weight = 0;
         this.weight = playerData.weight;
+        this.height = playerData.height;
         this.radius = this.weight / 2;
         this.speed = 500 / this.weight;
         this.x = playerData.x;
         this.y = playerData.y;
         this.targetX = this.x;
         this.targetY = this.y;
+        this.image = playerData.image;
+        this.speed = playerData.speed;
+        
         // this.showLocation();
         this.move_controll_mode1();
 
@@ -235,22 +284,28 @@ export class Player extends GameCanvas {
     }
 
     showLocation() {
-        this.radius = this.weight / 2;
+        this.radius = this.weight;
 
         this.context.beginPath();
         this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-        this.context.fillStyle = 'red';
+        this.context.fillStyle = 'white';
         this.context.fill();
         this.context.fillStyle = 'black';
+        if (this.image != undefined) {
+            this.context.beginPath();
+            this.context.save();
+            this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+            this.context.clip();
+            this.context.drawImage(this.image, this.x - this.radius, this.y - this.radius, 2 * this.radius, 2 * this.radius);
+            this.context.restore();
 
-
-
+        }
     }
 
 
     move() {
         // 往目標方向緩速移動
-        this.speed = 500 / this.weight;
+        // this.speed = 500 / this.weight;      // 減速懲罰太高了，先不要
 
         var dx = this.targetX - this.x;
         var dy = this.targetY - this.y;
@@ -267,8 +322,8 @@ export class Player extends GameCanvas {
         this.canvas.addEventListener('mousemove', (e) => {
 
             // 讓移動方向指向滑鼠位置
-            this.targetX = e.offsetX;
-            this.targetY = e.offsetY;
+            this.targetX = e.offsetX/this.canvas.offsetWidth*this.canvas.width;
+            this.targetY = e.offsetY/this.canvas.offsetHeight*this.canvas.height;
         })
 
     }
@@ -276,8 +331,30 @@ export class Player extends GameCanvas {
 
 
 
+    // 體重控制: 因為小於零會有bug，避免遊戲掛掉的防線
+    get weight() {
+        return this._weight;
+    }
+
+    set weight(weightValue) {
+        // if ((this._weight - weightValue) >= 20){
+        //     alert('你是不是減重太快了? 不要亂改數值好嗎?')
+        //     return;
+        // }
+        if (weightValue > 0) {
+            this._weight = weightValue;
+        }else{
+            this._weight = 1;
+        }
+    }
+
+
     imDead() {
         this.isLive = false;
     }
+
+
+
+
 
 }
