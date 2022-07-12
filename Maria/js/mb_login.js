@@ -74,7 +74,7 @@ $(".checkEye2").click(function () {
 });
 
 //實現再次確認密碼
-$('#re_password2').on('change',function(){
+$('#re_password2').on('input',function(){
     var re_password = $('#re_password').val();
     var re_password2 = $('#re_password2').val();
     if(re_password == re_password2){
@@ -169,3 +169,26 @@ function checkRegexp(o, regexp, n) { //物件,規則,名字
     }
 }
 
+//=========================檢查申請帳號是否重複===========================//
+
+    var xhttp = new XMLHttpRequest();
+    //如果當xhttp發生改變時，發生後面的callback(回乎函式) //閉包
+    function ckdNewAccount() {
+        var account = $('#re_account').val();
+        var psw = $('#old_password').val();
+        xhttp.onreadystatechange = function() {
+            //200 :畫面載入成功(404是失敗)
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                if (xhttp.responseText != 0) { //帳號無重複 //xhttp.responseText 來自後端
+                    $('#message').html('<span style="color:red">✘該帳號已存在</sapn>') 
+                } else {
+                    $('#message').html('<span style="color:green">✔該帳號可使用</sapn>') 
+                }
+            }
+        };
+        //抓輸入的account內容
+        //ajax中，打開請求對象，並送入資料
+        xhttp.open('GET', 'http://localhost:3000/Maria/php/isNewAccount.php?account=' + account, true);
+        //send請求
+        xhttp.send();
+    }

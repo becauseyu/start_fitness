@@ -9,7 +9,7 @@ $email =$_POST['fg_email'];
 $sqlRenewPsw = "UPDATE member SET psw = '{$nPsw}' WHERE email = '{$email}'";
 $mysqli->query($sqlRenewPsw);
 
-header("refresh:2;url=../html/mb_login.html");
+header("refresh:2;url=../html/mb_login.php");
 
 
 ?>
