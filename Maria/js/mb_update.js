@@ -123,3 +123,39 @@ $('#li_order').on('click', function () {
     $('#point_form').addClass('hidden')
     $('#order_form').removeClass('hidden')
 })
+//實現點取眼睛可以看到密碼
+$(".checkEye2").click(function () {
+    if ($(this).hasClass('fa-eye-slash')) {
+        $(".password2").attr('type', 'text');
+    } else {
+        $(".password2").attr('type', 'password');
+    }
+    $('.checkEye2').toggleClass('fa-eye').toggleClass('fa-eye-slash');
+});
+//檢查新舊密碼內容是否一樣
+$('#up_password').on('change',function(){
+    var old_password = $('#old_password').val();
+    var new_password = $('#up_password').val();
+    if(old_password == new_password){
+        $('#cor_password').html('<i style="color:red" class="fa fa-times-circle" aria-hidden="true"></i>')
+        updateTips('舊密碼與新密碼相同')
+        
+    }
+
+})
+
+//實現再次確認密碼
+$('#new_password2').on('change',function(){
+    var re_password = $('#up_password').val();
+    var re_password2 = $('#new_password2').val();
+    if(re_password == re_password2){
+        $('#cor_password2').html('<i style="color:green" class="fa fa-check-circle" aria-hidden="true"></i>')
+        updateTips('')
+        
+    }else{
+        $('#cor_password2').html('<i style="color:red" class="fa fa-times-circle" aria-hidden="true"></i>')
+        updateTips('再次輸入密碼錯誤')
+
+    }
+
+})

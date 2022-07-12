@@ -4,9 +4,11 @@ include_once('../php/mysqli.php');
 
 //從網址得到會員帳號
 $acc = $_REQUEST['account'];
+$psw = $_REQUEST['psw'];
+
 
 //找出所有會員的資料放進去
-$sql = "SELECT * FROM member WHERE account = '{$acc}'";
+$sql = "SELECT * FROM member WHERE account = '{$acc}' AND psw = '{$psw}'";
 $result = $mysqli->query($sql);
 $data = $result->fetch_array();
 //抓全部的東西出來
@@ -108,7 +110,7 @@ $point = $data['point'];
                             </div>
                             <div class="input-group mb-3">
                                 <span>信箱：</span>
-                                <input id="up_email" name="_email" type="text" class="form-control ml-5 mr-5" value="<?php echo $email; ?>" aria-label="Username" aria-describedby="basic-addon1"  disabled>
+                                <input id="up_email" name="fg_email" type="text" class="form-control ml-5 mr-5" value="<?php echo $email; ?>" aria-label="Username" aria-describedby="basic-addon1"  disabled>
                                 <span id='cor_email' class="confirmSpan"></span>
                                 <input name="up_account" type="text" class="hidden" value="<?php echo $acc; ?>">
 
@@ -132,7 +134,7 @@ $point = $data['point'];
                             </div>
                         <span class="memo ml-5 ">*請輸入6~16位英數字組合而成的密碼，請至少含一個英文大寫*</span>
                             <div class="input-group mb-1">
-                                <input id="new_password" name="fg_password" type="text"
+                                <input id="up_password" name="fg_password" type="text"
                                     class="password2 form-control ml-5 mr-5" placeholder="新密碼" aria-label="Password"
                                     aria-describedby="basic-addon1" required>
                                 <i class="checkEye2 fas fa-eye"></i>
@@ -146,6 +148,7 @@ $point = $data['point'];
                                 <i class="checkEye2 fas fa-eye"></i>
                                 <span id='cor_password2' class="confirmSpan"></span>
                             </div>
+                            <input name="fg_email" type="text" class="form-control ml-5 mr-5 hidden" value="<?php echo $email; ?>" aria-label="Username" aria-describedby="basic-addon1"  >
                             <div class="input-group mb-3">
                                 <input class='btn-block ml-5 mr-5 btn btn-success' type="submit" value="更新密碼">
                             </div>

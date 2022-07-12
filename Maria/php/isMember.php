@@ -80,7 +80,7 @@ if (isset($acc)) {
         }
         //如果是1代表已完成驗證會員
         else if ($status = 1) {
-            header("Location:../html/mb_update.php?account={$acc}");
+            header("Location:../html/mb_update.php?account={$acc}&psw={$psw}");
         }
     } else {
         //顯示錯誤訊息
