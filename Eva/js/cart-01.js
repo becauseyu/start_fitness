@@ -1,3 +1,7 @@
+$('.headerpage').load('/MengYing/大專/LAB/header.html')
+$('.footerpage').load('/MengYing/大專/LAB/footer.html')
+
+
 // 數量條 
 $('[data-quantity="plus"]').on('click', function () {
 	//發生事情的那區塊

@@ -9,7 +9,7 @@ $(function () {
   function menu(i) {
     $('.food').eq(i).hover(
       function () {
-        $(this).attr("src", "../asset/saleitem/food/0" + i + ".1.webp")
+        $(this).attr("src", "../asset/saleitem/food/0" + i + ".1.webp");
       },
       function () {
         $(this).attr("src", "../asset/saleitem/food/0" + i + ".webp")
