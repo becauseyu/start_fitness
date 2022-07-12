@@ -76,7 +76,7 @@ if (isset($acc)) {
             $wrongPsw = '您尚未完成 信箱驗證 ，這邊將自動重新發送驗證信，請立即到信箱查收！';
 
             //在自動跳轉回登入頁
-            header("refresh:3;url=../html/mb_login.html");
+            header("refresh:3;url=../html/mb_login.php");
         }
         //如果是1代表已完成驗證會員
         else if ($status = 1) {
@@ -85,13 +85,13 @@ if (isset($acc)) {
     } else {
         //顯示錯誤訊息
         $wrongPsw = '帳號密碼錯誤';
-        header("refresh:3;url=../html/mb_login.html");
+        header("refresh:1;url=../html/mb_login.php");
     };
 }
 //如果帳號密碼輸入錯誤就回到繼續回到登入頁
 else {
 
-    header("url=../html/mb_login.html");
+    header("url=../html/mb_login.php");
 }
 ?>
 <!DOCTYPE html>

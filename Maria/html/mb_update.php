@@ -128,10 +128,11 @@ $point = $data['point'];
                         <div class="input-group mb-3 ">
                                 <input id="old_password" name="old_password" type="text"
                                     class="password2 form-control ml-5 mr-5" placeholder="舊密碼" aria-label="Password"
-                                    aria-describedby="basic-addon1" required>
+                                    aria-describedby="basic-addon1" required onchange= confirmPsw()>
                                 <i class="checkEye2 fas fa-eye"></i>
                                 <span id='old_password' class="confirmSpan"></span>
                             </div>
+                        <p id="message"></p>
                         <span class="memo ml-5 ">*請輸入6~16位英數字組合而成的密碼，請至少含一個英文大寫*</span>
                             <div class="input-group mb-1">
                                 <input id="up_password" name="fg_password" type="text"
@@ -148,7 +149,7 @@ $point = $data['point'];
                                 <i class="checkEye2 fas fa-eye"></i>
                                 <span id='cor_password2' class="confirmSpan"></span>
                             </div>
-                            <input name="fg_email" type="text" class="form-control ml-5 mr-5 hidden" value="<?php echo $email; ?>" aria-label="Username" aria-describedby="basic-addon1"  >
+                            <input id="fg_email" name="fg_email" type="text" class="form-control ml-5 mr-5 hidden" value="<?php echo $email; ?>" aria-label="Username" aria-describedby="basic-addon1"  >
                             <div class="input-group mb-3">
                                 <input class='btn-block ml-5 mr-5 btn btn-success' type="submit" value="更新密碼">
                             </div>

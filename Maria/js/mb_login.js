@@ -74,7 +74,7 @@ $(".checkEye2").click(function () {
 });
 
 //實現再次確認密碼
-$('#re_password2').on('change',function(){
+$('#re_password2').on('input',function(){
     var re_password = $('#re_password').val();
     var re_password2 = $('#re_password2').val();
     if(re_password == re_password2){
@@ -175,6 +175,7 @@ function checkRegexp(o, regexp, n) { //物件,規則,名字
     //如果當xhttp發生改變時，發生後面的callback(回乎函式) //閉包
     function ckdNewAccount() {
         var account = $('#re_account').val();
+        var psw = $('#old_password').val();
         xhttp.onreadystatechange = function() {
             //200 :畫面載入成功(404是失敗)
             if (xhttp.readyState == 4 && xhttp.status == 200) {
