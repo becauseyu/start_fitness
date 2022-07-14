@@ -1,3 +1,23 @@
+<?php
+include('/start_fitness/Maria/php/mysqli.php');
+//得到會員帳號與密碼進行驗證
+$acc = $_REQUEST['account'];
+$psw = $_REQUEST['password'];
+//得到付款方式與寄件方式
+$pay = $_REQUEST['payment'];
+$del = $_REQUEST['deliver'];
+
+//帶入會員資料
+$sql_member = "SELECT * FROM member WHERE account = '{$acc}' AND psw = '{$psw}'";
+$result = $mysqli->query($sql_member);
+$data = $result->fetch_array();
+$email = $data['email'];
+$name = $data['name'];
+$tel = $data['tel'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +82,7 @@
           <button class="btn ">
             <i class="fa fa-user" aria-hidden="true"></i>
           </button>
-          <button class="btn btn-cart" data-toggle="dropdown" >
+          <button class="btn btn-cart" data-toggle="dropdown">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             <span id="cartQuantity" class="badge badge-pill badge-danger">0</span>
           </button>
@@ -87,26 +107,22 @@
       <!-- 購買資訊 -->
       <section class="col-sm-5 col-md-6">
         <p class="h5 section-header">
-          1. <span>顧客資料</span>
+          1. <span>購買人資料</span>
         </p>
         <div class="order-form-content">
           <form name="guest-info-form">
             <div class="form-group">
-              <label for="order-customer-name" class="control-label">顧客名稱</label>
-              <input id="order-customer-name" type="text" class="form-control" name="order[customer_name]" value=""
-                required="">
+              <label for="order-customer-name" class="control-label">購買人</label>
+              <input id="order-customer-name" type="text" class="form-control" name="customer_name" value="<?php echo $name; ?>" required="">
             </div>
             <div class="form-group">
-              <label for="order-customer-email" class="control-label">電子信箱</label>
-              <input id="order-customer-email" type="text" class="form-control" name="order[customer_email]" value=""
-                required="">
+              <label for="order-customer-email" class="control-label">購買人信箱</label>
+              <input id="order-customer-email" type="text" class="form-control" name="customer_email" value="<?php echo $email; ?>" required="">
             </div>
 
             <div class="form-group">
-              <label for="order-customer-phone" class="control-label">電話號碼</label>
-              <input id="order-customer-phone" type="tel" name="order[customer_phone]" value="" required=""
-                auto-padding-to-flag="true" class="form-control" ng-pattern="/^\+?[\(\)\-\#\.\s\d]{6,20}$/"
-                ng-minlength="6" ng-maxlength="20">
+              <label for="order-customer-phone" class="control-label">購買人電話</label>
+              <input id="order-customer-phone" type="tel" name="customer_tel" required value="<?php echo $tel; ?>" auto-padding-to-flag="true" class="form-control" ng-pattern="/^\+?[\(\)\-\#\.\s\d]{6,20}$/" ng-minlength="6" ng-maxlength="20">
             </div>
           </form>
         </div>
@@ -119,8 +135,7 @@
           <div class="order-form-content">
             <form name="remarksForm" class="">
               <div class="form-group">
-                <textarea id="order-remarks" class="form-control" name="order[order_remarks]" placeholder="有注意事項想告訴我們嗎？"
-                  rows="3"></textarea>
+                <textarea id="order-remarks" class="form-control" name="order_memo" placeholder="有注意事項想告訴我們嗎？" rows="3"></textarea>
               </div>
             </form>
           </div>
@@ -138,10 +153,8 @@
             <div class="form-row">
               <div class=" col-md-12 mb-3">
                 <label for="validationServer01"> 收件人</label>
-                <input name='del_name' type="text" class="form-control is-valid" id="validationServer01" placeholder="ex: 蔡小華小姐"
-                  value="" required>
-                <div class="valid-feedback">
-                  Looks good!
+                <input name='del_name' type="text" class="form-control " id="validationServer01" placeholder="ex: 蔡小華小姐" value="" required>
+                <div class="">
                 </div>
               </div>
             </div>
@@ -149,10 +162,8 @@
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">收件人電話</label>
-                <input name='del_tel' type="text" class="form-control is-invalid" id="validationServer02" placeholder="09-xxxx-xxxx"
-                  required>
-                <div class="invalid-feedback">
-                  請輸入電話號碼
+                <input name='del_tel' type="text" class="form-control " id="validationServer02" placeholder="09-xxxx-xxxx" required>
+                <div class="">
                 </div>
               </div>
             </div>
@@ -160,20 +171,18 @@
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="validationServer03">收件人地址</label>
-                <input name='del_addr' type="text" class="form-control is-invalid" id="validationServer03" placeholder="請輸入地址" required>
-                <div class="invalid-feedback">
-                  請輸入地址.
+                <input name='del_addr' type="text" class="form-control " id="validationServer03" placeholder="請輸入地址" required>
+                <div class="">
                 </div>
               </div>
             </div>
             <div class="form-group">
               <div class="form-check">
-                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required name='isAgree'>
                 <label class="form-check-label" for="invalidCheck3">
-                  我已閱讀並同意
+                  我已閱讀並同意相關服務規則
                 </label>
-                <div class="invalid-feedback">
-                  在確認繳交前必須勾選同意
+                <div class="">
                 </div>
               </div>
             </div>
@@ -181,13 +190,14 @@
 
           </form>
         </div>
-        </form>
-        <div class="mt-3 row justify-content">
-          <input type="submit" class="col-4 btn button01" value="確認繳交"></input>
-        </div>
-      </section>
-    </div>
-</form>
+  </form>
+  <div class="mt-3 row justify-content">
+    <a href="http://localhost:3000/Eva/buycart/payment_01.php?account=<?php echo $acc; ?>&password=<?php echo $psw; ?>"><input type="button" class="col-6 btn button01" value="返回上一頁" ></input></a>
+    <input type="submit" class="col-4 btn button01" value="確認繳交"></input>
+  </div>
+  </section>
+  </div>
+  </form>
 
 
   <!-- 頁尾 -->
@@ -195,7 +205,7 @@
   </div>
 
   <!-- script 放body尾 -->
-  <script src="../js/cart-01.js"></script>
+  <script src="../js/cart-02.js"></script>
 
 
 

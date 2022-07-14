@@ -1,3 +1,5 @@
+//載入頁尾
+$('.footerpage').load('/MengYing/大專/LAB/footer.html')
 //新增側邊購物車
 //------------------點擊【x】關閉購物車-----------------------------//
 function closebuycar() {
