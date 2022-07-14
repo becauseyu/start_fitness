@@ -18,7 +18,7 @@ if ($row > 0) {
         $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
         header('Location:../html/mb_login.html');
     } else {
-        $sqlConfirm = "UPDATE member SET staId = 1 WHERE psw = '{$verify}'";
+        $sqlConfirm = "UPDATE member SET staId = 2 WHERE psw = '{$verify}'";
         $mysqli->query($sqlConfirm);
         $text = '驗證成功！將為您跳轉至登入頁面重新登入。';
         //設定幾秒後做頁面跳轉

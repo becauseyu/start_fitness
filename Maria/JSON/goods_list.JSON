@@ -1,0 +1,19 @@
+[
+    {
+        "name": "好好果乾水",
+        "price": "349",
+        "picture": "00.webp",
+        "brand": "@好味營養師品萱",
+        "type":"food",
+        "style":"好氣色"
+        
+    },
+    {
+        "name": "環狀延展彈力帶",
+        "price": "420",
+        "picture": "00.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"demo"
+    }
+]

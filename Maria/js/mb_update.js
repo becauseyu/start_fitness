@@ -76,3 +76,111 @@ function checkRegexp(o, regexp, n) { //物件,規則,名字
     }
 }
 
+//點選登入/註冊顯示內容及標籤變色
+$('#li_update').on('click', function () {
+    $('#li_update').addClass('selected')
+    $('#li_renewPsw').removeClass('selected')
+    $('#li_point').removeClass('selected')
+    $('#li_order').removeClass('selected')
+    $('#update_form').removeClass('hidden')
+    $('#renewPsw_form').addClass('hidden')
+    $('#point_form').addClass('hidden')
+    $('#order_form').addClass('hidden')
+
+    
+
+})
+
+$('#li_renewPsw').on('click', function () {
+    $('#li_update').removeClass('selected')
+    $('#li_renewPsw').addClass('selected')
+    $('#li_point').removeClass('selected')
+    $('#li_order').removeClass('selected')
+    $('#update_form').addClass('hidden')
+    $('#renewPsw_form').removeClass('hidden')
+    $('#point_form').addClass('hidden')
+    $('#order_form').addClass('hidden')
+})
+
+$('#li_point').on('click', function () {
+    $('#li_update').removeClass('selected')
+    $('#li_renewPsw').removeClass('selected')
+    $('#li_point').addClass('selected')
+    $('#li_order').removeClass('selected')
+    $('#update_form').addClass('hidden')
+    $('#renewPsw_form').addClass('hidden')
+    $('#point_form').removeClass('hidden')
+    $('#order_form').addClass('hidden')
+})
+
+$('#li_order').on('click', function () {
+    $('#li_update').removeClass('selected')
+    $('#li_renewPsw').removeClass('selected')
+    $('#li_point').removeClass('selected')
+    $('#li_order').addClass('selected')
+    $('#update_form').addClass('hidden')
+    $('#renewPsw_form').addClass('hidden')
+    $('#point_form').addClass('hidden')
+    $('#order_form').removeClass('hidden')
+})
+//實現點取眼睛可以看到密碼
+$(".checkEye2").click(function () {
+    if ($(this).hasClass('fa-eye-slash')) {
+        $(".password2").attr('type', 'text');
+    } else {
+        $(".password2").attr('type', 'password');
+    }
+    $('.checkEye2').toggleClass('fa-eye').toggleClass('fa-eye-slash');
+});
+//檢查新舊密碼內容是否一樣
+$('#up_password').on('input',function(){
+    var old_password = $('#old_password').val();
+    var new_password = $('#up_password').val();
+    if(old_password == new_password){
+        $('#cor_password').html('<i style="color:red" class="fa fa-times-circle" aria-hidden="true"></i>')
+        updateTips('舊密碼與新密碼相同')
+        
+    }
+
+})
+
+//實現再次確認密碼
+$('#new_password2').on('input',function(){
+    var re_password = $('#up_password').val();
+    var re_password2 = $('#new_password2').val();
+    if(re_password == re_password2){
+        $('#cor_password2').html('<i style="color:green" class="fa fa-check-circle" aria-hidden="true"></i>')
+        updateTips('')
+        
+    }else{
+        $('#cor_password2').html('<i style="color:red" class="fa fa-times-circle" aria-hidden="true"></i>')
+        updateTips('再次輸入密碼錯誤')
+
+    }
+
+})
+//=========================檢查申請帳號是否重複===========================//
+
+var xhttp = new XMLHttpRequest();
+function confirmPsw(){
+    var psw = $('#old_password').val()
+    var email = $('#fg_email').val()
+    xhttp.onreadystatechange = function() {
+        //200 :畫面載入成功(404是失敗)
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            
+            if (xhttp.responseText != 0) { 
+                $('#message').html('<span style="color:green">✔舊密碼輸入正確</sapn>') 
+            } else {
+                $('#message').html('<span style="color:red">✘舊密碼輸入錯誤</sapn>') 
+            }
+        }
+    };
+    //抓輸入的account內容
+    var url = "http://localhost:3000/Maria/php/confirmPsw.php?email="+email+"&psw="+psw;
+    // console.log(url)
+    //ajax中，打開請求對象，並送入資料
+    xhttp.open('GET', url, true);
+    xhttp.send();
+
+}

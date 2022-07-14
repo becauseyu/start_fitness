@@ -60,16 +60,16 @@
                             </div>
                             <p align="center"><a href="../html/mb_forget.html">忘記密碼?</a></p>
                         </form>
-                        <form id='register_form' class="m-5 hidden" action="../php/register.php" method="post">
+                        <form id='register_form' class="m-5 hidden" method="POST" enctype="multipart/form-data">
                             <p align="center" class="mt-n4">註冊會員：</p>
                             <p align="center" id="validUpdate"></p>
-                            <span class="memo ml-5 ">*請輸入6~16位英數字組合而成的帳號(有大小寫之分)*</span>
+                            <span class="memo ml-5 ">*請輸入6~16位英數字組合而成的帳號(有大小寫之分)*</span><span id='message'></span>
                             <div class="input-group mb-1">
                                 <input id="re_account" name="re_account" type="text"
                                     class="re_account form-control ml-5 mr-5" placeholder="帳號" aria-label="Username"
-                                    aria-describedby="basic-addon1" required>
+                                    aria-describedby="basic-addon1" required onchange="ckdNewAccount()">
                                 <span id='cor_account' class="confirmSpan"></span>
-
+                            <br/>
                             </div>
                             <span class="memo ml-5 ">*請輸入6~16位英數字組合而成的密碼，請至少含一個英文大寫*</span>
                             <div class="input-group mb-1">
@@ -115,6 +115,5 @@
 </body>
 <script src="../js/main.js"></script>
 <script src="../js/mb_login.js"></script>
-
-
 </html>
+
