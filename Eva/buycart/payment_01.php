@@ -16,6 +16,7 @@
   <!-- My.css -->
   <link rel="stylesheet" href="../css/buycart.css">
 
+
   <!-- icon -->
   <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
 
@@ -23,11 +24,53 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="/MengYing/大專/_css/head.css" rel="stylesheet">
 
+
 </head>
 
 <body>
   <!-- 頁首  -->
   <div class='headerpage'>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
+      <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7" aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse mx-auto row " id="myNavbarToggler7">
+        <div class=" col-1"></div>
+        <ul class="navbar-nav mx-auto nav-justif justify-content-around " style="align-items: end;">
+          <li class="nav-iteml px-1">
+            <a class="nav-link " href="#">運動Tip</a>
+          </li>
+          <li class="nav-iteml px-1">
+            <a class="nav-link" href="#">健身小物</a>
+          </li>
+          <li class="nav-iteml px-1">
+            <a class="nav-link" href="#">健身地圖</a>
+          </li>
+          <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+          <li class="nav-itemr px-1">
+            <a class="nav-link" href="#">飲食Tip</a>
+          </li>
+          <li class="nav-itemr px-1">
+            <a class="nav-link" href="#">飲食小食</a>
+          </li>
+          <li class="nav-itemr px-1">
+            <a class="nav-link" href="#">Mini game</a>
+          </li>
+        </ul>
+        <div class=" col-1 d-flex justify-content-end">
+          <button class="btn ">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-cart" data-toggle="dropdown" >
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span id="cartQuantity" class="badge badge-pill badge-danger">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
   </div>
   <!--  進度條  -->
   <section class="container progress-size">
@@ -55,46 +98,11 @@
         <div class="col-1 col-sm-1 col-md-1"></div>
       </div>
       <!--每一列-->
-      <div class="table-item">
-        <div class="row table-content ">
-          <div class="col-8 col-sm-4 col-md-4 text-center d-flex">
-            <div class="col-sm-6  cart-items"><img src="../asset/caritem/800x.webp" class="image float-right"></div>
-            <div class="col-sm-6  text-left">
-              <h4>微微奶茶</h4>有含糖包｜一盒10入
-            </div>
-          </div>
-          <div class="col-4 col-sm-2 col-md-2 text-center ">NT$300
-            <input class="price" type="hidden" value="300">
-          </div>
-          <div class="col-6 col-sm-3 col-md-3 text-center ">
-            <div class="input-group plus-minus-input qty-cen">
-              <div class="input-group-button">
-                <button type="button" class="btn btn-number" data-quantity="minus" data-field="quantity">
-                  <i class="fa fa-minus"></i>
-                </button>
-              </div>
-              <input class="input-group-field input-width qty" type="text" name="quantity" value="0">
-              <div class="input-group-button">
-                <button type="button" class="btn btn-number plus" data-quantity="plus" data-field="quantity">
-                  <i class="fa fa-plus"></i>
-                </button>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-5 col-sm-2 col-md-2 text-center">NT$ <span class="total">0</span></div>
-          <div class="col-1 col-sm-1 col-md-1 text-center">
-            <a class="btn"><i class="fa fa-times"></i></a>
-          </div>
-        </div>
-      
-
-      </div>
-
+      <div id="car_content">
     </div>
   </section>
 
-  <div class="container ">
+  <form method="post" action="./payment_02.php" class="container ">
     <div class="row">
       <!--左:付款方式-->
       <section class="col-sm-7 col-md-8">
@@ -105,13 +113,9 @@
           <form name="cartForm">
             <div class="form-group">
               <label for="order-delivery-method" class="h5 pt-1">送貨方式</label>
-              <select id="order-delivery-method" class="form-control">
-                <option value="" selected="">
+              <select name="deliver" id="order-delivery-method" class="form-control">
+                <option  value="新竹物流宅配" selected="">
                   新竹物流宅配</option>
-                <option value="">7-11 取貨不付款
-                </option>
-                <option value="">7-11 取貨付款
-                </option>
               </select>
               <p class="pt-2">．如訂單量較大或是有缺貨狀況，寄出時間將有所延遲，敬請見諒<br>
                 ．若收到商品外箱有明顯破損，可以拒收並錄影存留，當下也請聯絡我們，謝謝<br>
@@ -122,11 +126,8 @@
             <div class="form-group pt-2">
               <label for="order-payment-method" class="h5">付款方式</label>
               <span class="select-cart-form">
-                <select id="order-payment-method" class="form-control">
-                  <option value="5fe1d213dda79c0035c07c67" ng-non-bindable="">信用卡</option>
-                  <option value="5fe1d2cb0c8796001187dd3a" ng-non-bindable="">
-                    超商代碼（需持代碼至超商印出帳單繳費）</option>
-                  <option value="5fe1d28f5787c80014836860" selected="" ng-non-bindable="">ATM
+                <select name="payment" id="order-payment-method" class="form-control">
+                  <option value="貨到付款" ng-non-bindable="">貨到付款</option>
                     虛擬代碼繳費（需持代碼至實體ATM或網路銀行繳費）</option>
                 </select>
               </span>
@@ -166,18 +167,20 @@
 
             <hr class="">
             <p class="pull-left">訂單總金額
-              <span class="">(3件)</span>:&nbsp;NT$
+              (<span class="total_count"></span>件):&nbsp;NT$
               <span class="pull-right total03">0</span>
             </p>
 
 
           </div>
-          <a class="mt-3 btn button01" href="./payment_02.html">前往結帳</a>
+          <input type="submit" class="mt-3 btn button01" value="前往結帳" ></input>
         </div>
 
       </section>
     </div>
-  </div>
+  </form>>
+
+
 
   <!-- 頁尾 -->
   <div class='footerpage'>
@@ -185,6 +188,7 @@
 
   <!-- script 放body尾 -->
   <script src="../js/cart-01.js"></script>
+
 
 
 </body>

@@ -14,3 +14,4 @@ INSERT INTO statusdetail(staName)VALUES ('會員未開通'),('會員已開通'),
 CREATE TABLE `startfitness`.`goodsdetail` (`pid` INT NOT NULL AUTO_INCREMENT , `ptype` VARCHAR(100) NOT NULL , `bid` INT NOT NULL , `pstyle` VARCHAR(100) NOT NULL , `pname` VARCHAR(128) NOT NULL , `pcount` INT NOT NULL,`ppic` VARCHAR(128) NOT NULL,`pprice` INT NOT NULL , PRIMARY KEY (`pid`)) ENGINE = InnoDB;
 新增brandDeatil
 CREATE TABLE `startfitness`.`branddetail` (`bid` INT NOT NULL AUTO_INCREMENT , `bname` VARCHAR(100) NOT NULL , PRIMARY KEY (`bid`)) ENGINE = InnoDB;
+INSERT INTO branddetail(bname) VALUES ("@好味營養師品萱"),("@Peeta Protein"),("@全能專科"),("@lotusfitness"),("@Myprotein"),("@Blender Bottle®"),("@ArmorLite®"),("@BYZOOM"),("@早安健康嚴選"),("@TACTEL® ")

@@ -1,5 +1,5 @@
 .try {
-    background-color: rgb(106, 206, 134);
+    background-color: rgb(225, 253, 233);
 }
 
 .try1 {
@@ -28,41 +28,54 @@
     border-radius: 5px;
 }
 
+/*........................... */
+
 .location {
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    width: 100%;
+
 }
 
 
-.outside{
+.outside {
     border-radius: 5px;
-    /* position: absolute; */
-    padding: 25px;
-    border: 3px solid rgb(80, 69, 69);
-    height: 550px;
-    width: 500px;
-
-    /* left:  calc((100vw - 500px) / 2);
-    top : calc((100vh - 500px) / 2); */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border: 3px solid rgb(251, 196, 33);
+    height: 520px;
+    width: 700px;
+    box-shadow: rgb(226, 176, 27) 0px 3px 8px;
 
 }
 
-#mark{
+
+#mark {
     height: 100%;
     width: 100%;
 }
 
 .header01 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 600;
-    color: rgb(80, 69, 69);
+    color: rgb(235, 176, 0);
     text-align: center;
     letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-shadow: rgba(99, 96, 96, 0.24) 0px 3px 8px;
 }
 
+.img01{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
 
 .header-font {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: rgb(88, 81, 81);
 
@@ -74,4 +87,28 @@
     margin-top: -10px;
     color: rgb(80, 69, 69);
 
+}
+
+.button01 {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #2d84e1;
+    border-color: #004da0;
+
+}
+
+.button01:hover {
+    color: #fff;
+    background-color: #1d60a8;
+    border-color: #1a5594;
+}
+
+.button01:focus,
+.button01.focus {
+    color: #fff;
+    background-color: #457ab4;
+    border-color: #175eaa;
+    box-shadow: 0 0 0 0.2rem rgba(87, 138, 192, 0.5);
 }
