@@ -11,6 +11,6 @@ CREATE TABLE `startfitness`.`member` (`account` VARCHAR(100) NOT NULL , `psw` VA
 CREATE TABLE `startfitness`.`statusdetail` (`staId` INT NOT NULL AUTO_INCREMENT , `staName` VARCHAR(100) NOT NULL , PRIMARY KEY (`staId`)) ENGINE = InnoDB;
 INSERT INTO statusdetail(staName)VALUES ('會員未開通'),('會員已開通'),('管理員')
 新增goodsdetail
-CREATE TABLE `startfitness`.`goodsdetail` (`pid` INT NOT NULL AUTO_INCREMENT , `ptype` VARCHAR(100) NOT NULL , `blendid` INT NOT NULL , `pstyle` VARCHAR(100) NOT NULL , `pname` VARCHAR(128) NOT NULL , `pcount` INT NOT NULL,`ppic` VARCHAR(128) NOT NULL,`pprice` INT NOT NULL , PRIMARY KEY (`pid`)) ENGINE = InnoDB;
-新增bleandDeatil
-CREATE TABLE `startfitness`.`blenddetail` (`blid` INT NOT NULL AUTO_INCREMENT , `blname` VARCHAR(100) NOT NULL , PRIMARY KEY (`blid`)) ENGINE = InnoDB;
+CREATE TABLE `startfitness`.`goodsdetail` (`pid` INT NOT NULL AUTO_INCREMENT , `ptype` VARCHAR(100) NOT NULL , `bid` INT NOT NULL , `pstyle` VARCHAR(100) NOT NULL , `pname` VARCHAR(128) NOT NULL , `pcount` INT NOT NULL,`ppic` VARCHAR(128) NOT NULL,`pprice` INT NOT NULL , PRIMARY KEY (`pid`)) ENGINE = InnoDB;
+新增brandDeatil
+CREATE TABLE `startfitness`.`branddetail` (`bid` INT NOT NULL AUTO_INCREMENT , `bname` VARCHAR(100) NOT NULL , PRIMARY KEY (`bid`)) ENGINE = InnoDB;
