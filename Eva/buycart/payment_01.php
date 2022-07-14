@@ -1,3 +1,8 @@
+<?php
+$acc = $_REQUEST['account'];
+$psw= $_REQUEST['password'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,7 +107,7 @@
     </div>
   </section>
 
-  <form method="post" action="./payment_02.php" class="container ">
+  <form method="post" action="./payment_02.php?account=<?php echo $acc;?>&password=<?php echo $psw;?>" class="container ">
     <div class="row">
       <!--左:付款方式-->
       <section class="col-sm-7 col-md-8">
