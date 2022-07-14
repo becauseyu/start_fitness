@@ -272,7 +272,7 @@ export class Player extends GameCanvas {
         this.targetY = this.y;
         this.image = playerData.image;
         this.speed = playerData.speed;
-        
+
         // this.showLocation();
         this.move_controll_mode1();
 
@@ -286,17 +286,26 @@ export class Player extends GameCanvas {
     showLocation() {
         this.radius = this.weight;
 
-        this.context.beginPath();
-        this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-        this.context.fillStyle = 'white';
-        this.context.fill();
-        this.context.fillStyle = 'black';
+        // this.context.beginPath();
+        // this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+        // this.context.fillStyle = 'white';
+        // this.context.fill();
+        // this.context.fillStyle = 'black';
         if (this.image != undefined) {
             this.context.beginPath();
             this.context.save();
             this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
             this.context.clip();
-            this.context.drawImage(this.image, this.x - this.radius, this.y - this.radius, 2 * this.radius, 2 * this.radius);
+
+            // 判定體重決定圖片胖瘦
+            var image =this.image.w50;
+            if (this.weight >= 100) { image = this.image.w100;}
+            else if (this.weight >=  80) { image = this.image.w80;}
+            else if (this.weight >=  70) { image = this.image.w70;}
+            else if (this.weight >=  60) { image = this.image.w60;}
+
+
+            this.context.drawImage(image, this.x - this.radius, this.y - this.radius, 2 * this.radius, 2 * this.radius);
             this.context.restore();
 
         }
@@ -322,8 +331,8 @@ export class Player extends GameCanvas {
         this.canvas.addEventListener('mousemove', (e) => {
 
             // 讓移動方向指向滑鼠位置
-            this.targetX = e.offsetX/this.canvas.offsetWidth*this.canvas.width;
-            this.targetY = e.offsetY/this.canvas.offsetHeight*this.canvas.height;
+            this.targetX = e.offsetX / this.canvas.offsetWidth * this.canvas.width;
+            this.targetY = e.offsetY / this.canvas.offsetHeight * this.canvas.height;
         })
 
     }
@@ -343,7 +352,7 @@ export class Player extends GameCanvas {
         // }
         if (weightValue > 0) {
             this._weight = weightValue;
-        }else{
+        } else {
             this._weight = 1;
         }
     }

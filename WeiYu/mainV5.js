@@ -1,4 +1,4 @@
-import { Food, Player, HealthFood, JunkFood } from './Food4.js';
+import { Food, Player, HealthFood, JunkFood } from './Food5.js';
 
 
 // 執行必要參數
@@ -104,7 +104,13 @@ var playerData = {
     weight: 70,
     height: 170,
     speed : 10,
-    image: new Image()
+    image: {
+       w50 : new Image(),
+       w60 : new Image(),
+       w70 : new Image(),
+       w80 : new Image(),
+       w100 : new Image(),
+    }
 }
 
 //--------------------------------------------
@@ -116,8 +122,12 @@ junkFood_pizza.image.src = './gameIMG/bsd_03.png';
 healthFood_salmon.image.src = './gameIMG/good_01.png';
 healthFood_cabbage.image.src = './gameIMG/good_02.png';
 healthFood_apple.image.src = './gameIMG/good_03.png';
-playerData.image.src = './gameIMG/girl_70.png';
 
+playerData.image.w50.src = './gameIMG/girl_50.png';
+playerData.image.w60.src = './gameIMG/girl_60.png';
+playerData.image.w70.src = './gameIMG/girl_70.png';
+playerData.image.w80.src = './gameIMG/girl_80.png';
+playerData.image.w100.src = './gameIMG/girl_100.png';
 
 // 關卡參數
 
@@ -389,12 +399,11 @@ window.onload = function () {
         var barPercent = (bmi - bar_min) / (bar_max - bar_min);
        
 
+
         // 現在狀態:全長 BMI = 13 ~ 40.5
         var now_bar = 0;
         if (barPercent >= 0) { now_bar = barPercent };
         if (barPercent > 1) { now_bar = 1 };
-        context.fillStyle = 'black';
-        context.fillRect(0, canvas_height * 0.95, canvas_width * now_bar, 20);
 
         // 安全範圍 BMI = 18.5~24
 
@@ -402,16 +411,29 @@ window.onload = function () {
         if (barPercent > 0.2) { save_bar = barPercent - 0.2 };
         if (barPercent > 0.4) { save_bar = 0.2 };
 
-        context.fillStyle = 'green';
-        context.fillRect(canvas_width * 0.2, canvas_height * 0.95, canvas_width * save_bar, 20);
 
         // 危險區間 BMI = 35~40.5
         var danger_bar = 0;
         if (barPercent > 0.8) { danger_bar = barPercent - 0.8 };
         if (barPercent > 1) { danger_bar = 0.2 };
 
+
+
+        // 畫出體重條
+        context.beginPath();
+        context.save();
+
+        context.fillStyle = 'black';
+        context.fillRect(0, canvas_height * 0.95, canvas_width * now_bar, 20);
+
+        context.fillStyle = 'green';
+        context.fillRect(canvas_width * 0.2, canvas_height * 0.95, canvas_width * save_bar, 20);
+
         context.fillStyle = 'red';
         context.fillRect(canvas_width * 0.8, canvas_height * 0.95, canvas_width * danger_bar, 20);
+
+        context.fillStyle = 'black';
+        context.restore();
     }
 
 
@@ -512,7 +534,7 @@ window.onload = function () {
         killFoods(foodContainer);
         killFoods(HealthFoodContainer);
         killFoods(JunkFoodContainer);
-        document.getElementById('start_button').style.display = 'block';
+        document.getElementById('rulePage').style.display = 'block';
         alert('gameover');
 
     }
@@ -521,7 +543,7 @@ window.onload = function () {
     // 綁定按鍵事件
     document.getElementById('start_button').addEventListener('click', (e) => {
 
-        document.getElementById('start_button').style.display = 'none';
+        document.getElementById('rulePage').style.display = 'none';
         start();
     });
 
