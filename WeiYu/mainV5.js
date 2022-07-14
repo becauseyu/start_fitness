@@ -116,18 +116,22 @@ var playerData = {
 //--------------------------------------------
 
 // 所有圖片載入
-junkFood_fries.image.src = './gameIMG/bsd_01.png';
-junkFood_burger.image.src = './gameIMG/bsd_02.png';
-junkFood_pizza.image.src = './gameIMG/bsd_03.png';
-healthFood_salmon.image.src = './gameIMG/good_01.png';
-healthFood_cabbage.image.src = './gameIMG/good_02.png';
-healthFood_apple.image.src = './gameIMG/good_03.png';
+var downloadImage = new Promise((resolve, reject) => {
+    junkFood_fries.image.src = './gameIMG/bsd_01.png';
+    junkFood_burger.image.src = './gameIMG/bsd_02.png';
+    junkFood_pizza.image.src = './gameIMG/bsd_03.png';
+    healthFood_salmon.image.src = './gameIMG/good_01.png';
+    healthFood_cabbage.image.src = './gameIMG/good_02.png';
+    healthFood_apple.image.src = './gameIMG/good_03.png';
+    
+    playerData.image.w50.src = './gameIMG/girl_50.png';
+    playerData.image.w60.src = './gameIMG/girl_60.png';
+    playerData.image.w70.src = './gameIMG/girl_70.png';
+    playerData.image.w80.src = './gameIMG/girl_80.png';
+    playerData.image.w100.src = './gameIMG/girl_100.png';
+})
 
-playerData.image.w50.src = './gameIMG/girl_50.png';
-playerData.image.w60.src = './gameIMG/girl_60.png';
-playerData.image.w70.src = './gameIMG/girl_70.png';
-playerData.image.w80.src = './gameIMG/girl_80.png';
-playerData.image.w100.src = './gameIMG/girl_100.png';
+
 
 // 關卡參數
 
@@ -534,7 +538,7 @@ window.onload = function () {
         killFoods(foodContainer);
         killFoods(HealthFoodContainer);
         killFoods(JunkFoodContainer);
-        document.getElementById('rulePage').style.display = 'block';
+        document.getElementById('start_button').style.display = 'block';
         alert('gameover');
 
     }
@@ -543,7 +547,7 @@ window.onload = function () {
     // 綁定按鍵事件
     document.getElementById('start_button').addEventListener('click', (e) => {
 
-        document.getElementById('rulePage').style.display = 'none';
+        document.getElementById('start_button').style.display = 'none';
         start();
     });
 

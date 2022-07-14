@@ -11,39 +11,49 @@
 
 
     <style type="text/css">
+        #container {
+            display: flex;
+        }
+
         #gameBox {
-            position: absolute;
+            /* position: absolute; */
             /* left: 100px; */
             /* margin: 0 auto; */
             /* min-width: 500px;
             min-height: 500px; */
             width: min(90vh, 90vw);
             height: min(90vh, 90vw);
-            top: max(calc((90vh - 90vw) / 2), 5vh);
-            left: max(calc((90vw - 90vh) / 2), 5vw);
+            /* top: max(calc((90vh - 90vw) / 2), 5vh);
+            left: max(calc((90vw - 90vh) / 2), 5vw); */
 
         }
 
-        #gameBox>* {
+        #rulePage {
+            padding-left: 5%;
+        }
+        #rulePage>* {
+            
             position: relative;
-            text-align: center;
+            /* text-align: center; */
             font-size: 30px;
-            align-items: center;
+            
 
         }
 
-        #gameBox ul {
-            font-size: 20px;
-            /* text-align: left; */
+
+
+        #rulePage .foodlist {
+            font-size: 25px;
+            margin-left: 5%;
         }
 
 
-        #gameBox img {
+        #rulePage img {
             height: 20px;
         }
 
         canvas {
-            position: absolute !important;
+           
             width: 100%;
             height: 100%;
             border: 1px solid black;
@@ -53,6 +63,9 @@
         }
 
         #start_button {
+            position: relative;
+            top: -20%;
+            left: 50%;
             width: 100px;
             /* height: 50px; */
             /* line-height : 50px; */
@@ -62,6 +75,7 @@
             text-align: center;
             font-size: 30px;
             border-radius: 20%;
+            transform:translate(-50%,-50%) ;
         }
 
         #initialWeight {
@@ -75,36 +89,42 @@
 </head>
 
 <body>
-
-    <div id='gameBox'>
-        <canvas id="canvas"></canvas>
-        <div id="rulePage">
+    <div id="container">
+        <div id='gameBox'>
+            <canvas id="canvas"></canvas>
+            
             <div><b>飲控遊戲</b></div>
-            <div>規則 : 根據吃到的食物好壞會增重或減重，請於60秒內控制好您的體重 </div>
+            <div id="start_button">
+                <p>start</p>
+            </div>
+
+
+            
+        </div>
+        <div id="rulePage">
+            <div><b>規則 : </b></div>
+            <div>根據吃到的食物好壞會增重或減重，請於60秒內控制好您的體重 </div>
             <div>以下是健康食物</div>
             <div class='foodList'>
-                <div> 蘋果 : <img src="./gameIMG/good_03.png" alt=""> 減 1 公斤 </div>
-                <div> 生菜 : <img src="./gameIMG/good_02.png" alt=""> 減 5 公斤</div>
-                <div> 新鮮鮭魚 :<img src="./gameIMG/good_01.png" alt=""> 減 20 公斤</div>
+                <div> 蘋果 : <img src="./gameIMG/good_03.png" alt=""> - 1 kg </div>
+                <div> 生菜 : <img src="./gameIMG/good_02.png" alt=""> - 5 kg</div>
+                <div> 新鮮鮭魚 :<img src="./gameIMG/good_01.png" alt=""> - 20 kg</div>
             </div>
             <div>以下是不健康食物</div>
             <div class='foodList'>
-                <div> 薯條 : <img src="./gameIMG/bsd_01.png" alt=""> 減 3 公斤 </div>
-                <div> 漢堡 : <img src="./gameIMG/bsd_02.png" alt=""> 減 10 公斤 </div>
-                <div> 披薩 : <img src="./gameIMG/bsd_03.png" alt=""> 減 20 公斤 </div>
+                <div> 薯條 : <img src="./gameIMG/bsd_01.png" alt=""> + 3 kg </div>
+                <div> 漢堡 : <img src="./gameIMG/bsd_02.png" alt=""> + 10 kg </div>
+                <div> 披薩 : <img src="./gameIMG/bsd_03.png" alt=""> + 20 kg </div>
             </div>
 
 
-            <div id="div_weight">
+            <div id="div_input">
+                <label for="initialHeight">請輸入身高 : </label><input type="number" id="initialHeight"><span> cm</span>
                 <label for="initialWeight">請輸入體重 : </label><input type="number" id="initialWeight"><span> kg</span>
             </div>
-            <div id="start_button">
-                <p>start
-                <p>
-            </div>
+            
         </div>
-
-
+    </div>
 
 
 
