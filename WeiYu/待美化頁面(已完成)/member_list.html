@@ -14,7 +14,7 @@
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-    <title>login</title>
+    <title>member</title>
 
 
     <style>
@@ -24,18 +24,18 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded justify-content-md-around row">
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample10"
             aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
 
-        
 
-        <div class="navbar-collapse justify-content-md-around collapse" id="navbarsExample10">
+        <div class="col-2"></div>
+        <div class="navbar-collapse  collapse col-8 " id="navbarsExample10">
+            <ul class="navbar-nav nav-tabs mx-auto">
 
-            <ul class="navbar-nav nav-tabs ">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">會員管理</a>
                 </li>
@@ -50,9 +50,14 @@
                     <a class="nav-link" href="#">庫存管理</a>
                 </li>
             </ul>
-        </div>
-    </nav>
 
+        </div>
+        <div class="navbar-nav col-2">
+            <a class="nav-link float-right" href="#">網站活動紀錄</a>
+            <a class="nav-link float-right" href="#">登出</a>
+        </div>
+
+    </nav>
 
     <h1 class="text-center"> 會員管理 </h1>
 
