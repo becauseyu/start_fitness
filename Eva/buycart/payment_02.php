@@ -28,6 +28,47 @@
 <body>
   <!-- 頁首  -->
   <div class='headerpage'>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
+      <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7" aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse mx-auto row " id="myNavbarToggler7">
+        <div class=" col-1"></div>
+        <ul class="navbar-nav mx-auto nav-justif justify-content-around " style="align-items: end;">
+          <li class="nav-iteml px-1">
+            <a class="nav-link " href="#">運動Tip</a>
+          </li>
+          <li class="nav-iteml px-1">
+            <a class="nav-link" href="#">健身小物</a>
+          </li>
+          <li class="nav-iteml px-1">
+            <a class="nav-link" href="#">健身地圖</a>
+          </li>
+          <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+          <li class="nav-itemr px-1">
+            <a class="nav-link" href="#">飲食Tip</a>
+          </li>
+          <li class="nav-itemr px-1">
+            <a class="nav-link" href="#">飲食小食</a>
+          </li>
+          <li class="nav-itemr px-1">
+            <a class="nav-link" href="#">Mini game</a>
+          </li>
+        </ul>
+        <div class=" col-1 d-flex justify-content-end">
+          <button class="btn ">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-cart" data-toggle="dropdown" >
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span id="cartQuantity" class="badge badge-pill badge-danger">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
   </div>
   <!--  進度條  -->
   <section class="container progress-size">
@@ -40,7 +81,7 @@
       <div class="circle">3</div>
     </div>
   </section>
-  <div class="p-3 mb-5 container form-box box-shadow">
+  <form method="post" action='./payment_03.php' class="p-3 mb-5 container form-box box-shadow">
 
     <div class="row">
       <!-- 購買資訊 -->
@@ -97,7 +138,7 @@
             <div class="form-row">
               <div class=" col-md-12 mb-3">
                 <label for="validationServer01"> 收件人</label>
-                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="ex: 蔡小華小姐"
+                <input name='del_name' type="text" class="form-control is-valid" id="validationServer01" placeholder="ex: 蔡小華小姐"
                   value="" required>
                 <div class="valid-feedback">
                   Looks good!
@@ -108,7 +149,7 @@
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">收件人電話</label>
-                <input type="text" class="form-control is-invalid" id="validationServer02" placeholder="09-xxxx-xxxx"
+                <input name='del_tel' type="text" class="form-control is-invalid" id="validationServer02" placeholder="09-xxxx-xxxx"
                   required>
                 <div class="invalid-feedback">
                   請輸入電話號碼
@@ -119,7 +160,7 @@
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="validationServer03">收件人地址</label>
-                <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="請輸入地址" required>
+                <input name='del_addr' type="text" class="form-control is-invalid" id="validationServer03" placeholder="請輸入地址" required>
                 <div class="invalid-feedback">
                   請輸入地址.
                 </div>
@@ -142,11 +183,11 @@
         </div>
         </form>
         <div class="mt-3 row justify-content">
-          <a class="col-4 btn button01" href="./payment_03.html">確認繳交</a>
+          <input type="submit" class="col-4 btn button01" value="確認繳交"></input>
         </div>
       </section>
     </div>
-  </div>
+</form>
 
 
   <!-- 頁尾 -->
@@ -155,6 +196,7 @@
 
   <!-- script 放body尾 -->
   <script src="../js/cart-01.js"></script>
+
 
 
 </body>
