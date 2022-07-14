@@ -1,12 +1,87 @@
 [
+
     {
-        "name": "好好果乾水",
+        "name": "好好果乾水-好好睡",
         "price": "349",
-        "picture": "00.webp",
+        "picture": "fruitwater00.webp",
         "brand": "@好味營養師品萱",
         "type":"food",
-        "style":"好氣色"
+        "style":"好好睡"
         
+    },
+    {
+        "name": "營養師飽飽凍-蜂蜜檸檬",
+        "price": "249",
+        "picture": "jelly00.webp",
+        "brand": "@好味營養師品萱",
+        "type":"food",
+        "style":"蜂蜜檸檬"
+        
+    },
+    {
+        "name": "微微奶茶-日月潭紅茶",
+        "price": "239",
+        "picture": "milktea00.webp",
+        "brand": "@好味營養師品萱",
+        "type":"food",
+        "style":"日月潭紅茶"
+        
+    },
+    {
+        "name": "瑄春雨-輕酸番茄春雨",
+        "price": "189",
+        "picture": "noodle00.webp",
+        "brand": "@好味營養師品萱",
+        "type":"food",
+        "style":"輕酸番茄春雨"
+        
+    },
+    {
+        "name": "飽米花-麻辣",
+        "price": "198",
+        "picture": "popcron00.webp",
+        "brand": "@好味營養師品萱",
+        "type":"food",
+        "style":"麻辣"
+        
+    },
+    {
+        "name": "乳清蛋白飲-綜合組",
+        "price": "189",
+        "picture": "protein00.webp",
+        "brand": "@Peeta Protein",
+        "type":"food",
+        "style":"綜合組"
+        
+    },
+    {
+        "name": "高蛋白布朗尼",
+        "price": "1450",
+        "picture": "proteinbar00.webp",
+        "brand": "@Myprotein",
+        "type":"food",
+        "style":"綜合組"
+        
+    },
+    {
+        "name": "蔬果萃取酵母綜合維生素",
+        "price": "680",
+        "picture": "vitamin00.webp",
+        "brand": "@全能專科",
+        "type":"food",
+        "style":"維生素B群"
+        
+    },
+
+
+
+    {
+        "name": "環狀延展彈力帶",
+        "price": "420",
+        "picture": "00.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"demo"
     },
     {
         "name": "環狀延展彈力帶",
