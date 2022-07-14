@@ -76,7 +76,7 @@ function closebuycar() {
         <li ><input type="number" value="1" id="slide_buycart_count" "></input></li>
         <li id="slide_buycart_total"align="center">NT$ <span>${goods_single_price}</span></li>
         <li class="hide">${goods_single_price}</li>
-        <li><button class='delete_goods' onclick=delete_goods(this) >移除該商品</button></li>
+        <li><button class='delete_goods' onclick=delete_goods(this) >移除商品</button></li>
         <hr>
      </ul>
         `

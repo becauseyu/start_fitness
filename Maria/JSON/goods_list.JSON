@@ -4,7 +4,7 @@
         "name": "好好果乾水-好好睡",
         "price": "349",
         "picture": "fruitwater01.webp",
-        "brand": "@好味營養師品萱",
+        "brand": "@好味營養師品瑄",
         "type":"food",
         "style":"好好睡"
         
@@ -13,7 +13,7 @@
         "name": "營養師飽飽凍-蜂蜜檸檬",
         "price": "249",
         "picture": "jelly01.webp",
-        "brand": "@好味營養師品萱",
+        "brand": "@好味營養師品瑄",
         "type":"food",
         "style":"蜂蜜檸檬"
         
@@ -22,7 +22,7 @@
         "name": "微微奶茶-日月潭紅茶",
         "price": "239",
         "picture": "milktea00.webp",
-        "brand": "@好味營養師品萱",
+        "brand": "@好味營養師品瑄",
         "type":"food",
         "style":"日月潭紅茶"
         
@@ -31,7 +31,7 @@
         "name": "瑄春雨-輕酸番茄春雨",
         "price": "189",
         "picture": "noodle00.webp",
-        "brand": "@好味營養師品萱",
+        "brand": "@好味營養師品瑄",
         "type":"food",
         "style":"輕酸番茄春雨"
         
@@ -40,7 +40,7 @@
         "name": "飽米花-麻辣",
         "price": "198",
         "picture": "popcron01.webp",
-        "brand": "@好味營養師品萱",
+        "brand": "@好味營養師品瑄",
         "type":"food",
         "style":"麻辣"
         
@@ -57,7 +57,7 @@
     {
         "name": "高蛋白布朗尼",
         "price": "1450",
-        "picture": "proteinbar00.webp",
+        "picture": "proteinbar00.jpg",
         "brand": "@Myprotein",
         "type":"food",
         "style":"綜合組(12入)"

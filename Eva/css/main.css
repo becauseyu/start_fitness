@@ -91,9 +91,11 @@
 }
 
 .delete_goods{
-    background-color: red;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 5px;
+    font-size: 14px;
+    padding: 8px;
+    background-color: rgb(192, 170, 170);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

@@ -1,3 +1,19 @@
+<?php
+
+//從資料庫取出產品放到畫面
+include('/start_fitness/Maria/php/mysqli.php');
+
+$sql_f = "SELECT * FROM goodsdetail WHERE ptype = 'food'";
+$resultFood = $mysqli->query($sql_f);
+
+$sql_g = "SELECT * FROM goodsdetail WHERE ptype = 'gym'";
+$resultGym = $mysqli->query($sql_g);
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,10 +45,8 @@
   <!-- 頁首  -->
   <div class='headerpage'>
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
-      <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;"
-          src="../AI/LOGO.png"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
-        aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7" aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -49,8 +63,7 @@
           <li class="nav-iteml px-1">
             <a class="nav-link" href="#">健身地圖</a>
           </li>
-          <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;"
-              src="../AI/LOGO.png"></a>
+          <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
           <li class="nav-itemr px-1">
             <a class="nav-link" href="#">飲食Tip</a>
           </li>
@@ -112,20 +125,28 @@
         <div class="center-box mt-3">
           <div class=" row">
             <!--  每個食品 -->
-            <div class="col-md-3 col-sm-6 col-6">
-              <div class="m-2 image-sale">
-                <a href="#">
-                  <img src="../asset/saleitem/food/00.webp" class="food photoshadow imgee img-fluid mx-auto rounded">
-                </a>
-              </div>
-              <div class=" ">
-                <div class="cen-brand head-font01">
-                  <div>@好味營養師品瑄</div>
-                </div>
-                <p class="head-font">好好果乾水-好氣色<i class="mx-2 fa-solid fa-cart-shopping"></i></p>
-                <p class="price-font">NT$<span id="single_price">349</span></p>
-              </div>
-            </div>
+            <?php
+            while ($good = $resultFood->fetch_object()) {
+              echo   "<div class='col-md-3 col-sm-6 col-6'>";
+              echo   "<div class='m-2 image-sale'>";
+              echo   "<a  href='/Eva/buycart/goods_data.php?pid={$good->pid}'>";
+              echo   "<img src='../asset/saleitem/food/{$good->ppic}' class='food photoshadow imgee img-fluid mx-auto rounded'>";
+              echo   "</a>";
+              echo   "</div>";
+              echo   "<div class=' '>";
+              echo   "<div class='cen-brand head-font01'>";
+              $sql = "SELECT bname FROM branddetail WHERE bid = '{$good->bid}' ";
+              $result = $mysqli->query($sql);
+              $row = $result->fetch_array();
+              echo   "<div>{$row['bname']}</div>";
+              echo   "</div>";
+              echo   "<p class='head-font'>{$good->pname}<i class='mx-2 fa-solid fa-cart-shopping'></i></p>";
+              echo   "<p class='price-font'>NT$<span id='single_price'>{$good->pprice}</span></p>";
+              echo   "</div>";
+              echo   "</div>";
+
+            }
+            ?>
           </div>
       </section>
 
@@ -141,20 +162,28 @@
         <div class="center-box mt-3">
           <div class="row">
             <!--  每一項 -->
-            <div class="col-md-3 col-sm-6">
-              <div class="m-2 image-sale">
-                <a href="#">
-                  <img src="../asset/saleitem/gym/00_1.webp" class="gym imgee photoshadow  img-fluid mx-auto rounded">
-                </a>
-              </div>
-              <div class="">
-                <div class="cen-brand head-font01">
-                  <div>@lotusfitness</div>
-                </div>
-                <p class="head-font">環狀延展彈力帶-綠<i class="mx-2 fa-solid fa-cart-shopping"></i></p>
-                <p class="price-font">NT$<span id="single_price">420</span></p>
-              </div>
-            </div>
+            <?php
+            while ($good = $resultGym->fetch_object()) {
+              echo   "<div class='col-md-3 col-sm-6 col-6'>";
+              echo   "<div class='m-2 image-sale'>";
+              echo   "<a  href='/Eva/buycart/goods_data.php?pid={$good->pid}'>";
+              echo   "<img src='../asset/saleitem/gym/{$good->ppic}' class='food photoshadow imgee img-fluid mx-auto rounded'>";
+              echo   "</a>";
+              echo   "</div>";
+              echo   "<div class=' '>";
+              echo   "<div class='cen-brand head-font01'>";
+              $sql = "SELECT bname FROM branddetail WHERE bid = '{$good->bid}' ";
+              $result = $mysqli->query($sql);
+              $row = $result->fetch_array();
+              echo   "<div>{$row['bname']}</div>";
+              echo   "</div>";
+              echo   "<p class='head-font'>{$good->pname}<i class='mx-2 fa-solid fa-cart-shopping'></i></p>";
+              echo   "<p class='price-font'>NT$<span id='single_price'>{$good->pprice}</span></p>";
+              echo   "</div>";
+              echo   "</div>";
+
+            }
+            ?>
           </div>
 
         </div>
