@@ -1,3 +1,22 @@
+<?php
+include('/start_fitness/Maria/php/mysqli.php');
+
+$goods = $_REQUEST['pid'];
+if (isset($goods)) {
+  //取得商品資訊
+  $sql = "SELECT * FROM goodsdetail WHERE pid = '$goods'";
+  $result = $mysqli->query($sql);
+  $row = $result->fetch_array();
+  $id = $row['bid'];
+  $sql2 = "SELECT bname FROM branddetail WHERE bid = '{$id}' ";
+  $result2 = $mysqli->query($sql2);
+  $row1 = $result2->fetch_array();
+} else {
+  header("Location:goods_index.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,10 +48,8 @@
   <!-- 頁首  -->
   <div class='headerpage'>
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
-      <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;"
-          src="../AI/LOGO.png"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
-        aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7" aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -49,8 +66,7 @@
           <li class="nav-iteml px-1">
             <a class="nav-link" href="#">健身地圖</a>
           </li>
-          <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;"
-              src="../AI/LOGO.png"></a>
+          <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
           <li class="nav-itemr px-1">
             <a class="nav-link" href="#">飲食Tip</a>
           </li>
@@ -100,14 +116,14 @@
       <!--  大圖列 -->
       <div class="col-lg-5 col-sm-9 col-9 bigImage">
         <div>
-          <img src="../asset/saleitem/food/03.webp" id="bigImage" class="bigImage01 img-fluid">
+          <img src="../asset/saleitem/food/<?php echo $row['ppic']; ?>" id="bigImage" class="bigImage01 img-fluid">
         </div>
       </div>
       <!--  文字敘述 -->
       <div class="col-lg-5 col-sm-12 col-12">
         <div class="pt-3">
-          <h2 class="head-font">飽米花</h2>
-          <p class="head-font01 ">@好味營養師品瑄</p>
+          <h2 class="head-font"><?php echo $row['pname']; ?> </h2>
+          <p class="head-font01 "><?php echo $row1['bname']; ?></p>
           <hr class="header-hr" />
 
         </div>
@@ -162,17 +178,17 @@
 
     </div>
 
-  <!-- 頁尾 -->
-  <div class='footerpage'>
-  </div>
+    <!-- 頁尾 -->
+    <div class='footerpage'>
+    </div>
 
-  <script>
-    $('.footerpage').load('/MengYing/大專/LAB/footer.html')
-  </script>
+    <script>
+      $('.footerpage').load('/MengYing/大專/LAB/footer.html')
+    </script>
 
-  <script script src="../js/goods_data.js"></script>
-  <!-- script 主要 -->
-  <script src="../js/main.js"></script>
+    <script script src="../js/goods_data.js"></script>
+    <!-- script 主要 -->
+    <script src="../js/main.js"></script>
 
 
 </html>

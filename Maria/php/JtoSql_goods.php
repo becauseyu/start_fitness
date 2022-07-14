@@ -9,12 +9,13 @@ $data1 = json_decode($JSON,true);
 $data2 = json_decode($JSON,false);
 // var_dump($data2);
 
+//把JSON加到 goodsdetail
 $sql="INSERT INTO goodsdetail(ptype,bid,pstyle,pname,pcount,ppic,pprice) 
         VALUES (?,?,?,?,?,?,?)";
 
 $count='100';
 
-
+//因為有bid的問題，所以要轉換
 foreach($data2 as $row){
     $sql_brand = "SELECT bid FROM branddetail WHERE bname = '{$row->brand}'";
     $result = $mysqli->query($sql_brand);
