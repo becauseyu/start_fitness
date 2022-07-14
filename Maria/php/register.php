@@ -72,7 +72,7 @@ if (isset($account)) {
     $mail->AddAddress("$email");            //收件者郵件及名稱
     $mail->Send();
     //設定幾秒後做頁面跳轉
-    header("refresh:2;url=../html/mb_login.html");
+    header("refresh:2;url=../html/mb_login.php");
 }
 ?>
 <!DOCTYPE html>

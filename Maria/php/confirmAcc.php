@@ -22,7 +22,7 @@ if ($row > 0) {
         $mysqli->query($sqlConfirm);
         $text = '驗證成功！將為您跳轉至登入頁面重新登入。';
         //設定幾秒後做頁面跳轉
-        header("refresh:2;url=../html/mb_login.html");
+        header("refresh:2;url=../html/mb_login.php");
     }
 }
 
