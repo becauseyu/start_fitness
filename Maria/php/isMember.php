@@ -24,7 +24,7 @@ if (isset($acc)) {
         $token_exptime = time();
         $wrongPsw = '';
         //驗證是否完成驗證
-        if ($status == 0) {
+        if ($status == 1) {
             $mail = new PHPMailer(true);
             $mail->IsSMTP();                                    //設定使用SMTP方式寄信
             $mail->SMTPAuth = true;                        //設定SMTP需要驗證
@@ -79,7 +79,7 @@ if (isset($acc)) {
             header("refresh:3;url=../html/mb_login.php");
         }
         //如果是1代表已完成驗證會員
-        else if ($status = 1) {
+        else if ($status = 2) {
             header("Location:../html/mb_update.php?account={$acc}&psw={$psw}");
         }
     } else {

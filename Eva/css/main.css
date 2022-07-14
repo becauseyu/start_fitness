@@ -1,0 +1,102 @@
+
+/*  ======== slide_buycart  ==================*/
+
+#slide_buycart{
+    height: 80%;
+    width:25%;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top:100px;
+    right: 0;
+    z-index: 120;
+    border-radius: 10px;
+    border: 1px solid gray;
+    visibility: hidden;
+    /* overflow: scroll; */
+
+}
+
+.fa-circle-xmark{
+    font-size:30px;
+    position: relative;
+    float: right;
+    margin-right: 20px;
+    margin-top: 15px;
+    color: white;
+}
+
+.fa-solid:hover{
+    color:gray;
+}
+
+#slide_buycart_title{
+    font-size: 20px;
+    font-family: monospace, Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #ebc57f;
+    padding: 5px;
+}
+
+#slide_buycart_content{
+    text-align: center;
+    height: 65%;
+    overflow: scroll;
+}
+
+.slide_buycart_total{
+    text-align: right;
+    margin-right: 20px;
+    font-size: 20px;
+    font-family: monospace, Tahoma, Geneva, Verdana, sans-serif;
+}
+#slide_buycart_bottom{
+    text-align: center;
+}
+
+#slide_buycart_bottom_btn{
+    margin: 10px;
+    background-color: #6299f9 ;
+    width: 80%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    letter-spacing:5px;
+    color: white;
+    padding: 5px;
+
+} 
+
+
+
+/*  ========== addGoods class =====================*/
+.slide_buycart_image{
+    width: 60%;
+    height: 60%;
+    margin: 8px;
+}
+
+.slide_buycart_goodsTitle{
+    color:rgb(023,156, 255) ;
+}
+
+.slide_buycart_count{
+    margin: 5px;
+    top: 5px;
+    padding: 5px;
+}
+
+.hide{
+    display: none;
+}
+
+.delete_goods{
+    font-size: 14px;
+    padding: 8px;
+    background-color: rgb(192, 170, 170);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+

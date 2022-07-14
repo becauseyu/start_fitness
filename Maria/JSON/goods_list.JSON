@@ -1,0 +1,396 @@
+[
+    {
+        "name": "好好果乾水",
+        "price": "349",
+        "picture": "fruitwater00.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"綜合"
+        
+    },
+    {
+        "name": "好好果乾水",
+        "price": "349",
+        "picture": "fruitwater01.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"好好睡"
+        
+    },
+    {
+        "name": "好好果乾水",
+        "price": "349",
+        "picture": "fruitwater02.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"好心情"
+        
+    },
+    {
+        "name": "好好果乾水",
+        "price": "349",
+        "picture": "fruitwater03.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"好氣色"
+        
+    },
+    {
+        "name": "好好果乾水",
+        "price": "349",
+        "picture": "fruitwater04.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"好精神"
+        
+    },
+    {
+        "name": "營養師飽飽凍",
+        "price": "249",
+        "picture": "jelly01.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"蜂蜜檸檬"
+        
+    },
+    {
+        "name": "營養師飽飽凍",
+        "price": "249",
+        "picture": "jelly02.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"番茄梅"
+        
+    },
+    {
+        "name": "營養師飽飽凍",
+        "price": "249",
+        "picture": "jelly03.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"鳳梨"
+        
+    },
+    {
+        "name": "微微奶茶",
+        "price": "239",
+        "picture": "milktea00.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"日月潭紅茶"
+        
+    },
+    {
+        "name": "微微奶茶",
+        "price": "239",
+        "picture": "milktea01.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"香濃抹茶"
+        
+    },
+    {
+        "name": "微微奶茶",
+        "price": "239",
+        "picture": "milktea02.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"南非國寶茶"
+        
+    },
+    {
+        "name": "微微奶茶",
+        "price": "239",
+        "picture": "milktea03.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"鐵觀音紅茶"
+        
+    },
+    {
+        "name": "瑄春雨",
+        "price": "189",
+        "picture": "noodle00.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"輕酸番茄春雨"
+        
+    },
+    {
+        "name": "瑄春雨",
+        "price": "189",
+        "picture": "noodle01.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"辛辣香菇春雨"
+        
+    },
+    {
+        "name": "飽米花",
+        "price": "198",
+        "picture": "popcron01.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"麻辣"
+        
+    },
+    {
+        "name": "飽米花",
+        "price": "198",
+        "picture": "popcron02.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"抹茶"
+        
+    },
+    {
+        "name": "飽米花",
+        "price": "198",
+        "picture": "popcron03.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"椒鹽"
+        
+    },
+    {
+        "name": "飽米花",
+        "price": "198",
+        "picture": "popcron04.webp",
+        "brand": "@好味營養師品瑄",
+        "type":"food",
+        "style":"黑糖"
+        
+    },
+    {
+        "name": "乳清蛋白飲",
+        "price": "189",
+        "picture": "protein00.webp",
+        "brand": "@Peeta Protein",
+        "type":"food",
+        "style":"綜合組"
+        
+    },
+    {
+        "name": "乳清蛋白飲",
+        "price": "189",
+        "picture": "protein01.webp",
+        "brand": "@Peeta Protein",
+        "type":"food",
+        "style":"馥郁可可"
+        
+    },
+    {
+        "name": "乳清蛋白飲",
+        "price": "189",
+        "picture": "protein02.webp",
+        "brand": "@Peeta Protein",
+        "type":"food",
+        "style":"深焙奶茶"
+        
+    },
+    {
+        "name": "乳清蛋白飲",
+        "price": "189",
+        "picture": "protein03.webp",
+        "brand": "@Peeta Protein",
+        "type":"food",
+        "style":"焦糖瑪奇朵"
+        
+    },
+    {
+        "name": "高蛋白布朗尼",
+        "price": "1450",
+        "picture": "proteinbar00.jpg",
+        "brand": "@Myprotein",
+        "type":"food",
+        "style":"綜合組(12入)"
+        
+    },
+    {
+        "name": "蔬果萃取酵母綜合維生素",
+        "price": "680",
+        "picture": "vitamin00.webp",
+        "brand": "@全能專科",
+        "type":"food",
+        "style":"維生素B群"
+    },
+
+
+    {
+        "name": "我不是胖虎冰壩杯",
+        "price": "359",
+        "picture": "bottle_v2_00.webp",
+        "brand": "@Blender Bottle®",
+        "type":"gym",
+        "style":"獨家款Body Builder"
+    },
+    {
+        "name": "我不是胖虎冰壩杯",
+        "price": "359",
+        "picture": "bottle_v2_02.webp",
+        "brand": "@Blender Bottle®",
+        "type":"gym",
+        "style":"氣萌團子"
+    },
+    {
+        "name": "我不是胖虎冰壩杯",
+        "price": "359",
+        "picture": "bottle_v2_05.webp",
+        "brand": "@Blender Bottle®",
+        "type":"gym",
+        "style":"藍海虎箭"
+    },
+    {
+        "name": "我不是胖虎冰壩杯",
+        "price": "359",
+        "picture": "bottle_v2_07.webp",
+        "brand": "@Blender Bottle®",
+        "type":"gym",
+        "style":"胖且生氣"
+    },
+
+
+    {
+        "name": "我不是胖虎冰壩杯",
+        "price": "359",
+        "picture": "bottle01.webp",
+        "brand": "@Blender Bottle®",
+        "type":"gym",
+        "style":"燈籠泡泡"
+    },
+    {
+        "name": "我不是胖虎冰壩杯",
+        "price": "359",
+        "picture": "bottle02.webp",
+        "brand": "@Blender Bottle®",
+        "type":"gym",
+        "style":"虎斑呱呱"
+    },
+    {
+        "name": "我不是胖虎冰壩杯",
+        "price": "359",
+        "picture": "bottle03.webp",
+        "brand": "@Blender Bottle®",
+        "type":"gym",
+        "style":"燈籠泡泡"
+    },
+    {
+        "name": "我不是胖虎冰壩杯",
+        "price": "359",
+        "picture": "bottle04.webp",
+        "brand": "@Blender Bottle®",
+        "type":"gym",
+        "style":"虎背鯊鯊"
+    },
+
+
+    {
+        "name": "抗菌訓練寬肩背心",
+        "price": "850",
+        "picture": "cloth00.webp",
+        "brand": "@ArmorLite®",
+        "type":"gym",
+        "style":"鏽綠"
+    },
+    {
+        "name": "抗菌訓練寬肩背心",
+        "price": "850",
+        "picture": "cloth02.webp",
+        "brand": "@ArmorLite®",
+        "type":"gym",
+        "style":"金屬棕"
+    },
+    {
+        "name": "抗菌訓練寬肩背心",
+        "price": "850",
+        "picture": "cloth03.webp",
+        "brand": "@ArmorLite®",
+        "type":"gym",
+        "style":"卓越白"
+    },
+
+
+    {
+        "name": "速調啞鈴",
+        "price": "5400",
+        "picture": "dumbbell00.webp",
+        "brand": "@BYZOOM",
+        "type":"gym",
+        "style":"55磅 15段"
+    },
+    {
+        "name": "植纖瑜珈運動滾筒",
+        "price": "999",
+        "picture": "foamroller00.webp",
+        "brand": "@早安健康嚴選",
+        "type":"gym",
+        "style":"加長版"
+    },
+    {
+        "name": "高腰側線Leggings",
+        "price": "1580",
+        "picture": "leggings00.webp",
+        "brand": "@TACTEL® ",
+        "type":"gym",
+        "style":"碳黑"
+    },
+    {
+        "name": "高腰側線Leggings",
+        "price": "1580",
+        "picture": "leggings02.webp",
+        "brand": "@TACTEL® ",
+        "type":"gym",
+        "style":"青丹綠"
+    },
+    {
+        "name": "高腰側線Leggings",
+        "price": "1580",
+        "picture": "leggings03.webp",
+        "brand": "@TACTEL® ",
+        "type":"gym",
+        "style":"黑麻灰"
+    },
+
+
+    {
+        "name": "徜徉瑜珈墊",
+        "price": "3080",
+        "picture": "yogamat00.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"DIVE IN WATER"
+    },
+
+    {
+        "name": "環狀延展彈力帶",
+        "price": "420",
+        "picture": "resistanceband01.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"18-65磅(約8-29公斤)"
+    },
+    {
+        "name": "環狀延展彈力帶",
+        "price": "420",
+        "picture": "resistanceband02.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"20-70磅(約9-31公斤)"
+    },
+    {
+        "name": "環狀延展彈力帶",
+        "price": "420",
+        "picture": "resistanceband03.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"35-85磅(約16-38公斤)"
+    },
+    {
+        "name": "環狀延展彈力帶",
+        "price": "420",
+        "picture": "resistanceband04.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"50-125磅(約23-56公斤)"
+    }
+]

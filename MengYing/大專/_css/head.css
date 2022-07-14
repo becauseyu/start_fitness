@@ -51,15 +51,9 @@
     border: solid 0.5em #8EB4E3;
     border-radius: 2em;
     width: 100%;
-
+    height: 400px;
     background-color: #ffffff;
-    padding: 0.5em;
-}
-.boxcolor1{
-    color: #ff6347;
-}
-.boxcolor2{
-    color: #fa8072;
+    padding: 10em;
 }
 
 /* r側邊鈕 */
