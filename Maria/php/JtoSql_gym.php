@@ -2,7 +2,7 @@
 include('./mysqli.php');
 
 //將JSON放入資料庫
-$JSON=file_get_contents('./JSON/taichung_gym.JSON');
+$JSON=file_get_contents('../JSON/taichung_gym.JSON');
 //將JSON轉為 true:陣列 // fales:物件
 $data1 = json_decode($JSON,true);
 // var_dump($data1);
