@@ -1,6 +1,12 @@
 <?php
-$acc = $_REQUEST['account'];
+//確認是否為會員
+if(isset($_REQUEST['mid'])){
+$mid = $_REQUEST['mid'];
 $psw= $_REQUEST['password'];
+
+}else{
+  header("Location:/Maria/html/mb_login.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -107,7 +113,7 @@ $psw= $_REQUEST['password'];
     </div>
   </section>
 
-  <form method="post" action="./payment_02.php?account=<?php echo $acc;?>&password=<?php echo $psw;?>" class="container ">
+  <form method="post" action="./payment_02.php?mid=<?php echo $mid;?>&password=<?php echo $psw;?>" class="container ">
     <div class="row">
       <!--左:付款方式-->
       <section class="col-sm-7 col-md-8">

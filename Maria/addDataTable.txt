@@ -19,14 +19,14 @@ CREATE TABLE `startfitness`.`branddetail` (`bid` INT NOT NULL AUTO_INCREMENT , `
 INSERT INTO branddetail(bname) VALUES ("@好味營養師品萱"),("@Peeta Protein"),("@全能專科"),("@lotusfitness"),("@Myprotein"),("@Blender Bottle®"),("@ArmorLite®"),("@BYZOOM"),("@早安健康嚴選"),("@TACTEL® ")
 
 新增 memberOrder
-CREATE TABLE `startfitness`.`memberorder` (`oid` INT NOT NULL AUTO_INCREMENT , `mid` VARCHAR(100) NOT NULL , `delAddr` VARCHAR(256) NOT NULL , `delTel` VARCHAR(100) NOT NULL , `delName` VARCHAR(100) NOT NULL , `point` INT NOT NULL DEFAULT '0' , `did` INT NOT NULL , `paid` INT NULL , `memo` VARCHAR(256) NOT NULL , PRIMARY KEY (`oid`)) ENGINE = InnoDB;
+CREATE TABLE `startfitness`.`memberorder` (`oid` INT NOT NULL AUTO_INCREMENT , `mid` VARCHAR(100) NOT NULL , `delAddr` VARCHAR(256) NOT NULL , `delTel` VARCHAR(100) NOT NULL , `delName` VARCHAR(100) NOT NULL , `point` INT NOT NULL DEFAULT '0' , `did` INT NOT NULL , `paid` INT NULL , `memo` VARCHAR(256) NOT NULL , `staid` INT NOT NULL DEFAULT '1',PRIMARY KEY (`oid`)) ENGINE = InnoDB;
 
 新增 payment
 CREATE TABLE `startfitness`.`payment` (`paid` INT NOT NULL AUTO_INCREMENT , `payment` VARCHAR(100) NOT NULL , PRIMARY KEY (`paid`)) ENGINE = InnoDB;
-INSERT INTO payment(payment) VALUES ("信用卡"),("超商代碼"),("虛擬ATM")
+INSERT INTO payment(payment) VALUES ("貨到付款"), ("信用卡"),("超商代碼"),("虛擬ATM")
 
 新增 deliver
 CREATE TABLE `startfitness`.`deliver` (`did` INT NOT NULL AUTO_INCREMENT , `deliver` VARCHAR(100) NOT NULL , PRIMARY KEY (`did`)) ENGINE = InnoDB;
-INSERT INTO deliver(deliver) VALUES ("黑貓宅配"),("711取貨不付款"),("711取貨付款")
+INSERT INTO deliver(deliver) VALUES ("新竹物流宅配"),("黑貓宅配"),("711取貨不付款"),("711取貨付款")
 新增 orderDetail
 CREATE TABLE `startfitness`.`orderdetail` (`pid` INT NOT NULL AUTO_INCREMENT , `oid` INT NOT NULL , `amount` INT NOT NULL , PRIMARY KEY (`pid`)) ENGINE = InnoDB;
