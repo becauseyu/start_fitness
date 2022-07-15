@@ -27,74 +27,80 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light justify-content-md-around row" style="background-color: #f4d9bf;>
-        <button class="navbar-toggler collapsed type="button" data-toggle="collapse" data-target="#navbarsExample10"
-            aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="mb-5 fixed-top navbar navbar-expand-lg navbar-light nav-shadow " style="background-color: #daccbd;">
+        <a class="navbar-brand d-lg-none" href="#">
+            <img src="../image/member/LOGO.png" width="60" height="60" class="img-fluid">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
+            aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <div class="collapse navbar-collapse row" id="myNavbarToggler7">
+            <div class="col-3"></div>
+            <ul class="col-6 navbar-nav justify-content-end" >
 
+                <li class="nav-iteml ">
+                    <a class="nav-link font-nav" href="#">會員管理</a>
+                </li>
+                <li class="nav-iteml ">
+                    <a class="nav-link font-nav" href="#">文章管理</a>
+                </li>
 
-        <div class="col-2"></div>
-        <div class="navbar-collapse  collapse col-8 " id="navbarsExample10">
-            <ul class="navbar-nav nav-tabs mx-auto">
+                <div class="px-2 d-none d-lg-block ">
+                    <img width="60" height="60" 
+                    class="box-img"
+                    src="../image/member/LOGO.png">
+                </div>
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">會員管理</a>
+                <li class="nav-itemr ">
+                    <a class="nav-link font-nav" href="#">訂單管理</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">文章管理</a>
+                <li class="nav-itemr ">
+                    <a class="nav-link font-nav" href="#">庫存管理</a>
                 </li>
-                <li>這裡放LOGO</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">訂單管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">庫存管理</a>
-                </li>
+
             </ul>
+            <div class="col-3 d-flex justify-content-end">
+                <div class="font-nav01 mr-2">
+                    網站活動紀錄
+                </div>
+                <div class="font-nav01" >
+                    登出
+                </div>
+            </div>
+            
 
         </div>
-        <div class="navbar-nav col-2">
-            <a class="nav-link float-right" href="#">網站活動紀錄</a>
-            <a class="nav-link float-right" href="#">登出</a>
-        </div>
-
     </nav>
 
 
-    <h1 class="text-center"> 會員管理</h1>
+
+    <h1 class="text-center header01"> 會員管理</h1>
 
     <div class="container">
 
-        <div class="d-flex justify-content-center">
-            <a href="{{$page_data['prev_page_url']}}">上一頁</a>
-            /
-            <a href="{{$page_data['next_page_url']}}">下一頁</a>
+        <div class="d-flex justify-content-center ">
+            <a href="{{$page_data['prev_page_url']}}" class="button01 mr-3">上一頁</a>
+            <a href="{{$page_data['next_page_url']}}" class="button01">下一頁</a>
         </div>
 
         <!--  表格首欄  -->
-        <h2 class="mb-0 h4">
-            <div class="row table-dark m-0 p-2">
-
+        <section class="mb-0 h4">
+            <div class="row table-color m-0">
                 <div class="col-1 text-center">ID</div>
                 <div class="col-4 text-center">姓名</div>
                 <div class="col-4 text-center">帳號名稱</div>
                 <div class="col-3 text-center">狀態</div>
             </div>
-        </h2>
-
-
-        <!--  表格單筆  -->
+        </section>
+    <!--  表格單筆  -->
         <div class="accordion" id="accordionExample">
-
-
             <!--  單筆會員資料  -->
             <div class="card">
-
                 <div class="card-header" id="heading1">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
                             data-target="#collapse1">
                             <div class="row">
                                 <div class="col-1 text-center">1</div>
@@ -195,10 +201,9 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-center">
-            <a href="{{$page_data['prev_page_url']}}">上一頁</a>
-            /
-            <a href="{{$page_data['next_page_url']}}">下一頁</a>
+        <div class="mt-4 d-flex justify-content-center">
+            <a href="{{$page_data['prev_page_url']}}" class="button01 mr-3">上一頁</a>
+            <a href="{{$page_data['next_page_url']}}" class="button01">下一頁</a>
         </div>
 
     </div>
