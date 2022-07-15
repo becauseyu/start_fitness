@@ -18,7 +18,7 @@
     <title>member改中</title>
 
     <!-- mycss -->
-    <link rel="stylesheet" href="../待美化頁面(已完成)/head.css">
+    <link rel="stylesheet" href="../待美化頁面(已完成)/backhead.css">
     <link rel="stylesheet" href="../待美化頁面(已完成)/member.css">
 
     <style>
@@ -38,7 +38,7 @@
 
         <div class="collapse navbar-collapse row" id="myNavbarToggler7">
             <div class="col-3"></div>
-            <ul class="col-6 navbar-nav justify-content-end" >
+            <ul class="col-6 navbar-nav justify-content-end">
 
                 <li class="nav-iteml ">
                     <a class="nav-link font-nav" href="#">會員管理</a>
@@ -48,9 +48,7 @@
                 </li>
 
                 <div class="px-2 d-none d-lg-block ">
-                    <img width="60" height="60" 
-                    class="box-img"
-                    src="../image/member/LOGO.png">
+                    <img width="60" height="60" class="box-img" src="../image/member/LOGO.png">
                 </div>
 
                 <li class="nav-itemr ">
@@ -65,26 +63,20 @@
                 <div class="font-nav01 mr-2">
                     網站活動紀錄
                 </div>
-                <div class="font-nav01" >
+                <div class="font-nav01">
                     登出
                 </div>
             </div>
-            
+
 
         </div>
     </nav>
-
-
-
-    <h1 class="text-center header01"> 會員管理</h1>
-
     <div class="container">
-
+        <h1 class="text-center header01"> 會員管理</h1>
         <div class="d-flex justify-content-center ">
             <a href="{{$page_data['prev_page_url']}}" class="button01 mr-3">上一頁</a>
             <a href="{{$page_data['next_page_url']}}" class="button01">下一頁</a>
         </div>
-
         <!--  表格首欄  -->
         <section class="mb-0 h4">
             <div class="row table-color m-0">
@@ -94,24 +86,20 @@
                 <div class="col-3 text-center">狀態</div>
             </div>
         </section>
-    <!--  表格單筆  -->
+        <!--  表格單筆  -->
         <div class="accordion" id="accordionExample">
             <!--  單筆會員資料  -->
             <div class="card">
-                <div class="card-header" id="heading1">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
-                            data-target="#collapse1">
-                            <div class="row">
-                                <div class="col-1 text-center">1</div>
-                                <div class="col-4 text-center">你好</div>
-                                <div class="col-4 text-center">aaa123</div>
-                                <div class="col-3 text-center">正常</div>
-                            </div>
-                        </button>
-                    </h2>
+                <div class="card-header01" id="heading1">
+                    <button class="btn01 btn-block" type="button" data-toggle="collapse" data-target="#collapse1">
+                        <div class="row">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 text-center">你好</div>
+                            <div class="col-4 text-center">aaa123</div>
+                            <div class="col-3 text-center">正常</div>
+                        </div>
+                    </button>
                 </div>
-
                 <div id="collapse1" class="collapse" data-parent="#accordionExample">
                     <div class="card-body">
                         <table class="table">
@@ -144,17 +132,12 @@
                         </table>
                     </div>
                 </div>
-
-
             </div>
 
             <!--  單筆會員資料  -->
             <div class="card">
-
-                <div class="card-header" id="heading2">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                            data-target="#collapse2">
+                <div class="card-header01" id="heading1">
+                    <button class="btn01 btn-block" type="button" data-toggle="collapse" data-target="#collapse1">
                             <div class="row">
                                 <div class="col-1 text-center">2</div>
                                 <div class="col-4 text-center">我不好</div>
@@ -162,7 +145,7 @@
                                 <div class="col-3 text-center">停權</div>
                             </div>
                         </button>
-                    </h2>
+    
                 </div>
 
                 <div id="collapse2" class="collapse" data-parent="#accordionExample">
@@ -207,6 +190,9 @@
         </div>
 
     </div>
+
+
+
 
 
 
