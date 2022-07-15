@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #daccbd;">
+    <nav class="mb-5 fixed-top navbar navbar-expand-lg navbar-light nav-shadow " style="background-color: #daccbd;">
         <a class="navbar-brand d-lg-none" href="#">
             <img src="../image/member/LOGO.png" width="60" height="60" class="img-fluid">
         </a>
@@ -47,8 +47,8 @@
                     <a class="nav-link font-nav" href="#">文章管理</a>
                 </li>
 
-                <div class="d-none d-lg-block ">
-                    <img width="70" height="70" 
+                <div class="px-2 d-none d-lg-block ">
+                    <img width="60" height="60" 
                     class="box-img"
                     src="../image/member/LOGO.png">
                 </div>
@@ -76,44 +76,31 @@
 
 
 
-
-
-
-
-
-
-    <h1 class="text-center"> 會員管理</h1>
+    <h1 class="text-center header01"> 會員管理</h1>
 
     <div class="container">
 
-        <div class="d-flex justify-content-center">
-            <a href="{{$page_data['prev_page_url']}}">上一頁</a>
-            /
-            <a href="{{$page_data['next_page_url']}}">下一頁</a>
+        <div class="d-flex justify-content-center ">
+            <a href="{{$page_data['prev_page_url']}}" class="button01 mr-3">上一頁</a>
+            <a href="{{$page_data['next_page_url']}}" class="button01">下一頁</a>
         </div>
 
         <!--  表格首欄  -->
-        <h2 class="mb-0 h4">
-            <div class="row table-dark m-0 p-2">
-
+        <section class="mb-0 h4">
+            <div class="row table-color m-0">
                 <div class="col-1 text-center">ID</div>
                 <div class="col-4 text-center">姓名</div>
                 <div class="col-4 text-center">帳號名稱</div>
                 <div class="col-3 text-center">狀態</div>
             </div>
-        </h2>
-
-
-        <!--  表格單筆  -->
+        </section>
+    <!--  表格單筆  -->
         <div class="accordion" id="accordionExample">
-
-
             <!--  單筆會員資料  -->
             <div class="card">
-
                 <div class="card-header" id="heading1">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
                             data-target="#collapse1">
                             <div class="row">
                                 <div class="col-1 text-center">1</div>
@@ -214,10 +201,9 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-center">
-            <a href="{{$page_data['prev_page_url']}}">上一頁</a>
-            /
-            <a href="{{$page_data['next_page_url']}}">下一頁</a>
+        <div class="mt-4 d-flex justify-content-center">
+            <a href="{{$page_data['prev_page_url']}}" class="button01 mr-3">上一頁</a>
+            <a href="{{$page_data['next_page_url']}}" class="button01">下一頁</a>
         </div>
 
     </div>

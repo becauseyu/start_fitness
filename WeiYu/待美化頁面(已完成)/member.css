@@ -29,7 +29,48 @@
 }
 
 /*........................... */
-.navbar01 {
-    background-color: #E5D9CE;
+
+.header01 {
+    margin-bottom: 3vh;
+    margin-top: 20vh;
+    font-size: 40px;
+    font-weight: 600;
+    color: rgb(47, 43, 26);
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: rgba(99, 96, 96, 0.24) 0px 3px 5px;
 }
 
+.button01 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #e9b05af7;
+    border-color: #dac7a6;
+    border-radius: 2px;
+    padding: 6px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    box-shadow: rgba(131, 120, 120, 0.761) 1px 1px 2px;
+
+
+}
+
+.button01:hover {
+    text-decoration: underline;    
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #826c4ff7;
+    border-color: #af9c7a;
+    box-shadow: rgba(130, 126, 126, 0.761) 1px 1px 2px;
+}
+
+.table-color {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    background-color: #685e52;
+    text-shadow: rgba(123, 122, 122, 0.24) 1px 2px 2px;
+  }
