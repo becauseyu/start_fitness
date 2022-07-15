@@ -99,7 +99,7 @@ $('[data-quantity="plus"]').on('click', function () {
 	// 當按加時 重新抓數值
 	var qty = $(who).val();
 	var price = $(this).closest('.table-content').find('.price').val();
-	var total = qty*price
+	var total = qty * price
 	$(this).closest('.table-content').find('.total').html(qty * price);
 	// //改變下面合計()件
 
@@ -129,11 +129,20 @@ $('[data-quantity="plus"]').on('click', function () {
 	var myStorage = localStorage
 	var goodJson = myStorage.getItem(good_name)
 	var goodsData = JSON.parse(goodJson)
-	goodsData.count=qty
+	goodsData.count = qty
 	goodsData.totalPrice = total;
 	myStorage.setItem(good_name, JSON.stringify(goodsData))
 	//更改購物車localStorage
 	myStorage.setItem("cartQuantity", total_count)
+	//判定運費
+	var bigtotal = parseInt($('.total02').html())
+	if (bigtotal <= 2000) {
+		$('.fee').html('NT$60');
+		$('.total03').html(bigTotal + 60);
+	} else {
+		$('.fee').html('免運');
+		$('.total03').html(bigTotal);
+	};
 
 });
 
@@ -164,7 +173,7 @@ $('[data-quantity="minus"]').on('click', function () {
 	// 當按減時 重新抓數值
 	var qty = $(who).val();
 	var price = $(this).closest('.table-content').find('.price').val();
-	var total = qty*price
+	var total = qty * price
 	$(this).closest('.table-content').find('.total').html(total);
 
 	// 總計
@@ -190,11 +199,20 @@ $('[data-quantity="minus"]').on('click', function () {
 	var myStorage = localStorage
 	var goodJson = myStorage.getItem(good_name)
 	var goodsData = JSON.parse(goodJson)
-	goodsData.count=qty
+	goodsData.count = qty
 	goodsData.totalPrice = total;
 	myStorage.setItem(good_name, JSON.stringify(goodsData))
 	//更改購物車localStorage
 	myStorage.setItem("cartQuantity", total_count)
+	//判定運費
+	var bigtotal = parseInt($('.total02').html())
+	if (bigtotal <= 2000) {
+		$('.fee').html('NT$60');
+		$('.total03').html(bigTotal + 60);
+	} else {
+		$('.fee').html('免運');
+		$('.total03').html(bigTotal);
+	};
 
 });
 
@@ -232,8 +250,9 @@ $('.qty').on('change', function () {
 	var price = $(this).closest('.table-content').find('.price').val();
 	$(this).closest('.table-content').find('.total').html(qty * price);
 
-	// 判斷運費
-	if (bigTotal <= 2000) {
+	//判定運費
+	var bigtotal = parseInt($('.total02').html())
+	if (bigtotal <= 2000) {
 		$('.fee').html('NT$60');
 		$('.total03').html(bigTotal + 60);
 	} else {
@@ -279,4 +298,13 @@ function deleteGood(btn) {
 		return name != btn_name;
 	}
 	myStorage.setItem('wantList', wantList)
+	//判定運費
+	var bigtotal = parseInt($('.total02').html())
+	if (bigtotal <= 2000) {
+		$('.fee').html('NT$60');
+		$('.total03').html(bigTotal + 60);
+	} else {
+		$('.fee').html('免運');
+		$('.total03').html(bigTotal);
+	};
 }

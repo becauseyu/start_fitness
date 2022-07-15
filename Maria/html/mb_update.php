@@ -2,42 +2,50 @@
 
 include_once('../php/mysqli.php');
 
-//從網址得到會員帳號
-$mid = $_REQUEST['mid'];
-$psw = $_REQUEST['psw'];
+//確認是否為會員
+if (isset($_REQUEST['mid'])) {
 
 
-//找出所有會員的資料放進去
-$sql = "SELECT * FROM member WHERE mid = '{$mid}' AND psw = '{$psw}'";
-$result = $mysqli->query($sql);
-$data = $result->fetch_array();
-//抓全部的東西出來
-$acc = $data['account'];
-$pws = $data['psw'];
-$email = $data['email'];
-$status = $data['staId'];
-if ($status == 2) {
-    $status = '一般會員';
-} else if ($status == 3) {
-    $status = '管理員';
-}
-$tel = $data['tel'];
-//還沒解決tel的放入 0710
-if ($tel == '') {
-    //如果手機尚未設定，文字丟在placeholder
-    $tel = '新增您的手機號碼 ex:0912345678';
-    $tel2 = '';
+    //從網址得到會員帳號
+    $mid = $_REQUEST['mid'];
+    $psw = $_REQUEST['psw'];
+
+
+    //找出所有會員的資料放進去
+    $sql = "SELECT * FROM member WHERE mid = '{$mid}' AND psw = '{$psw}'";
+    $result = $mysqli->query($sql);
+    $data = $result->fetch_array();
+    //抓全部的東西出來
+    $acc = $data['account'];
+    $pws = $data['psw'];
+    $email = $data['email'];
+    $status = $data['staId'];
+    if ($status == 2) {
+        $status = '一般會員';
+    } else if ($status == 3) {
+        $status = '管理員';
+    }
+    $tel = $data['tel'];
+    //還沒解決tel的放入 0710
+    if ($tel == '') {
+        //如果手機尚未設定，文字丟在placeholder
+        $tel = '新增您的手機號碼 ex:0912345678';
+        $tel2 = '';
+    } else {
+        //如果有存在，內容會放value
+        $tel2 = $tel;
+        $tel = '';
+        // echo $tel;
+        // echo $te2;
+    }
+    $name = $data['name'];
+    $point = $data['point'];
+
+    // echo "{$acc};{$pws};{$status};{$name};{$point}";
+
 } else {
-    //如果有存在，內容會放value
-    $tel2 = $tel;
-    $tel = '';
-    // echo $tel;
-    // echo $te2;
+    header("Location:/Maria/html/mb_login.php");
 }
-$name = $data['name'];
-$point = $data['point'];
-
-// echo "{$acc};{$pws};{$status};{$name};{$point}";
 
 ?>
 
@@ -131,7 +139,7 @@ $point = $data['point'];
                             <li class="nav-li" id="li_order">訂單管理</li>
 
                         </ul>
-                        <form id='update_form' class="m-5" action="../php/updateData.php" method="post">
+                        <form id='update_form' class="m-5" action="../php/updateData.php?mid=<?php echo $mid ?>" method="post">
                             <p align="left"><i class="fa fa-id-card-o" aria-hidden="true"></i>
                                 <span id="who"><?php echo $acc; ?></span>
                                 <span class='mb_status'><?php echo $status; ?></span>
@@ -216,7 +224,7 @@ $point = $data['point'];
             <hr>
             <p id="totalCount" class="hide">0</p>
             <p class="slide_buycart_total">總計 NT$<span id="slide_buycart_accounttotal">0</span></p>
-            <a href="/Eva/buycart/payment_01.php?account=<?php echo $acc; ?>&password=<?php echo $psw; ?>"><button id="slide_buycart_bottom_btn">立即結帳</button></a>
+            <a href="/Eva/buycart/payment_01.php?mid=<?php echo $mid; ?>&password=<?php echo $psw; ?>"><button id="slide_buycart_bottom_btn">立即結帳</button></a>
 
 
         </div>

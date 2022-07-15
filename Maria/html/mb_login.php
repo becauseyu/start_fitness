@@ -151,7 +151,7 @@
             <hr>
             <p id="totalCount" class="hide">0</p>
             <p class="slide_buycart_total">總計 NT$<span id="slide_buycart_accounttotal">0</span></p>
-            <a href="/Eva/buycart/payment_01.html"><button id="slide_buycart_bottom_btn">立即結帳</button></a>
+            <a href="/Eva/buycart/payment_01.php"><button id="slide_buycart_bottom_btn">立即結帳</button></a>
 
 
         </div>

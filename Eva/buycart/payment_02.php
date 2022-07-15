@@ -1,19 +1,24 @@
 <?php
 include('/start_fitness/Maria/php/mysqli.php');
-//得到會員帳號與密碼進行驗證
-$acc = $_REQUEST['account'];
-$psw = $_REQUEST['password'];
-//得到付款方式與寄件方式
-$pay = $_REQUEST['payment'];
-$del = $_REQUEST['deliver'];
+//確認是否為會員
+if (isset($_REQUEST['mid'])) {
+  //得到會員帳號與密碼進行驗證
+  $mid = $_REQUEST['mid'];
+  $psw = $_REQUEST['password'];
+  //得到付款方式與寄件方式
+  $pay = $_REQUEST['payment'];
+  $del = $_REQUEST['deliver'];
 
-//帶入會員資料
-$sql_member = "SELECT * FROM member WHERE account = '{$acc}' AND psw = '{$psw}'";
-$result = $mysqli->query($sql_member);
-$data = $result->fetch_array();
-$email = $data['email'];
-$name = $data['name'];
-$tel = $data['tel'];
+  //帶入會員資料
+  $sql_member = "SELECT * FROM member WHERE mid = '{$mid}' AND psw = '{$psw}'";
+  $result = $mysqli->query($sql_member);
+  $data = $result->fetch_array();
+  $email = $data['email'];
+  $name = $data['name'];
+  $tel = $data['tel'];
+} else {
+  header("Location:/Maria/html/mb_login.php");
+}
 
 
 ?>
@@ -101,102 +106,97 @@ $tel = $data['tel'];
       <div class="circle">3</div>
     </div>
   </section>
-  <form method="post" action='./payment_03.php' class="p-3 mb-5 container form-box box-shadow">
-
+  <form method="post" action="http://localhost:3000/Eva/buycart/payment_03.php?mid=<?php echo $mid; ?>&password=<?php echo $psw; ?>" class="p-3 mb-5 container form-box box-shadow">
     <div class="row">
       <!-- 購買資訊 -->
+      <!-- 隱藏欄位 -->
+      <input name='del_method' value="<?php echo $del ;?>" style="display:none"/>
+      <input name='pay_method' value="<?php echo $pay ;?>" style="display:none"/>
       <section class="col-sm-5 col-md-6">
         <p class="h5 section-header">
           1. <span>購買人資料</span>
         </p>
         <div class="order-form-content">
-          <form name="guest-info-form">
+          <div name="guest-info-form">
             <div class="form-group">
-              <label for="order-customer-name" class="control-label">購買人</label>
+              <label for="order-customer-name" class="control-label">購買人<span class='notice'>*必填</span></label>
               <input id="order-customer-name" type="text" class="form-control" name="customer_name" value="<?php echo $name; ?>" required="">
             </div>
             <div class="form-group">
-              <label for="order-customer-email" class="control-label">購買人信箱</label>
+              <label for="order-customer-email" class="control-label">購買人信箱<span class='notice'>*必填</span></label>
               <input id="order-customer-email" type="text" class="form-control" name="customer_email" value="<?php echo $email; ?>" required="">
+              <div class="vaild_div ">
+              </div>
             </div>
-
             <div class="form-group">
-              <label for="order-customer-phone" class="control-label">購買人電話</label>
-              <input id="order-customer-phone" type="tel" name="customer_tel" required value="<?php echo $tel; ?>" auto-padding-to-flag="true" class="form-control" ng-pattern="/^\+?[\(\)\-\#\.\s\d]{6,20}$/" ng-minlength="6" ng-maxlength="20">
+              <label for="order-customer-phone" class="control-label">購買人電話<span class='notice'>*必填</span></label>
+              <input id="order-customer-phone" type="tel" name="customer_tel" required value="<?php echo $tel; ?>" auto-padding-to-flag="true" class="form-control">
+              <div class="vaild_div ">
+              </div>
             </div>
-          </form>
+          </div>
         </div>
-
         <!-- 訂單備註 -->
         <section class="">
           <p class="h5 section-header">
             2. <span>訂單備註</span>
           </p>
           <div class="order-form-content">
-            <form name="remarksForm" class="">
+            <div name="remarksForm" class="">
               <div class="form-group">
                 <textarea id="order-remarks" class="form-control" name="order_memo" placeholder="有注意事項想告訴我們嗎？" rows="3"></textarea>
               </div>
-            </form>
+            </div>
           </div>
         </section>
       </section>
-
       <!-- 送貨地址 -->
       <section class="col-sm-7 col-md-6">
         <p class="h5 section-header">
           3. <span>送件地址</span>
         </p>
-
         <div class=" order-form-content">
-          <form action="">
-            <div class="form-row">
-              <div class=" col-md-12 mb-3">
-                <label for="validationServer01"> 收件人</label>
-                <input name='del_name' type="text" class="form-control " id="validationServer01" placeholder="ex: 蔡小華小姐" value="" required>
-                <div class="">
-                </div>
+          <div class="form-row">
+            <div class=" col-md-12 mb-3">
+              <label for="validationServer01"> 收件人<span class='notice'>*必填</span></label>
+              <input id='deliver-customer-name' name='del_name' type="text" class="form-control vaild_input " placeholder="ex: 蔡小華小姐" value="" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="validationServer02">收件人手機<span class='notice'>*必填</span></label>
+              <input id='deliver-customer-phone' name='del_tel' type="text" class="form-control vaild_input " placeholder="09xxxxxxxx" required>
+              <div class="vaild_div">
               </div>
             </div>
-
-            <div class="form-row">
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">收件人電話</label>
-                <input name='del_tel' type="text" class="form-control " id="validationServer02" placeholder="09-xxxx-xxxx" required>
-                <div class="">
-                </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="validationServer03">收件人地址<span class='notice'>*必填</span></label>
+              <input id='deliver-customer-addr' name='del_addr' type="text" class="form-control  vaild_input" placeholder="請輸入地址" required>
+              <div class="vaild_div">
               </div>
             </div>
-
-            <div class="form-row">
-              <div class="col-md-12 mb-3">
-                <label for="validationServer03">收件人地址</label>
-                <input name='del_addr' type="text" class="form-control " id="validationServer03" placeholder="請輸入地址" required>
-                <div class="">
-                </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input id='ischecked' class="form-check-input is-invalid" type="checkbox" value="" required name='isAgree'>
+              <label class="form-check-label" for="invalidCheck3">
+                我已閱讀並同意相關服務規則
+              </label>
+              <div class="">
               </div>
             </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required name='isAgree'>
-                <label class="form-check-label" for="invalidCheck3">
-                  我已閱讀並同意相關服務規則
-                </label>
-                <div class="">
-                </div>
-              </div>
-            </div>
-
-
-          </form>
+          </div>
         </div>
-  </form>
-  <div class="mt-3 row justify-content">
-    <a href="http://localhost:3000/Eva/buycart/payment_01.php?account=<?php echo $acc; ?>&password=<?php echo $psw; ?>"><input type="button" class="col-6 btn button01" value="返回上一頁" ></input></a>
-    <input type="submit" class="col-4 btn button01" value="確認繳交"></input>
-  </div>
-  </section>
-  </div>
+        <div class="mt-3 row justify-content">
+          <a href="http://localhost:3000/Eva/buycart/payment_01.php?mid=<?php echo $mid; ?>&password=<?php echo $psw; ?>"><input type="button" class="col-6 btn button01" value="返回上一頁"></input></a>
+          <input type="submit" class="col-4 btn button01" value="確認繳交"></input>
+        </div>
+        <div id='goodsList'>
+        </div>
+      </section>
+    </div>
   </form>
 
 
