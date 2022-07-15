@@ -98,7 +98,7 @@
                             </div>
                             <p align="center"><a href="../html/mb_forget.html">忘記密碼?</a></p>
                         </form>
-                        <form id='register_form' class="m-5 hidden" method="POST" enctype="multipart/form-data">
+                        <form id='register_form' class="m-5 hidden" method="POST" enctype="multipart/form-data" action="../php/register.php">
                             <p align="center" class="mt-n4">註冊會員：</p>
                             <p align="center" id="validUpdate"></p>
                             <span class="memo ml-5 ">*請輸入6~16位英數字組合而成的帳號(有大小寫之分)*</span><span id='message'></span>

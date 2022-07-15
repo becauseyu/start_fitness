@@ -18,6 +18,7 @@ if (isset($acc)) {
     //如果帳號密碼正確
     if ($row > 0) {
         $data = $result->fetch_array();
+        $mid = $data['mid'];
         $status = $data['staId'];
         $email = $data['email'];
         $token = $psw;
@@ -78,9 +79,9 @@ if (isset($acc)) {
             //在自動跳轉回登入頁
             header("refresh:3;url=../html/mb_login.php");
         }
-        //如果是1代表已完成驗證會員
-        else if ($status = 2) {
-            header("Location:../html/mb_update.php?account={$acc}&psw={$psw}");
+        //如果是2代表已完成驗證會員
+        else if ($status == 2) {
+            header("Location:../html/mb_update.php?mid={$mid}&psw={$psw}");
         }
     } else {
         //顯示錯誤訊息

@@ -159,28 +159,3 @@ $('#new_password2').on('input',function(){
     }
 
 })
-//=========================檢查申請帳號是否重複===========================//
-
-var xhttp = new XMLHttpRequest();
-function confirmPsw(){
-    var psw = $('#old_password').val()
-    var email = $('#fg_email').val()
-    xhttp.onreadystatechange = function() {
-        //200 :畫面載入成功(404是失敗)
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            
-            if (xhttp.responseText != 0) { 
-                $('#message').html('<span style="color:green">✔舊密碼輸入正確</sapn>') 
-            } else {
-                $('#message').html('<span style="color:red">✘舊密碼輸入錯誤</sapn>') 
-            }
-        }
-    };
-    //抓輸入的account內容
-    var url = "http://localhost:3000/Maria/php/confirmPsw.php?email="+email+"&psw="+psw;
-    // console.log(url)
-    //ajax中，打開請求對象，並送入資料
-    xhttp.open('GET', url, true);
-    xhttp.send();
-
-}

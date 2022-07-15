@@ -1,6 +1,6 @@
 <?php
 
-header("refresh:3;url=../html/mb_login.html");
+header("refresh:3;url=../html/mb_login.php");
 
 
 ?>

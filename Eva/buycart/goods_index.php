@@ -3,10 +3,10 @@
 //從資料庫取出產品放到畫面
 include('/start_fitness/Maria/php/mysqli.php');
 
-$sql_f = "SELECT * FROM goodsdetail WHERE ptype = 'food'";
+$sql_f = "SELECT * FROM goodsdetail WHERE ptype = 'food' AND ppic LIKE '%00%' ";
 $resultFood = $mysqli->query($sql_f);
 
-$sql_g = "SELECT * FROM goodsdetail WHERE ptype = 'gym'";
+$sql_g = "SELECT * FROM goodsdetail WHERE ptype = 'gym' AND ppic LIKE '%00%'";
 $resultGym = $mysqli->query($sql_g);
 
 
@@ -140,7 +140,7 @@ $resultGym = $mysqli->query($sql_g);
               $row = $result->fetch_array();
               echo   "<div>{$row['bname']}</div>";
               echo   "</div>";
-              echo   "<p class='head-font'>{$good->pname}<i class='mx-2 fa-solid fa-cart-shopping'></i></p>";
+              echo   "<p class='head-font'>{$good->pname}－{$good->pstyle}<i class='mx-2 fa-solid fa-cart-shopping'></i></p>";
               echo   "<p class='price-font'>NT$<span id='single_price'>{$good->pprice}</span></p>";
               echo   "</div>";
               echo   "</div>";
