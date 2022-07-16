@@ -47,10 +47,10 @@
     padding: 20px;
     padding-left: 60px;
     padding-right: 60px;
-    border: 3px solid rgb(235, 188, 46);
+    border: 3px solid rgb(199, 126, 9);
     height: 520px;
     width: 700px;
-    box-shadow: rgb(176, 152, 78) 0px 3px 8px;
+    box-shadow: rgb(177, 136, 74) 1px 2px 3px;
 
 }
 
@@ -63,11 +63,11 @@
 .header01 {
     font-size: 28px;
     font-weight: 600;
-    color: rgb(230, 173, 3);
+    color: rgb(206, 153, 7);
     text-align: center;
     letter-spacing: 2px;
     margin-bottom: 5px;
-    text-shadow: rgba(99, 96, 96, 0.24) 0px 3px 8px;
+    text-shadow: rgba(99, 96, 96, 0.24) 1px 3px 8px;
 }
 
 .img01{
