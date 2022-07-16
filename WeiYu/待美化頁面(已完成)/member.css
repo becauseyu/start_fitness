@@ -35,7 +35,7 @@
     margin-top: 22vh;
     font-size: 40px;
     font-weight: 600;
-    color: rgb(47, 43, 26);
+    color: rgb(60, 56, 41);
     text-align: center;
     letter-spacing: 2px;
     text-shadow: rgba(99, 96, 96, 0.24) 0px 3px 5px;
@@ -45,7 +45,7 @@
     font-size: 16px;
     font-weight: 600;
     color: #fff;
-    background-color: #e9b05af7;
+    background-color: #c49563f7;
     border-color: #dac7a6;
     border-radius: 2px;
     padding: 6px;
@@ -59,24 +59,24 @@
     font-size: 15px;
     font-weight: 600;
     color: #fff;
-    background-color: #826c4ff7;
+    background-color: #b29454f7;
     border-color: #af9c7a;
     box-shadow: rgba(130, 126, 126, 0.761) 1px 1px 2px;
 }
 
 .table-color {
-    color: rgb(255, 255, 255);
+    color: rgb(255, 251, 251);
     font-size: 20px;
     font-weight: 600;
     padding: 10px;
-    background-color: #776a5a;
+    background-color: #826949f7;
     text-shadow: rgba(123, 122, 122, 0.24) 1px 2px 2px;
 
 }
 
 .btn01 {
     display: inline-block;
-    font-weight: 600;
+    font-weight: 500;
     color: #6b6f72;
     text-align: center;
     vertical-align: middle;
