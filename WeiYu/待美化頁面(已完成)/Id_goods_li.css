@@ -32,7 +32,7 @@
 
 .header01 {
     margin-bottom: 6vh;
-    margin-top: 22vh;
+    margin-top: 20vh;
     font-size: 40px;
     font-weight: 600;
     color: rgb(60, 56, 41);
@@ -71,4 +71,83 @@
     text-shadow: rgba(123, 122, 122, 0.24) 1px 2px 2px;
 }
 
+.btn01 {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 
+.btn-outline {
+    color: #2bb213;
+    border-color: #0fa628;
+    font-weight: 600;
+    font-size: 20px;
+    font-weight: 500;
+    box-shadow: rgba(188, 184, 184, 0.761) 1px 1px 2px;
+    text-shadow: rgba(123, 122, 122, 0.24) 1px 2px 2px;
+
+  }
+  
+  .btn-outline:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #3bc24f;
+    border-color: #21b73a;
+  }
+
+  .btn-outline01 {
+    color: #1d4dc6;
+    border-color: #0c58c4;
+    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: rgba(188, 184, 184, 0.761) 1px 1px 2px;
+    text-shadow: rgba(123, 122, 122, 0.24) 1px 2px 2px;
+
+  }
+  
+  .btn-outline01:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #243fc4;
+    border-color: #0f3bc9;
+  }
+
+  .btn-outline02 {
+    color: #d11212;
+    border-color: #d00e0e;
+    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: rgba(188, 184, 184, 0.761) 1px 1px 2px;
+    text-shadow: rgba(123, 122, 122, 0.24) 1px 2px 2px;
+
+  }
+  
+  .btn-outline02:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #d00c1f;
+    border-color: #b70808;
+  }
+
+  .fontsize {
+    font-weight: 400;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
