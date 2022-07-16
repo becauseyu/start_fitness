@@ -11,7 +11,7 @@ var isPlaying = false;
 
 
 // -------遊戲參數(s)--------------------------------------------------
-var gameTime = 60;  // 時間
+var gameTime = 10;  // 時間
 var canvas_update_time = 0.02; // canvas刷新頻率(秒)
 
 // 大小設置
@@ -103,6 +103,7 @@ var playerData = {
     y: canvas_height / 2,
     weight: 70,
     height: 170,
+    radius: 70,
     speed : 10,
     image: {
        w50 : new Image(),
@@ -205,6 +206,41 @@ window.onload = function () {
     // console.log(canvas)
 
 
+    // 刻起始畫面
+    function startPage() {
+
+        // 清畫面
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 大標題
+        context.font = "150px sans-serif ";
+        context.textAlign = "center";
+        context.fillText(`飲食控制遊戲`, canvas_width/2, 0.2 * canvas_height);
+
+        // 大頭
+        context.drawImage(randomPicture(),canvas_width/2 -300  , canvas_height/2 -100, 200 , 200);
+        context.drawImage(randomPicture(),canvas_width/2 -100  , canvas_height/2 -100, 200 , 200);
+        context.drawImage(randomPicture(),canvas_width/2 +100  , canvas_height/2 -100, 200 , 200);
+
+
+        document.getElementById('start_button').style.display = 'block';
+
+    }
+
+
+    startPage();
+
+   function randomPicture() {
+       
+        switch (Math.floor(Math.random()*5)) {
+            case 0: return  playerData.image.w50; 
+            case 1: return playerData.image.w60; 
+            case 2: return playerData.image.w70; 
+            case 3: return playerData.image.w80; 
+            case 4: return playerData.image.w100; 
+        }
+    }
+
     //-------------------------------------------------------------------------------------------
     // 隨機地點新增食物function
 
@@ -217,7 +253,7 @@ window.onload = function () {
             var dy = y - chaseWho.y;
 
             // 避開玩家位置，緩衝固定 20 
-            if ((dx * dx + dy * dy) >= Math.pow(chaseWho.radius + 20, 2)) {
+            if ((dx * dx + dy * dy) >= Math.pow(chaseWho.radius + 100, 2)) {
                 return [x, y];
             }
 
@@ -261,7 +297,7 @@ window.onload = function () {
 
 
             // 避開玩家位置，緩衝固定 20
-            if ((dx * dx + dy * dy) >= Math.pow(chaseWho.radius + 20, 2)) {
+            if ((dx * dx + dy * dy) >= Math.pow(chaseWho.radius + 100, 2)) {
                 return [x, y];
             }
 
@@ -504,9 +540,11 @@ window.onload = function () {
     //-------------------------------------------------------------------------------
     // 實際開始與結束
 
-    function start(levelData = level1_data) {
+    function start(height,weight,levelData = level1_data) {
         clearInterval(game);
         isPlaying = true;
+        playerData.height = height;
+        playerData.weight = weight;
         var player = new Player(playerData);
         var timeLeft = gameTime;
         setLevel(player,levelData);
@@ -521,7 +559,8 @@ window.onload = function () {
             timeLeft -= canvas_update_time;
             if (timeLeft <= 0) { timeLeft = 0 };
             showTimeLeft(timeLeft);
-            drawWeightBar(player,true);
+            // drawWeightBar(player,true);
+            drawWeightBar(player,false);
 
 
             if (timeLeft <= 0) { gameover(player) };
@@ -538,17 +577,88 @@ window.onload = function () {
         killFoods(foodContainer);
         killFoods(HealthFoodContainer);
         killFoods(JunkFoodContainer);
-        document.getElementById('start_button').style.display = 'block';
-        alert('gameover');
+        startPage();
+        endPage(player);
+        
 
     }
+
+    //----------------------------------------------------------------------------
+    // 刻結束畫面
+    function endPage(player) {
+        // 清畫面
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    
+        // 刻出bmi值
+        var bmi = Math.floor((player.weight*10000/player.height/player.height));
+        context.font = "80px sans-serif";
+        context.textAlign = "cneter";
+        context.fillText(`您最後的bmi值為 : ${bmi}`,canvas_width/2 , 0.2 * canvas_height);
+
+
+        // 根據bmi值寫一些勉勵人的話
+        var resultHTML=""
+        if (bmi >= 40){
+            resultHTML="你的體重似乎完全控制不下來，再接再厲";
+        }else if (bmi >= 35){
+            resultHTML="我知道你很努力，請再加油!";
+        }else if ((bmi <= 24) && (bmi >=18)){
+            resultHTML="恭喜你，你是一個控制飲食達人";
+        }else if (bmi <= 13) {
+            resultHTML="我知道你很厲害，但老實說太瘦也不是甚麼好事，之後努力增胖吧";
+        }else{
+            resultHTML="很高興你把體重控制得不錯，但還可以更好";
+        }
+        context.font = "30px sans-serif";
+        context.fillText(resultHTML,canvas_width/2 , 0.6 * canvas_height);
+
+
+    }
+
+
+
+
+
 
     //----------------------------------------------------------------------------
     // 綁定按鍵事件
     document.getElementById('start_button').addEventListener('click', (e) => {
 
-        document.getElementById('start_button').style.display = 'none';
-        start();
+        
+        console.log(document.getElementById('initialHeight').value)
+        var height = parseInt(document.getElementById('initialHeight').value,10);
+        var weight = parseInt(document.getElementById('initialWeight').value,10);
+
+
+        // 符合條件才開始
+        if (height && weight) {
+            document.getElementById('start_button').style.display = 'none';
+            start(height,weight);
+        }
+
+        // 補齊身高
+        if (!height) {
+            height = 165;
+            document.getElementById('initialHeight').value = 165;
+
+            // 相當於創造一個change事件
+            const event = new Event("change", {
+                bubbles: true,
+                cancelable: true,
+              });
+            document.getElementById('initialHeight').dispatchEvent(event)
+            document.getElementById('errorLog').innerText = '可能您沒輸入身高或體重或是有個數值怪怪的，所以我們給一個建議值';
+        }
+
+        // 補齊體重
+        if (!weight) {
+            weight = Math.floor(26*height*height/10000);
+            document.getElementById('initialWeight').value = weight;
+            document.getElementById('errorLog').innerText = '可能您沒輸入身高或體重或是有個數值怪怪的，所以我們給一個建議值';
+        }
+
+
+       
     });
 
 
