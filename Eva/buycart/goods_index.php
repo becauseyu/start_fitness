@@ -1,7 +1,7 @@
 <?php
 
 //從資料庫取出產品放到畫面
-include('/start_fitness/Maria/php/mysqli.php');
+include('./mysqli.php');
 
 $sql_f = "SELECT * FROM goodsdetail WHERE ptype = 'food' AND ppic LIKE '%00%' ";
 $resultFood = $mysqli->query($sql_f);
