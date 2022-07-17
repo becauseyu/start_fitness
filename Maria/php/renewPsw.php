@@ -38,7 +38,7 @@ $email = $_GET['email'];
     <!-- 頁首  -->
     <div class='headerpage'>
         <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
-            <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+            <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7" aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -56,7 +56,7 @@ $email = $_GET['email'];
                     <li class="nav-iteml px-1">
                         <a class="nav-link" href="#">健身地圖</a>
                     </li>
-                    <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+                    <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
                     <li class="nav-itemr px-1">
                         <a class="nav-link" href="#">飲食Tip</a>
                     </li>
@@ -85,7 +85,7 @@ $email = $_GET['email'];
                 <div class="col-sm-12">
                     <div class="content-tabset">
                         <div  class="m-5">
-                            <form action="../php/updatePsw.php" method="POST">
+                            <form action="../php/fg_updatePsw.php" method="POST">
                                 <p align="center">請輸入新密碼：</p>
                                 <p align="center" id="validUpdate"></p>
                                 <span class="memo ml-5 ">*請輸入6~16位英數字組合而成的密碼，請至少含一個英文大寫*</span>

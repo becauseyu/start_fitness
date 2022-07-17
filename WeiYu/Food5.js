@@ -264,14 +264,15 @@ export class Player extends GameCanvas {
         this._weight = 0;
         this.weight = playerData.weight;
         this.height = playerData.height;
-        this.radius = this.weight / 2;
-        this.speed = 500 / this.weight;
+        this.radius = playerData.radius;
         this.x = playerData.x;
         this.y = playerData.y;
         this.targetX = this.x;
         this.targetY = this.y;
         this.image = playerData.image;
         this.speed = playerData.speed;
+
+        this.radiusXspeed = this.radius*this.speed;
 
         // this.showLocation();
         this.move_controll_mode1();
@@ -284,7 +285,6 @@ export class Player extends GameCanvas {
     }
 
     showLocation() {
-        this.radius = this.weight;
         if (this.image == undefined) {
             this.context.beginPath();
             this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
@@ -295,14 +295,25 @@ export class Player extends GameCanvas {
             this.context.beginPath();
             this.context.save();
             this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-            this.context.clip();
+            // this.context.clip();
 
+            //------------------------以下擇1------------------------------------
             // 判定體重決定圖片胖瘦
+            // var image = this.image.w50;
+            // if (this.weight >= 100) { image = this.image.w100; }
+            // else if (this.weight >= 80) { image = this.image.w80; }
+            // else if (this.weight >= 70) { image = this.image.w70; }
+            // else if (this.weight >= 60) { image = this.image.w60; }
+
+
+            // 判定bmi決定圖片胖瘦 13--18.5---24---35---40.5  
+            var bmi = this.weight*10000/this.height/this.height;
             var image = this.image.w50;
-            if (this.weight >= 100) { image = this.image.w100; }
-            else if (this.weight >= 80) { image = this.image.w80; }
-            else if (this.weight >= 70) { image = this.image.w70; }
-            else if (this.weight >= 60) { image = this.image.w60; }
+            if (bmi >= 40.5) { image = this.image.w100; }
+            else if (bmi >= 35) { image = this.image.w80; }
+            else if (bmi >= 24) { image = this.image.w70; }
+            else if (bmi >= 18.5) { image = this.image.w60; }
+            //-----------------------------------------------------------------------
 
 
             this.context.drawImage(image, this.x - this.radius, this.y - this.radius, 2 * this.radius, 2 * this.radius);
@@ -314,7 +325,7 @@ export class Player extends GameCanvas {
 
     move() {
         // 往目標方向緩速移動
-        // this.speed = 500 / this.weight;      // 減速懲罰太高了，先不要
+        this.speed = this.radiusXspeed/this.radius;
 
         var dx = this.targetX - this.x;
         var dy = this.targetY - this.y;
@@ -351,7 +362,11 @@ export class Player extends GameCanvas {
         //     return;
         // }
         if (weightValue > 0) {
+
+            // 玩家大小跟著體重改變
+            this.radius += (weightValue - this._weight);
             this._weight = weightValue;
+
         } else {
             this._weight = 1;
         }

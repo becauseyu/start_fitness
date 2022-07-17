@@ -42,7 +42,7 @@ function closebuycar() {
       //先把已經有的品項放進購物車
       $('#slide_buycart_goods').append($ul)
       var total = parseInt($('#slide_buycart_accounttotal').html())
-      total += data.totalPrice
+      total += parseInt(data.totalPrice) 
       $('#slide_buycart_accounttotal').html(total)
   
   
