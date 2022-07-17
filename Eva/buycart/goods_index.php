@@ -1,7 +1,7 @@
 <?php
 
 //從資料庫取出產品放到畫面
-include('/start_fitness/Maria/php/mysqli.php');
+include('./mysqli.php');
 
 $sql_f = "SELECT * FROM goodsdetail WHERE ptype = 'food' AND ppic LIKE '%00%' ";
 $resultFood = $mysqli->query($sql_f);
@@ -52,7 +52,7 @@ $resultGym = $mysqli->query($sql_g);
 
 
       <div class="collapse navbar-collapse mx-auto row " id="myNavbarToggler7">
-        <div class=" col-1"></div>
+        <div class="col-1"></div>
         <ul class="navbar-nav mx-auto nav-justif justify-content-around " style="align-items: end;">
           <li class="nav-iteml px-1">
             <a class="nav-link " href="#">運動Tip</a>
@@ -123,7 +123,7 @@ $resultGym = $mysqli->query($sql_g);
           <!-- <h2 class="header-font">&ensp;吃的健康!</h2> -->
         </div>
         <div class="center-box mt-3">
-          <div class=" row">
+          <div class="row">
             <!--  每個食品 -->
             <?php
             while ($good = $resultFood->fetch_object()) {

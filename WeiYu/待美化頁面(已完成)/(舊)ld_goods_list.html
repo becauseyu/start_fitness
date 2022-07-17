@@ -14,54 +14,63 @@
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
         </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+    <!-- mycss -->
+    <link rel="stylesheet" href="../待美化頁面(已完成)/backhead.css">
+    <link rel="stylesheet" href="../待美化頁面(已完成)/member.css">
+
     <title>goods</title>
-
-
-    <style>
-
-    </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded justify-content-md-around row">
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample10"
-            aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="mb-5 fixed-top navbar navbar-expand-lg navbar-light nav-shadow " style="background-color: #daccbd;">
+        <a class="navbar-brand d-lg-none" href="#">
+            <img src="../image/member/LOGO.png" width="60" height="60" class="img-fluid">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
+            aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <div class="collapse navbar-collapse row" id="myNavbarToggler7">
+            <div class="col-3"></div>
+            <ul class="col-6 navbar-nav justify-content-end">
 
+                <li class="nav-iteml ">
+                    <a class="nav-link font-nav" href="#">會員管理</a>
+                </li>
+                <li class="nav-iteml ">
+                    <a class="nav-link font-nav" href="#">文章管理</a>
+                </li>
 
-        <div class="col-2"></div>
-        <div class="navbar-collapse  collapse col-8 " id="navbarsExample10">
-            <ul class="navbar-nav nav-tabs mx-auto">
+                <div class="px-2 d-none d-lg-block ">
+                    <img width="60" height="60" class="box-img" src="../image/member/LOGO.png">
+                </div>
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">會員管理</a>
+                <li class="nav-itemr ">
+                    <a class="nav-link font-nav" href="#">訂單管理</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">文章管理</a>
+                <li class="nav-itemr ">
+                    <a class="nav-link font-nav" href="#">庫存管理</a>
                 </li>
-                <li>這裡放LOGO</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">訂單管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">庫存管理</a>
-                </li>
+
             </ul>
+            <div class="col-3 d-flex justify-content-end">
+                <div class="font-nav01 mr-2">
+                    網站活動紀錄
+                </div>
+                <div class="font-nav01">
+                    登出
+                </div>
+            </div>
+
 
         </div>
-        <div class="navbar-nav col-2">
-            <a class="nav-link float-right" href="#">網站活動紀錄</a>
-            <a class="nav-link float-right" href="#">登出</a>
-        </div>
-
     </nav>
 
-
     <h1 class="text-center"> 庫存管理 </h1>
-    
+
     <div class="container">
         <a href="Create.html" class="btn btn-outline-success btn-md float-right">
             新增
@@ -75,8 +84,8 @@
                     <th scope="col">圖片</th>
                     <th scope="col">樣式</th>
                     <th scope="col">庫存</th>
-                    
-                    
+
+
                 </tr>
             </thead>
             <tbody>
@@ -86,10 +95,10 @@
                     <td><img src="../gameIMG/good_01.png" alt="" height="30"></td>
                     <td>麻辣</td>
                     <td>30 <span class="float-right">
-                        <a href="/Todo/Edit/1" class="btn btn-outline-primary btn-sm">編輯</a> |
-                        <a href="/Todo/Delete/1" class="btn btn-outline-danger btn-sm">刪除</a>
-                    </span></td>
-                    
+                            <a href="/Todo/Edit/1" class="btn btn-outline-primary btn-sm">編輯</a> |
+                            <a href="/Todo/Delete/1" class="btn btn-outline-danger btn-sm">刪除</a>
+                        </span></td>
+
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -97,9 +106,9 @@
                     <td><img src="../gameIMG/good_02.png" alt="" height="30"></td>
                     <td>抹茶</td>
                     <td>20 <span class="float-right">
-                        <a href="/Todo/Edit/1" class="btn btn-outline-primary btn-sm">編輯</a> |
-                        <a href="/Todo/Delete/1" class="btn btn-outline-danger btn-sm">刪除</a>
-                    </span></td>
+                            <a href="/Todo/Edit/1" class="btn btn-outline-primary btn-sm">編輯</a> |
+                            <a href="/Todo/Delete/1" class="btn btn-outline-danger btn-sm">刪除</a>
+                        </span></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -107,9 +116,9 @@
                     <td><img src="../gameIMG/good_03.png" alt="" height="30"></td>
                     <td>原味</td>
                     <td>10 <span class="float-right">
-                        <a href="/Todo/Edit/1" class="btn btn-outline-primary btn-sm">編輯</a> |
-                        <a href="/Todo/Delete/1" class="btn btn-outline-danger btn-sm">刪除</a>
-                    </span></td>
+                            <a href="/Todo/Edit/1" class="btn btn-outline-primary btn-sm">編輯</a> |
+                            <a href="/Todo/Delete/1" class="btn btn-outline-danger btn-sm">刪除</a>
+                        </span></td>
                 </tr>
             </tbody>
         </table>
