@@ -1,0 +1,116 @@
+.try {
+    background-color: rgb(225, 253, 233);
+}
+
+.try1 {
+    background-color: rgb(235, 149, 243);
+}
+
+.try2 {
+    background-color: rgb(252, 234, 224);
+}
+
+.try3 {
+    background-color: rgb(244, 192, 119);
+}
+
+.with {
+    height: 90vh;
+}
+
+.b1 {
+    border: 2px solid #5896f9;
+    border-radius: 5px;
+}
+
+.b2 {
+    border: 2px solid #f9d158;
+    border-radius: 5px;
+}
+
+/*........................... */
+
+.location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+
+}
+
+
+.outside {
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    /* border: 3px solid rgb(249, 174, 11); */
+    border: 3px solid     #be9672;
+
+    height: 520px;
+    width: 700px;
+    box-shadow: #ae9b8a 1px 2px 3px;
+
+}
+
+
+#mark {
+    height: 100%;
+    width: 100%;
+}
+
+.header01 {
+    font-size: 32px;
+    font-weight: 600;
+    color: rgb(137, 104, 92);
+    text-align: center;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-shadow: rgba(195, 189, 187, 0.24) 0px 2px 2px;
+}
+
+.img01{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.header-font {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(69, 60, 60);
+
+}
+
+
+.font02 {
+    font-weight: 600;
+    margin-top: -10px;
+    color: rgb(62, 50, 50);
+
+}
+
+.button01 {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #2485ec;
+    border-color: #0660c0;
+
+}
+
+.button01:hover {
+    color: #fff;
+    background-color: #1d60a8;
+    border-color: #1a5594;
+}
+
+.button01:focus,
+.button01.focus {
+    color: #fff;
+    background-color: #457ab4;
+    border-color: #175eaa;
+    box-shadow: 0 0 0 0.2rem rgba(87, 138, 192, 0.5);
+}

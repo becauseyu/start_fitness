@@ -3,6 +3,17 @@
      font-weight: 600;
 }
 
+.regexMessage{
+    
+}
+
+/*合併後就可以刪除的class*/
+.notice{
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+}
+
 
 /* --------進度條------- */
 /* 引入字型 */

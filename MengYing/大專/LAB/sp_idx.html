@@ -16,188 +16,168 @@
     <script src="../_js/popper.min.js"></script>
     <script src="../_js/bootstrap.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
-
-
     <style>
-        /* footer */
-        .bg-wrap {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .bg-inner {
-
-            height: 300px;
-            border-radius: 100% 100% 0 0;
-            background-image: linear-gradient(to right, #8EB4E3 0%, #8EB4E3 50%, #FBC65C 0%, #FBC65C 50%);
-            position: absolute;
-            bottom: 0;
-            /*     width: 120%; */
-            /*     left: -10%;
-            top: 0px; */
-            right: -15%;
-            left: -15%;
-        }
-
-        /* 購物車icon */
-        .btn-cart {
-            position: relative;
-            background-color: transparent;
-        }
-
-        /* .btn-cart:hover {
-            cursor: pointer;
-        } */
-        .btn-cart .badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
-        /* 內容框 */
-        .box {
-            border: solid 0.5em #8EB4E3;
-            border-radius: 2em;
-            width: 100%;
-            height: 400px;
-            background-color: #ffffff;
-            padding: 10em;
-        }
-
-        #mySidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            right: 0;
-            top : 0;
-        }
-
-        #mySidenav a {
-            position: absolute;
-            right: -90px;
-            transition: 0.3s;
-            padding: 15px;
-            height: 100%;
-            width: 100px;
-            text-decoration: none;
-            font-size: 20px;
-            color: white;
-            border-radius: 0 5px 5px 0;
-        }
-
-        #mySidenav a:hover {
-            right: 0;
-        }
-
-        #rSidenav {
-            /* top: 100px; */
-            background-color: #FBC65C
+        img {
+            object-fit: contain;
         }
     </style>
+
+    <!-- <style>
+        
+    </style> -->
 </head>
 
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
-        <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;"
-                src="../AI/LOGO.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
-            aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
-        <!-- <div class="">
-            <button class="btn ">
+    <!-- navbar -->
+    <div class="headerpage">.</div>
 
-            </button>
-            <button class="btn ">
 
-            </button>
-            <button class="btn btn-cart" data-toggle="dropdown">
-
-            </button>
-        </div> -->
-
-        <div class="collapse navbar-collapse mx-auto row " id="myNavbarToggler7">
-            <div class=" col-1"></div>
-            <ul class="navbar-nav mx-auto nav-justif" style="align-items: end;">
-                <li class="nav-item ">
-                    <a class="nav-link r" href="#">運動Tip</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">健身小物</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">健身地圖</a>
-                </li>
-                <a class="d-none d-lg-block" href="#"><img width="60" height="60" style="display:block; margin:auto;"
-                        src="../AI/LOGO.png"></a>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">飲食Tip</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">飲食小食</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mini game</a>
-                </li>
-            </ul>
-            <div class=" col-1 d-flex justify-content-end">
-                <button class="btn ">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                </button>
-                <button class="btn btn-cart " data-toggle="dropdown">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="badge badge-pill badge-danger">99+</span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 側邊鈕 -->
-    <div id="mySidenav" class="sidenav">
-        <a href="#" id="rSidenav">rSidenav</a>
+    <!-- r側邊鈕/飲食 -->
+    <div id="mySidenavr" class="sidenavr">
+        <a href="./fd_idx.html" id="Sidenavr"><img class="my-auto sideImg " src="../AI/FOOD.png" alt=""></a>
     </div>
+    <!-- l側邊鈕/運動 -->
+    <!-- <div id="mySidenavl" class="sidenavl">
+        <a href="./sp_idx.html" id="Sidenavl"><img class="my-auto sideImg1 " src="../AI/SP.png" alt=""></a>
+    </div> -->
+
 
     <!-- 中間文字框 -->
-    <div >
-        <div class="container mt-4" data-aos="fade-right">
-            <div class="box"></div>
-        </div>
-        <div class="container mt-4" data-aos="fade-right">
-            <div class="box"></div>
-        </div>
-        <div class="container mt-4" data-aos="fade-right">
-            <div class="box"></div>
-        </div>
-        <div class="container mt-4" data-aos="fade-right">
-            <div class="box"></div>
-        </div>
-    </div>
+    <div class="">
+        <div class="container mt-4 " data-aos="fade-right">
+            <div class="boxsp">
+                <h3 class="boxcolor2">運動Tip</h3>
+                <hr>
+                <div class=" row">
+                    <div class="col-6 ">
+                        <a href="https://heho.com.tw/archives/59008" target="_blank" class="stretched-link">
+                            <figure class="figure ">
+                                <img src="../sp_introduce/sp01.png" height="350" class="figure-img rounded shadow-sm">
+                                <figcaption class="figure-caption text-left">
 
-    <footer>
-        <div class="bg-wrap mt-4">
-            <div class="bg-inner p-3">
-                <a class="" href="#"><img width="100" height="100" style="display:block; margin:auto;"
-                        src="../AI/LOGO.png"></a>
+                                    <p class="h5 font-weight-bold boxcolor1">哈佛醫師!推薦的4個運動</p>
+                                    <p class="pr-3">哈佛醫學院教授 I-Min Lee
+                                        要來推薦４個他認為對身體最好的運動，這些運動的好處不僅可以減肥、增加，還能預防心血管疾病，保護心臟及大腦的健康喔！</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <ul class=" list-group list-group-flush boxcolor2">
 
+                            <li class=" list-group-item list-group-item-action ">
+                                <a href="https://tw.news.yahoo.com/%E9%99%8D10-%E7%99%8C%E7%97%87%E6%AD%BB%E4%BA%A1%E7%8E%87-%E9%81%8B%E5%8B%959%E5%A4%A7%E5%A5%BD%E8%99%95%E6%9B%9D-043542688.html"
+                                    target="_blank" class="boxcolor2">9大運動幫助降10%癌症死亡率
+                                </a> 
+                            </li>
+                            <li class=" list-group-item list-group-item-action ">
+                                <a href="https://www.womenshealthmag.com/tw/fitness/work-outs/g34296726/how-to-squat-correctly/"
+                                    target="_blank" class="boxcolor2">初學者必讀「深蹲」教學！
+                                </a> 
+                            </li>
+                            <li class=" list-group-item list-group-item-action ">
+                                <a href="https://www.womenshealthmag.com/tw/fitness/workoutroutine/g31719522/5-iger-glute-workout-routine/"
+                                    target="_blank" class="boxcolor2">「蜜桃臀養成」運動懶人包
+                                </a> 
+                            </li>
+                            <li class=" list-group-item list-group-item-action ">
+                                <a href="https://www.womenshealthmag.com/tw/fitness/workoutroutine/g31719522/5-iger-glute-workout-routine/"
+                                    target="_blank" class="boxcolor2">硬舉幫助減脂，女生得練！
+                                </a> 
+                            </li>
+                            <li class=" list-group-item list-group-item-action ">
+                                <a href="https://www.youtube.com/channel/UCFd-9jAfbuUjwDZjisOwv1w/featured"
+                                    target="_blank" class="boxcolor2">在美國Shuai Li 「帥」
+                                </a> 
+                            </li>
+                            <li class=" list-group-item list-group-item-action ">
+                                <a href="https://www.youtube.com/channel/UCCgLoMYIyP0U56dEhEL1wXQ"
+                                    target="_blank" class="boxcolor2">來自澳洲的Chloe Ting
+                                </a> 
+                            </li>
+                            
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div>
+                    <a href="./fd_introduce.html" class="text-right font-weight-light">
+                        <p class=""> 觀看更多文章...</p>
+                    </a>
+                </div>
             </div>
         </div>
 
-    </footer>
-    <!-- <div class="bg-info clearfix">
-        測試用clearfix
-        <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
-        <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
-    </div> -->
+        <div class="container mt-4" data-aos="fade-right">
+            <div class="boxsp">
+                <h3 class="boxcolor2">健身小物</h3>
+                <hr>
+                <div class=" row">
+                    <div class="col-4 ">
+                        <a href="#" class=" ">
+                            <figure class="figure ">
+                                <img src="../AI/food/03.1.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
+                                    height="250">
+                                <figcaption class="figure-caption ">
+                                    <h5 class="boxcolor1">飽米花‧椒鹽</h5>
+                                    <p class="">淡淡鹽味，清爽少負擔</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="col-4 ">
+                        <a href="#" class=" ">
+                            <figure class="figure ">
+                                <img src="../AI/food/00.1.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
+                                    height="250">
+                                <figcaption class="figure-caption ">
+                                    <h5 class="boxcolor1">好好果乾水‧好心情</h5>
+                                    <p class="">柑橘香，喝水好心情</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="col-4 ">
+                        <a href="#" class=" ">
+                            <figure class="figure ">
+                                <img src="../AI/food/01.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
+                                    height="250">
+                                <figcaption class="figure-caption ">
+                                    <h5 class="boxcolor1">飽飽凍</h5>
+                                    <p class="">午後時光必備零食</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="">
+                    <a href="./fd_introduce.html" class="text-right font-weight-light">
+                        <p class=""> 更多健身小物...</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container mt-4" data-aos="fade-right">
+            <div class="boxsp">
+                <h3 class="boxcolor2">健身地圖</h3>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+    <!-- 腳 -->
+    <div class="footerpage"></div>
+
+    <script>
+        $(".headerpage").load("header.html");
+        $(".footerpage").load("footer.html");
+    </script>
+
     <script>
         AOS.init();
     </script>

@@ -1,6 +1,6 @@
 /*導覽列*/
 .nav-li {
-    width: 25%;
+    width: 33.33333%;
     text-align: center;
     line-height: 40px;
 
@@ -19,4 +19,9 @@
     width: fit-content;
     font-size: 14px;
 
+}
+
+.js_psw{
+    margin-right: 10px;
+    font-size: 10px;
 }

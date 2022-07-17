@@ -26,13 +26,13 @@
 }
 
 .food-box {
-    box-shadow: #ebc57f 0px 3px 6px, #f1c674 0px 3px 6px;
+    box-shadow: #ebc57f 1px 2px 1px, #f1c674 0px 3px 2px;
     border-radius: 8px;
     border: 6px double #f5c56d;
 }
 
 .SP-box {
-    box-shadow: #7db3f5 0px 3px 6px, #74a0f1 0px 3px 6px;
+    box-shadow: #7db3f5 1px 2px 1px, #74a0f1 0px 3px 2px;
     border-radius: 8px;
     border: 6px double #6299f9;
 }

@@ -18,6 +18,7 @@ if (isset($acc)) {
     //如果帳號密碼正確
     if ($row > 0) {
         $data = $result->fetch_array();
+        $mid = $data['mid'];
         $status = $data['staId'];
         $email = $data['email'];
         $token = $psw;
@@ -78,9 +79,9 @@ if (isset($acc)) {
             //在自動跳轉回登入頁
             header("refresh:3;url=../html/mb_login.php");
         }
-        //如果是1代表已完成驗證會員
-        else if ($status = 2) {
-            header("Location:../html/mb_update.php?account={$acc}&psw={$psw}");
+        //如果是2代表已完成驗證會員
+        else if ($status == 2) {
+            header("Location:../html/mb_update.php?mid={$mid}&psw={$psw}");
         }
     } else {
         //顯示錯誤訊息
@@ -127,7 +128,48 @@ else {
 
 <body>
     <!-- 頁首  -->
-    <div class="headerpage">
+    <div class='headerpage'>
+        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
+            <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7" aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse mx-auto row " id="myNavbarToggler7">
+                <div class=" col-1"></div>
+                <ul class="navbar-nav mx-auto nav-justif justify-content-around " style="align-items: end;">
+                    <li class="nav-iteml px-1">
+                        <a class="nav-link " href="#">運動Tip</a>
+                    </li>
+                    <li class="nav-iteml px-1">
+                        <a class="nav-link" href="#">健身小物</a>
+                    </li>
+                    <li class="nav-iteml px-1">
+                        <a class="nav-link" href="#">健身地圖</a>
+                    </li>
+                    <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
+                    <li class="nav-itemr px-1">
+                        <a class="nav-link" href="#">飲食Tip</a>
+                    </li>
+                    <li class="nav-itemr px-1">
+                        <a class="nav-link" href="#">飲食小食</a>
+                    </li>
+                    <li class="nav-itemr px-1">
+                        <a class="nav-link" href="#">Mini game</a>
+                    </li>
+                </ul>
+                <div class=" col-1 d-flex justify-content-end">
+                    <button class="btn ">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-cart" data-toggle="dropdown" onclick="openbuycar()">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span id="cartQuantity" class="badge badge-pill badge-danger">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
     </div>
     <div id="content" class="mt-5">
         <div class="container">
