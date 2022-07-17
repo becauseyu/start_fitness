@@ -234,3 +234,31 @@
 .navbar .navbar-nav .nav-itemr::after {
     transition: all 0.5s;
 }
+
+.button01 {
+    width: 140px;
+    font-weight: 500;
+    color: #FBC65C;
+    /* background-color: #FBC65C; */
+    border-color: #FBC65C;
+}
+/* 推薦文章的按鈕 */
+.button01:hover {
+    color: #fff;
+    background-color: #FBC65C;
+    border-color: #FBC65C;
+}
+
+.button02 {
+    width: 80px;
+    font-weight: 400;
+    color: #FBC65C;
+    /* background-color: #FBC65C; */
+    border-color: #FBC65C;
+}
+
+.button02:hover {
+    color: #fff;
+    background-color: #FBC65C;
+    border-color: #FBC65C;
+}
