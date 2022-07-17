@@ -83,10 +83,9 @@ if (isset($_REQUEST['mid'])) {
 
 <body>
     <!-- 頁首  -->
-    <!-- 頁首  -->
     <div class='headerpage'>
         <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
-            <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+            <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7" aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -104,7 +103,7 @@ if (isset($_REQUEST['mid'])) {
                     <li class="nav-iteml px-1">
                         <a class="nav-link" href="#">健身地圖</a>
                     </li>
-                    <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="../AI/LOGO.png"></a>
+                    <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
                     <li class="nav-itemr px-1">
                         <a class="nav-link" href="#">飲食Tip</a>
                     </li>
@@ -135,7 +134,7 @@ if (isset($_REQUEST['mid'])) {
                         <ul class="nav nav-tabs">
                             <li class="nav-li selected" id="li_update">修改會員資料</li>
                             <li class="nav-li" id="li_renewPsw">修改密碼</li>
-                            <li class="nav-li" id="li_point">會員購物金</li>
+                            <!-- <li class="nav-li" id="li_point">會員購物金</li> -->
                             <li class="nav-li" id="li_order">訂單管理</li>
 
                         </ul>
@@ -197,11 +196,11 @@ if (isset($_REQUEST['mid'])) {
                                 <input class='btn-block ml-5 mr-5 btn btn-success' type="submit" value="更新密碼">
                             </div>
                         </form>
-                        <form id='point_form' class="m-5 hidden" action="../php/updateData.php" method="post">
+                        <!-- <form id='point_form' class="m-5 hidden" action="../php/updateData.php" method="post">
                             購物金
-                        </form>
+                        </form> -->
                         <form id='order_form' class="m-5 hidden" action="../php/updateData.php" method="post">
-                            訂單管理
+                            
                         </form>
 
                     </div>

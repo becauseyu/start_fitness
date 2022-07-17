@@ -1,43 +1,67 @@
 <?php
 include('/start_fitness/Maria/php/mysqli.php');
+//設定時區
+date_default_timezone_set('Asia/Taipei');
+
 if (isset($_REQUEST['mid'])) {
-  //確認是否為會員
-  $mid = $_REQUEST['mid'];
-  $psw = $_REQUEST['password'];
-  $sql_member = "SELECT * FROM member WHERE mid = '{$mid}' AND psw = '{$psw}'";
-  $result = $mysqli->query($sql_member);
-  $count = $result->num_rows;
-  //確認會員帳號密碼正確
-  if ($count > 0) {
-    $del_name = $_REQUEST['del_name'];
-    $del_tel = $_REQUEST['del_tel'];
-    $del_addr = $_REQUEST['del_addr'];
-    $memo = $_REQUEST['order_memo'];
-    $del_method = $_REQUEST['del_method'];
-    $pay_method = $_REQUEST['pay_method'];
-
-    //確認付款與寄送的代號
-    $sql_pay= "SELECT paid FROM payment WHERE payment ='{$pay_method}'";
-    $result = $mysqli->query($sql_pay);
-    $row = $result->fetch_array();
-    $pay_method = $row['paid'];
-    $sql_del= "SELECT did FROM deliver WHERE deliver ='{$del_method}'";
-    $result = $mysqli->query($sql_del);
-    $row = $result->fetch_array();
-    $deliver_method = $row['did'];
-
-    //寫入資料庫
+    //確認是否為會員
+    $mid = $_REQUEST['mid'];
+    $psw = $_REQUEST['password'];
+    $sql_member = "SELECT * FROM member WHERE mid = '{$mid}' AND psw = '{$psw}'";
+    $result = $mysqli->query($sql_member);
+    $count = $result->num_rows;
+    //確認會員帳號密碼正確
+    if ($count > 0) {
+        $del_name = $_REQUEST['del_name'];
+        $del_tel = $_REQUEST['del_tel'];
+        $del_addr = $_REQUEST['del_addr'];
+        $memo = $_REQUEST['order_memo'];
+        $del_method = $_REQUEST['del_method'];
+        $pay_method = $_REQUEST['pay_method'];
+        $date = date('Y/m/d H:i:s'); //放入訂單的資訊
 
 
+        //確認付款與寄送的代號
+        $sql_pay = "SELECT paid FROM payment WHERE payment ='{$pay_method}'";
+        $result = $mysqli->query($sql_pay);
+        $row = $result->fetch_array();
+        $pay_method = $row['paid'];
+        $sql_del = "SELECT did FROM deliver WHERE deliver ='{$del_method}'";
+        $result = $mysqli->query($sql_del);
+        $row = $result->fetch_array();
+        $deliver_method = $row['did'];
 
-  } else {
-    header("Location:/Maria/html/mb_login.php");
-  }
+        //寫入資料庫
+        $sql_addOrder = "INSERT INTO memberorder(mid,orderdate,delAddr,delTel,delName,did,paid,memo) VALUES
+     ('{$mid}','{$date}','{$del_addr}','{$del_tel}','{$del_name}','{$deliver_method}','{$pay_method}','{$memo}')";
+        $mysqli->query($sql_addOrder);
+
+        //得到訂單編號，準備傳入下一個狀態
+        $sql_selectOrder = "SELECT oid FROM memberorder WHERE orderdate = '{$date}'";
+        $result = $mysqli->query($sql_selectOrder);
+        $row = $result->fetch_array();
+        $id = $row['oid'];
+
+        //放入介面的訂單編號
+        $order_date = date('Y/m/d');
+        //php的字串切割存入陣列
+        $a = mb_split('/',"{$order_date}");
+        $order_date = "$a[0]$a[1]$a[2]";
+        if($id<=10){
+          $id = '00'.$id;
+        }else if ($id<=100){
+          $id = '0'.$id;
+        }
+
+    } else {
+        header("Location:/Maria/html/mb_login.php");
+    }
 } else {
-  header("Location:/Maria/html/mb_login.php");
+    header("Location:/Maria/html/mb_login.php");
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -137,7 +161,7 @@ if (isset($_REQUEST['mid'])) {
             </p>
           </div>
           <div class="text-size">
-            訂單編號: 202207020088
+            訂單編號: <?php echo "{$order_date}{$id}" ;?>
           </div>
           <div class="text-size1">
             <p>請妥善保管此編號，如需取消或更改訂單，請您撥打客服或是線上詢問</p>
@@ -163,5 +187,34 @@ if (isset($_REQUEST['mid'])) {
 
 
 </body>
+<script>
+    var myStorage = localStorage;
+    var wantList = myStorage.getItem('wantList')
+    wantList = wantList.split(',');
+
+    var wantListData = []
+    for (let i = 0; i < wantList.length; i++) {
+        var data = myStorage.getItem(wantList[i])
+        wantListData.push(data)
+
+    }
+ //透過ajax要求把localStorage的值送入資料庫建立檔案
+    for (let j = 0; j < wantListData.length; j++) {
+        let data = JSON.parse(wantListData[j]);
+        let fullname = data.name;
+        let name = (fullname.split('－'))[0];
+        let style = (fullname.split('－'))[1];
+        let count = data.count
+        let oid = <?php echo $id ;?>;
+        let xhttp = new XMLHttpRequest;
+        xhttp.open('GET', 'http://localhost:3000/Eva/buycart/addOrder.php?name='+name+"&style="+style+'&count='+count+'&oid='+oid, true);
+        //send請求
+        xhttp.send();
+    }
+
+  //訂單完成後，清除localStorage
+  myStorage.clear();
+  $('#cartQuantity').html(0)
+</script>
 
 </html>
