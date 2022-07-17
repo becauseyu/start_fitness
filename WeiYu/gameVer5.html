@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="./mainV5.js"></script>
 
-    <title>Document</title>
+    <title>minigame</title>
 
 
     <style type="text/css">
@@ -31,12 +31,13 @@
         #rulePage {
             padding-left: 5%;
         }
+
         #rulePage>* {
-            
+
             position: relative;
             /* text-align: center; */
             font-size: 30px;
-            
+
 
         }
 
@@ -53,7 +54,7 @@
         }
 
         canvas {
-           
+
             width: 100%;
             height: 100%;
             border: 1px solid black;
@@ -75,13 +76,36 @@
             text-align: center;
             font-size: 30px;
             border-radius: 20%;
-            transform:translate(-50%,-50%) ;
+            transform: translate(-50%, -50%);
         }
 
-        #initialWeight {
+        #initialWeight,
+        #initialHeight {
             width: 100px;
+            font-size: 30px;
 
 
+
+        }
+
+
+        #div_weightButtom_bag>div {
+            margin: 10px;
+            border: 1px solid black;
+            border-radius: 10%;
+            width: 150px;
+            float: left;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        #div_weightButtom_bag>div:hover {
+            background-color: aqua;
+        }
+
+        #errorLog {
+            font-size: 20px;
+            color: red;
         }
     </style>
 
@@ -89,17 +113,16 @@
 </head>
 
 <body>
+
     <div id="container">
         <div id='gameBox'>
             <canvas id="canvas"></canvas>
-            
-            <div><b>飲控遊戲</b></div>
             <div id="start_button">
                 <p>start</p>
             </div>
 
 
-            
+
         </div>
         <div id="rulePage">
             <div><b>規則 : </b></div>
@@ -108,7 +131,7 @@
             <div class='foodList'>
                 <div> 蘋果 : <img src="./gameIMG/good_03.png" alt=""> - 1 kg </div>
                 <div> 生菜 : <img src="./gameIMG/good_02.png" alt=""> - 5 kg</div>
-                <div> 新鮮鮭魚 :<img src="./gameIMG/good_01.png" alt=""> - 20 kg</div>
+                <div> 新鮮鮭魚 :<img src="./gameIMG/good_01.png" alt=""> - 20 kg，非常稀有，而且會緩緩離開</div>
             </div>
             <div>以下是不健康食物</div>
             <div class='foodList'>
@@ -119,12 +142,136 @@
 
 
             <div id="div_input">
-                <label for="initialHeight">請輸入身高 : </label><input type="number" id="initialHeight"><span> cm</span>
-                <label for="initialWeight">請輸入體重 : </label><input type="number" id="initialWeight"><span> kg</span>
+                <label for="initialHeight">請先輸入身高 : </label><input type="number" id="initialHeight" min="100" max="200"><span> cm</span>
+                <label for="initialWeight">，再輸入體重 : </label><input type="number" id="initialWeight" disabled><span > kg</span>
             </div>
-            
+            <p id="errorLog"> </p>
+            <div id="div_weightButtom_bag">
+                <div class="initialWeight" id="easy"> 建議(簡單)  kg </div>
+                <div class="initialWeight" id="normal"> 建議(中等)  kg </div>
+                <div class="initialWeight" id="hard"> 建議(困難)  kg </div>
+            </div>
+
         </div>
     </div>
+
+
+
+
+
+
+    <script>
+
+        // 身高輸入值
+        document.getElementById('initialHeight').addEventListener('change', () => {
+
+            // 顯示體重相關標籤
+            document.getElementById('initialWeight').disabled=false;
+
+
+            // 身高判定
+            var height = parseInt(document.getElementById('initialHeight').value, 10);
+            console.log(height);
+            if (height > 200) {
+                height = 200;
+                document.getElementById('initialHeight').value = 200;
+                document.getElementById('errorLog').innerText = '您太高了，我們只接受最高200公分';
+            } else if (height < 100) {
+                height = 100;
+                document.getElementById('initialHeight').value = 100;
+                document.getElementById('errorLog').innerText = '我不想歧視您，但不可以設定太矮';
+            } else {
+                document.getElementById('errorLog').innerText = '';
+            }
+
+            // 顯示建議體重
+            if (height) {
+                //bmi換算
+                var bmi_18_weight = Math.floor(18 * height * height / 10000);
+                var bmi_26_weight = Math.floor(26 * height * height / 10000);
+                var bmi_40_weight = Math.floor(40 * height * height / 10000);
+
+                // 畫面新增按鈕
+                document.getElementById('easy').innerText = `建議(簡單) ${bmi_18_weight} kg`;
+                document.getElementById('normal').innerText = `建議(中等) ${bmi_26_weight} kg`;
+                document.getElementById('hard').innerText = `建議(困難) ${bmi_40_weight} kg`;
+
+
+                // 3個按鈕點擊事件
+                document.getElementById('easy').onclick = () => {
+                    document.getElementById('initialWeight').value = bmi_18_weight;
+
+                    // 相當於手動創造一個change事件
+                    const event = new Event("change", {
+                        bubbles: true,
+                        cancelable: true,
+                    });
+                    document.getElementById('initialWeight').dispatchEvent(event);
+                };
+                document.getElementById('normal').onclick = () => {
+                    document.getElementById('initialWeight').value = bmi_26_weight;
+
+                    // 相當於手動創造一個change事件
+                    const event = new Event("change", {
+                        bubbles: true,
+                        cancelable: true,
+                    });
+                    document.getElementById('initialWeight').dispatchEvent(event);
+                };
+                document.getElementById('hard').onclick = () => {
+                    document.getElementById('initialWeight').value = bmi_40_weight;
+
+                    // 相當於手動創造一個change事件
+                    const event = new Event("change", {
+                        bubbles: true,
+                        cancelable: true,
+                    });
+                    document.getElementById('initialWeight').dispatchEvent(event);
+                };
+
+            }
+
+
+
+            // 如果體重有輸入，自行判定一次體重
+            var weight = parseInt(document.getElementById('initialWeight').value, 10);
+            if (weight) {
+                const event = new Event("change", {
+                        bubbles: true,
+                        cancelable: true,
+                    });
+                document.getElementById('initialWeight').dispatchEvent(event);
+            }
+
+        });
+
+        // 體重輸入值
+        document.getElementById('initialWeight').addEventListener('change', () => {
+            var height = parseInt(document.getElementById('initialHeight').value, 10);
+            var weight = parseInt(document.getElementById('initialWeight').value, 10);
+            var bmi = '';
+            if (height && weight) {
+                bmi = weight * 10000 / height / height;
+            }
+
+
+            // 體重判定
+
+            if (bmi > 60) {
+                var bmi_60_weight = Math.floor(60 * height * height / 10000);
+                document.getElementById('initialWeight').value = bmi_60_weight;
+                document.getElementById('errorLog').innerText = '根據bmi計算，您重到不可思議，我們只好給您一個上限';
+            } else if (bmi < 10) {
+                var bmi_10_weight = Math.floor(10 * height * height / 10000);
+                document.getElementById('initialWeight').value = bmi_10_weight;
+                document.getElementById('errorLog').innerText = '您太瘦了，我們只好給您一個建議下限';
+            } else {
+                document.getElementById('errorLog').innerText = '';
+            }
+        });
+
+
+    </script>
 
 
 
