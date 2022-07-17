@@ -88,7 +88,7 @@ $resultGym = $mysqli->query($sql_g);
   </div>
 
   <!--  carousel-item -->
-  <div class="mt-1 fadeinimg">
+  <div class="mt-3 fadeinimg">
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -119,8 +119,6 @@ $resultGym = $mysqli->query($sql_g);
         <div class="mt-3 mb-4 food-title d-flex">
           <img src="../asset/saleitem/FOOD.png" class="icon-box" />
           <img src="../asset/saleitem/foodname.png" class="ml-2 icon-name" />
-
-          <!-- <h2 class="header-font">&ensp;吃的健康!</h2> -->
         </div>
         <div class="center-box mt-3">
           <div class="row">

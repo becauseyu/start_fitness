@@ -2,7 +2,13 @@ $('.footerpage').load('/MengYing/大專/LAB/footer.html')
 
 // 飲食的hover
 
+$(function(){
+    $(this).find('.food').hover(
+        $(this).attr("src", "../asset/saleitem/food/fruitwater01.webp")
+    );
 
+    
+});
 
 
 
