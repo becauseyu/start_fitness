@@ -191,7 +191,7 @@ if (isset($_REQUEST['mid'])) {
         </div>
         <div class="mt-3 justify-content">
           
-          <a class="mr-4" href="http://localhost:3000/Eva/buycart/payment_01.php?mid=
+          <a class="mr-4" style="color:white" href="http://localhost:3000/Eva/buycart/payment_01.php?mid=
           <?php echo $mid; ?>&password=<?php echo $psw; ?>">
             <input type="button" class="btn button10" value="回上一頁"></input>
           </a>

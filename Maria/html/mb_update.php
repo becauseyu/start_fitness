@@ -50,6 +50,8 @@ if (isset($_REQUEST['mid'])) {
     header("Location:/Maria/html/mb_login.php");
 }
 
+$start = 1 ;
+
 ?>
 
 <!DOCTYPE html>
@@ -204,34 +206,50 @@ if (isset($_REQUEST['mid'])) {
                         <!-- <form id='point_form' class="m-5 hidden" action="../php/updateData.php" method="post">
                             購物金
                         </form> -->
-                        <form id='order_form' class="m-5 " action="../php/updateData.php" method="post">
+                        <form id='order_form' class="m-2 " action="../php/updateData.php" method="post">
                             訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" /><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span>
-                            <div class="accordion" id="accordionExample">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                        <h2 class="mb-0">
-                                            <button class="btn " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                <table border="1px" class="table order_tb">
-                                                    <tr>
-                                                        <th scope="col">訂單編號</th>
-                                                        <th scope="col">下單時間</th>
-                                                        <th scope="col">配送方式</th>
-                                                        <th scope="col">付款方式</th>
-                                                        <th scope="col">訂單金額</th>
-
-                                                    </tr>
-                                                </table>
-                                            </button>
-                                        </h2>
-                                    </div>
-                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                            <table align="center" class="table order_tb">
+                                <tr>
+                                    <th scope="col">訂單編號</th>
+                                    <th scope="col">下單時間</th>
+                                    <th scope="col">配送方式</th>
+                                    <th scope="col">付款方式</th>
+                                    <th scope="col">訂單金額</th>
+                                </tr>
+                            </table>
+                            <?php
+                            while ($order = $result_order->fetch_array()) {
+                                $start ++;
+                                echo '<div class="accordion" id="accordionExample">';
+                                echo    '<div class="card">';
+                                echo        '<div class="card-header" id="heading'.$start.'">';
+                                echo            '<h2 class="mb-0">';
+                                echo                '<button class="btn " type="button" data-toggle="collapse" data-target="#collapse'.$start.'" aria-expanded="true" aria-controls="collapse'.$start.'">';
+                                echo '<table class="order_tb">';
+                                echo "<tr>";
+                                //把訂單時間處理一下
+                                $datetime = $order['orderdate'];
+                                $date = (mb_split('\s', $datetime))[0];
+                                $a = (mb_split('-', $date));
+                                $date = "{$a[0]}{$a[1]}{$a[2]}";
+                                echo "<td scope='row'>{$date}00{$order['oid']}</td>";
+                                echo "<td scope='row'>{$order['orderdate']}</td>";
+                                echo "<td scope='row'>{$order['deliver']}</td>";
+                                echo "<td scope='row'>{$order['payment']}</td>";
+                                echo "<td scope='row'>1200</td>";
+                                echo "</tr>";
+                                echo '</table>';
+                                echo                '</button>';
+                                echo           ' </h2>';
+                                echo       ' </div>';
+                                echo        '<div id="collapse'.$start.'" class="collapse" aria-labelledby="heading'.$start.'" data-parent="#accordionExample">';
+                                echo            '<div class="card-body">';
+                                echo            '</div>';
+                                echo       ' </div>';
+                                echo    '</div>';
+                                echo '</div>';
+                            }
+                            ?>
                         </form>
 
                     </div>
