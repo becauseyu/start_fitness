@@ -184,7 +184,7 @@ $psw= $_REQUEST['password'];
 
 
           </div>
-          <input type="submit" class="mt-3 btn button09" value="前往結帳" ></input>
+          <input type="submit" class="mt-3 btn button09" value="前往結帳" onclick="totalStorage()" ></input>
         </div>
 
       </section>

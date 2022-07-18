@@ -1,10 +1,11 @@
 <?php
-include('/start_fitness/Maria/php/mysqli.php');
+include('./mysqli.php');
 
 $oid = $_GET['oid'];
 $name = $_GET['name'];
 $count = $_GET['count'];
 $style = $_GET['style'];
+$total = $_GET['total'];
 
 //先找到pid
 $sql_pid = "SELECT pid FROM goodsdetail WHERE pname ='{$name}' AND pstyle = '{$style}' ";
@@ -15,5 +16,9 @@ $pid= $row['pid'];
 //更新訂單明細
 $sql_update = "INSERT INTO orderdetail(pid,oid,amount) VALUES ('$pid','$oid','$count')";
 $mysqli->query($sql_update);
+
+//更新訂單總金額
+$sql_total = "UPDATE memberorder SET total = '{$total}' WHERE oid ='{$oid}' ";
+$mysqli->query($sql_total);
 
 ?>

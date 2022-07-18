@@ -308,3 +308,11 @@ function deleteGood(btn) {
 		$('.total03').html(bigTotal);
 	};
 }
+
+//把總計放入localStorage
+function totalStorage(){
+	var total = $('.total03').html()
+	var myStorage = localStorage;
+	myStorage.setItem('total',total)
+}
+

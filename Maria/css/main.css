@@ -17,6 +17,7 @@
      width: 80%;
      height: 550px;
      border: 3px solid rgb(142, 180, 227);
+     overflow: auto;
  }
 
  .selected {

@@ -39,7 +39,7 @@ if (isset($_REQUEST['mid'])) {
     // echo "{$acc};{$pws};{$status};{$name};{$point}";
 
     //放入訂單資訊
-    $sql_order = "SELECT oid,mid,orderdate,payment,deliver FROM `memberorder` INNER JOIN payment ON memberorder.paid = payment.paid INNER JOIN deliver on memberorder.did = deliver.did ;";
+    $sql_order = "SELECT oid,mid,orderdate,payment,deliver,total FROM `memberorder` INNER JOIN payment ON memberorder.paid = payment.paid INNER JOIN deliver on memberorder.did = deliver.did ;";
     $result_order = $mysqli->query($sql_order);
     //確認訂單是否為空白
     $check = $result_order->num_rows;
@@ -206,9 +206,11 @@ $start = 1 ;
                         <!-- <form id='point_form' class="m-5 hidden" action="../php/updateData.php" method="post">
                             購物金
                         </form> -->
-                        <form id='order_form' class="m-2 " action="../php/updateData.php" method="post">
-                            訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" /><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span>
-                            <table align="center" class="table order_tb">
+                        <form id='order_form' class="m-3 " action="../php/updateData.php" method="post">
+                            訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" />
+                            <input type="button" value="搜尋">
+                            <i class="fa fa-search" aria-hidden="true"></i><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span>
+                            <table align="center" class="table order_tb" >
                                 <tr>
                                     <th scope="col">訂單編號</th>
                                     <th scope="col">下單時間</th>
@@ -222,28 +224,49 @@ $start = 1 ;
                                 $start ++;
                                 echo '<div class="accordion" id="accordionExample">';
                                 echo    '<div class="card">';
-                                echo        '<div class="card-header" id="heading'.$start.'">';
-                                echo            '<h2 class="mb-0">';
-                                echo                '<button class="btn " type="button" data-toggle="collapse" data-target="#collapse'.$start.'" aria-expanded="true" aria-controls="collapse'.$start.'">';
-                                echo '<table class="table order_tb">';
+                                echo        '<div class="card-header order_tr" id="heading'.$start.'">';
+                                echo                '<div class="" data-toggle="collapse" data-target="#collapse'.$start.'" aria-expanded="true" aria-controls="collapse'.$start.'">';
+                                echo '<table class="order_data" >';
                                 echo "<tr>";
                                 //把訂單時間處理一下
                                 $datetime = $order['orderdate'];
                                 $date = (mb_split('\s', $datetime))[0];
                                 $a = (mb_split('-', $date));
                                 $date = "{$a[0]}{$a[1]}{$a[2]}";
-                                echo "<td scope='row'>{$date}00{$order['oid']}</td>";
-                                echo "<td scope='row'>{$order['orderdate']}</td>";
-                                echo "<td scope='row'>{$order['deliver']}</td>";
-                                echo "<td scope='row'>{$order['payment']}</td>";
-                                echo "<td scope='row'>1200</td>";
+                                echo "<td >{$date}00{$order['oid']}</td>";
+                                echo "<td >{$order['orderdate']}</td>";
+                                echo "<td>{$order['deliver']}</td>";
+                                echo "<td >{$order['payment']}</td>";
+                                echo "<td >$<span class='total_per'>{$order['total']}</sapn></td>";
                                 echo "</tr>";
                                 echo '</table>';
-                                echo                '</button>';
-                                echo           ' </h2>';
+                                echo                '</div>';
                                 echo       ' </div>';
                                 echo        '<div id="collapse'.$start.'" class="collapse" aria-labelledby="heading'.$start.'" data-parent="#accordionExample">';
                                 echo            '<div class="card-body">';
+                                echo '<table class="table order_tb" border="1px">';
+                                echo '<tr>';
+                                echo '<th scope="col">產品圖示</th>';
+                                echo '<th scope="col">產品名稱</th>';
+                                echo '<th scope="col">產品單價</th>';
+                                echo ' <th scope="col">購買數量</th>';
+                                echo '<th scope="col">小計</th>';
+                                echo ' </tr>';
+                                //依照訂單編號找到對應的產品
+                                $sql_detail = "SELECT * FROM orderdetail INNER JOIN goodsdetail ON orderdetail.pid = goodsdetail.pid WHERE oid={$order['oid']}";
+                                $result_detail = $mysqli->query($sql_detail);
+                                //把結果變成li
+                                while($orderDetail = $result_detail->fetch_object()){
+                                    echo '<tr>';
+                                    echo "<td><img class='detail_img' src='/Eva/asset/saleitem/{$orderDetail->ptype}/{$orderDetail->ppic}' /></td>";
+                                    echo "<td>{$orderDetail->pname}-<br/>{$orderDetail->pstyle}</td>";
+                                    echo "<td>{$orderDetail->pprice}</td>";
+                                    echo "<td>{$orderDetail->amount}</td>";
+                                    $total = ($orderDetail->pprice)*($orderDetail->amount);
+                                    echo "<td>{$total}</td>";
+                                    echo '</tr>';
+                                }
+                                echo '</table>';
                                 echo            '</div>';
                                 echo       ' </div>';
                                 echo    '</div>';
