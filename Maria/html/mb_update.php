@@ -206,7 +206,6 @@ $start = 1 ;
                         <!-- <form id='point_form' class="m-5 hidden" action="../php/updateData.php" method="post">
                             購物金
                         </form> -->
-<<<<<<< HEAD
                         <form id='order_form' class="m-2 " action="../php/updateData.php" method="post">
                             訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" /><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span>
                             <table align="center" class="table order_tb">
@@ -251,10 +250,6 @@ $start = 1 ;
                                 echo '</div>';
                             }
                             ?>
-=======
-                        <form id='order_form' class="m-5 hidden" action="../php/updateData.php" method="post">
-                            
->>>>>>> WennyLai
                         </form>
 
                     </div>
