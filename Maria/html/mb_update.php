@@ -225,7 +225,7 @@ $start = 1 ;
                                 echo        '<div class="card-header" id="heading'.$start.'">';
                                 echo            '<h2 class="mb-0">';
                                 echo                '<button class="btn " type="button" data-toggle="collapse" data-target="#collapse'.$start.'" aria-expanded="true" aria-controls="collapse'.$start.'">';
-                                echo '<table class="order_tb">';
+                                echo '<table class="table order_tb">';
                                 echo "<tr>";
                                 //把訂單時間處理一下
                                 $datetime = $order['orderdate'];
