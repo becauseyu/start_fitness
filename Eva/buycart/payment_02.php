@@ -110,13 +110,8 @@ if (isset($_REQUEST['mid'])) {
     <div class="row">
       <!-- 購買資訊 -->
       <!-- 隱藏欄位 -->
-<<<<<<< HEAD
       <input name='del_method' value="<?php echo $del; ?>" style="display:none" />
       <input name='pay_method' value="<?php echo $pay; ?>" style="display:none" />
-=======
-      <input name='del_method' value="<?php echo $del ;?>" style="display:none"/>
-      <input name='pay_method' value="<?php echo $pay ;?>" style="display:none"/>
->>>>>>> WennyLai
       <section class="col-sm-5 col-md-6">
         <p class="h5 section-header">
           1. <span>購買人資料</span>
