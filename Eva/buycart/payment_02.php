@@ -1,5 +1,5 @@
 <?php
-include('/start_fitness/Maria/php/mysqli.php');
+include('./mysqli.php');
 //確認是否為會員
 if (isset($_REQUEST['mid'])) {
   //得到會員帳號與密碼進行驗證

@@ -1,5 +1,5 @@
 <?php
-include('/start_fitness/Maria/php/mysqli.php');
+include('./mysqli.php');
 //設定時區
 date_default_timezone_set('Asia/Taipei');
 

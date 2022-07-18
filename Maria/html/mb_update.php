@@ -4,16 +4,12 @@ include_once('../php/mysqli.php');
 
 //確認是否為會員
 if (isset($_REQUEST['mid'])) {
-
-
     //從網址得到會員帳號
     $mid = $_REQUEST['mid'];
     $psw = $_REQUEST['psw'];
-
-
     //找出所有會員的資料放進去
-    $sql = "SELECT * FROM member WHERE mid = '{$mid}' AND psw = '{$psw}'";
-    $result = $mysqli->query($sql);
+    $sql_data = "SELECT * FROM member WHERE mid = '{$mid}' AND psw = '{$psw}'";
+    $result = $mysqli->query($sql_data);
     $data = $result->fetch_array();
     //抓全部的東西出來
     $acc = $data['account'];
@@ -40,9 +36,16 @@ if (isset($_REQUEST['mid'])) {
     }
     $name = $data['name'];
     $point = $data['point'];
-
     // echo "{$acc};{$pws};{$status};{$name};{$point}";
 
+    //放入訂單資訊
+    $sql_order = "SELECT oid,mid,orderdate,payment,deliver FROM `memberorder` INNER JOIN payment ON memberorder.paid = payment.paid INNER JOIN deliver on memberorder.did = deliver.did ;";
+    $result_order = $mysqli->query($sql_order);
+    //確認訂單是否為空白
+    $check = $result_order->num_rows;
+    if ($check = 0) {
+        die();
+    }
 } else {
     header("Location:/Maria/html/mb_login.php");
 }
@@ -61,8 +64,10 @@ if (isset($_REQUEST['mid'])) {
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <!--加入bootstrap-->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--加入Font Awesome-->
     <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
     <!-- 頁首頁尾的css -->
@@ -138,7 +143,7 @@ if (isset($_REQUEST['mid'])) {
                             <li class="nav-li" id="li_order">訂單管理</li>
 
                         </ul>
-                        <form id='update_form' class="m-5" action="../php/updateData.php?mid=<?php echo $mid ?>" method="post">
+                        <form id='update_form' class="m-5 hidden" action="../php/updateData.php?mid=<?php echo $mid ?>" method="post">
                             <p align="left"><i class="fa fa-id-card-o" aria-hidden="true"></i>
                                 <span id="who"><?php echo $acc; ?></span>
                                 <span class='mb_status'><?php echo $status; ?></span>
@@ -199,8 +204,34 @@ if (isset($_REQUEST['mid'])) {
                         <!-- <form id='point_form' class="m-5 hidden" action="../php/updateData.php" method="post">
                             購物金
                         </form> -->
-                        <form id='order_form' class="m-5 hidden" action="../php/updateData.php" method="post">
-                            
+                        <form id='order_form' class="m-5 " action="../php/updateData.php" method="post">
+                            訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" /><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span>
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <table border="1px" class="table order_tb">
+                                                    <tr>
+                                                        <th scope="col">訂單編號</th>
+                                                        <th scope="col">下單時間</th>
+                                                        <th scope="col">配送方式</th>
+                                                        <th scope="col">付款方式</th>
+                                                        <th scope="col">訂單金額</th>
+
+                                                    </tr>
+                                                </table>
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </form>
 
                     </div>

@@ -1,5 +1,5 @@
 <?php
-include('/start_fitness/Maria/php/mysqli.php');
+include('.mysqli.php');
 
 $goods = $_REQUEST['pid'];
 if (isset($goods)) {
