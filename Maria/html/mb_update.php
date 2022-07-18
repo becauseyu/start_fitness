@@ -39,7 +39,7 @@ if (isset($_REQUEST['mid'])) {
     // echo "{$acc};{$pws};{$status};{$name};{$point}";
 
     //放入訂單資訊
-    $sql_order = "SELECT oid,mid,orderdate,payment,deliver,total FROM `memberorder` INNER JOIN payment ON memberorder.paid = payment.paid INNER JOIN deliver on memberorder.did = deliver.did ;";
+    $sql_order = "SELECT * FROM `memberorder` INNER JOIN payment ON memberorder.paid = payment.paid INNER JOIN deliver on memberorder.did = deliver.did WHERE mid='{$mid}' ;";
     $result_order = $mysqli->query($sql_order);
     //確認訂單是否為空白
     $check = $result_order->num_rows;
@@ -50,7 +50,7 @@ if (isset($_REQUEST['mid'])) {
     header("Location:/Maria/html/mb_login.php");
 }
 
-$start = 1 ;
+$start = 1;
 
 ?>
 
@@ -210,7 +210,7 @@ $start = 1 ;
                             訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" />
                             <input type="button" value="搜尋">
                             <i class="fa fa-search" aria-hidden="true"></i><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span>
-                            <table align="center" class="table order_tb" >
+                            <table align="center" class="table order_tb">
                                 <tr>
                                     <th scope="col">訂單編號</th>
                                     <th scope="col">下單時間</th>
@@ -221,11 +221,11 @@ $start = 1 ;
                             </table>
                             <?php
                             while ($order = $result_order->fetch_array()) {
-                                $start ++;
+                                $start++;
                                 echo '<div class="accordion" id="accordionExample">';
                                 echo    '<div class="card">';
-                                echo        '<div class="card-header order_tr" id="heading'.$start.'">';
-                                echo                '<div class="" data-toggle="collapse" data-target="#collapse'.$start.'" aria-expanded="true" aria-controls="collapse'.$start.'">';
+                                echo        '<div class="card-header order_tr" id="heading' . $start . '">';
+                                echo                '<div class="" data-toggle="collapse" data-target="#collapse' . $start . '" aria-expanded="true" aria-controls="collapse' . $start . '">';
                                 echo '<table class="order_data" >';
                                 echo "<tr>";
                                 //把訂單時間處理一下
@@ -242,9 +242,21 @@ $start = 1 ;
                                 echo '</table>';
                                 echo                '</div>';
                                 echo       ' </div>';
-                                echo        '<div id="collapse'.$start.'" class="collapse" aria-labelledby="heading'.$start.'" data-parent="#accordionExample">';
+                                echo        '<div id="collapse' . $start . '" class="collapse" aria-labelledby="heading' . $start . '" data-parent="#accordionExample">';
                                 echo            '<div class="card-body">';
-                                echo '<table class="table order_tb" border="1px">';
+                                echo '<table class="table order_data " border="1px">';
+                                echo '<tr>';
+                                echo "<td colspan='2'>收件人大名</td>";
+                                echo "<td colspan='3'>{$order['delName']}</td>";
+                                echo '</tr>';
+                                echo '<tr>';
+                                echo "<td colspan='2'>收件人電話</td>";
+                                echo "<td colspan='3'>{$order['delTel']}</td>";
+                                echo '</tr>';
+                                echo '<tr>';
+                                echo "<td colspan='2'>收件人地址</td>";
+                                echo "<td colspan='3'>{$order['delAddr']}</td>";
+                                echo '</tr>';
                                 echo '<tr>';
                                 echo '<th scope="col">產品圖示</th>';
                                 echo '<th scope="col">產品名稱</th>';
@@ -256,14 +268,14 @@ $start = 1 ;
                                 $sql_detail = "SELECT * FROM orderdetail INNER JOIN goodsdetail ON orderdetail.pid = goodsdetail.pid WHERE oid={$order['oid']}";
                                 $result_detail = $mysqli->query($sql_detail);
                                 //把結果變成li
-                                while($orderDetail = $result_detail->fetch_object()){
+                                while ($orderDetail = $result_detail->fetch_object()) {
                                     echo '<tr>';
                                     echo "<td><img class='detail_img' src='/Eva/asset/saleitem/{$orderDetail->ptype}/{$orderDetail->ppic}' /></td>";
                                     echo "<td>{$orderDetail->pname}-<br/>{$orderDetail->pstyle}</td>";
                                     echo "<td>{$orderDetail->pprice}</td>";
                                     echo "<td>{$orderDetail->amount}</td>";
-                                    $total = ($orderDetail->pprice)*($orderDetail->amount);
-                                    echo "<td>{$total}</td>";
+                                    $total = ($orderDetail->pprice) * ($orderDetail->amount);
+                                    echo "<td>$ {$total}</td>";
                                     echo '</tr>';
                                 }
                                 echo '</table>';
@@ -302,9 +314,15 @@ $start = 1 ;
 
     </div>
     <!-- 頁尾 -->
-    <div class='footerpage'>
+    <footer>
+        <div class="bg-wrap mt-4">
+            <div class="bg-inner p-3">
+                <a class="" href="#"><img width="100" height="100" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
 
-    </div>
+            </div>
+        </div>
+
+    </footer>
 </body>
 <script src="../js/main.js"></script>
 <script src="../js/mb_update.js"></script>

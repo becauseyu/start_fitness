@@ -30,20 +30,25 @@
 .order_tb{
     width: 100%;
     text-align: center;
-    table-layout: fixed
-    
+    table-layout: fixed;
+    background-color: #bbccdf;    
 
+}
+
+.order_tr:hover{
+    background-color: #f5ddad;
+    cursor: pointer;
 }
 .order_data{
     width: 100%;
     text-align: center;
-    table-layout: fixed
-}
-.order_tr:hover{
-    background-color: #c9ac91;
-    cursor: pointer;
+    table-layout: fixed;
+    /* background-color: ; */
 }
 
+.order_data td{
+    vertical-align:middle
+}
 .detail_img{
     width: 100px;
 }

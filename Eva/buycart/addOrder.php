@@ -7,11 +7,11 @@ $count = $_GET['count'];
 $style = $_GET['style'];
 $total = $_GET['total'];
 
-// echo $oid.'<br/>'.$name.'<br/>'.$count.'<br/>'.$style.'<br/>'.$total;
 
 // //先找到pid
 $sql_pid = "SELECT pid FROM goodsdetail WHERE pname ='{$name}' AND pstyle = '{$style}' ";
 $result = $mysqli->query($sql_pid);
+
 $row = $result->fetch_array();
 $pid= $row['pid'];
 // echo $pid;
