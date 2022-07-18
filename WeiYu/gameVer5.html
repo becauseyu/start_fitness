@@ -103,7 +103,7 @@
             background-color: aqua;
         }
 
-        #errorLog {
+        #errorLog_height,#errorLog_weight {
             font-size: 20px;
             color: red;
         }
@@ -142,10 +142,11 @@
 
 
             <div id="div_input">
-                <label for="initialHeight">請先輸入身高 : </label><input type="number" id="initialHeight" min="100" max="200"><span> cm</span>
+                <label for="initialHeight">請先輸入身高 : </label><input type="number" id="initialHeight" ><span> cm</span>
                 <label for="initialWeight">，再輸入體重 : </label><input type="number" id="initialWeight" disabled><span > kg</span>
             </div>
-            <p id="errorLog"> </p>
+            <p id="errorLog_height"> </p>
+            <p id="errorLog_weight"> </p>
             <div id="div_weightButtom_bag">
                 <div class="initialWeight" id="easy"> 建議(簡單)  kg </div>
                 <div class="initialWeight" id="normal"> 建議(中等)  kg </div>
@@ -175,13 +176,13 @@
             if (height > 200) {
                 height = 200;
                 document.getElementById('initialHeight').value = 200;
-                document.getElementById('errorLog').innerText = '您太高了，我們只接受最高200公分';
+                document.getElementById('errorLog_height').innerHTML = '您太高了，我們只接受最高200公分';
             } else if (height < 100) {
                 height = 100;
                 document.getElementById('initialHeight').value = 100;
-                document.getElementById('errorLog').innerText = '我不想歧視您，但不可以設定太矮';
+                document.getElementById('errorLog_height').innerHTML = '我不想歧視您，但不可以設定太矮';
             } else {
-                document.getElementById('errorLog').innerText = '';
+                document.getElementById('errorLog_height').innerHTML = '';
             }
 
             // 顯示建議體重
@@ -192,9 +193,9 @@
                 var bmi_40_weight = Math.floor(40 * height * height / 10000);
 
                 // 畫面新增按鈕
-                document.getElementById('easy').innerText = `建議(簡單) ${bmi_18_weight} kg`;
-                document.getElementById('normal').innerText = `建議(中等) ${bmi_26_weight} kg`;
-                document.getElementById('hard').innerText = `建議(困難) ${bmi_40_weight} kg`;
+                document.getElementById('easy').innerHTML = `建議(簡單) ${bmi_18_weight} kg`;
+                document.getElementById('normal').innerHTML = `建議(中等) ${bmi_26_weight} kg`;
+                document.getElementById('hard').innerHTML = `建議(困難) ${bmi_40_weight} kg`;
 
 
                 // 3個按鈕點擊事件
@@ -260,13 +261,13 @@
             if (bmi > 60) {
                 var bmi_60_weight = Math.floor(60 * height * height / 10000);
                 document.getElementById('initialWeight').value = bmi_60_weight;
-                document.getElementById('errorLog').innerText = '根據bmi計算，您重到不可思議，我們只好給您一個上限';
+                document.getElementById('errorLog_weight').innerText = '根據bmi計算，您重到不可思議，我們只好給您一個上限';
             } else if (bmi < 10) {
                 var bmi_10_weight = Math.floor(10 * height * height / 10000);
                 document.getElementById('initialWeight').value = bmi_10_weight;
-                document.getElementById('errorLog').innerText = '您太瘦了，我們只好給您一個建議下限';
+                document.getElementById('errorLog_weight').innerText = '您太瘦了，我們只好給您一個建議下限';
             } else {
-                document.getElementById('errorLog').innerText = '';
+                document.getElementById('errorLog_weight').innerText = '';
             }
         });
 
