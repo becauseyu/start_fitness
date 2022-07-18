@@ -62,8 +62,6 @@
 /* -----產品網頁------ */
 .image-sale {
     border-radius: 5px;
-    width: 230px;
-    height: 230px;
     margin: 2px;
 }
 
@@ -138,10 +136,10 @@
 
 /* -------------------- */
 
-.col-md-3 {
+/* .col-md-3 {
     max-width: 30% ;
 }
 
 .col-sm-6{
     max-width: 40%;
-}
+} */
