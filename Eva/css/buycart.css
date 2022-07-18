@@ -158,25 +158,51 @@
 
 }
 
-.button01 {
-    width: 240px;
-    font-weight: 500;
+.button09 {
+    width: 200px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
     color: #fff;
     background-color:  #2d84e1;
     border-color: #004da0;
 }
 
-.button01:hover {
+.button09:hover {
     color: #fff;
     background-color: #1d60a8;
     border-color: #1a5594;
   }
   
-  .button01:focus, .button01.focus {
+  .button09:focus, .button01.focus {
     color: #fff;
     background-color: #457ab4;
     border-color: #175eaa;
-    box-shadow: 0 0 0 0.2rem rgba(87, 138, 192, 0.5);
+    box-shadow: 1 1 0 0.2rem rgba(179, 182, 186, 0.5);
+  }
+
+
+.button10 {
+    width: 200px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+    background-color:  #df5b73;
+    border-color: #e2868f;
+}
+
+.button10:hover {
+    color: #fff;
+    background-color:  #e14561;
+    border-color: #de5d6a;
+  }
+  
+  .button10:focus, .button01.focus {
+    color: #fff;
+    background-color:  #7f2536;
+    border-color: #d1606c;
+    box-shadow: 1 1 0 0.2rem rgba(36, 39, 44, 0.5);
   }
 
 /* -------------------- */

@@ -110,8 +110,8 @@ if (isset($_REQUEST['mid'])) {
     <div class="row">
       <!-- 購買資訊 -->
       <!-- 隱藏欄位 -->
-      <input name='del_method' value="<?php echo $del ;?>" style="display:none"/>
-      <input name='pay_method' value="<?php echo $pay ;?>" style="display:none"/>
+      <input name='del_method' value="<?php echo $del; ?>" style="display:none" />
+      <input name='pay_method' value="<?php echo $pay; ?>" style="display:none" />
       <section class="col-sm-5 col-md-6">
         <p class="h5 section-header">
           1. <span>購買人資料</span>
@@ -189,9 +189,13 @@ if (isset($_REQUEST['mid'])) {
             </div>
           </div>
         </div>
-        <div class="mt-3 row justify-content">
-          <a href="http://localhost:3000/Eva/buycart/payment_01.php?mid=<?php echo $mid; ?>&password=<?php echo $psw; ?>"><input type="button" class="col-6 btn button01" value="返回上一頁"></input></a>
-          <input type="submit" class="col-4 btn button01" value="確認繳交"></input>
+        <div class="mt-3 justify-content">
+          
+          <a class="mr-4" href="http://localhost:3000/Eva/buycart/payment_01.php?mid=
+          <?php echo $mid; ?>&password=<?php echo $psw; ?>">
+            <input type="button" class="btn button10" value="回上一頁"></input>
+          </a>
+          <input type="submit" class=" btn button09" value="確認繳交"></input>
         </div>
         <div id='goodsList'>
         </div>
