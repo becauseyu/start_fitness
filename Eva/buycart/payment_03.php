@@ -208,6 +208,7 @@ if (isset($_REQUEST['mid'])) {
         let count = data.count
         let oid = <?php echo $id ;?>;
         let xhttp = new XMLHttpRequest;
+        // console.log('http://localhost:3000/Eva/buycart/addOrder.php?name='+name+"&style="+style+'&count='+count+'&oid='+oid+'&total='+total)
         xhttp.open('GET', 'http://localhost:3000/Eva/buycart/addOrder.php?name='+name+"&style="+style+'&count='+count+'&oid='+oid+'&total='+total, true);
         //send請求
         xhttp.send();
