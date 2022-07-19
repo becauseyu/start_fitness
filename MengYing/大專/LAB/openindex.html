@@ -10,7 +10,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel=stylesheet type="text/css" href="../_css/head.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="../magic/magic.min.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../_js/jquery.min.js"></script>
     <script src="../_js/popper.min.js"></script>
@@ -29,39 +29,45 @@
             align-items: center;
             z-index: 100;
             position: absolute;
+
+        }
+
+        .logo {
+            z-index: 999;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .fd {
             position: absolute;
             z-index: 101;
-            /* background: lightgreen; */
+            background: white;
             width: 50%;
             left: 50%;
             top: 0px;
             height: 100%;
-            opacity: 0.9;
+            opacity: 0.6;
         }
 
         .fd:hover {
-            background: lightblue;
-            opacity: 0.1;
-
+            opacity: 0;
         }
 
         .sp {
             position: absolute;
             z-index: 101;
-            /* background: lightgreen; */
+            background: white;
             width: 50%;
             right: 50%;
             top: 0px;
             height: 100%;
-            opacity: 0.9;
+            opacity: 0.6;
         }
 
         .sp:hover {
-            background: lightyellow;
-            opacity: 0.1;
+            opacity: 0;
         }
     </style>
 </head>
@@ -72,10 +78,11 @@
         <div class="sp "></div>
     </a>
     <a href="./fd_idx.html">
-        <div class="fd animate__animated animate__slideRight"></div>
+        <div class="fd "></div>
     </a>
     <div class="index "><img src="../AI/LOGO.png" height="300vh" alt=""></div>
-    <!-- <img  style="z-index:102 ;" src="../AI/LOGO.png" height="300vh" alt=""> -->
+    <img class="logo" src="../AI/LOGO.png" height="300vh">
+
 
 </body>
 
