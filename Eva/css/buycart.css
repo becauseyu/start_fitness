@@ -12,6 +12,7 @@
     color: red;
     font-size: 10px;
     font-weight: bold;
+    padding-left: 4px;
 }
 
 
@@ -165,20 +166,20 @@
     letter-spacing: 1px;
     color: #fff;
     background-color:  #2d84e1;
-    border-color: #004da0;
+    border-color: #50769f;
 }
 
 .button09:hover {
     color: #fff;
-    background-color: #1d60a8;
-    border-color: #1a5594;
+    background-color: #2673c4;
+    border-color: #587ca1;
   }
   
   .button09:focus, .button01.focus {
     color: #fff;
-    background-color: #457ab4;
-    border-color: #175eaa;
-    box-shadow: 1 1 0 0.2rem rgba(179, 182, 186, 0.5);
+    background-color: #518fd1;
+    border-color: #527192;
+    box-shadow: 1 1 0 0.2rem rgba(166, 168, 169, 0.5);
   }
 
 
@@ -189,20 +190,20 @@
     letter-spacing: 1px;
     color: rgb(255, 255, 255);
     background-color:  #df5b73;
-    border-color: #e2868f;
+    border-color: #a7696f;
 }
 
 .button10:hover {
     color: #fff;
-    background-color:  #e14561;
-    border-color: #de5d6a;
+    background-color:  #d03854;
+    border-color: #a5666c;
   }
   
   .button10:focus, .button01.focus {
     color: #fff;
-    background-color:  #7f2536;
-    border-color: #d1606c;
-    box-shadow: 1 1 0 0.2rem rgba(36, 39, 44, 0.5);
+    background-color:  #ce2e4c;
+    border-color: #b7757c;
+    box-shadow: 1 1 0 0.2rem rgba(136, 135, 135, 0.5);
   }
 
 /* -------------------- */
@@ -337,7 +338,7 @@
 
 .text-size1 {
     font-size: 16px; 
-    font-weight: 300;
+    font-weight: 500;
     padding: 10px;
 }
 
