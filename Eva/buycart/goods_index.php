@@ -175,7 +175,7 @@ $resultGym = $mysqli->query($sql_g);
               $row = $result->fetch_array();
               echo   "<div>{$row['bname']}</div>";
               echo   "</div>";
-              echo   "<p class='head-font'>{$good->pname}<i class='mx-2 fa-solid fa-cart-shopping'></i></p>";
+              echo   "<p class='head-font'>{$good->pname}－{$good->pstyle}<i class='mx-2 fa-solid fa-cart-shopping'></i></p>";
               echo   "<p class='price-font'>NT$<span id='single_price'>{$good->pprice}</span></p>";
               echo   "</div>";
               echo   "</div>";

@@ -159,3 +159,4 @@ $('#new_password2').on('input',function(){
     }
 
 })
+

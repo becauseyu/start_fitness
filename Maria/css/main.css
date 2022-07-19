@@ -17,6 +17,7 @@
      width: 80%;
      height: 550px;
      border: 3px solid rgb(142, 180, 227);
+     overflow: auto;
  }
 
  .selected {
@@ -88,11 +89,11 @@
 /*  ======== slide_buycart  ==================*/
 
 #slide_buycart{
-    height: 80%;
+    height: 50%;
     width:25%;
     background-color: rgb(255, 255, 255);
     position: fixed;
-    top:100px;
+    top:80px;
     right: 0;
     z-index: 120;
     border-radius: 10px;

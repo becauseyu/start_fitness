@@ -19,7 +19,7 @@ CREATE TABLE `startfitness`.`branddetail` (`bid` INT NOT NULL AUTO_INCREMENT , `
 INSERT INTO branddetail(bname) VALUES ("@好味營養師品瑄"),("@Peeta Protein"),("@全能專科"),("@lotusfitness"),("@Myprotein"),("@Blender Bottle®"),("@ArmorLite®"),("@BYZOOM"),("@早安健康嚴選"),("@TACTEL® ")
 
 新增 memberOrder
-CREATE TABLE `startfitness`.`memberorder` (`oid` INT NOT NULL AUTO_INCREMENT , `mid` VARCHAR(100) NOT NULL , `orderdate` DATETIME NOT NULL, `delAddr` VARCHAR(256) NOT NULL , `delTel` VARCHAR(100) NOT NULL , `delName` VARCHAR(100) NOT NULL , `point` INT NOT NULL DEFAULT '0' , `did` INT NOT NULL , `paid` INT NULL , `memo` VARCHAR(256) NOT NULL , `staid` INT NOT NULL DEFAULT '1',PRIMARY KEY (`oid`)) ENGINE = InnoDB;
+CREATE TABLE `startfitness`.`memberorder` (`oid` INT NOT NULL AUTO_INCREMENT , `mid` VARCHAR(100) NOT NULL , `orderdate` DATETIME NOT NULL, `delAddr` VARCHAR(256) NOT NULL , `delTel` VARCHAR(100) NOT NULL , `delName` VARCHAR(100) NOT NULL , `point` INT NOT NULL DEFAULT '0' , `did` INT NOT NULL , `paid` INT NULL , `memo` VARCHAR(256) NOT NULL , `staid` INT NOT NULL DEFAULT '1',`total` VARCHAR(50) NOT NULL ,PRIMARY KEY (`oid`)) ENGINE = InnoDB;
 
 新增 payment
 CREATE TABLE `startfitness`.`payment` (`paid` INT NOT NULL AUTO_INCREMENT , `payment` VARCHAR(100) NOT NULL , PRIMARY KEY (`paid`)) ENGINE = InnoDB;
@@ -30,7 +30,7 @@ CREATE TABLE `startfitness`.`deliver` (`did` INT NOT NULL AUTO_INCREMENT , `deli
 INSERT INTO deliver(deliver) VALUES ("新竹物流宅配"),("黑貓宅配"),("711取貨不付款"),("711取貨付款")
 
 新增 orderDetail
-CREATE TABLE `startfitness`.`orderdetail` (`pid` INT NOT NULL AUTO_INCREMENT , `oid` INT NOT NULL , `amount` INT NOT NULL , PRIMARY KEY (`pid`)) ENGINE = InnoDB;
+CREATE TABLE `startfitness`.`orderdetail` (`opid` INT NOT NULL AUTO_INCREMENT,`pid` INT NOT NULL  , `oid` INT NOT NULL , `amount` INT NOT NULL , PRIMARY KEY (`opid`)) ENGINE = InnoDB;
 
 新增 orderStatusDetail
 CREATE TABLE `startfitness`.`orderstatusdetail` (`ostaid` INT NOT NULL AUTO_INCREMENT , `ostatus` VARCHAR(50) NOT NULL , PRIMARY KEY (`ostaid`)) ENGINE = InnoDB;

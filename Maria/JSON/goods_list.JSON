@@ -50,7 +50,7 @@
         "picture": "jelly00.webp",
         "brand": "@好味營養師品瑄",
         "type":"food",
-        "style":"蜂蜜檸檬"
+        "style":"綜合組"
         
     },
     {
@@ -140,7 +140,7 @@
         "picture": "popcron00.webp",
         "brand": "@好味營養師品瑄",
         "type":"food",
-        "style":"麻辣"
+        "style":"綜合"
         
     },
     {
@@ -230,7 +230,7 @@
         "picture": "proteinbar01.jpg",
         "brand": "@Myprotein",
         "type":"food",
-        "style":"綜合組(12入)"
+        "style":"放圖用"
         
     },
     {
@@ -247,10 +247,8 @@
         "picture": "vitamin01.webp",
         "brand": "@全能專科",
         "type":"food",
-        "style":"維生素B群"
+        "style":"放圖用"
     },
-
-
     {
         "name": "我不是胖虎冰壩杯(特別版)",
         "price": "359",
@@ -262,7 +260,7 @@
     {
         "name": "我不是胖虎冰壩杯(特別版)",
         "price": "359",
-        "picture": "bottlesp02.webp",
+        "picture": "bottlesp01.webp",
         "brand": "@Blender Bottle®",
         "type":"gym",
         "style":"氣萌團子"
@@ -270,7 +268,7 @@
     {
         "name": "我不是胖虎冰壩杯(特別版)",
         "price": "359",
-        "picture": "bottlesp05.webp",
+        "picture": "bottlesp02.webp",
         "brand": "@Blender Bottle®",
         "type":"gym",
         "style":"藍海虎箭"
@@ -278,10 +276,18 @@
     {
         "name": "我不是胖虎冰壩杯(特別版)",
         "price": "359",
-        "picture": "bottlesp07.webp",
+        "picture": "bottlesp03.webp",
         "brand": "@Blender Bottle®",
         "type":"gym",
         "style":"胖且生氣"
+    },
+    {
+        "name": "我不是胖虎冰壩杯(特別版)",
+        "price": "359",
+        "picture": "bottlesp031.webp",
+        "brand": "@Blender Bottle®",
+        "type":"gym",
+        "style":"放圖用"
     },
 
 
@@ -296,7 +302,7 @@
     {
         "name": "我不是胖虎冰壩杯",
         "price": "359",
-        "picture": "bottle02.webp",
+        "picture": "bottle01.webp",
         "brand": "@Blender Bottle®",
         "type":"gym",
         "style":"虎斑呱呱"
@@ -304,7 +310,7 @@
     {
         "name": "我不是胖虎冰壩杯",
         "price": "359",
-        "picture": "bottle03.webp",
+        "picture": "bottle02.webp",
         "brand": "@Blender Bottle®",
         "type":"gym",
         "style":"肉肉虎龍"
@@ -312,7 +318,7 @@
     {
         "name": "我不是胖虎冰壩杯",
         "price": "359",
-        "picture": "bottle04.webp",
+        "picture": "bottle03.webp",
         "brand": "@Blender Bottle®",
         "type":"gym",
         "style":"虎背鯊鯊"
@@ -332,16 +338,41 @@
         "picture": "dumbbell01.webp",
         "brand": "@BYZOOM",
         "type":"gym",
-        "style":"55磅 15段"
+        "style":"放圖用"
     },
+    {
+        "name": "速調啞鈴",
+        "price": "5400",
+        "picture": "dumbbell02.webp",
+        "brand": "@BYZOOM",
+        "type":"gym",
+        "style":"放圖用"
+    },
+    {
+        "name": "速調啞鈴",
+        "price": "5400",
+        "picture": "dumbbell03.webp",
+        "brand": "@BYZOOM",
+        "type":"gym",
+        "style":"放圖用"
+    },
+    {
+        "name": "速調啞鈴",
+        "price": "5400",
+        "picture": "dumbbell04.webp",
+        "brand": "@BYZOOM",
+        "type":"gym",
+        "style":"放圖用"
+    },
+    
     
     {
         "name": "環狀延展彈力帶",
-        "price": "420",
+        "price": "1600",
         "picture": "resistanceband00.webp",
         "brand": "@lotusfitness",
         "type":"gym",
-        "style":"18-65磅(約8-29公斤)"
+        "style":"綜合組(4入)"
     },
     {
         "name": "環狀延展彈力帶",
@@ -389,8 +420,33 @@
         "picture": "foamroller01.webp",
         "brand": "@早安健康嚴選",
         "type":"gym",
-        "style":"加長版"
+        "style":"放圖用"
     },
+    {
+        "name": "植纖瑜珈運動滾筒",
+        "price": "999",
+        "picture": "foamroller02.webp",
+        "brand": "@早安健康嚴選",
+        "type":"gym",
+        "style":"放圖用"
+    },
+    {
+        "name": "植纖瑜珈運動滾筒",
+        "price": "999",
+        "picture": "foamroller03.webp",
+        "brand": "@早安健康嚴選",
+        "type":"gym",
+        "style":"放圖用"
+    },
+    {
+        "name": "植纖瑜珈運動滾筒",
+        "price": "999",
+        "picture": "foamroller04.webp",
+        "brand": "@早安健康嚴選",
+        "type":"gym",
+        "style":"放圖用"
+    },
+    
     {
         "name": "高腰側線Leggings",
         "price": "1580",
@@ -405,7 +461,7 @@
         "picture": "leggings01.webp",
         "brand": "@TACTEL® ",
         "type":"gym",
-        "style":"碳黑"
+        "style":"青丹綠"
     },
     {
         "name": "高腰側線Leggings",
@@ -413,7 +469,7 @@
         "picture": "leggings02.webp",
         "brand": "@TACTEL® ",
         "type":"gym",
-        "style":"青丹綠"
+        "style":"黑麻灰"
     },
     {
         "name": "高腰側線Leggings",
@@ -421,7 +477,15 @@
         "picture": "leggings03.webp",
         "brand": "@TACTEL® ",
         "type":"gym",
-        "style":"黑麻灰"
+        "style":"放圖用"
+    },
+    {
+        "name": "高腰側線Leggings",
+        "price": "1580",
+        "picture": "leggings04.webp",
+        "brand": "@TACTEL® ",
+        "type":"gym",
+        "style":"放圖用"
     },
 
 
@@ -439,7 +503,31 @@
         "picture": "yogamat01.webp",
         "brand": "@lotusfitness",
         "type":"gym",
-        "style":"DIVE IN WATER"
+        "style":"放圖用"
+    },
+    {
+        "name": "徜徉瑜珈墊",
+        "price": "3080",
+        "picture": "yogamat02.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"放圖用"
+    },
+    {
+        "name": "徜徉瑜珈墊",
+        "price": "3080",
+        "picture": "yogamat03.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"放圖用"
+    },
+    {
+        "name": "徜徉瑜珈墊",
+        "price": "3080",
+        "picture": "yogamat04.webp",
+        "brand": "@lotusfitness",
+        "type":"gym",
+        "style":"放圖用"
     },
     
     {
@@ -456,7 +544,7 @@
         "picture": "cloth01.webp",
         "brand": "@ArmorLite®",
         "type":"gym",
-        "style":"鏽綠"
+        "style":"金屬棕"
     },
     {
         "name": "抗菌訓練寬肩背心",
@@ -464,7 +552,7 @@
         "picture": "cloth02.webp",
         "brand": "@ArmorLite®",
         "type":"gym",
-        "style":"金屬棕"
+        "style":"卓越白"
     },
     {
         "name": "抗菌訓練寬肩背心",
@@ -472,7 +560,7 @@
         "picture": "cloth03.webp",
         "brand": "@ArmorLite®",
         "type":"gym",
-        "style":"卓越白"
+        "style":"放圖用"
     },
     {
         "name": "抗菌訓練寬肩背心",
@@ -480,6 +568,6 @@
         "picture": "cloth04.webp",
         "brand": "@ArmorLite®",
         "type":"gym",
-        "style":"卓越白"
+        "style":"放圖用"
     }
 ]

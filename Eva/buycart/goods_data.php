@@ -1,16 +1,12 @@
 <?php
-include('/start_fitness/Maria/php/mysqli.php');
+include('./mysqli.php');
 
 $goods = $_REQUEST['pid'];
 if (isset($goods)) {
   //取得商品資訊
-  $sql = "SELECT * FROM goodsdetail WHERE pid = '$goods'";
+  $sql = "SELECT * FROM goodsdetail INNER JOIN branddetail on goodsdetail.bid = branddetail.bid WHERE pid = '$goods'";
   $result = $mysqli->query($sql);
-  $row = $result->fetch_array();
-  $id = $row['bid'];
-  $sql2 = "SELECT bname FROM branddetail WHERE bid = '{$id}' ";
-  $result2 = $mysqli->query($sql2);
-  $row1 = $result2->fetch_array();
+  $row = $result->fetch_object();
 } else {
   header("Location:goods_index.php");
 }
@@ -95,9 +91,17 @@ if (isset($goods)) {
       <!--  小圖列 -->
       <div class="b1 col-lg-2 col-sm-3 col-3 ">
         <div class="sm-box">
-          <div class="smallImage">
-            <img src="../asset/saleitem/item/01.webp" class="smallImage01 img-fluid spicy">
-          </div>
+          <?php
+          $sql_flavor = "SELECT * FROM goodsdetail WHERE pname ='{$row->pname}'";
+          $result_flavor = $mysqli->query($sql_flavor);
+          while ($flavor = $result_flavor->fetch_object()) {
+            echo   '<div class="smallImage mt-2 mb-2">';
+            echo   '<img src="../asset/saleitem/' . $flavor->ptype . "/" . $flavor->ppic . '" class="smallImage01 img-fluid ">';
+            echo '</div>';
+          }
+
+          ?>
+          <!-- 
           <div class="image-top smallImage ">
             <img src="../asset/saleitem/item/02.webp" class="smallImage01 img-fluid ">
           </div>
@@ -109,32 +113,41 @@ if (isset($goods)) {
           </div>
           <div class="image-top smallImage">
             <img src="../asset/saleitem/item/05.webp" class="smallImage01 img-fluid mocha">
-          </div>
+          </div> -->
 
         </div>
       </div>
       <!--  大圖列 -->
       <div class="col-lg-5 col-sm-9 col-9 bigImage">
         <div>
-          <img src="../asset/saleitem/food/<?php echo $row['ppic']; ?>" id="bigImage" class="bigImage01 img-fluid">
+          <img src="../asset/saleitem/<?php echo $row->ptype; ?>/<?php echo $row->ppic; ?>" id="bigImage" class="bigImage01 img-fluid">
         </div>
       </div>
       <!--  文字敘述 -->
       <div class="col-lg-5 col-sm-12 col-12">
         <div class="pt-3">
-          <h2 class="head-font"><?php echo $row['pname']; ?> </h2>
-          <p class="head-font01 "><?php echo $row1['bname']; ?></p>
+          <h2 class="head-font"><?php echo $row->pname; ?> </h2>
+          <p class="head-font01 "><?php echo $row->bname; ?></p>
           <hr class="header-hr" />
 
         </div>
         <div>
           <h4 class="mb-3">NT$198</h4>
-          <h5>口味 | 一盒12入:&ensp;<span class="flaver">麻辣</span></h5>
+          <h5>口味 | <span class="flaver"></span></h5>
           <div class="d-flex item-box">
-            <button class="item-icon spicy">麻辣</button>
-            <button class="item-icon salt">椒鹽</button>
-            <button class="item-icon black">黑糖</button>
-            <button class="item-icon mocha">抹茶</button>
+            <?php
+            $sql_flavor = "SELECT * FROM goodsdetail WHERE pname ='{$row->pname}'";
+            $result_flavor = $mysqli->query($sql_flavor);
+            while ($flavor = $result_flavor->fetch_object()) {
+              if ($flavor->pstyle != '放圖用') {
+                echo "<button class='item-icon spicy'>{$flavor->pstyle}</button>";
+              }
+            }
+
+
+            ?>
+
+
           </div>
           <div class="mt-4">
             <h5>數量</h5>

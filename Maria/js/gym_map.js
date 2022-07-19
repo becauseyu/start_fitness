@@ -104,7 +104,7 @@ for (i = 0; i < dataList.length; i++) {
                 <span class='popAddr'>台中市${town}${addr}</span><br/>
                 <span class='popRes'>可供預約的數量:<button id='res' class=${countJudge}>${count}</button></span>
                 <hr/>
-                <button class='btn ${buttonJudge}' onclick=openRes(this) >點我預約inbody</button>
+                <button class='btn ${buttonJudge}' onclick=openRes(this) >點我預約inbody</button><a  target='_blank' class='m-2' href='https://healthyu.ntunhs.edu.tw/content/?parent_id=250'>甚麼是inbody?</a>
                     `
 
     ).addTo(myMap).on('click', showGymName)

@@ -1,5 +1,5 @@
 <?php
-include('/start_fitness/Maria/php/mysqli.php');
+include('./mysqli.php');
 //設定時區
 date_default_timezone_set('Asia/Taipei');
 
@@ -198,17 +198,21 @@ if (isset($_REQUEST['mid'])) {
         wantListData.push(data)
 
     }
+    var total = myStorage.getItem('total')
  //透過ajax要求把localStorage的值送入資料庫建立檔案
     for (let j = 0; j < wantListData.length; j++) {
         let data = JSON.parse(wantListData[j]);
         let fullname = data.name;
         let name = (fullname.split('－'))[0];
+        name = name.replace(' ','+');
         let style = (fullname.split('－'))[1];
+        style = style.replace(' ','+');
         let count = data.count
         let oid = <?php echo $id ;?>;
         let xhttp = new XMLHttpRequest;
-        xhttp.open('GET', 'http://localhost:3000/Eva/buycart/addOrder.php?name='+name+"&style="+style+'&count='+count+'&oid='+oid, true);
-        //send請求
+        // console.log('http://localhost:3000/Eva/buycart/addOrder.php?name='+name+"&style="+style+'&count='+count+'&oid='+oid+'&total='+total)
+        xhttp.open('GET', 'http://localhost:3000/Eva/buycart/addOrder.php?name='+name+"&style="+style+'&count='+count+'&oid='+oid+'&total='+total, true);
+        // //send請求
         xhttp.send();
     }
 
