@@ -111,6 +111,64 @@ $('.button01').on('click', function () {
     myStorage.setItem(fullname, JSON.stringify(good))
     myStorage.setItem('wantList', wantList)
   }
+  //-------------inputNumber 觸發單品加減與總數量加減-----------------------------//
+
+  $(".slide_buycart_count").on('input', function () {
+    var btn_count = $(this).val()
+
+    if (btn_count >= 0) {  //設定如果val()小於零時，自動刪除
+      var btn_price = $(this).closest('ul').find('li').eq(4).text()
+      var btn_total = btn_count * btn_price
+      Number.parseInt(btn_total)
+      $(this).closest('ul').find('li').eq(3).html(`NT$<span>${btn_total}</span>`)
+
+      var sum = 0
+      $('#slide_buycart_content').find('ul').each(function (idx, elm) {
+        var goodsTotalAcount = $(elm).find('span').html();
+        sum = parseInt(sum) + parseInt(goodsTotalAcount)
+        console.log(sum)
+      })
+      $('#slide_buycart_accounttotal').html(sum)
+
+      var count = 0
+      $('#slide_buycart_content').find('ul').each(function (idx, elm) {
+        var goodsTotalcount = $(elm).find(':input').val();
+        count = parseInt(count) + parseInt(goodsTotalcount)
+      })
+      $('#totalCount').html(count)
+      $('#cartQuantity').html(count) //透過點擊改變購物車圖標上數字
+      //把購物車數量存到localStorage
+      var myStorage = localStorage
+      myStorage.setItem('cartQuantity', count)
+
+    }
+
+    else {
+      //刪除畫面
+      var a = $(this).closest('ul')
+      a.remove()
+      //歸零時刪除localStorage
+      var goods_name = $(this).closest('ul').find('li').eq(0).html()
+      var myStorage = localStorage
+      myStorage.removeItem(goods_name)
+      //從wantList刪除商品並推回localStorage
+      wantList = myStorage.getItem('wantList').split(',')
+      wantList = wantList.filter(deleteGoods);
+      function deleteGoods(name) {
+        return name != goods_name;
+      }
+      myStorage.setItem('wantList', wantList)
+    }
+
+    //更改數量加入localStorage
+    var btn_name = $(this).closest('ul').find('li').eq(0).text()
+    var myStorage = localStorage
+    var goodJson = myStorage.getItem(btn_name)
+    var goodsData = JSON.parse(goodJson)
+    goodsData.count = parseInt(btn_count)
+    goodsData.totalPrice = parseInt(btn_total)
+    myStorage.setItem(btn_name, JSON.stringify(goodsData))
+  })
   //------------------點擊icon改變總計-----------------------------//
   var sum = 0
   $('#slide_buycart_content').find('ul').each(function (idx, elm) {
@@ -130,7 +188,62 @@ $('.button01').on('click', function () {
   
 
 })
+$(".slide_buycart_count").on('input', function () {
+  var btn_count = $(this).val()
 
+  if (btn_count >= 0) {  //設定如果val()小於零時，自動刪除
+    var btn_price = $(this).closest('ul').find('li').eq(4).text()
+    var btn_total = btn_count * btn_price
+    Number.parseInt(btn_total)
+    $(this).closest('ul').find('li').eq(3).html(`NT$<span>${btn_total}</span>`)
+
+    var sum = 0
+    $('#slide_buycart_content').find('ul').each(function (idx, elm) {
+      var goodsTotalAcount = $(elm).find('span').html();
+      sum = parseInt(sum) + parseInt(goodsTotalAcount)
+      console.log(sum)
+    })
+    $('#slide_buycart_accounttotal').html(sum)
+
+    var count = 0
+    $('#slide_buycart_content').find('ul').each(function (idx, elm) {
+      var goodsTotalcount = $(elm).find(':input').val();
+      count = parseInt(count) + parseInt(goodsTotalcount)
+    })
+    $('#totalCount').html(count)
+    $('#cartQuantity').html(count) //透過點擊改變購物車圖標上數字
+    //把購物車數量存到localStorage
+    var myStorage = localStorage
+    myStorage.setItem('cartQuantity', count)
+
+  }
+
+  else {
+    //刪除畫面
+    var a = $(this).closest('ul')
+    a.remove()
+    //歸零時刪除localStorage
+    var goods_name = $(this).closest('ul').find('li').eq(0).html()
+    var myStorage = localStorage
+    myStorage.removeItem(goods_name)
+    //從wantList刪除商品並推回localStorage
+    wantList = myStorage.getItem('wantList').split(',')
+    wantList = wantList.filter(deleteGoods);
+    function deleteGoods(name) {
+      return name != goods_name;
+    }
+    myStorage.setItem('wantList', wantList)
+  }
+
+  //更改數量加入localStorage
+  var btn_name = $(this).closest('ul').find('li').eq(0).text()
+  var myStorage = localStorage
+  var goodJson = myStorage.getItem(btn_name)
+  var goodsData = JSON.parse(goodJson)
+  goodsData.count = parseInt(btn_count)
+  goodsData.totalPrice = parseInt(btn_total)
+  myStorage.setItem(btn_name, JSON.stringify(goodsData))
+})
 
 
 
