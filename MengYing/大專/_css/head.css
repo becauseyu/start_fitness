@@ -74,19 +74,19 @@
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 999;
+    z-index: 900;
 }
 
 #mySidenavr a {
 
     position: absolute;
-    right: -290px;
+    right: -250px;
     transition: 0.3s;
     padding: 15px;
     height: 100%;
     width: 300px;
     text-decoration: none;
-    font-size: 20px;
+
     color: white;
     /* border-radius: 0 5px 5px 0; */
 }
@@ -96,11 +96,11 @@
 }
 
 #Sidenavr {
-    /* top: 100px; */
+    /* top: 76px; */
     background-color: #FBC65C
 }
 
-.sideImg {
+.sideImgr {
     display: block;
     margin: auto;
 
@@ -112,6 +112,14 @@
     height: 100;
 
 }
+.iconcenterr{
+    position: absolute;
+    top: 51%;
+    right: 85%;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* l側邊鈕 */
 #mySidenavl {
@@ -120,13 +128,13 @@
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 999;
+    z-index: 900;
 }
 
 #mySidenavl a {
 
     position: absolute;
-    left: -290px;
+    left: -250px;
     transition: 0.3s;
     padding: 15px;
     height: 100%;
@@ -135,6 +143,8 @@
 
     color: white;
     /* border-radius: 0 5px 5px 0; */
+
+    
 
 
 
@@ -145,8 +155,10 @@
 }
 
 #Sidenavl {
-    /* top: 100px; */
-    background-color: #8EB4E3
+    /* top: 76px; */
+    background-color: #8EB4E3;
+    justify-content: center;
+    align-items: center;
 }
 
 .sideImg1 {
@@ -156,11 +168,20 @@
     position: absolute;
     top: 50%;
     right: 50%;
+    justify-content: center;
     align-items: center;
     width: 100px;
     height: 100;
 
 }
+.iconcenter1{
+    position: absolute;
+    top: 51%;
+    left: 85%;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* NAVBAR導覽列 */
 /* .navbar .navbar-nav .nav-link:hover {
@@ -239,6 +260,7 @@
     transition: all 0.5s;
 }
 
+/* 推薦文章的按鈕 */
 .button01 {
     width: 140px;
     font-weight: 500;
@@ -246,7 +268,7 @@
     /* background-color: #FBC65C; */
     border-color: #FBC65C;
 }
-/* 推薦文章的按鈕 */
+
 .button01:hover {
     color: #fff;
     background-color: #FBC65C;
