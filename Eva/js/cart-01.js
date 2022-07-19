@@ -74,6 +74,7 @@ if (goodstList) {
 	} else {
 		fee = 0;
 	};
+	$('.fee').html('NT$'+fee);
 	$('.total03').html(sum + fee)
 }
 //先抓數量

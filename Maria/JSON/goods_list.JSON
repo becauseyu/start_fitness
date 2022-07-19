@@ -492,7 +492,7 @@
     {
         "name": "徜徉瑜珈墊",
         "price": "3080",
-        "picture": "yogamat00.webp",
+        "picture": "yogamat00.png",
         "brand": "@lotusfitness",
         "type":"gym",
         "style":"DIVE IN WATER"
@@ -500,7 +500,7 @@
     {
         "name": "徜徉瑜珈墊",
         "price": "3080",
-        "picture": "yogamat01.webp",
+        "picture": "yogamat01.png",
         "brand": "@lotusfitness",
         "type":"gym",
         "style":"放圖用"
@@ -508,7 +508,7 @@
     {
         "name": "徜徉瑜珈墊",
         "price": "3080",
-        "picture": "yogamat02.webp",
+        "picture": "yogamat02.png",
         "brand": "@lotusfitness",
         "type":"gym",
         "style":"放圖用"
@@ -516,7 +516,7 @@
     {
         "name": "徜徉瑜珈墊",
         "price": "3080",
-        "picture": "yogamat03.webp",
+        "picture": "yogamat03.png",
         "brand": "@lotusfitness",
         "type":"gym",
         "style":"放圖用"
@@ -524,12 +524,11 @@
     {
         "name": "徜徉瑜珈墊",
         "price": "3080",
-        "picture": "yogamat04.webp",
+        "picture": "yogamat04.png",
         "brand": "@lotusfitness",
         "type":"gym",
         "style":"放圖用"
     },
-    
     {
         "name": "抗菌訓練寬肩背心",
         "price": "850",

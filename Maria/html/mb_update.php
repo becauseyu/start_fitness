@@ -207,9 +207,9 @@ $start = 1;
                             購物金
                         </form> -->
                         <form id='order_form' class="m-3 hidden " action="../php/updateData.php" method="post">
-                            訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" />
+                            <!-- 訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" />
                             <input type="button" value="搜尋">
-                            <i class="fa fa-search" aria-hidden="true"></i><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span>
+                            <i class="fa fa-search" aria-hidden="true"></i><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span> -->
                             <table align="center" class="table order_tb">
                                 <tr>
                                     <th scope="col">訂單編號</th>
