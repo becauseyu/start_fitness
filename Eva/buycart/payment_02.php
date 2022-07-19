@@ -193,9 +193,9 @@ if (isset($_REQUEST['mid'])) {
           
           <a class="mr-4" style="color:white" href="http://localhost:3000/Eva/buycart/payment_01.php?mid=
           <?php echo $mid; ?>&password=<?php echo $psw; ?>">
-            <input type="button" class="btn button10" value="回上一頁"></input>
+            <input type="button" class="m-1 btn button10" value="回上一頁"></input>
           </a>
-          <input type="submit" class=" btn button09" value="確認繳交"></input>
+          <input type="submit" class="m-1 btn button09" value="確認繳交"></input>
         </div>
         <div id='goodsList'>
         </div>
