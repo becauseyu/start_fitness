@@ -20,6 +20,7 @@ function hoverIn(img) {
     var pic_name_pre = (pic_name.split(pic_num))[0]; //得到檔案不含數字的部分
     var pic_style = (pic_url.split('.'))[1] //得到副檔名稱
     $(this).attr('src', url_road + pic_name_pre + pic_num_next + "." + pic_style)
+ 
 
 }
 
@@ -43,6 +44,7 @@ function hoverout(img) {
     var pic_style = (pic_url.split('.'))[1] //得到副檔名稱
     //  console.log((url_road+pic_name_pre+pic_num_next+"."+pic_style))
     $(this).attr('src', url_road + pic_name_pre + pic_num_next + "." + pic_style)
+
 }
 
 

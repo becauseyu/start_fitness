@@ -145,7 +145,7 @@ $start = 1;
                             <li class="nav-li" id="li_order">訂單管理</li>
 
                         </ul>
-                        <form id='update_form' class="m-5 hidden" action="../php/updateData.php?mid=<?php echo $mid ?>" method="post">
+                        <form id='update_form' class="m-5" action="../php/updateData.php?mid=<?php echo $mid ?>" method="post">
                             <p align="left"><i class="fa fa-id-card-o" aria-hidden="true"></i>
                                 <span id="who"><?php echo $acc; ?></span>
                                 <span class='mb_status'><?php echo $status; ?></span>
@@ -206,7 +206,7 @@ $start = 1;
                         <!-- <form id='point_form' class="m-5 hidden" action="../php/updateData.php" method="post">
                             購物金
                         </form> -->
-                        <form id='order_form' class="m-3 " action="../php/updateData.php" method="post">
+                        <form id='order_form' class="m-3 hidden " action="../php/updateData.php" method="post">
                             訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" />
                             <input type="button" value="搜尋">
                             <i class="fa fa-search" aria-hidden="true"></i><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span>
