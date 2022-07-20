@@ -96,24 +96,12 @@ if (isset($goods)) {
           $result_flavor = $mysqli->query($sql_flavor);
           while ($flavor = $result_flavor->fetch_object()) {
             echo   '<div class="smallImage mt-2 mb-2">';
-            echo   '<img src="../asset/saleitem/' . $flavor->ptype . "/" . $flavor->ppic . '" class="smallImage01 img-fluid ">';
+            echo   '<img data-name='.$flavor->pstyle.' data-price='.$flavor->pprice.' src="../asset/saleitem/' . $flavor->ptype . "/" . $flavor->ppic . '" class="smallImage01 img-fluid ">';
             echo '</div>';
           }
 
           ?>
-          <!-- 
-          <div class="image-top smallImage ">
-            <img src="../asset/saleitem/item/02.webp" class="smallImage01 img-fluid ">
-          </div>
-          <div class="image-top smallImage">
-            <img src="../asset/saleitem/item/03.webp" class="smallImage01 img-fluid salt">
-          </div>
-          <div class="image-top smallImage">
-            <img src="../asset/saleitem/item/04.webp" class="smallImage01 img-fluid black">
-          </div>
-          <div class="image-top smallImage">
-            <img src="../asset/saleitem/item/05.webp" class="smallImage01 img-fluid mocha">
-          </div> -->
+
 
         </div>
       </div>
@@ -126,21 +114,21 @@ if (isset($goods)) {
       <!--  文字敘述 -->
       <div class="col-lg-5 col-sm-12 col-12">
         <div class="pt-3">
-          <h2 class="head-font"><?php echo $row->pname; ?> </h2>
-          <p class="head-font01 "><?php echo $row->bname; ?></p>
+          <h2 id='product_name' class="head-font"><?php echo $row->pname; ?> </h2>
+          <p id='product_brand' class="head-font01 "><?php echo $row->bname; ?></p>
           <hr class="header-hr" />
 
         </div>
         <div>
-          <h4 class="mb-3">NT$198</h4>
-          <h5>口味 | <span class="flaver"></span></h5>
+          <h4 class="mb-3">NT$<span id='product_price' class='pprice'><?php echo $row->pprice; ?></span></h4>
+          <h5>口味 | <span id='product_flaver' class="flaver"><?php echo $row->pstyle; ?></span></h5>
           <div class="d-flex item-box">
             <?php
             $sql_flavor = "SELECT * FROM goodsdetail WHERE pname ='{$row->pname}'";
             $result_flavor = $mysqli->query($sql_flavor);
             while ($flavor = $result_flavor->fetch_object()) {
               if ($flavor->pstyle != '放圖用') {
-                echo "<button class='item-icon spicy'>{$flavor->pstyle}</button>";
+                echo "<button data-price={$flavor->pprice} data-type={$flavor->ptype} data-pic={$flavor->ppic} class='item-icon m-1 '>{$flavor->pstyle}</button>";
               }
             }
 
@@ -153,11 +141,11 @@ if (isset($goods)) {
             <h5>數量</h5>
             <div class="input-group plus-minus-input qty-cen">
               <div class="input-group-button">
-                <button type="button" class="btn btn-number" data-quantity="minus" data-field="quantity">
+                <button type="button" class="btn btn-number minus" data-quantity="minus" data-field="quantity">
                   <i class="fa fa-minus"></i>
                 </button>
               </div>
-              <input class="input-group-field input-width qty" type="text" name="quantity" value="0">
+              <input id='product_count' class="input-group-field input-width qty" type="text" name="quantity" value="0">
               <div class="input-group-button">
                 <button type="button" class="btn btn-number plus" data-quantity="plus" data-field="quantity">
                   <i class="fa fa-plus"></i>
@@ -166,7 +154,7 @@ if (isset($goods)) {
             </div>
           </div>
           <div class="mt-3 mb-3">
-            <a class="btn button01" href="#">加入購物車</a>
+            <button class="btn button01" >加入購物車</button>
           </div>
         </div>
       </div>
@@ -186,22 +174,22 @@ if (isset($goods)) {
       <hr>
       <p id="totalCount" class="hide">0</p>
       <p class="slide_buycart_total">總計 NT$<span id="slide_buycart_accounttotal">0</span></p>
-      <a href="#"><button id="slide_buycart_bottom_btn">立即結帳</button></a>
+      <a href="/Maria/html/mb_login.php"><button id="slide_buycart_bottom_btn">立即結帳</button></a>
 
 
     </div>
+  </div>
+  <!-- 頁尾 -->
+  <div class='footerpage'>
+  </div>
 
-    <!-- 頁尾 -->
-    <div class='footerpage'>
-    </div>
+  <script>
+    $('.footerpage').load('/MengYing/大專/LAB/footer.html')
+  </script>
 
-    <script>
-      $('.footerpage').load('/MengYing/大專/LAB/footer.html')
-    </script>
-
-    <script script src="../js/goods_data.js"></script>
-    <!-- script 主要 -->
-    <script src="../js/main.js"></script>
+  <script script src="../js/goods_data.js"></script>
+  <!-- script 主要 -->
+  <script src="../js/main.js"></script>
 
 
 </html>

@@ -42,9 +42,6 @@
     text-align: center;
 }
 
-.image-top {
-    margin-top: 10px;
-}
 
 .smallImage {
     margin-right: auto;
@@ -69,6 +66,7 @@
 
 .smallImage01 {
     object-fit: contain;
+    
 }
 
 .bigImage {
@@ -91,6 +89,7 @@
 }
 
 .head-font01 {
+    text-align: center;
     margin-top: 10px;
     font-weight: 600;
     font-size: 16px;
@@ -136,9 +135,7 @@
 }
 
 .item-box {
-    width: 240px;
     padding-top: 0px;
-    justify-content: space-between;
 }
 
 /* -------數量條------------- */
