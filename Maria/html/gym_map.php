@@ -32,7 +32,7 @@
 <body>
     <!-- 頁首  -->
     <div class='headerpage'>
-        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
+        <nav class="fixed-top  navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
             <a class="navbar-brand d-lg-none" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7" aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,33 +40,36 @@
 
 
             <div class="collapse navbar-collapse mx-auto row " id="myNavbarToggler7">
-                <div class=" col-1"></div>
-                <ul class="navbar-nav mx-auto nav-justif justify-content-around " style="align-items: end;">
-                    <li class="nav-iteml px-1">
-                        <a class="nav-link " href="#">運動Tip</a>
+                <div class=" col-2 col-sm-2 ">　</div>
+                <ul class="navbar-nav  nav-justif justify-content-around col-8 col-sm-8  " style="align-items: end;">
+                    <li class="nav-iteml px-1 mx-auto">
+                        <a class="nav-link " href="./sp_introduce.html">運動Tip</a>
                     </li>
-                    <li class="nav-iteml px-1">
+                    <li class="nav-iteml px-1 mx-auto">
                         <a class="nav-link" href="#">健身小物</a>
                     </li>
-                    <li class="nav-iteml px-1">
+                    <li class="nav-iteml px-1 mx-auto">
                         <a class="nav-link" href="#">健身地圖</a>
                     </li>
-                    <a class="d-none d-lg-block px-4" href="#"><img width="60" height="60" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
-                    <li class="nav-itemr px-1">
-                        <a class="nav-link" href="#">飲食Tip</a>
+                    <a class="d-none d-lg-block px-4" href="./openindex.html"><img width="60" height="60" style="display:block; margin:auto;" src="./MengYing/大專/AI/LOGO.png"></a>
+                    <li class="nav-itemr px-1 mx-auto">
+                        <a class="nav-link" href="./fd_introduce.html">飲食Tip</a>
                     </li>
-                    <li class="nav-itemr px-1">
+                    <li class="nav-itemr px-1 mx-auto">
                         <a class="nav-link" href="#">飲食小食</a>
                     </li>
-                    <li class="nav-itemr px-1">
+                    <li class="nav-itemr px-1 mx-auto">
                         <a class="nav-link" href="#">Mini game</a>
                     </li>
                 </ul>
-                <div class=" col-1 d-flex justify-content-end">
-                    <button class="btn ">
-                        <i class="fa fa-user" aria-hidden="true"></i>
+                <div class=" col-2 col-sm-2 d-flex justify-content-end ">
+                    <button type="button" class="btn ">
+
+                        <i class="fa fa-user" aria-hidden="true"> <span style="color: #495057">訪客</span> </i>
+
                     </button>
-                    <button class="btn btn-cart" data-toggle="dropdown" onclick="openbuycar()">
+
+                    <button class="btn btn-cart" data-toggle="dropdown">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span id="cartQuantity" class="badge badge-pill badge-danger">0</span>
                     </button>
@@ -135,8 +138,22 @@
         </div>
     </div>
     <!-- 頁尾 -->
-    <div class='footerpage'>
-    </div>
+    <footer>
+        <div class="bg-wrap mt-4">
+            <div class="bg-inner p-3">
+                <div class="footerlogo mx-auto ">
+
+                    <a class="" href="./openindex.html"><img class="mx-auto img-fluid" style="display:block; margin:auto;" src="/MengYing/大專/AI/LOGO.png"></a>
+                </div>
+
+            </div>
+
+        </div>
+        <div style="background-color: #E5D9CE;" class="text-center ">
+            Copyright © 2022 動吃動吃!
+        </div>
+
+    </footer>
     <!----------------------------------Dialog area-------------------------------------------->
     <div id="dialog_div" title="立即預約您的inbody檢測!！">
         <form method="post" id='inbodyRes' action="../php/inbody.php">
