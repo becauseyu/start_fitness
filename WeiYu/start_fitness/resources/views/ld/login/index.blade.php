@@ -37,17 +37,17 @@
 <body>
 
     <div class="outside">
-        <form method="POST">
-            
-            @csrf
+        <form method="POST" action="">
+            {{ csrf_field() }}
+            {{-- @csrf --}}
             <div class="mark" id="mark"> I am mark </div>
             <div class="form-group">
                 <label for="account">管理員帳號</label>
-                <input type="text" class="form-control" id="account" name="account" placeholder={{$error}}>
+                <input type="text" class="form-control" id="account" name="account" value={{$data['account']}}>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">管理員密碼</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password" placeholder={{$data['error']}}>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="memorize_account">

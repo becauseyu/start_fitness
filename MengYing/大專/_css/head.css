@@ -290,3 +290,31 @@
     border-color: #FBC65C;
     box-shadow: 0 0 0 0.2rem #fbc65c;
 }
+
+
+
+/*tableFamily*/
+.gymList {
+    width: 90%;
+}
+
+.gymTitle {
+    font-size: 18px;
+    background-color: rgb(120, 168, 227);
+}
+
+.gym_table {
+    line-height: 40px;
+    text-align: center;
+    width: 90%;
+}
+
+.gympic {
+    height: 300px;
+}
+
+
+
+#gym_data h2 {
+    color: rgb(142, 180, 227);
+}
