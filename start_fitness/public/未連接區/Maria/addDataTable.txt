@@ -1,0 +1,37 @@
+新增inbody table
+CREATE TABLE `startfitness`.`inbody` (`id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `tel` VARCHAR(100) NOT NULL , `email` VARCHAR(256) NOT NULL , `gym` VARCHAR(100) NOT NULL , `date` DATE NOT NULL , `time` TIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+新增taichung_gym table
+CREATE TABLE `startfitness`.`taichung_gym` (`id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `town` VARCHAR(100) NOT NULL , `addr` VARCHAR(100) NOT NULL , `open` VARCHAR(100) NOT NULL , `tel` VARCHAR(100) NOT NULL , `lon` VARCHAR(100) NOT NULL , `lat` VARCHAR(100) NOT NULL , `pic` VARCHAR(256) NOT NULL , `intr` VARCHAR(256) NOT NULL , `res` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+新增member
+CREATE TABLE `startfitness`.`member` (`mid` INT NOT NULL AUTO_INCREMENT,`account` VARCHAR(100) NOT NULL , `psw` VARCHAR(100) NOT NULL , `name` VARCHAR(100) NOT NULL , `email` VARCHAR(100) NOT NULL , `tel` VARCHAR(100) NOT NULL DEFAULT '' , `point` INT NOT NULL DEFAULT '0' , `staId` TINYINT NOT NULL DEFAULT '1' , PRIMARY KEY (`mid`), UNIQUE (`account`)) ENGINE = InnoDB;
+
+新增statusDetail
+CREATE TABLE `startfitness`.`statusdetail` (`staId` INT NOT NULL AUTO_INCREMENT , `staName` VARCHAR(100) NOT NULL , PRIMARY KEY (`staId`)) ENGINE = InnoDB;
+INSERT INTO statusdetail(staName)VALUES ('會員未開通'),('會員已開通'),('管理員')
+
+新增goodsdetail
+CREATE TABLE `startfitness`.`goodsdetail` (`pid` INT NOT NULL AUTO_INCREMENT , `ptype` VARCHAR(100) NOT NULL , `bid` INT NOT NULL , `pstyle` VARCHAR(100) NOT NULL , `pname` VARCHAR(128) NOT NULL , `pcount` INT NOT NULL,`ppic` VARCHAR(128) NOT NULL,`pprice` INT NOT NULL , PRIMARY KEY (`pid`)) ENGINE = InnoDB;
+
+新增brandDeatil
+CREATE TABLE `startfitness`.`branddetail` (`bid` INT NOT NULL AUTO_INCREMENT , `bname` VARCHAR(100) NOT NULL , PRIMARY KEY (`bid`)) ENGINE = InnoDB;
+INSERT INTO branddetail(bname) VALUES ("@好味營養師品瑄"),("@Peeta Protein"),("@全能專科"),("@lotusfitness"),("@Myprotein"),("@Blender Bottle®"),("@ArmorLite®"),("@BYZOOM"),("@早安健康嚴選"),("@TACTEL® ")
+
+新增 memberOrder
+CREATE TABLE `startfitness`.`memberorder` (`oid` INT NOT NULL AUTO_INCREMENT , `mid` VARCHAR(100) NOT NULL , `orderdate` DATETIME NOT NULL, `delAddr` VARCHAR(256) NOT NULL , `delTel` VARCHAR(100) NOT NULL , `delName` VARCHAR(100) NOT NULL , `point` INT NOT NULL DEFAULT '0' , `did` INT NOT NULL , `paid` INT NULL , `memo` VARCHAR(256) NOT NULL , `staid` INT NOT NULL DEFAULT '1',`total` VARCHAR(50) NOT NULL ,PRIMARY KEY (`oid`)) ENGINE = InnoDB;
+
+新增 payment
+CREATE TABLE `startfitness`.`payment` (`paid` INT NOT NULL AUTO_INCREMENT , `payment` VARCHAR(100) NOT NULL , PRIMARY KEY (`paid`)) ENGINE = InnoDB;
+INSERT INTO payment(payment) VALUES ("貨到付款"), ("信用卡"),("超商代碼"),("虛擬ATM")
+
+新增 deliver
+CREATE TABLE `startfitness`.`deliver` (`did` INT NOT NULL AUTO_INCREMENT , `deliver` VARCHAR(100) NOT NULL , PRIMARY KEY (`did`)) ENGINE = InnoDB;
+INSERT INTO deliver(deliver) VALUES ("新竹物流宅配"),("黑貓宅配"),("711取貨不付款"),("711取貨付款")
+
+新增 orderDetail
+CREATE TABLE `startfitness`.`orderdetail` (`opid` INT NOT NULL AUTO_INCREMENT,`pid` INT NOT NULL  , `oid` INT NOT NULL , `amount` INT NOT NULL , PRIMARY KEY (`opid`)) ENGINE = InnoDB;
+
+新增 orderStatusDetail
+CREATE TABLE `startfitness`.`orderstatusdetail` (`ostaid` INT NOT NULL AUTO_INCREMENT , `ostatus` VARCHAR(50) NOT NULL , PRIMARY KEY (`ostaid`)) ENGINE = InnoDB;
+INSERT INTO orderstatusdetail(ostatus) VALUES ("待確認"),("已確認"),("已完成")

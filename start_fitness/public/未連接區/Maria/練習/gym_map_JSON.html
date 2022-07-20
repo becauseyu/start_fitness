@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--加入leaflet CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <!--加入leaflet js(一定要在css之後)-->
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+    <!--加入jquery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--加入bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>gym_map</title>
+</head>
+<style>
+    /*popFamily*/
+    .popTitle {
+        font-weight: bold;
+        font-size: 18px;
+        color: rgb(62, 89, 209);
+    }
+
+    .popAddr {
+        font-size: 16px;
+        color: gray;
+    }
+
+    .popRes {
+        font-size: 16px;
+        color: gray;
+    }
+
+    /*popFamily*/
+    .redRes {
+        color: white;
+        background-color: rgb(255, 61, 61);
+        border: 1px solid gray;
+        border-radius: 12px;
+        font-size: 18px;
+    }
+
+    .greenRes {
+        color: white;
+        background-color: rgb(62, 255, 127);
+        border: 1px solid gray;
+        border-radius: 12px;
+        font-size: 18px;
+
+    }
+
+    .orangeRes {
+        color: white;
+        background-color: rgb(248, 134, 58);
+        border: 1px solid gray;
+        border-radius: 12px;
+        font-size: 18px;
+
+    }
+
+
+
+    .gym_pic {
+        height: 500px;
+    }
+
+    #gym_data {
+        height: 100vh;
+        overflow: scroll;
+    }
+</style>
+
+<body>
+    <!--地圖的放置位置-->
+    <div id="content">
+        <div class="row">
+            <div class="col" id="gym_data">
+                <h2>健身地圖</h2>
+                <div class="areaList">
+                    <select name="" id="" class="countyList">
+                    </select>
+                    <select name="" id="" class="townList">
+                    </select>
+                </div>
+
+            </div>
+            <div class="col">
+                <div id="mapid"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+
+<script>
+    //匯出php的資料庫資料
+
+
+    //設定地圖高度
+    $('#mapid').height(window.innerHeight);
+    //先建立map容器，再建立中心做標與縮放程度
+    var myMap = L.map('mapid').setView([24.15098859875372, 120.65095303464386], 18);
+    //加入地圖底圖( titleLayer:底圖圖層)
+    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        //地圖可以縮放的最大等級
+        minZoom: 12,
+        maxZoom: 18,
+        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    }).addTo(myMap);
+
+    //定義marker顏色(不同剩餘預約數顏色不同) //綠:31~45  橘:16~30 紅:1~15
+
+    const greenIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+    const orangeIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+    const redIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+
+    //匯入JSON資料並製造成戳記
+    // $.getJSON('./taichung_gym.JSON', function (res) {
+    //     for (i = 0; i < res.length; i++) {
+    //         var name = res[i].name
+    //         var addr = res[i].address
+    //         var town = res[i].town
+    //         var tel = res[i].tel
+    //         var open = res[i].open
+    //         var lon = res[i].lon
+    //         var lat = res[i].lat
+    //         var intr = res[i].introduece
+    //         var pic = res[i].picture
+    //         var count = res[i].reservation
+    //         // console.log(count)
+
+    //         //為inbody數量做出不同的樣式
+    //         let countJudge;
+    //         //依照預約數量顯示不同的marker顏色與預約數字
+    //         if (count >= 0 && count <= 15) {
+    //             mask = redIcon;
+    //             countJudge = "redRes";
+    //         } else if (count > 15 && count <= 30) {
+    //             mask = orangeIcon;
+    //             countJudge = "orangeRes";
+
+    //         } else {
+    //             mask = greenIcon;
+    //             countJudge = "greenRes";
+
+    //         }
+
+
+    //         L.marker([lon, lat], { icon: mask }).addTo(myMap).bindPopup(
+    //             `<span class='popTitle'>${name}</span>
+    //             <hr />
+    //             <span class='popAddr'>台中市${town}${addr}</span><br/>
+    //             <span class='popRes'>可預約inbody數量:<span class=${countJudge}>${count}</span></span>
+    //             <hr/>
+    //             <button class='btn btn-info' onclick= >點我預約inbody</button>
+    //                 `
+
+    //         ).addTo(myMap).on('click', showGymName)
+    //     }
+
+    // })
+
+
+
+
+    //藉由onclick事件抓到健身房名稱
+    function showGymName() {
+        //抓取pop的內容(健身房名稱)
+        var content = this._popup._content
+        console.log(content)
+
+
+        // //方法一、利用匹配JSON資料，改變內容
+        $.getJSON('./taichung_gym.JSON', function (res) {
+            // console.log(res)
+            //利用index
+            const index = res.findIndex((element) => element.name === content);
+            // console.log(index)
+            var $name = res[index].name
+            $('#gym_name').html($name)
+            var $add = res[index].address
+            var $town = res[index].town
+            $('#gym_add').html('台中市' + $town + $add)
+            var $tel = res[index].tel
+            $('#gym_tel').html($tel)
+            var $open = res[index].open
+            $('#gym_open').html($open)
+            var $intr = res[index].introduce
+            console.log($intr)
+            $('#gym_intr').html($intr)
+            var $pic = res[index].picture
+            console.log($pic)
+            $('#gym_pic').attr('src', $pic)
+            var $count = res[index].reservation
+            $('#res_count').html($count)
+
+        })
+    }
+</script>
+
+</html>

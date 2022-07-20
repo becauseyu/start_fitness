@@ -1,0 +1,7 @@
+大專使用的程式(maria)
+
+1)jQuery
+2)jQuery UI
+3)leaflet
+4)smtpJS(發送email)【可能會刪除】
+5)phpmailer(發認證信)

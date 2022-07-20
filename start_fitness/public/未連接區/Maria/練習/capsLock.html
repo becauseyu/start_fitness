@@ -1,0 +1,111 @@
+<!-- 參考寫法 https://www.twblogs.net/a/5b7fa0af2b717767c6b09b34 -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登錄</title>
+<link href="./css/bootstrap.css" rel="stylesheet" />
+
+<script src="./js/jquery.js" type="text/javascript"></script>
+<script src="./js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../php/mysqli.php" type="text/javascript"></script>
+
+<style>
+.capslock{
+    padding:0 2px 2px 26px;
+    position:absolute;
+    margin: 0 0 0 60px;
+    width:130px;
+    height:30px;
+    line-height:30px;
+    display:none;
+    overflow:hidden;
+    z-index:4;
+    color:#124fed;
+    background: url(imgs/capslock.png) no-repeat;
+}
+</style>
+<script>
+$(document).ready(function(){
+    $("#logininput").on('click.login',function(){
+        login();
+    });
+    
+    //密碼大寫輸入提示
+    function capitalTip(id){
+        $('#' + id).after('<div class="capslock" id="capital_password"><span>大寫鎖定已開啓</span></div>');
+        var capital = false; //聚焦初始化，防止剛聚焦時點擊Caps按鍵提示信息顯隱錯誤
+        
+        // 獲取大寫提示的標籤，並提供大寫提示顯示隱藏的調用接口
+        var capitalTip = {
+            $elem: $('#capital_'+id),
+            toggle: function (s) {
+                if(s === 'none'){
+                    this.$elem.hide();
+                }else if(s === 'block'){
+                    this.$elem.show();
+                }else if(this.$elem.is(':hidden')){
+                    this.$elem.show();
+                }else{
+                    this.$elem.hide();
+                   }
+            }
+        }
+        $('#' + id).on('keydown.caps',function(e){
+            if (e.keyCode === 20 && capital) { // 點擊Caps大寫提示顯隱切換
+                capitalTip.toggle();
+            }
+        }).on('focus.caps',function(){capital = false}).on('keypress.caps',function(e){capsLock(e)}).on('blur.caps',function(e){
+            
+            //輸入框失去焦點，提示隱藏
+            capitalTip.toggle('none');
+        });
+        function capsLock(e){
+            var keyCode = e.keyCode || e.which;// 按鍵的keyCode
+            var isShift = e.shiftKey || keyCode === 16 || false;// shift鍵是否按住
+            if(keyCode === 9){
+                capitalTip.toggle('none');
+            }else{
+              //指定位置的字符的 Unicode 編碼 , 通過與shift鍵對於的keycode，就可以判斷capslock是否開啓了
+              // 90 Caps Lock 打開，且沒有按住shift鍵
+              if (((keyCode >= 65 && keyCode <= 90) && !isShift) || ((keyCode >= 97 && keyCode <= 122) && isShift)) {
+                  // 122 Caps Lock打開，且按住shift鍵
+                  capitalTip.toggle('block'); // 大寫開啓時彈出提示框
+                  capital = true;
+              } else {
+                  capitalTip.toggle('none');
+                  capital = true;
+              }
+            }
+        }
+    };
+    
+    //調用提示
+    capitalTip('password');
+   
+})
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="rows">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <form id="loginForm" class="form-signin form-horizontal" role="form" method="get" action="" rule="rules">
+                    <div class="form-group">
+                            <input type="text" autofocus="autofocus" class="form-control" id="username" name="username" placeholder="賬號" required=""/>
+                    </div>
+                    <div class="form-group">
+                            <input class="form-control" id="password" name="password" onpaste="return false" oncontextmenu="return false" oncopy="return false" oncut="return false" placeholder="密碼" required="" type="password"/>
+                    </div>
+                    <div>
+                        <button id="logininput" type="button" class="btn btn-login btn-long">登錄</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</body>
+</html>
