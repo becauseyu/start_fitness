@@ -56,7 +56,7 @@
     cursor: pointer; 
 }
 .fa-solid:hover {
-    color: rgb(212, 91, 10) !important;
+    color: rgba(243, 187, 34, 0.985) !important;
 }
 
 /* -----產品網頁------ */
@@ -82,20 +82,21 @@
 }
 
 .photoshadow {
-    box-shadow: 4px 6px 4px rgba(213, 207, 197, 0.7);
+    box-shadow: 5px 6px 6px rgba(208, 202, 191, 0.7);
 }
 
 .head-font {
     font-weight: 700;
     font-size: 18px;
-    color: rgb(76, 64, 47);
+    color: rgb(84, 64, 36) !important;
+
 }
 
 .head-font01 {
     font-weight: 600;
     font-size: 14px;
     width: 140px;
-    color: rgb(134, 106, 72);
+    color: rgb(124, 87, 40)!important;
     box-shadow:2px 1px 2px 1px rgba(221, 216, 216, 0.7);
 }
 
@@ -105,13 +106,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
 .price-font {
     font-weight: 500;
     font-size: 18px;
-    color: rgb(60, 58, 51);
+    color: rgb(74, 51, 21)!important;
     margin-top: -10px;
 }
 

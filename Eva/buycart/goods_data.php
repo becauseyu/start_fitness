@@ -85,17 +85,18 @@ if (isset($goods)) {
       </div>
     </nav>
   </div>
-  <div class="mb-5 mt-3 container">
+  <div class="text-border mb-5 mt-4 py-2 container">
     <div class="row pt-3">
 
       <!--  小圖列 -->
-      <div class="b1 col-lg-2 col-sm-3 col-3 ">
-        <div class="sm-box">
+      
+      <div class="small-border col-lg-2 col-sm-3 col-3 ">
+        <div class="sm-box center">
           <?php
           $sql_flavor = "SELECT * FROM goodsdetail WHERE pname ='{$row->pname}'";
           $result_flavor = $mysqli->query($sql_flavor);
           while ($flavor = $result_flavor->fetch_object()) {
-            echo   '<div class="smallImage mt-2 mb-2">';
+            echo   '<div class="smallImage mb-3">';
             echo   '<img data-name='.$flavor->pstyle.' data-price='.$flavor->pprice.' src="../asset/saleitem/' . $flavor->ptype . "/" . $flavor->ppic . '" class="smallImage01 img-fluid ">';
             echo '</div>';
           }
@@ -106,13 +107,13 @@ if (isset($goods)) {
         </div>
       </div>
       <!--  大圖列 -->
-      <div class="col-lg-5 col-sm-9 col-9 bigImage">
+      <div class="center col-lg-5 col-sm-9 col-9">
         <div>
           <img src="../asset/saleitem/<?php echo $row->ptype; ?>/<?php echo $row->ppic; ?>" id="bigImage" class="bigImage01 img-fluid">
         </div>
       </div>
       <!--  文字敘述 -->
-      <div class="col-lg-5 col-sm-12 col-12">
+      <div class=" col-lg-5 col-sm-12 col-12 pl-5 ">
         <div class="pt-3">
           <h2 id='product_name' class="head-font"><?php echo $row->pname; ?> </h2>
           <p id='product_brand' class="head-font01 "><?php echo $row->bname; ?></p>
@@ -121,7 +122,7 @@ if (isset($goods)) {
         </div>
         <div>
           <h4 class="mb-3">NT$<span id='product_price' class='pprice'><?php echo $row->pprice; ?></span></h4>
-          <h5>口味 | <span id='product_flaver' class="flaver"><?php echo $row->pstyle; ?></span></h5>
+          <h5 class="mt-1">口味 | <span id='product_flaver' class="flaver"><?php echo $row->pstyle; ?></span></h5>
           <div class="d-flex item-box">
             <?php
             $sql_flavor = "SELECT * FROM goodsdetail WHERE pname ='{$row->pname}'";
@@ -154,7 +155,7 @@ if (isset($goods)) {
             </div>
           </div>
           <div class="mt-3 mb-3">
-            <button class="btn button01" >加入購物車</button>
+            <button class="btn button08" >加入購物車</button>
           </div>
         </div>
       </div>
