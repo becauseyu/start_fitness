@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(1)購物車結帳-購物車</title>
+
+  <!--    Stylesheets-->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- My.css -->
+  <link rel="stylesheet" href="../css/try_01.css">
+
+</head>
+
+<body>
+  <!--  假的navbar  -->
+  <nav class="navbar navbar-expand-md  navbar navbar-dark bg-dark ">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse " id="navbarCollapse">
+        <ul class="navbar-nav ms-auto pt-2">
+          <li class="nav-item active">
+            <a class="nav-link" href="./indexFull.html">首頁</a>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./aboutMe.html">認識我們</a>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="./img_pg.html">攝影作品</a>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="./indexFull.html#project">包套方案</a>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">新人推薦</a>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">聯絡我們</a>
+
+        </ul>
+      </div>
+      <div>
+        <form class="ps-lg-5">
+          <!-- Button trigger modal -->
+          <button id="myBtn" type="button" class="btn btn-outline-primary" data-toggle="modal"
+            data-target="#exampleModal">
+            立即諮詢
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <header>
+
+  </header>
+  <section>
+    
+    <!-- multistep form -->
+    <form id="msform">
+      <!-- progressbar -->
+      <ul id="progressbar">
+        <li class="active">Account Setup</li>
+        <li>Social Profiles</li>
+        <li>Personal Details</li>
+      </ul>
+      <!-- fieldsets -->
+      <fieldset>
+        <h2 class="fs-title">Create your account</h2>
+        <h3 class="fs-subtitle">This is step 1</h3>
+        <input type="text" name="email" placeholder="Email" />
+        <input type="password" name="pass" placeholder="Password" />
+        <input type="password" name="cpass" placeholder="Confirm Password" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Social Profiles</h2>
+        <h3 class="fs-subtitle">Your presence on the social network</h3>
+        <input type="text" name="twitter" placeholder="Twitter" />
+        <input type="text" name="facebook" placeholder="Facebook" />
+        <input type="text" name="gplus" placeholder="Google Plus" />
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+      </fieldset>
+      <fieldset>
+        <h2 class="fs-title">Personal Details</h2>
+        <h3 class="fs-subtitle">We will never sell it</h3>
+        <input type="text" name="fname" placeholder="First Name" />
+        <input type="text" name="lname" placeholder="Last Name" />
+        <input type="text" name="phone" placeholder="Phone" />
+        <textarea name="address" placeholder="Address"></textarea>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+      </fieldset>
+    </form>
+
+  </section>
+  <!--假的腳-->
+  <footer class="footer" id="contact">
+    <hr class="mx-auto text-primary " style="height:3px; width:1000px;" />
+    <p style="text-align: center;">©2008 FULLHOUSE WEDDING PHOTOGRAPHY. ALL RIGHT RESERVED.</p>
+
+  </footer>
+
+
+  <!-- 引入的script -->
+  <script src="../js/try_01.js"></script>
+</body>
+
+</html>
