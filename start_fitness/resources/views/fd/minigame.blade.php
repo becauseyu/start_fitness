@@ -201,7 +201,7 @@
             <canvas id="canvas"></canvas>
             <div id="start_button"><p>start</p></div>
             <div id="again_button"><p>again</p></div>
-
+            
 
         </div>
     </div>
@@ -306,7 +306,7 @@
             if (height && weight) {
                 bmi = weight * 10000 / height / height;
             }
-
+            console.log(bmi);
 
             // 體重判定
 
@@ -314,7 +314,7 @@
                 var bmi_60_weight = Math.floor(60 * height * height / 10000);
                 document.getElementById('initialWeight').value = bmi_60_weight;
                 document.getElementById('errorLog_weight').innerText = '根據bmi計算，您重到不可思議，我們只好給您一個上限';
-            } else if (bmi < 10) {
+            } else if (bmi < 10  && bmi > 0) {
                 var bmi_10_weight = Math.floor(10 * height * height / 10000);
                 document.getElementById('initialWeight').value = bmi_10_weight;
                 document.getElementById('errorLog_weight').innerText = '您太瘦了，我們只好給您一個建議下限';
