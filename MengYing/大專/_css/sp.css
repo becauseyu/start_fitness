@@ -41,8 +41,7 @@ img {
 .button-blue {
     width: 140px;
     font-weight: 500;
-    color: #fff;
-    background-color: #4a90dc;
+    color:  rgb(31, 105, 185);
     border-color: #3c90ea;
 }
 
@@ -53,15 +52,14 @@ img {
     /* outline:  #2e81da; */
 }
 
-.button02 {
+.button-blue02 {
     width: 80px;
     font-weight: 400;
-    color: #fff;
-    background-color: #4a90dc;
+    color: rgb(31, 105, 185);
     border-color: #3c90ea;
 }
 
-.button02:hover {
+.button-blue02:hover {
     color: #fff;
     background-color: rgb(31, 105, 185);
     border-color: #2e81da;
@@ -106,7 +104,7 @@ img {
 }
 
 .img-shadow {
-    box-shadow: rgba(24, 21, 21, 0.15) 2px 2px 2px;}
+    box-shadow: rgba(8, 7, 7, 0.15) 3px 2px 2px;}
 
 .head-font01 {
     font-weight: 600;
