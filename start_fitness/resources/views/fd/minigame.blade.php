@@ -36,9 +36,18 @@
 
         }
 
-        #rulePage {
+        #rulePage,#resultPage {
             padding-left: 3%;
             flex-grow: 1;
+        }
+
+        /* 先隱藏結束頁 */
+        #resultPage {
+            margin: 0 auto;
+            display: none;
+            text-align: center;
+            font-size: 30px;
+
         }
 
         #rulePage>* {
@@ -72,7 +81,7 @@
 
         }
 
-        #start_button {
+        #start_button, #again_button {
             position: relative;
             top: -20%;
             left: 50%;
@@ -86,6 +95,9 @@
             font-size: 30px;
             border-radius: 20%;
             transform: translate(-50%, -50%);
+        }
+        #again_button {
+            display: none;
         }
 
         #initialWeight,
@@ -172,15 +184,24 @@
 
         </div>
 
+        <div id="resultPage">
+            <div><b>遊戲結束囉 : </b></div>
+            <div>坐太久，該起來去喝水囉，下午茶點心選飽米花如何? </div>
+            <a href="/food/introduce">
+                <img src="/image/gameIMG/good_03.png" width="400" alt="">
+            </a>
+            <br />
+            <a href="/food/introduce">點我前往商品頁</a>
+            
+        </div>
+
 
 
         <div id='gameBox'>
             <canvas id="canvas"></canvas>
-            <div id="start_button">
-                <p>start</p>
-            </div>
-
-
+            <div id="start_button"><p>start</p></div>
+            <div id="again_button"><p>again</p></div>
+            
 
         </div>
     </div>
@@ -203,7 +224,7 @@
 
             // 身高判定
             var height = parseInt(document.getElementById('initialHeight').value, 10);
-            console.log(height);
+            // console.log(height);
             if (height > 200) {
                 height = 200;
                 document.getElementById('initialHeight').value = 200;
@@ -285,7 +306,7 @@
             if (height && weight) {
                 bmi = weight * 10000 / height / height;
             }
-
+            console.log(bmi);
 
             // 體重判定
 
@@ -293,7 +314,7 @@
                 var bmi_60_weight = Math.floor(60 * height * height / 10000);
                 document.getElementById('initialWeight').value = bmi_60_weight;
                 document.getElementById('errorLog_weight').innerText = '根據bmi計算，您重到不可思議，我們只好給您一個上限';
-            } else if (bmi < 10) {
+            } else if (bmi < 10  && bmi > 0) {
                 var bmi_10_weight = Math.floor(10 * height * height / 10000);
                 document.getElementById('initialWeight').value = bmi_10_weight;
                 document.getElementById('errorLog_weight').innerText = '您太瘦了，我們只好給您一個建議下限';

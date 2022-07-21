@@ -11,7 +11,7 @@ var isPlaying = false;
 
 
 // -------遊戲參數(s)--------------------------------------------------
-var gameTime = 60;  // 單次總時間
+var gameTime = 10;  // 單次總時間
 var canvas_update_time = 0.02; // canvas刷新頻率(秒)
 
 // 大小設置
@@ -133,9 +133,8 @@ playerData.image.w100.onload = () => { isImageReady(11, gameBox) };
 // 用img_onload判斷圖片是不是載完了，如果載完(數量等於total)執行callbak function
 function isImageReady(total, callback) {
     img_onload += 1;
-    console.log(img_onload);
     if (img_onload == total) {
-
+        console.log('image load OK');
         callback();
     }
 }
@@ -236,9 +235,11 @@ function gameBox() {
         context.clearRect(0, 0, canvas.width, canvas.height);
 
         // 大標題
-        context.font = "150px sans-serif ";
+        
+        context.font = "150px Tahoma, Geneva, Verdana, sans-serif  ";
         context.textAlign = "center";
         context.fillText(`飲食控制遊戲`, canvas_width / 2, 0.2 * canvas_height);
+
 
         // 大頭
         context.drawImage(randomPicture(), canvas_width / 2 - 300, canvas_height / 2 - 100, 200, 200);
@@ -246,13 +247,53 @@ function gameBox() {
         context.drawImage(randomPicture(), canvas_width / 2 + 100, canvas_height / 2 - 100, 200, 200);
 
 
-        document.getElementById('start_button').style.display = 'block';
 
+        // 顯示start button
+        document.getElementById('start_button').style.display = 'block';
+        document.getElementById('again_button').style.display = 'none';
+        
+        // 顯示規則頁
+        // change_page(1);
+        document.getElementById('rulePage').style.display = 'block';
+        document.getElementById('resultPage').style.display = 'none';
     }
 
 
     startPage();
 
+
+
+
+    // not work
+    function change_page(page) {
+
+
+        // how to get CSS real attribute
+        // var rulePage = window.getComputedStyle(document.getElementById('rulePage'));
+        // console.log(rulePage.getPropertyValue('display'));
+
+        // var resultPage = window.getComputedStyle(document.getElementById('resultPage'));    
+        // console.log(resultPage.getPropertyValue('display'));
+        console.log(page);
+        switch (page) {
+            case 1:
+                console.log(page);
+                document.getElementById('rulePage').style.display = 'block';
+                document.getElementById('resultPage').style.display = 'none';
+                break;
+            case 2:
+                console.log(page);
+                document.getElementById('resultPage').style.display = 'block';
+                document.getElementById('rulePage').style.display = 'none';
+            default:
+                document.getElementById('rulePage').style.display = 'block';
+                document.getElementById('resultPage').style.display = 'none';
+                break;
+        }
+    }
+
+
+    // 圖片隨機選擇
     function randomPicture() {
         switch (Math.floor(Math.random() * 5)) {
             case 0: return playerData.image.w50;
@@ -420,7 +461,7 @@ function gameBox() {
     //  顯示參數
     function showText() {
         // 純粹測試用
-        context.font = "50px sans-serif";
+        context.font = "50px Tahoma, Geneva, Verdana, sans-serif ";
         // context.textAlign = "center";
         // context.fillText("現在體重",10,50);
         context.fillText('剩餘時間 :', 10, 0.05 * canvas_height);
@@ -429,13 +470,13 @@ function gameBox() {
 
 
     function showTimeLeft(timeLeft) {
-        context.font = "50px sans-serif";
+        context.font = "50px Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "left";
         context.fillText(`剩餘時間 : ${timeLeft.toFixed(2)} s`, 10, 0.05 * canvas_height);
     }
 
     function showTitle() {
-        context.font = "50px sans-serif";
+        context.font = "50px Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "right";
         context.fillText(`飲控遊戲`, canvas_width - 10, 0.05 * canvas_height);
 
@@ -500,7 +541,7 @@ function gameBox() {
 
 
     function showWeight(player) {
-        context.font = "40px sans-serif";
+        context.font = "40px Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "left";
         context.fillText(`現在體重 : ${player.weight.toFixed(0)} kg`, 10, 0.9 * canvas_height);
     }
@@ -599,7 +640,6 @@ function gameBox() {
         killFoods(foodContainer);
         killFoods(HealthFoodContainer);
         killFoods(JunkFoodContainer);
-        startPage();
         endPage(player);
 
 
@@ -613,8 +653,8 @@ function gameBox() {
 
         // 刻出bmi值
         var bmi = Math.floor((player.weight * 10000 / player.height / player.height));
-        context.font = "80px sans-serif";
-        context.textAlign = "cneter";
+        context.font = "80px Tahoma, Geneva, Verdana, sans-serif ";
+        context.textAlign = "center";
         context.fillText(`您最後的bmi值為 : ${bmi}`, canvas_width / 2, 0.2 * canvas_height);
 
 
@@ -631,10 +671,20 @@ function gameBox() {
         } else {
             resultHTML = "很高興你把體重控制得不錯，但還可以更好";
         }
-        context.font = "30px sans-serif";
+        context.font = "30px Tahoma, Geneva, Verdana, sans-serif ";
+        context.textAlign = "center";
         context.fillText(resultHTML, canvas_width / 2, 0.6 * canvas_height);
 
 
+
+
+
+        // 畫面切換
+        // change_page(2);
+        document.getElementById('again_button').style.display = 'block';
+        document.getElementById('rulePage').style.display = 'none';
+        document.getElementById('resultPage').style.display = 'block';
+        // document.getElementById('')
     }
 
 
@@ -647,7 +697,7 @@ function gameBox() {
     document.getElementById('start_button').addEventListener('click', (e) => {
 
 
-        console.log(document.getElementById('initialHeight').value)
+        // console.log(document.getElementById('initialHeight').value)
         var height = parseInt(document.getElementById('initialHeight').value, 10);
         var weight = parseInt(document.getElementById('initialWeight').value, 10);
 
@@ -669,21 +719,25 @@ function gameBox() {
                 cancelable: true,
             });
             document.getElementById('initialHeight').dispatchEvent(event)
-            document.getElementById('errorLog').innerText = '可能您沒輸入身高或體重或是有個數值怪怪的，所以我們給一個建議值';
+
+            document.getElementById('errorLog_height').innerText = '您忘記給身高囉，直接給您預設值';
         }
 
         // 補齊體重
         if (!weight) {
             weight = Math.floor(26 * height * height / 10000);
             document.getElementById('initialWeight').value = weight;
-            document.getElementById('errorLog').innerText = '可能您沒輸入身高或體重或是有個數值怪怪的，所以我們給一個建議值';
+            document.getElementById('errorLog_weight').innerText = '您忘記給體重囉，直接給您預設值';
         }
 
 
 
     });
 
+    document.getElementById('again_button').addEventListener('click', (e) => {
 
+        startPage();
+    });
 
 
 }
