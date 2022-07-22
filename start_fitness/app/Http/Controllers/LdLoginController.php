@@ -34,10 +34,10 @@ class LdLoginController extends Controller
             $data['account']=$account;
 
 
-            $password = $request->input('password');
+            $psw = $request->input('password');
             $member = new Member();
             
-            if ($member->accountCheck($account,$password)) {
+            if ($member->accountCheck($account,$psw)) {
                 Session::put('account',$account);
                 Session::forget('loginError');
 

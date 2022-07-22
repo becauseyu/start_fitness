@@ -41,7 +41,8 @@
                             <li class="nav-li selected" id="login">會員登入</li>
                             <li class="nav-li" id="register">註冊會員</li>
                         </ul>
-                        <form id='login_form' class="m-5" action="../php/isMember.php" method="post">
+                        <form id='login_form' class="m-5" action="/member/login" method="post">
+                            @csrf
                             <p align="center">親愛的 <span id="who">訪客</span> 您好：</p>
                             <p align="center">會員登入：</p>
                             <div class="input-group mb-3">
@@ -61,7 +62,8 @@
                             <p align="center"><a href="../html/mb_forget.html">忘記密碼?</a></p>
                         </form>
                         <form id='register_form' class="m-5 hidden" method="POST" enctype="multipart/form-data"
-                            action="member/login/register">
+                            action="/member/login/register">
+                            @csrf
                             <p align="center" class="mt-n4">註冊會員：</p>
                             <p align="center" id="validUpdate"></p>
                             <span class="memo ml-5 ">*請輸入6~16位英數字組合而成的帳號(有大小寫之分)*</span><span id='message'></span>
