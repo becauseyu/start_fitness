@@ -10,7 +10,7 @@ class Member extends Model
     use HasFactory;
 
     protected $table = "member";                  // 連動對應表單名稱
-    protected $primaryKey = 'id';                 // primaryKey
+    protected $primaryKey = 'mid';                 // primaryKey
     public $timestamps = false;
 
 
