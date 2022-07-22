@@ -318,3 +318,7 @@
 #gym_data h2 {
     color: rgb(142, 180, 227);
 }
+
+body{
+    font-family : monospace, Tahoma, Geneva, Verdana, sans-serif;
+}
