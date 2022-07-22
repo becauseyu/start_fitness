@@ -196,14 +196,15 @@
         </div>
 
 
-
+        <!--- 這邊是遊戲畫面 --->
         <div id='gameBox'>
             <canvas id="canvas"></canvas>
             <div id="start_button"><p>start</p></div>
             <div id="again_button"><p>again</p></div>
-            
-
         </div>
+        <!--- 這邊是遊戲畫面 --->
+
+
     </div>
 
 
