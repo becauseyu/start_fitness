@@ -10,7 +10,7 @@ class Member extends Model
     use HasFactory;
 
     protected $table = "member";                  // 連動對應表單名稱
-    protected $primaryKey = 'id';                 // primaryKey
+    protected $primaryKey = 'mid';                 // primaryKey
     public $timestamps = false;
 
 
@@ -23,16 +23,20 @@ class Member extends Model
 
     // 帳號驗證
     function accountCheck($account,$password) {
-        $member = $this::where('account', $account)->get('password');
+        try{
+        $member = $this::where('account', $account)->get('psw');
         if (!$member) {
             return false;
         }
-        if (password_verify($password,$member[0]->password)) {
+        if ( md5($password) ==$member[0]->psw) {
             return true;
             
         }else{
             return false;
         }
+        }
+        catch(\Throwable $th) 
+        { return false; }
     }
 
 

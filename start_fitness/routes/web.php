@@ -47,8 +47,32 @@ Route::get('/sport/introduce',function() {return view('sp.introduce');});
 
 
 
-// 奇怪的網址會直接跳轉到最外面的網址
-Route::get('/index/{any}',function() { return redirect('/index');});
+
+//---------------以下會員管理------------------------------------------------
+// 會員登入
+Route::get('/member/login',function() {return view('mb.login');});
+Route::post('/member/login','App\Http\Controllers\MbLoginController@isMember');
+
+
+// 帳號註冊
+Route::get('/member/login/{account}','App\Http\Controllers\MbLoginController@isNewAccount');
+Route::post('member/register','App\Http\Controllers\MbLoginController@register');
+
+
+// 帳號驗證
+Route::get('/member/confirmAcc','App\Http\Controllers\MbLoginController@confirmAcc');
+
+
+// 帳號管理
+Route::get('/member/update/{account}','App\Http\Controllers\MbUpdateController@update');
+
+
+
+
+
+
+
+
 
 
 

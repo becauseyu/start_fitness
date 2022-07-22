@@ -33,12 +33,13 @@
         </ul>
         <div class=" col-1 d-flex justify-content-end">
             <button class="btn ">
-                <i class="fa fa-user" aria-hidden="true"></i>
+                <a href="/member/login"><i class="fa fa-user" aria-hidden="true"></i></a>
             </button>
-            <button class="btn btn-cart" data-toggle="dropdown">
+            <button class="btn btn-cart" data-toggle="dropdown" onclick="openbuycar()">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span id="buycart_count" class="badge badge-pill badge-danger">0</span>
+                <span id="buycart_count" class="badge badge-pill badge-danger" >0</span>
             </button>
         </div>
     </div>
 </nav>
+
