@@ -139,20 +139,20 @@ function isImageReady(total, callback) {
     }
 }
 
+var local_url = window.location.origin;
 
+junkFood_fries.image.src =     local_url + '/image/gameIMG/bsd_01.png';
+junkFood_burger.image.src =    local_url + '/image/gameIMG/bsd_02.png';
+junkFood_pizza.image.src =     local_url + '/image/gameIMG/bsd_03.png';
+healthFood_salmon.image.src =  local_url + '/image/gameIMG/good_01.png';
+healthFood_cabbage.image.src = local_url + '/image/gameIMG/good_02.png';
+healthFood_apple.image.src = local_url + '/image/gameIMG/good_03.png';
 
-junkFood_fries.image.src = 'http://localhost:8000/image/gameIMG/bsd_01.png';
-junkFood_burger.image.src = 'http://localhost:8000/image/gameIMG/bsd_02.png';
-junkFood_pizza.image.src = 'http://localhost:8000/image/gameIMG/bsd_03.png';
-healthFood_salmon.image.src = 'http://localhost:8000/image/gameIMG/good_01.png';
-healthFood_cabbage.image.src = 'http://localhost:8000/image/gameIMG/good_02.png';
-healthFood_apple.image.src = 'http://localhost:8000/image/gameIMG/good_03.png';
-
-playerData.image.w50.src = 'http://localhost:8000/image/gameIMG/girl_50.png';
-playerData.image.w60.src = 'http://localhost:8000/image/gameIMG/girl_60.png';
-playerData.image.w70.src = 'http://localhost:8000/image/gameIMG/girl_70.png';
-playerData.image.w80.src = 'http://localhost:8000/image/gameIMG/girl_80.png';
-playerData.image.w100.src = 'http://localhost:8000/image/gameIMG/girl_100.png';
+playerData.image.w50.src = local_url + '/image/gameIMG/girl_50.png';
+playerData.image.w60.src = local_url + '/image/gameIMG/girl_60.png';
+playerData.image.w70.src = local_url + '/image/gameIMG/girl_70.png';
+playerData.image.w80.src = local_url + '/image/gameIMG/girl_80.png';
+playerData.image.w100.src = local_url + '/image/gameIMG/girl_100.png';
 
 
 

@@ -82,7 +82,13 @@
 
 </body>
 <script src="/js/main.js"></script>
+<script>
 
+    // 跳轉寫在這裡
+    setTimeout(() => {
+        window.location = window.location.origin + '/member/login';
+    }, 2000);
+</script>
 
 
 </html>

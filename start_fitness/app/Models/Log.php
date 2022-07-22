@@ -19,4 +19,12 @@ class Log extends Model
             'body' => "登入錯誤超過{$times}次以上，帳號 : {$account}"
         ]);
     }
+
+    function writeLoginSuccess($account) {
+        $this->insert([
+            'body' => "會員登入，帳號 : {$account}"
+        ]);
+    }
+
+
 }

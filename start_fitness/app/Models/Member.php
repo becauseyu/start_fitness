@@ -40,6 +40,27 @@ class Member extends Model
     }
 
 
+    //會員開通
+    public function accountOpen($id,$verify){
+
+        try{
+            $member = $this::find($id);
+            if (!$member) {
+                return false;
+            }
+            if ( $verify ==$member->psw) {
+                $member->staId = 2;
+                $member->save();
+                return true;
+                
+            }else{
+                return false;
+            }
+            }
+            catch(\Throwable $th) 
+            { return false; }
+    }
+
     
 }
 

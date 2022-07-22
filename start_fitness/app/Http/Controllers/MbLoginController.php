@@ -12,7 +12,7 @@ use App\Models\Log;
 
 use Illuminate\Support\Facades\Session;
 use mysqli;
-
+use PhpParser\Node\Stmt\TryCatch;
 
 class MbLoginController extends Controller
 {
@@ -82,11 +82,10 @@ class MbLoginController extends Controller
             $psw = $request->lg_password;
         } else {
 
-            // 缺少帳密的往這裡走
-            $error_log = 'somthing wrong';
+            // 缺少帳密的跳轉回去
+            return redirect('/member/login');
 
 
-            return '沒有帳密';
         }
 
 
@@ -103,8 +102,8 @@ class MbLoginController extends Controller
                 // 信箱未驗證
                 $sendmail = (object) [];
                 $sendmail->email = $member->email;
-
-                $token = $psw;
+                $id = $member->mid;
+                $token = md5($psw);
                 $token_exptime = time();
                 $sendmail->subject = "請認證您在『動吃！動吃！』的會員註冊"; //郵件標題
                 $sendmail->body = "
@@ -124,7 +123,7 @@ class MbLoginController extends Controller
                         <td align='center' style='padding: 30px;font-size: 16px;'>
                             親愛的{$acc}：<br/>
                             請點選連結啟用您的帳號。<br/>
-                            <a href='http://{$_SERVER['HTTP_HOST']}/Maria/php/confirmAcc.php?verify={$token}&time={$token_exptime}' target='_blank'>＞＞＞點此驗證您的信箱＜＜＜＜</a><br/>   
+                            <a href='http://{$_SERVER['HTTP_HOST']}/member/confirmAcc?id={$id}&verify={$token}&time={$token_exptime}' target='_blank'>＞＞＞點此驗證您的信箱＜＜＜＜</a><br/>   
                             如果以上網址無法點取，請將它複製到你的瀏覽器位址列中進入訪問，該連結24小時內有效。<br/>
                             如果此次啟用請求非你本人所發，請忽略本郵件。<br/><p style='text-align:right'>
 
@@ -142,12 +141,18 @@ class MbLoginController extends Controller
 
 
                 // 寄信
-                $this->composeEmail($sendmail);
+                // $this->composeEmail($sendmail);
+                $text = '您尚未完成 信箱驗證 ，這邊將自動重新發送驗證信，請立即到信箱查收！';
+                return view('mb.confirmAcc',compact('text'));
+
             }
 
 
-            $url = '/member/update/' . $acc;
+
             // 登入成功在這裡
+            (new Log)->writeLoginSuccess($acc);
+            $url = '/member/update/' . $acc;
+            
             return redirect($url);
         } else {
 
@@ -163,7 +168,8 @@ class MbLoginController extends Controller
                 Session::put("loginError", 0);
             }
 
-            return '登入失敗';
+            // 帳密錯誤跳轉回去
+            return redirect('/member/login');
         }
 
 
@@ -173,32 +179,40 @@ class MbLoginController extends Controller
 
 
 
-    function confirmAcc()
+    function confirmAcc(Request $request)
     {
-        $verify = stripslashes(trim($_GET['verify'])); //得到驗證碼
-        // echo $verify;
-        $timeStamp = $_GET['time'] + (60 * 60 * 24); //得到驗證效期最後時間 UNIX(24小時)
-        // echo date("Y-m-d",$timeStamp);
-        $nowtime = time();
-        $sql = "SELECT * FROM member WHERE psw = '{$verify}' ";
-        $result = $mysqli->query($sql);
-        // var_dump($result);
-        $row =  $result->num_rows; //確認是否有符合的
-
-        $text = "";
-
-        if ($row > 0) {
-            if ($nowtime > $timeStamp) {
-                $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
-                header('Location:../html/mb_login.html');
-            } else {
-                $sqlConfirm = "UPDATE member SET staId = 2 WHERE psw = '{$verify}'";
-                $mysqli->query($sqlConfirm);
-                $text = '驗證成功！將為您跳轉至登入頁面重新登入。';
-                //設定幾秒後做頁面跳轉
-                header("refresh:2;url=../html/mb_login.php");
+        // 輸入 id 、 verify 、time
+        $id = '';
+        $verify = '';
+        $timeStamp = '';
+        // 輸出 text
+        $text = '';
+        try {
+            // 日期檢查
+            if ($request->input('time')) {
+                $timeStamp = $request->input('time') + (60 * 60 * 24); //得到驗證效期最後時間 UNIX(24小時)
+                $nowtime = time();
+                if ($nowtime > $timeStamp) {
+                    $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
+                    return view('mb.confirmAcc', compact('text'));
+                }
             }
+
+            // 帳號開通
+            if ($request->input('id') && $request->input('id')) {
+                $verify = stripslashes(trim($request->input('verify'))); //得到驗證碼
+                $id = $request->input('id');
+
+                if ((new Member)->accountOpen($id, $verify)) {
+                    $text = '驗證成功！將為您跳轉至登入頁面重新登入。';
+                } else {
+                    $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
+                }
+            }
+        } catch (\Throwable $th) {
+            $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
         }
-        return view('mb.confirmAcc');
+
+        return view('mb.confirmAcc', compact('text'));
     }
 }
