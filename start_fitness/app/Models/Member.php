@@ -12,7 +12,7 @@ class Member extends Model
     protected $table = "member";                  // 連動對應表單名稱
     protected $primaryKey = 'mid';                 // primaryKey
     public $timestamps = false;
-
+    protected $fillable = ['account','psw','name','email'];
 
     // function department() {
     //     return $this->belongsTo(Departments::class, 'departmentId','departmentId');   //連結表單(對應欄位)  
@@ -40,7 +40,7 @@ class Member extends Model
     }
 
 
-    //會員開通
+    // 會員開通
     public function accountOpen($id,$verify){
 
         try{
@@ -62,5 +62,20 @@ class Member extends Model
     }
 
     
+    // 加入新會員
+    function CreateNewMember($acc,$psw,$realName,$email) {
+        try{
+            
+            $member = $this::create(['account' => $acc,
+                                     'psw' => $psw,
+                                     'name' => $realName,  
+                                    'email' => $email]);
+            return $member;
+            }
+            catch(\Throwable $th) 
+            { return false; }
+    }
+
+
 }
 

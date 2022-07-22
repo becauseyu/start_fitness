@@ -62,7 +62,7 @@
                             <p align="center"><a href="../html/mb_forget.html">忘記密碼?</a></p>
                         </form>
                         <form id='register_form' class="m-5 hidden" method="POST" enctype="multipart/form-data"
-                            action="/member/login/register">
+                            action="/member/register">
                             @csrf
                             <p align="center" class="mt-n4">註冊會員：</p>
                             <p align="center" id="validUpdate"></p>

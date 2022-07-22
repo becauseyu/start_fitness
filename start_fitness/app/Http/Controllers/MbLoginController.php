@@ -30,7 +30,7 @@ class MbLoginController extends Controller
     }
 
 
-    // 檢查是否有重複
+    // 檢查新註冊帳號是否有重複
     function isNewAccount(Request $request)
     {
         $acc = $request->account;
@@ -62,13 +62,100 @@ class MbLoginController extends Controller
         // }
     }
 
+
+
+    // 帳號註冊
     function register(Request $request)
     {
-        return '你點下註冊鈕，可是他正在施工';
+        // 輸入的應該有
+        // 1.re_account
+        // 2.re_password
+        // 3.re_name
+        // 4.re_email
+        $acc = '';
+        $psw = '';
+        $realName = '';
+        $email = '';
+        $text = (object) [];
+        $text->title = '信箱驗證';
+        $text->body = '';
+        if ($request->input('re_account') && $request->input('re_password') && $request->input('re_name') && $request->input('re_email')) {
+            $acc = $request->input('re_account');
+            $psw = md5($request->input('re_password'));
+            $realName = $request->input('re_name');
+            $email = $request->input('re_email');
+
+
+
+            $member = (new Member)->CreateNewMember($acc, $psw, $realName, $email);
+            if ($member) {
+
+                // 成功的時候送信送起來
+                $sendmail = (object) [];
+                $sendmail->email = $member->email;
+                $id = $member->mid;
+                $token = $psw;
+                $token_exptime = time();
+                $sendmail->subject = "請認證您在『動吃！動吃！』的會員註冊"; //郵件標題
+                $sendmail->body = "
+                <table style='background-color: white;'>
+                <tr>
+                    <td>
+                        <img src='https://upload.cc/i1/2022/07/07/cYzknK.png' style='width:800px'>
+                    </td>
+                </tr>
+                <tr>
+                    <td align='center'>
+                        <h1 style='color: rgb(223, 128, 34) ;'>感謝您在『動吃！動吃！』網站註冊會員</h1>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td align='center' style='padding: 30px;font-size: 16px;'>
+                        親愛的{$acc}：<br/>
+                        請點選連結啟用您的帳號。<br/>
+                        <a href='http://{$_SERVER['HTTP_HOST']}/member/confirmAcc?id={$id}&verify={$token}&time={$token_exptime}' target='_blank'>＞＞＞點此驗證您的信箱＜＜＜＜</a><br/>   
+                        如果以上網址無法點取，請將它複製到你的瀏覽器位址列中進入訪問，該連結24小時內有效。<br/>
+                        如果此次啟用請求非你本人所發，請忽略本郵件。<br/><p style='text-align:right'>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background-color: rgb(142,180,227);padding: 20px;'>
+                        <p style='color:rgb(49, 45, 42);font-size: 14px;font-weight: bold;'>＊如資訊有問題，請來信<a
+                                href='startfitness0809@gmail.com'>startfitness0809@gmail.com</a>告知＊</p>
+
+                    </td>
+                </tr>
+            </table>
+                "; //郵件內容
+
+
+                // 寄信
+                $this->composeEmail($sendmail);
+                $text->body = '感謝您的註冊！請先至您　註冊的信箱　收取驗證信！';
+                return view('mb.confirmAcc', compact('text'));
+
+
+                $text->body = '感謝您的註冊！請先至您　註冊的信箱　收取驗證信！';
+            } else {
+                $text->body = '註冊失敗，資料有問題';
+            }
+
+            return view('mb.confirmAcc', compact('text'));
+        }
+
+
+
+        // 資料有缺
+        $text->body = '註冊失敗，資料有問題';
+        return view('mb.confirmAcc', compact('text'));
     }
 
 
 
+
+    // 帳號登入檢查
     use PhpMailTrait;
     function isMember(Request $request)
     {
@@ -76,7 +163,8 @@ class MbLoginController extends Controller
         $acc = '';
         $psw = '';
         $error_log = '';
-
+        $text  = (object) [];
+        $text->title = '會員身分驗證';
         if ($request->lg_account &&  $request->lg_password) {
             $acc = $request->lg_account;
             $psw = $request->lg_password;
@@ -84,8 +172,6 @@ class MbLoginController extends Controller
 
             // 缺少帳密的跳轉回去
             return redirect('/member/login');
-
-
         }
 
 
@@ -142,9 +228,8 @@ class MbLoginController extends Controller
 
                 // 寄信
                 // $this->composeEmail($sendmail);
-                $text = '您尚未完成 信箱驗證 ，這邊將自動重新發送驗證信，請立即到信箱查收！';
-                return view('mb.confirmAcc',compact('text'));
-
+                $text->body = '您尚未完成 信箱驗證 ，這邊將自動重新發送驗證信，請立即到信箱查收！';
+                return view('mb.confirmAcc', compact('text'));
             }
 
 
@@ -152,7 +237,7 @@ class MbLoginController extends Controller
             // 登入成功在這裡
             (new Log)->writeLoginSuccess($acc);
             $url = '/member/update/' . $acc;
-            
+
             return redirect($url);
         } else {
 
@@ -186,33 +271,45 @@ class MbLoginController extends Controller
         $verify = '';
         $timeStamp = '';
         // 輸出 text
-        $text = '';
+        $text  = (object) [];
+        $text->title = '會員驗證是否成功';
         try {
             // 日期檢查
             if ($request->input('time')) {
                 $timeStamp = $request->input('time') + (60 * 60 * 24); //得到驗證效期最後時間 UNIX(24小時)
                 $nowtime = time();
                 if ($nowtime > $timeStamp) {
-                    $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
+                    $text->body = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
                     return view('mb.confirmAcc', compact('text'));
                 }
             }
 
             // 帳號開通
+
             if ($request->input('id') && $request->input('id')) {
                 $verify = stripslashes(trim($request->input('verify'))); //得到驗證碼
                 $id = $request->input('id');
 
                 if ((new Member)->accountOpen($id, $verify)) {
-                    $text = '驗證成功！將為您跳轉至登入頁面重新登入。';
+
+
+                    $text->body = '驗證成功！將為您跳轉至登入頁面重新登入。';
                 } else {
-                    $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
+                    $text->body = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
                 }
             }
         } catch (\Throwable $th) {
-            $text = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
+            $text->body = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
         }
 
         return view('mb.confirmAcc', compact('text'));
     }
+
+
+    //---------------------------------------------------------------------
+    // 以下是忘記密碼
+    
+
+
+
 }

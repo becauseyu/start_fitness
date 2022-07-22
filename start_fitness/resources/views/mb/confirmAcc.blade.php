@@ -15,7 +15,7 @@
     <!--加入Font Awesome-->
 
 
-    <title>會員驗證是否成功</title>
+    <title>{{$text->title}}</title>
     <style>
 
     </style>
@@ -34,7 +34,7 @@
                     <div class="content-tabset">
 
                         <div id='login_form' class="m-5">
-                            {{$text}}
+                            {{$text->body}}
                         </div>
 
                     </div>
