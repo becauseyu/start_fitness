@@ -57,7 +57,8 @@ if (goodstList) {
 
 $('.fa-cart-shopping').on('click', function () {
   $('#slide_buycart').css('visibility', 'visible')
-  var goods_name = $(this).parent().text()
+  var goods_name = $(this).parent().parent().find('p').eq(0).text()
+  // console.log(goods_name)
   var goods_img = $(this).parent().parent().parent().find('img').prop('src')
   var goods_single_price = $(this).parent().parent().find('p').find('span').text()
   var uls = ($('#slide_buycart_goods ul'))
