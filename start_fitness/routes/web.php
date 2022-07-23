@@ -59,16 +59,21 @@ Route::get('/member/login/{account}','App\Http\Controllers\MbLoginController@isN
 Route::post('member/register','App\Http\Controllers\MbLoginController@register');
 
 // 忘記密碼
-Route::get('/member/forget','App\Http\Controllers\MbLoginController@forget');
-Route::post('/member/forget','App\Http\Controllers\MbLoginController@forget');
+Route::get('/member/forget',  'App\Http\Controllers\MbLoginController@forget');
+Route::post('/member/forget', 'App\Http\Controllers\MbLoginController@forget');
 
-// 帳號驗證
+
+// 重設密碼
+Route::get('/member/renewPsw','App\Http\Controllers\MbLoginController@renewPsw');
+Route::post('/member/updatePsw','App\Http\Controllers\MbLoginController@updatePsw');
+
+// 驗證結束頁(固定跳轉回登入畫面)
 Route::get('/member/confirmAcc','App\Http\Controllers\MbLoginController@confirmAcc');
 
 
 // 帳號管理
-Route::get('/member/update/{account}','App\Http\Controllers\MbUpdateController@update');
-
+Route::get('/member/update','App\Http\Controllers\MbUpdateController@update');
+Route::post('/member/updateData','App\Http\Controllers\MbUpdateController@updateData');
 
 
 

@@ -72,12 +72,12 @@ trait PhpMailTrait
 
 
             if (!$mail->send()) {
-                return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
+                return '發送失敗';
             } else {
-                return back()->with("success", "Email has been sent.");
+                return '發送成功';
             }
         } catch (Exception $e) {
-            return back()->with('error', 'Message could not be sent.');
+            return 'phpmailer trait code 有問題';
         }
     }
 }

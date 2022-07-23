@@ -405,6 +405,7 @@ body {
     margin-top: 100px;
 }
 
+
 .content-tabset {
     margin: 0 auto;
     width: 80%;
@@ -482,3 +483,9 @@ body {
     color: gray;
 
 }
+
+/*Eva 容器*/
+.container_goods {
+    margin-top: 60px ;
+
+  }

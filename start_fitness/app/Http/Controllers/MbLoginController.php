@@ -233,7 +233,11 @@ class MbLoginController extends Controller
 
             // 登入成功在這裡
             (new Log)->writeLoginSuccess($acc);
-            $url = '/member/update/' . $acc;
+
+            // 帳號驗證設計為 md5(密碼+帳號)
+            $verify = md5(md5($psw).$acc);
+            Session::put('verify', $verify);
+            $url = '/member/update';
 
             return redirect($url);
         } else {
@@ -279,11 +283,14 @@ class MbLoginController extends Controller
                     $text->body = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
                     return view('mb.confirmAcc', compact('text'));
                 }
+            } else {
+                $text->body = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
+                return view('mb.confirmAcc', compact('text'));
             }
 
             // 帳號開通
 
-            if ($request->input('id') && $request->input('id')) {
+            if ($request->input('id') && $request->input('verify')) {
                 $verify = stripslashes(trim($request->input('verify'))); //得到驗證碼
                 $id = $request->input('id');
 
@@ -319,10 +326,12 @@ class MbLoginController extends Controller
                 // 如果有找到資料開始寄信
                 $sendmail = (object) [];
                 $sendmail->email = $member->email;
+                $token = $member->psw;
+                $token_exptime = time();
                 $acc = $member->account;
                 $id = $member->mid;
-                $sendmail->Subject = "『動吃！動吃！』網站的密碼重設請求！"; //郵件標題
-                $sendmail->Body =  "
+                $sendmail->subject = "『動吃！動吃！』網站的密碼重設請求！"; //郵件標題
+                $sendmail->body =  "
                 <table style='background-color: white;'>
             <tr>
                 <td>
@@ -334,7 +343,7 @@ class MbLoginController extends Controller
                 <td align='center' style='padding: 30px;font-size: 16px;'>
                     親愛的{$acc}：<br/>
                     請點選連結重設您的登入密碼。<br/>
-                    <a href='http://{$_SERVER['HTTP_HOST']}/member/renewPsw?email={$email}' target='_blank'>＞＞＞點此重設密碼＜＜＜＜</a><br/>
+                    <a href='http://{$_SERVER['HTTP_HOST']}/member/renewPsw?id={$id}&verify={$token}&time={$token_exptime}' target='_blank'>＞＞＞點此重設密碼＜＜＜＜</a><br/>
                     如果以上網址無法點取，請將它複製到你的瀏覽器位址列中進入訪問。<br/>
                     如果此次重設密碼請求非你本人所發，請盡速來信聯絡我們。<br/><p style='text-align:right'>
     
@@ -354,6 +363,7 @@ class MbLoginController extends Controller
 
 
                 // 寄信
+
                 $this->composeEmail($sendmail);
                 $text->title = '忘記密碼_成功';
                 $text->body = '已將重設密碼請求發送至您的註冊信箱！請盡速至信箱重設密碼。';
@@ -364,6 +374,125 @@ class MbLoginController extends Controller
             }
         } else {
             return view('mb.forget', compact('text'));
+        }
+    }
+
+
+
+    // 密碼重設畫面
+    function renewPsw(Request $request)
+    {
+        // 輸入 id 、 verify 、time
+        $id = '';
+        $verify = '';
+        $timeStamp = '';
+        // 輸出 text
+        $text  = (object) [];
+        $text->title = '重設密碼';
+        try {
+            // 日期檢查
+            if ($request->input('time')) {
+                $timeStamp = $request->input('time') + (60 * 60 * 24); //得到驗證效期最後時間 UNIX(24小時)
+                $nowtime = time();
+                if ($nowtime > $timeStamp) {
+                    $text->body = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
+                    return view('mb.confirmAcc', compact('text'));
+                }
+            } else {
+                $text->body = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
+                return view('mb.confirmAcc', compact('text'));
+            }
+
+            // 檢查帳密
+            if ($request->input('id') && $request->input('verify')) {
+                $verify = stripslashes(trim($request->input('verify'))); //得到驗證碼
+                $id = $request->input('id');
+
+
+                $member = (new Member)->idGet($id, $verify);
+                if ($member) {
+                    $text->id = $id;
+                    $text->verify = $verify;
+
+                    return view('mb.renewPsw', compact('text'));
+                } else {
+                    $text->body = '資料有誤';
+                    return view('mb.confirmAcc', compact('text'));
+                }
+            } else {
+                $text->body = '資料有誤';
+                return view('mb.confirmAcc', compact('text'));
+            }
+        } catch (\Throwable $th) {
+            $text->body = '您的驗證碼已過期，請至登入頁面重新登入驗證。';
+            return view('mb.confirmAcc', compact('text'));
+        }
+    }
+
+    // 修改密碼
+    function updatePsw(Request $request)
+    {
+        // 輸入 id 、 verify 、 view(跳轉去哪頁) 、
+        $id = '';
+        $redirection = '';
+        $psw = '';
+        // 輸出 text
+        $text  = (object) [];
+        $text->title = '重設密碼';
+
+
+        // 取得舊密碼
+        if ($request->input('verify')) {
+            $verify = $request->input('verify');
+        } elseif ($request->input('old_password')){
+            $verify = md5($request->input('old_password'));
+        }else{
+            $text->body = '修改失敗，發生錯誤';
+            return view('mb.confirmAcc', compact('text'));
+        }
+
+        // 取得新密碼
+        if ($request->input('fg_password')) {
+            $psw = $request->input('fg_password');
+        } else {
+            $text->body = '修改失敗，發生錯誤';
+            return view('mb.confirmAcc', compact('text'));
+        }
+
+        // 取得跳轉網址
+        if ($request->input('view')) {
+            $view = $request->input('view');
+        } else {
+            $view = 'mb.confirmAcc';
+        }
+        $text->redirection = $redirection;
+
+
+
+        try {
+            // 檢查帳密
+            if ($request->input('id') && $verify) {
+                $id = $request->input('id');
+
+                // 只有找到的時候修改，其他全部失敗
+                if ((new Member)->idGet($id, $verify)) {
+                    $member = Member::find($id);
+                    $member->psw = md5($psw); 
+                    $member->save();             
+
+                    $text->body = '修改成功，請重新登入';
+                    return view('mb.confirmAcc', compact('text'));
+                } else {
+                    $text->body = '修改失敗，密碼有誤1';
+                    return view($view, compact('text'));
+                }
+            } else {
+                $text->body = '修改失敗，密碼有誤2';
+                return view($view, compact('text'));
+            }
+        } catch (\Throwable $th) {
+            $text->body = '修改失敗，密碼有誤3';
+            return view($view, compact('text'));
         }
     }
 }

@@ -131,7 +131,7 @@ $resultGym = $mysqli->query($sql_g);
 
       <div class="dd carousel-inner  ">
         <div class="carousel-item active">
-          <img src="../img/carousal/002.jpg" class="placeholder-img img-fluid" role="img">
+          <img src="../img/carousal/02.webp" class="placeholder-img img-fluid" role="img">
         </div>
         <div class="carousel-item">
           <img src="../img/carousal/04.webp" class="placeholder-img  img-fluid" role="img">
@@ -145,7 +145,7 @@ $resultGym = $mysqli->query($sql_g);
 
   </div>
 
-  <div class="mb-5 container ">
+  <div class="mb-5 container container_goods ">
     <div class="row">
       <!--  飲食 -->
       <section class="mt-3 p-3 food-box col-md-12 " id="foodsell">

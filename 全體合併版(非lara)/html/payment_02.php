@@ -115,7 +115,7 @@ if (isset($_REQUEST['mid'])) {
 
   </div>
   <!--  進度條  -->
-  <section class="container progress-size">
+  <section class="container progress-size" >
     <div class="progress-container">
       <!-- 進度條本體 -->
       <div class="progress" id="progress" style="width: 50%;"></div>
@@ -125,7 +125,7 @@ if (isset($_REQUEST['mid'])) {
       <div class="circle">3</div>
     </div>
   </section>
-  <form method="post" action="./payment_03.php?mid=<?php echo $mid; ?>&password=<?php echo $psw; ?>" class="p-3 mb-5 container form-box box-shadow">
+  <form method="post" action="./payment_03.php?mid=<?php echo $mid; ?>&password=<?php echo $psw; ?>" class="p-3 mb-5 container form-box box-shadow " style="margin-top:20px">
     <div class="row">
       <!-- 購買資訊 -->
       <!-- 隱藏欄位 -->

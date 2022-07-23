@@ -169,7 +169,7 @@ if (isset($_REQUEST['mid'])) {
     </div>
   </section>
 
-  <div class="p-4 mb-5 container">
+  <div class="p-4 container" style="margin-top:20px ;">
     <!-- 成功訂貨 -->
     <section class="center-box pt-1 row">
       <div class="col-9">
