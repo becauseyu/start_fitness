@@ -30,7 +30,7 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>動吃  |   動吃</title>
     <!--加入jquery-->
     <script src="../_js/jquery/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>

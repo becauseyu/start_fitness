@@ -56,7 +56,7 @@ if (isset($acc)) {
                         <td align='center' style='padding: 30px;font-size: 16px;'>
                             親愛的{$acc}：<br/>
                             請點選連結啟用您的帳號。<br/>
-                            <a href='http://{$host}/confirmAcc.php?verify={$token}&time={$token_exptime}&acc={$acc}' target='_blank'>＞＞＞點此驗證您的信箱＜＜＜＜</a><br/>
+                            <a href='http://{$host}/php/confirmAcc.php?verify={$token}&time={$token_exptime}&acc={$acc}' target='_blank'>＞＞＞點此驗證您的信箱＜＜＜＜</a><br/>
                             如果以上網址無法點取，請將它複製到你的瀏覽器位址列中進入訪問，該連結24小時內有效。<br/>
                             如果此次啟用請求非你本人所發，請忽略本郵件。<br/><p style='text-align:right'>
 
