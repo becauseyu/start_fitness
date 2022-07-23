@@ -233,7 +233,11 @@ class MbLoginController extends Controller
 
             // 登入成功在這裡
             (new Log)->writeLoginSuccess($acc);
-            $url = '/member/update/' . $acc;
+
+            // 帳號驗證設計為 md5(密碼+帳號)
+            $verify = md5(md5($psw).$acc);
+            Session::put('verify', $verify);
+            $url = '/member/update';
 
             return redirect($url);
         } else {
@@ -428,7 +432,7 @@ class MbLoginController extends Controller
     // 修改密碼
     function updatePsw(Request $request)
     {
-        // 輸入 id 、 verify 、 redirection(跳轉回哪頁) 、
+        // 輸入 id 、 verify 、 view(跳轉去哪頁) 、
         $id = '';
         $redirection = '';
         $psw = '';
@@ -456,10 +460,10 @@ class MbLoginController extends Controller
         }
 
         // 取得跳轉網址
-        if ($request->input('redirection')) {
-            $redirection = $request->input('redirection');
+        if ($request->input('view')) {
+            $view = $request->input('view');
         } else {
-            $redirection = '/member/login';
+            $view = 'mb.confirmAcc';
         }
         $text->redirection = $redirection;
 
@@ -470,6 +474,7 @@ class MbLoginController extends Controller
             if ($request->input('id') && $verify) {
                 $id = $request->input('id');
 
+                // 只有找到的時候修改，其他全部失敗
                 if ((new Member)->idGet($id, $verify)) {
                     $member = Member::find($id);
                     $member->psw = md5($psw); 
@@ -478,16 +483,16 @@ class MbLoginController extends Controller
                     $text->body = '修改成功，請重新登入';
                     return view('mb.confirmAcc', compact('text'));
                 } else {
-                    $text->body = '修改失敗，資料有誤';
-                    return view('mb.confirmAcc', compact('text'));
+                    $text->body = '修改失敗，密碼有誤1';
+                    return view($view, compact('text'));
                 }
             } else {
-                $text->body = '修改失敗，資料有誤';
-                return view('mb.confirmAcc', compact('text'));
+                $text->body = '修改失敗，密碼有誤2';
+                return view($view, compact('text'));
             }
         } catch (\Throwable $th) {
-            $text->body = '修改失敗，發生錯誤';
-            return view('mb.confirmAcc', compact('text'));
+            $text->body = '修改失敗，密碼有誤3';
+            return view($view, compact('text'));
         }
     }
 }

@@ -67,13 +67,13 @@ Route::post('/member/forget', 'App\Http\Controllers\MbLoginController@forget');
 Route::get('/member/renewPsw','App\Http\Controllers\MbLoginController@renewPsw');
 Route::post('/member/updatePsw','App\Http\Controllers\MbLoginController@updatePsw');
 
-// 帳號驗證
+// 驗證結束頁(固定跳轉回登入畫面)
 Route::get('/member/confirmAcc','App\Http\Controllers\MbLoginController@confirmAcc');
 
 
 // 帳號管理
-Route::get('/member/update/{account}','App\Http\Controllers\MbUpdateController@update');
-
+Route::get('/member/update','App\Http\Controllers\MbUpdateController@update');
+Route::post('/member/updateData','App\Http\Controllers\MbUpdateController@updateData');
 
 
 

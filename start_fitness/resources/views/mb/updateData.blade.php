@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>        
+<!DOCTYPE html>        
 <html lang="en">
 
 <head>
@@ -53,12 +53,11 @@
 <script>
 
     // 跳轉寫在這裡
-    var text = {!! $text->toJson() !!};
     setTimeout(() => {
-        window.location = window.location.origin + text.redirection;
-    }, 3000);
+        window.location = window.location.origin + '/member/update';
+    }, 1000);
 </script>
 
 
 
-</html> --}}
+</html>
