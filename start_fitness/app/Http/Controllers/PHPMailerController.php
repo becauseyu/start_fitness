@@ -34,16 +34,15 @@ class PHPMailerController extends Controller
             $mail->IsSMTP();                                    //設定使用SMTP方式寄信
             $mail->SMTPAuth = true;                        //設定SMTP需要驗證
             $mail->SMTPSecure = "ssl";                    // Gmail的SMTP主機需要使用SSL連線
+
             $mail->Host = env('MAIL_HOST');             //Gamil的SMTP主機
             $mail->Port = env('MAIL_PORT');                                 //Gamil的SMTP主機的埠號(Gmail為465)。
             $mail->CharSet = "utf-8";
             $mail->Username = env('MAIL_USERNAME'); //Gamil帳號
             $mail->Password = env('MAIL_PASSWORD');                //Gmail密碼(要去申請應用程式密碼)
-            $mail->From = env('MAIL_FROM_ADDRESS');;        //寄件者信箱
-            $mail->FromName = env('MAIL_FROM_NAME');;                  //寄件者姓名
-            
-            
-            
+            $mail->From = env('MAIL_FROM_ADDRESS');        //寄件者信箱
+            $mail->FromName = env('MAIL_FROM_NAME');             //寄件者姓名
+
             $mail->Subject = $request->subject; //郵件標題
             $mail->Body = $request->body;
                
@@ -67,12 +66,12 @@ class PHPMailerController extends Controller
 
 
             if (!$mail->send()) {
-                return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
+                return 1;
             } else {
-                return back()->with("success", "Email has been sent.");
+                return 2;
             }
         } catch (Exception $e) {
-            return back()->with('error', 'Message could not be sent.');
+            return 3;
         }
     }
 }
