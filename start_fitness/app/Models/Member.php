@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Log;
 
 class Member extends Model
 {
@@ -63,7 +64,7 @@ class Member extends Model
 
     
     // 加入新會員
-    function CreateNewMember($acc,$psw,$realName,$email) {
+    function createNewMember($acc,$psw,$realName,$email) {
         try{
             
             $member = $this::create(['account' => $acc,
@@ -76,6 +77,18 @@ class Member extends Model
             { return false; }
     }
 
+
+    // 忘記密碼找信箱
+    function searchEmail($email) {
+        try{
+            
+            $member = $this::where('email',$email)->first();
+            return $member;
+            }
+            catch(\Throwable $th) 
+            { return false; 
+            }
+    }
 
 }
 

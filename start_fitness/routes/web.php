@@ -58,6 +58,9 @@ Route::post('/member/login','App\Http\Controllers\MbLoginController@isMember');
 Route::get('/member/login/{account}','App\Http\Controllers\MbLoginController@isNewAccount');
 Route::post('member/register','App\Http\Controllers\MbLoginController@register');
 
+// 忘記密碼
+Route::get('/member/forget','App\Http\Controllers\MbLoginController@forget');
+Route::post('/member/forget','App\Http\Controllers\MbLoginController@forget');
 
 // 帳號驗證
 Route::get('/member/confirmAcc','App\Http\Controllers\MbLoginController@confirmAcc');

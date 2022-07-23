@@ -87,7 +87,7 @@ class MbLoginController extends Controller
 
 
 
-            $member = (new Member)->CreateNewMember($acc, $psw, $realName, $email);
+            $member = (new Member)->createNewMember($acc, $psw, $realName, $email);
             if ($member) {
 
                 // 成功的時候送信送起來
@@ -135,9 +135,6 @@ class MbLoginController extends Controller
                 $this->composeEmail($sendmail);
                 $text->body = '感謝您的註冊！請先至您　註冊的信箱　收取驗證信！';
                 return view('mb.confirmAcc', compact('text'));
-
-
-                $text->body = '感謝您的註冊！請先至您　註冊的信箱　收取驗證信！';
             } else {
                 $text->body = '註冊失敗，資料有問題';
             }
@@ -227,7 +224,7 @@ class MbLoginController extends Controller
 
 
                 // 寄信
-                // $this->composeEmail($sendmail);
+                $this->composeEmail($sendmail);
                 $text->body = '您尚未完成 信箱驗證 ，這邊將自動重新發送驗證信，請立即到信箱查收！';
                 return view('mb.confirmAcc', compact('text'));
             }
@@ -263,7 +260,7 @@ class MbLoginController extends Controller
     }
 
 
-
+    // 帳號驗證
     function confirmAcc(Request $request)
     {
         // 輸入 id 、 verify 、time
@@ -308,8 +305,65 @@ class MbLoginController extends Controller
 
     //---------------------------------------------------------------------
     // 以下是忘記密碼
+    function forget(Request $request)
+    {
+        $email = '';
+        $text = (object) [];
+        $text->title = '忘記密碼';
+        $text->body = '';
+        if ($request->input('fg_email')) {
+            $email = $request->input('fg_email');
+
+            $member = (new Member)->searchEmail($email);
+            if ($member) {
+                // 如果有找到資料開始寄信
+                $sendmail = (object) [];
+                $sendmail->email = $member->email;
+                $acc = $member->account;
+                $id = $member->mid;
+                $sendmail->Subject = "『動吃！動吃！』網站的密碼重設請求！"; //郵件標題
+                $sendmail->Body =  "
+                <table style='background-color: white;'>
+            <tr>
+                <td>
+                    <img src='https://upload.cc/i1/2022/07/07/cYzknK.png' style='width:800px'>
+                </td>
+            </tr>
+        
+            <tr>
+                <td align='center' style='padding: 30px;font-size: 16px;'>
+                    親愛的{$acc}：<br/>
+                    請點選連結重設您的登入密碼。<br/>
+                    <a href='http://{$_SERVER['HTTP_HOST']}/member/renewPsw?email={$email}' target='_blank'>＞＞＞點此重設密碼＜＜＜＜</a><br/>
+                    如果以上網址無法點取，請將它複製到你的瀏覽器位址列中進入訪問。<br/>
+                    如果此次重設密碼請求非你本人所發，請盡速來信聯絡我們。<br/><p style='text-align:right'>
     
+                </td>
+            </tr>
+            <tr>
+                <td style='background-color: rgb(142,180,227);padding: 20px;'>
+                    <p style='color:rgb(49, 45, 42);font-size: 14px;font-weight: bold;'>＊如資訊有問題，請來信<a
+                            href='startfitness0809@gmail.com'>startfitness0809@gmail.com</a>告知＊</p>
+    
+                </td>
+            </tr>
+    
+        </table>
+    
+                    "; //郵件內容
 
 
-
+                // 寄信
+                $this->composeEmail($sendmail);
+                $text->title = '忘記密碼_成功';
+                $text->body = '已將重設密碼請求發送至您的註冊信箱！請盡速至信箱重設密碼。';
+                return view('mb.confirmAcc', compact('text'));
+            } else {
+                $text->body = '請輸入正確的電子信箱';
+                return view('mb.forget', compact('text'));
+            }
+        } else {
+            return view('mb.forget', compact('text'));
+        }
+    }
 }

@@ -59,7 +59,7 @@
                             <div class="input-group mb-3">
                                 <input class='btn-block ml-5 mr-5 btn btn-success' type="submit" value="登入">
                             </div>
-                            <p align="center"><a href="../html/mb_forget.html">忘記密碼?</a></p>
+                            <p align="center"><a href="/member/forget">忘記密碼?</a></p>
                         </form>
                         <form id='register_form' class="m-5 hidden" method="POST" enctype="multipart/form-data"
                             action="/member/register">

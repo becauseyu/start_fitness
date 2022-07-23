@@ -87,7 +87,7 @@
     // 跳轉寫在這裡
     setTimeout(() => {
         window.location = window.location.origin + '/member/login';
-    }, 2000);
+    }, 3000);
 </script>
 
 
