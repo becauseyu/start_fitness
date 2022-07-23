@@ -51,7 +51,7 @@
                                     <span id='cor_password2' class="confirmSpan"></span>
                                     <input name="id" type="text" class="hidden" value="{{$text->id}}" />
                                     <input name="verify" type="text" class="hidden" value="{{$text->verify}}" />
-                                    <input name="redirection" type="text" class="hidden" value="/member/login" />
+                                    <input name="view" type="text" class="hidden" value="mb.confirmAcc" />
                                 </div>
                                 <div class="input-group mb-3">
                                     <input class='btn-block ml-5 mr-5 btn btn-success' type="submit" value="重設密碼">

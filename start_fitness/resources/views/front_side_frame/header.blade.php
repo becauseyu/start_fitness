@@ -14,7 +14,7 @@
                 <a class="nav-link " href="/sport/introduce">運動Tip</a>
             </li>
             <li class="nav-iteml px-1">
-                <a class="nav-link" href="#">健身小物</a>
+                <a class="nav-link" href="/goods/index">健身小物</a>
             </li>
             <li class="nav-iteml px-1">
                 <a class="nav-link" href="#">健身地圖</a>
@@ -25,7 +25,7 @@
                 <a class="nav-link" href="/food/introduce">飲食Tip</a>
             </li>
             <li class="nav-itemr px-1">
-                <a class="nav-link" href="#">飲食小食</a>
+                <a class="nav-link" href="/goods/index">飲食小食</a>
             </li>
             <li class="nav-itemr px-1">
                 <a class="nav-link" href="/food/minigame">Mini game</a>
