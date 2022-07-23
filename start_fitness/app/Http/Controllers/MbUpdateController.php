@@ -139,7 +139,7 @@ class MbUpdateController extends Controller
 
 
 
-
+    //撈訂單明細(先去搞購物車跟物品藍再回來)
 
 
 
