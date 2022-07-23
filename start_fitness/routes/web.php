@@ -59,8 +59,10 @@ Route::get('/member/login/{account}','App\Http\Controllers\MbLoginController@isN
 Route::post('member/register','App\Http\Controllers\MbLoginController@register');
 
 // 忘記密碼
-Route::get('/member/forget','App\Http\Controllers\MbLoginController@forget');
-Route::post('/member/forget','App\Http\Controllers\MbLoginController@forget');
+Route::get('/member/forget',  'App\Http\Controllers\MbLoginController@forget');
+Route::post('/member/forget', 'App\Http\Controllers\MbLoginController@forget');
+Route::get('/member/renewPsw','App\Http\Controllers\MbLoginController@renewPsw');
+
 
 // 帳號驗證
 Route::get('/member/confirmAcc','App\Http\Controllers\MbLoginController@confirmAcc');

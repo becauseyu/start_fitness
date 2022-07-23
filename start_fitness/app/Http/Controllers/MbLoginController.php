@@ -321,8 +321,8 @@ class MbLoginController extends Controller
                 $sendmail->email = $member->email;
                 $acc = $member->account;
                 $id = $member->mid;
-                $sendmail->Subject = "『動吃！動吃！』網站的密碼重設請求！"; //郵件標題
-                $sendmail->Body =  "
+                $sendmail->subject = "『動吃！動吃！』網站的密碼重設請求！"; //郵件標題
+                $sendmail->body =  "
                 <table style='background-color: white;'>
             <tr>
                 <td>
@@ -354,6 +354,7 @@ class MbLoginController extends Controller
 
 
                 // 寄信
+                
                 $this->composeEmail($sendmail);
                 $text->title = '忘記密碼_成功';
                 $text->body = '已將重設密碼請求發送至您的註冊信箱！請盡速至信箱重設密碼。';
@@ -366,4 +367,14 @@ class MbLoginController extends Controller
             return view('mb.forget', compact('text'));
         }
     }
+
+
+
+    // 密碼重設
+    function renewPsw(Request $request){
+        return 'hi?';
+        return view('mb.renewPsw');
+    }
+
+
 }
