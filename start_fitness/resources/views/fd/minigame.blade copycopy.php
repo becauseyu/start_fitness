@@ -213,8 +213,6 @@
             <div id="again_button"><p>again</p></div>
         </div>
         <!--- 這邊是遊戲畫面 --->
-
-
     </div>
 
 
@@ -222,8 +220,6 @@
     <div class="footerpage">
         @include('front_side_frame.footer')
     </div>
-
-
 
     <script>
         // 身高輸入值
