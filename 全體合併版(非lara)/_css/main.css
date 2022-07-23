@@ -1,0 +1,484 @@
+
+body {
+    font-family: monospace, Tahoma, Geneva, Verdana, sans-serif;
+}
+/*  ======== slide_buycart  ==================*/
+
+#slide_buycart{
+    height: 80%;
+    width:25%;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top:100px;
+    right: 0;
+    z-index: 120;
+    border-radius: 10px;
+    border: 1px solid gray;
+    visibility: hidden;
+    /* overflow: scroll; */
+
+
+}
+
+.fa-circle-xmark{
+    font-size:30px;
+    position: relative;
+    float: right;
+    margin-right: 20px;
+    margin-top: 15px;
+    color: white;
+}
+
+.fa-solid:hover{
+    color:gray;
+}
+
+#slide_buycart_title{
+    font-size: 20px;
+    font-family: monospace, Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #ebc57f;
+    padding: 5px;
+}
+
+#slide_buycart_content{
+    text-align: center;
+    height: 65%;
+    overflow: scroll;
+}
+
+.slide_buycart_total{
+    text-align: right;
+    margin-right: 20px;
+    font-size: 20px;
+    font-family: monospace, Tahoma, Geneva, Verdana, sans-serif;
+}
+#slide_buycart_bottom{
+    text-align: center;
+}
+
+#slide_buycart_bottom_btn{
+    margin: 10px;
+    background-color: #6299f9 ;
+    width: 80%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    letter-spacing:5px;
+    color: white;
+    padding: 5px;
+
+} 
+
+
+
+/*  ========== addGoods class =====================*/
+.slide_buycart_image{
+    width: 60%;
+    height: 60%;
+    margin: 8px;
+}
+
+.slide_buycart_goodsTitle{
+    color:rgb(023,156, 255) ;
+}
+
+.slide_buycart_count{
+    margin: 5px;
+    top: 5px;
+    padding: 5px;
+}
+
+.hide{
+    display: none;
+}
+
+.delete_goods{
+    font-size: 14px;
+    padding: 8px;
+    background-color: rgb(192, 170, 170);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/* footer */
+.bg-wrap {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bg-inner {
+
+    height: 150px;
+    border-radius: 100% 100% 0 0;
+    background-image: linear-gradient(to right, #8EB4E3 0%, #8EB4E3 50%, #FBC65C 0%, #FBC65C 50%);
+    position: absolute;
+    bottom: 0;
+    /*     width: 120%; */
+    /*     left: -10%;
+    top: 0px; */
+    right: -15%;
+    left: -15%;
+
+}
+.footerlogo{
+    width: 7%;
+}
+
+/* 購物車icon */
+.btn-cart {
+    position: relative;
+    background-color: transparent;
+}
+
+/* .btn-cart:hover {
+    cursor: pointer;
+} */
+.btn-cart .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+
+/* 內容框 */
+.boxfd {
+    border: solid 0.5em #FBC65C;
+    border-radius: 2em;
+    width: 100%;
+
+    background-color: #ffffff;
+    padding: 1em;
+}
+.boxsp {
+    border: solid 0.5em #8EB4E3;
+    border-radius: 2em;
+    width: 100%;
+
+    background-color: #ffffff;
+    padding: 1em;
+}
+
+.boxcolor1{
+    color: #ff6347;
+}
+.boxcolor2{
+    color: #fa8072;
+}
+
+/* r側邊鈕 */
+#mySidenavr {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 900;
+}
+
+#mySidenavr a {
+
+    position: absolute;
+    right: -250px;
+    transition: 0.3s;
+    padding: 15px;
+    height: 100%;
+    width: 300px;
+    text-decoration: none;
+
+    color: white;
+    /* border-radius: 0 5px 5px 0; */
+}
+
+#mySidenavr a:hover {
+    right: 0;
+}
+
+#Sidenavr {
+    /* top: 76px; */
+    background-color: #FBC65C
+}
+
+.sideImgr {
+    display: block;
+    margin: auto;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    width: 100px;
+    height: 100;
+
+}
+.iconcenterr{
+    position: absolute;
+    top: 51%;
+    right: 85%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* l側邊鈕 */
+#mySidenavl {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 900;
+}
+
+#mySidenavl a {
+
+    position: absolute;
+    left: -250px;
+    transition: 0.3s;
+    padding: 15px;
+    height: 100%;
+    width: 300px;
+    text-decoration: none;
+
+    color: white;
+    /* border-radius: 0 5px 5px 0; */
+
+    
+
+
+
+}
+
+#mySidenavl a:hover {
+    left: 0;
+}
+
+#Sidenavl {
+    /* top: 76px; */
+    background-color: #8EB4E3;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideImg1 {
+    display: block;
+    margin: auto;
+
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100;
+
+}
+.iconcenter1{
+    position: absolute;
+    top: 51%;
+    left: 85%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* NAVBAR導覽列 */
+/* .navbar .navbar-nav .nav-link:hover {
+    color: #000000;
+} */
+
+.navbar .navbar-nav .nav-iteml {
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-itemr {
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-iteml::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #8EB4E3;
+    width: 0%;
+    content: "";
+    height: 4px;
+    transition: all 0.5s;
+}
+
+.navbar .navbar-nav .nav-itemr::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #FBC65C;
+    width: 0%;
+    content: "";
+    height: 4px;
+    transition: all 0.5s;
+}
+
+.navbar .navbar-nav .nav-iteml:hover::after {
+    width: 100%;
+}
+
+.navbar .navbar-nav .nav-itemr:hover::after {
+    width: 100%;
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar {
+        padding: 20;
+    }
+
+    .navbar .navbar-brand {
+        padding: 0 0.7em;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        padding: 1em 0;
+    }
+
+    .navbar .navbar-nav .nav-iteml {
+        margin: 0 1em;
+    }
+
+    .navbar .navbar-nav .nav-itemr {
+        margin: 0 1em;
+    }
+}
+
+.navbar .navbar-nav .nav-iteml::after {
+    transition: all 0.5s;
+}
+
+.navbar .navbar-nav .nav-itemr::after {
+    transition: all 0.5s;
+}
+
+/* 推薦文章的按鈕 */
+.button01 {
+    width: 140px;
+    font-weight: 500;
+    color: #FBC65C;
+    /* background-color: #FBC65C; */
+    border-color: #FBC65C;
+}
+
+.button01:hover {
+    color: #fff;
+    background-color: #FBC65C;
+    border-color: #FBC65C;
+    box-shadow: 0 0 0 0.2rem #fbc65c;
+}
+
+.button02 {
+    width: 80px;
+    font-weight: 400;
+    color: #FBC65C;
+    /* background-color: #FBC65C; */
+    border-color: #FBC65C;
+}
+
+.button02:hover {
+    color: #fff;
+    background-color: #FBC65C;
+    border-color: #FBC65C;
+    box-shadow: 0 0 0 0.2rem #fbc65c;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 100px;
+}
+
+.content-tabset {
+    margin: 0 auto;
+    width: 80%;
+    height: 550px;
+    border: 3px solid rgb(142, 180, 227);
+    overflow: auto;
+}
+
+.selected {
+   background-color: rgb(139, 170, 199);
+   color: white;
+}
+
+
+
+/*span family*/
+.memo {
+    color: gray;
+    font-size: 10px;
+}
+
+.notice {
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+/*icon*/
+#checkEye {
+   position: absolute;
+   top: 50%;
+   right: 60px;
+   z-index: 10;
+   transform: translateY(-50%);
+}
+
+.checkEye2 {
+   position: absolute;
+   top: 50%;
+   right: 60px;
+   z-index: 10;
+   transform: translateY(-50%);
+}
+
+/*spanfamily*/
+
+
+#who {
+   color: rgba(53, 121, 214, 0.745);
+
+}
+
+
+#validUpdate {
+   margin: 0 auto;
+   font-size: 12px;
+   background: yellow;
+   width: fit-content;
+   padding: 2PX;
+}
+
+.confirmSpan {
+   position: absolute;
+   top: 20%;
+   right: 10px;
+   z-index: 10;
+}
+
+/*classFamily*/
+
+.hidden{
+   display: none;
+}
+
+.navbar_fa:hover{
+    color: gray;
+
+}
