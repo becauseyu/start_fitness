@@ -1,0 +1,117 @@
+#container {
+    display: flex;
+}
+
+#gameBox {
+    /* position: absolute; */
+    /* left: 100px; */
+    /* margin: 0 auto; */
+    /* min-width: 500px;
+    min-height: 500px; */
+    width: min(90vh, 90vw);
+    height: min(90vh, 90vw);
+    /* top: max(calc((90vh - 90vw) / 2), 5vh);
+    left: max(calc((90vw - 90vh) / 2), 5vw); */
+    margin-right: 0%; 
+
+}
+
+#rulePage,#resultPage {
+    padding-left: 3%;
+    flex-grow: 1;
+}
+
+/* 先隱藏結束頁 */
+#resultPage {
+    margin: 0 auto;
+    display: none;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+#rulePage>* {
+
+    position: relative;
+    /* text-align: center; */
+    font-size: 25px;
+
+
+}
+
+
+
+#rulePage .foodlist {
+    font-size: 25px;
+    margin-left: 5%;
+}
+
+
+#rulePage img {
+    height: 20px;
+}
+
+canvas {
+
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    background-color: #8EB4E3;
+    
+
+}
+
+#start_button, #again_button {
+    position: relative;
+    top: -20%;
+    left: 50%;
+    width: 100px;
+    /* height: 50px; */
+    /* line-height : 50px; */
+    border: 1px solid black;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 20%;
+    transform: translate(-50%, -50%);
+}
+#again_button {
+    display: none;
+}
+
+#initialWeight,
+#initialHeight {
+    width: 100px;
+    height: 25px;
+    font-size: 25px;
+
+
+
+}
+
+
+#div_weightButtom_bag>div {
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10%;
+    width: 150px;
+    float: left;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#div_weightButtom_bag>div{
+    font-size: 25px;
+    width: 30%;
+}
+
+#div_weightButtom_bag>div:hover {
+    background-color: #FBC65C;
+}
+
+#errorLog_height,
+#errorLog_weight {
+    font-size: 20px;
+    color: red;
+}
