@@ -6,17 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="/js/minigame/mainV5.js"></script>
-    <link rel="stylesheet" href="/css/minigame.css">
+
+
 
 
     <!-- 所有標頭需要的連結 -->
     @include('front_side_frame.link')
 
+
     <title>minigame</title>
+
 
     <style type="text/css">
         #container {
             display: flex;
+            justify-content: center;
+            letter-spacing: 1px;
         }
 
         #gameBox {
@@ -25,16 +30,15 @@
             /* margin: 0 auto; */
             /* min-width: 500px;
             min-height: 500px; */
-            width: min(90vh, 90vw);
-            height: min(90vh, 90vw);
+            width: min(100vh, 100vw);
+            height: min(100vh, 100vw);
             /* top: max(calc((90vh - 90vw) / 2), 5vh);
             left: max(calc((90vw - 90vh) / 2), 5vw); */
-            margin-right: 0%; 
 
         }
 
-        #rulePage,#resultPage {
-            padding: 10%;
+        #rulePage,
+        #resultPage {
             flex-grow: 1;
         }
 
@@ -43,42 +47,34 @@
             margin: 0 auto;
             display: none;
             text-align: center;
-            font-size: 30px;
-
+            font-size: 20px;
         }
 
-        #rulePage>* {
-
+        #rulePage {
             position: relative;
-            /* text-align: center; */
-            font-size: 25px;
-
-
+            font-size: 20px;
         }
 
-
-
-        #rulePage .foodlist {
-            font-size: 25px;
-            margin-left: 5%;
+        
+        #rulePage .foodlist>div {
+            font-size: 10px;
+            margin-left: 10%;
         }
-
 
         #rulePage img {
             height: 20px;
         }
 
         canvas {
-
+            margin-top: 3%;
             width: 100%;
             height: 100%;
-            border: 1px solid black;
+            border: 1px solid rgb(122, 122, 131);
             background-color: #8EB4E3;
-            
-
         }
 
-        #start_button, #again_button {
+        #start_button,
+        #again_button {
             position: relative;
             top: -20%;
             left: 50%;
@@ -93,18 +89,16 @@
             border-radius: 20%;
             transform: translate(-50%, -50%);
         }
+
         #again_button {
             display: none;
         }
 
         #initialWeight,
         #initialHeight {
-            width: 100px;
+            width: 70px;
             height: 25px;
-            font-size: 25px;
-
-
-
+            font-size: 20px;
         }
 
 
@@ -113,13 +107,12 @@
             border: 1px solid black;
             border-radius: 10%;
             width: 150px;
-            float: left;
             padding: 5px;
             cursor: pointer;
         }
 
-        #div_weightButtom_bag>div{
-            font-size: 25px;
+        #div_weightButtom_bag>div {
+            font-size: 18px;
             width: 30%;
         }
 
@@ -133,21 +126,38 @@
             color: red;
         }
 
-        /* 我自己加進去 */
+        /* EVA加 */
         .b1 {
-        border: 2px solid #5896f9;
-        border-radius: 5px;
-        height: fit-content;
+            border: 3px solid #b04c86;
+            border-radius: 5px;
+            height: fit-content;
         }
 
         .b2 {
-        border: 2px solid #f9d158;
-        border-radius: 5px;
+            border: 2px solid #44bb66;
+            border-radius: 5px;
         }
 
+        .try1 {
+            background-color: rgb(255, 196, 236)
+        }
+
+        .rule-head {
+            text-align: center;
+        }
+
+        .rule-food {
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-bottom: 3%;
+        }
+
+        .div_input {
+            text-align: center;
+        }
+
+
     </style>
-
-
 </head>
 
 <body>
@@ -161,58 +171,82 @@
     @include('front_side_frame.sidebar_left')
 
     <div id="container">
-        
-        <div id="rulePage">
-            <div><b>規則 : </b></div>
-            <div>根據吃到的食物好壞會增重或減重，請於60秒內控制好您的體重 </div>
-            <div>以下是健康食物</div>
-            <div class='foodList'>
-                <div> 蘋果 : <img src="/image/gameIMG/good_03.png" alt=""> - 1 kg </div>
-                <div> 生菜 : <img src="/image/gameIMG/good_02.png" alt=""> - 5 kg</div>
-                <div> 新鮮鮭魚 :<img src="/image/gameIMG/good_01.png" alt=""> - 20 kg，非常稀有，而且會緩緩離開</div>
-            </div>
-            <div>以下是不健康食物</div>
-            <div class='foodList'>
-                <div> 薯條 : <img src="/image/gameIMG/bsd_01.png" alt=""> + 3 kg </div>
-                <div> 漢堡 : <img src="/image/gameIMG/bsd_02.png" alt=""> + 10 kg </div>
-                <div> 披薩 : <img src="/image/gameIMG/bsd_03.png" alt=""> + 20 kg </div>
-            </div>
+        {{-- 左半邊 --}}
+        <div class="b1 mr-2 mt-3">
+            <div class="mt-4" id="rulePage">
+                {{-- 規則說明 --}}
+                <div class="rule-head">
+                    <h2>遊戲規則 </h2>
+                    <p>以碰到的食物好壞，進行增重或減重<br />計時60秒，請控制好您的體重! </p>
+                </div>
+                <div class="b2 rule-food">
+                    <h5>我是健康食物</h5>
+                    <div class='foodList'>
+                        <div> 蘋果 : <img src="/image/gameIMG/good_03.png" alt=""> - 1 kg </div>
+                        <div> 生菜 : <img src="/image/gameIMG/good_02.png" alt=""> - 5 kg</div>
+                        <div> 鮭魚排 :<img src="/image/gameIMG/good_01.png" alt=""> - 20 kg，非常稀有，會緩緩游走</div>
+                    </div>
+                </div>
+
+                <div class="b2 rule-food">
+                    <h5>我是不健康食物</h5>
+                    <div class='foodList'>
+                        <div> 薯條 : <img src="/image/gameIMG/bsd_01.png" alt=""> + 3 kg </div>
+                        <div> 漢堡 : <img src="/image/gameIMG/bsd_02.png" alt=""> + 10 kg </div>
+                        <div> 披薩 : <img src="/image/gameIMG/bsd_03.png" alt=""> + 20 kg，超極大pizza，肥仔必吃 </div>
+                    </div>
+                </div>
 
 
-            <div id="div_input">
-                <label for="initialHeight">請先輸入身高 : </label><input type="number" id="initialHeight"><span> cm</span>
-                <label for="initialWeight">，再輸入體重 : </label><input type="number" id="initialWeight" disabled><span>
-                    kg</span>
-            </div>
-            <p id="errorLog_height"> </p>
-            <p id="errorLog_weight"> </p>
-            <div id="div_weightButtom_bag">
-                <div class="initialWeight" id="easy"> 建議(簡單) kg </div>
-                <div class="initialWeight" id="normal"> 建議(中等) kg </div>
-                <div class="initialWeight" id="hard"> 建議(困難) kg </div>
+                {{-- 輸入體重 --}}
+                <div class="b1">
+                    <div id="div_input" class="div_input">
+                        <label for="initialHeight">請輸入身高 :
+                        </label><input type="number" id="initialHeight"><span>
+                            cm</span>
+                        <label for="initialWeight">，體重 : </label><input type="number" id="initialWeight"
+                            disabled><span>
+                            kg</span>
+                    </div>
+                    <p id="errorLog_height"> </p>
+                    <p id="errorLog_weight"> </p>
+                    <div id="div_weightButtom_bag" class="d-flex">
+                        <div class="initialWeight" id="easy"> 建議(簡單) kg </div>
+                        <div class="initialWeight" id="normal"> 建議(中等) kg </div>
+                        <div class="initialWeight" id="hard"> 建議(困難) kg </div>
+                    </div>
+
+                </div>
+
             </div>
 
-        </div>
+            <div id="resultPage">
+                <div><b>遊戲結束囉 : </b></div>
+                <div>坐太久，該起來去喝水囉，下午茶點心選飽米花如何? </div>
+                <a href="/food/introduce">
+                    <img src="/image/gameIMG/good_03.png" width="400" alt="">
+                </a>
+                <br />
+                <a href="/food/introduce">點我前往商品頁</a>
 
-        <div id="resultPage">
-            <div><b>遊戲結束囉 : </b></div>
-            <div>坐太久，該起來去喝水囉，下午茶點心選飽米花如何? </div>
-            <a href="/food/introduce">
-                <img src="/image/gameIMG/good_03.png" width="400" alt="">
-            </a>
-            <br />
-            <a href="/food/introduce">點我前往商品頁</a>
-            
+            </div>
+
         </div>
 
 
         <!--- 這邊是遊戲畫面 --->
         <div id='gameBox'>
             <canvas id="canvas"></canvas>
-            <div id="start_button"><p>start</p></div>
-            <div id="again_button"><p>again</p></div>
+            <div id="start_button">
+                <p>start</p>
+            </div>
+            <div id="again_button">
+                <p>again</p>
+            </div>
         </div>
         <!--- 這邊是遊戲畫面 --->
+
+
     </div>
 
 
@@ -220,6 +254,8 @@
     <div class="footerpage">
         @include('front_side_frame.footer')
     </div>
+
+
 
     <script>
         // 身高輸入值
@@ -321,7 +357,7 @@
                 var bmi_60_weight = Math.floor(60 * height * height / 10000);
                 document.getElementById('initialWeight').value = bmi_60_weight;
                 document.getElementById('errorLog_weight').innerText = '根據bmi計算，您重到不可思議，我們只好給您一個上限';
-            } else if (bmi < 10  && bmi > 0) {
+            } else if (bmi < 10 && bmi > 0) {
                 var bmi_10_weight = Math.floor(10 * height * height / 10000);
                 document.getElementById('initialWeight').value = bmi_10_weight;
                 document.getElementById('errorLog_weight').innerText = '您太瘦了，我們只好給您一個建議下限';
