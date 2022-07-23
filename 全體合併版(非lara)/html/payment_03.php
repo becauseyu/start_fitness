@@ -88,7 +88,7 @@ if (isset($_REQUEST['mid'])) {
   <!--加入Font Awesome-->
   <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
   <!-- 插入自己的css -->
-  <!-- <link rel="stylesheet" href="../_css/main.css"> -->
+  <link rel="stylesheet" href="../_css/main.css">
   <link rel="stylesheet" href="../_css/payment.css">
   <!-- 插入favicon -->
   <link rel="icon" href="../img/favico.ico" type="image/x-icon">

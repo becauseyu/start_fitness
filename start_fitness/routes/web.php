@@ -46,6 +46,10 @@ Route::get('/sport',function() {return view('sp.idx');});
 Route::get('/sport/introduce',function() {return view('sp.introduce');});
 
 
+//---------------以下是商品頁面---------------------------------------------
+Route::get('/goods/index','App\Http\Controllers\GoodsController@index');
+
+
 
 
 //---------------以下會員管理------------------------------------------------

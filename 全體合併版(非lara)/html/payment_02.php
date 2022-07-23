@@ -18,7 +18,7 @@ if (isset($_REQUEST['mid'])) {
   $tel = $data['tel'];
   $user = '';
   $url = "?mid={$mid}&psw={$psw}";
-  $memberPage = "./mb_update.php?mid={$mid}}&psw={$psw}";
+  $memberPage = "./mb_update.php?mid={$mid}&psw={$psw}";
 } else {
   $user = '訪客';
   $url = '';
