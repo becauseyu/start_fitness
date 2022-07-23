@@ -48,7 +48,7 @@ $('.minus').on('click', function () {
 })
 
 //把商品加入購物車
-$('.button01').on('click', function () {
+$('.button08').on('click', function () {
   //打開購物車
   $('#slide_buycart').css('visibility', 'visible')
   //得到產品完整名稱，去檢查是否存在購物車

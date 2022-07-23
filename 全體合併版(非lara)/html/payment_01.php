@@ -115,8 +115,8 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
 
     </div>
   <!--  進度條  -->
-  <section class="container progress-size">
-    <div class="mt-4">
+  <section class="container  progress-size">
+    <div class="">
       <div class="progress-container">
         <!-- 進度條本體 -->
         <div class="progress" id="progress"></div>
@@ -130,7 +130,7 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
   </section>
 
   <!--購物表格-->
-  <section class="container mt-5 shopping-cart">
+  <section class="container shopping-cart" style="margin-top:20px ;">
     <div class="table-01 " id="car">
       <div class=" table-header text-center  row">
         <div class="col-8 col-sm-4 col-md-4">商品資料</div>

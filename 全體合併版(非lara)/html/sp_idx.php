@@ -141,48 +141,67 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
     <div class="" style="width: 100%; height :75px;"></div>
     <div class="">
         <div class="container mt-4 " data-aos="fade-right">
-            <div class="boxsp">
+        <div class="boxsp">
                 <h3 class="boxcolor2">運動Tip</h3>
                 <hr>
                 <div class=" row">
-                    <div class="col-5 ">
-                        <a href="https://heho.com.tw/archives/59008" target="_blank" class="stretched-link">
+                    <div class="col-6 ">
+                        <a href="https://www.womenshealthmag.com/tw/fitness/fitness-club/g33373736/how-to-use-inbody/"
+                            target="_blank" class="stretched-link">
                             <figure class="figure ">
-                                <img src="../img/sp_introduce/sp01.png" height="350" class="figure-img rounded shadow-sm">
+                                <img src="../img/sp_introduce/sp09.jpg" height="250"
+                                    class="figure-img img-fluid rounded shadow-sm">
+
                                 <figcaption class="figure-caption text-left">
 
-                                    <p class="h5 font-weight-bold boxcolor1">哈佛醫師!推薦的4個運動</p>
-                                    <p class="pr-3">哈佛醫學院教授 I-Min Lee
-                                        要來推薦４個他認為對身體最好的運動，這些運動的好處不僅可以減肥、增加，還能預防心血管疾病，保護心臟及大腦的健康喔！</p>
+                                    <p class="h5 font-weight-bold boxcolor1">減肥前必測InBody!教你看懂inbody數據</p>
+                                    <p class="pr-3">
+                                         InBody體脂機透過電流通過人體，測出體脂、肌肉量與含水量等數據，教練說：「開始減肥前一定要測！」了解自己的身體組成，調整運動飲食才能對症下藥！</p>
                                 </figcaption>
                             </figure>
                         </a>
                     </div>
-                    <div class="col-7">
+                    <div class="col-6">
                         <ul class=" list-group list-group-flush boxcolor2">
 
                             <li class=" list-group-item list-group-item-action ">
-                                <a href="https://tw.news.yahoo.com/%E9%99%8D10-%E7%99%8C%E7%97%87%E6%AD%BB%E4%BA%A1%E7%8E%87-%E9%81%8B%E5%8B%959%E5%A4%A7%E5%A5%BD%E8%99%95%E6%9B%9D-043542688.php" target="_blank" class="boxcolor2">9大運動幫助降10%癌症死亡率
+                                <a href="https://www.womenshealthmag.com/tw/fitness/work-outs/g34458540/deadlift-training/"
+                                    target="_blank" class="boxcolor2">硬舉幫助減脂，女生更要練！教你正確姿勢
                                 </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
-                                <a href="https://www.womenshealthmag.com/tw/fitness/work-outs/g34296726/how-to-squat-correctly/" target="_blank" class="boxcolor2">初學者必讀「深蹲」教學！
+                                <a href="https://tw.news.yahoo.com/%E9%99%8D10-%E7%99%8C%E7%97%87%E6%AD%BB%E4%BA%A1%E7%8E%87-%E9%81%8B%E5%8B%959%E5%A4%A7%E5%A5%BD%E8%99%95%E6%9B%9D-043542688.html"
+                                    target="_blank" class="boxcolor2">9大運動幫助降10%癌症死亡率
                                 </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
-                                <a href="https://www.womenshealthmag.com/tw/fitness/workoutroutine/g31719522/5-iger-glute-workout-routine/" target="_blank" class="boxcolor2">「蜜桃臀養成」運動懶人包
+                                <a href="https://www.womenshealthmag.com/tw/fitness/work-outs/g34296726/how-to-squat-correctly/"
+                                    target="_blank" class="boxcolor2">初學者必讀「深蹲」教學！
                                 </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
-                                <a href="https://www.womenshealthmag.com/tw/fitness/workoutroutine/g31719522/5-iger-glute-workout-routine/" target="_blank" class="boxcolor2">硬舉幫助減脂，女生得練！
+                                <a href="https://www.womenshealthmag.com/tw/fitness/workoutroutine/g31719522/5-iger-glute-workout-routine/"
+                                    target="_blank" class="boxcolor2">「蜜桃臀養成」運動懶人包
                                 </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
-                                <a href="https://www.youtube.com/channel/UCFd-9jAfbuUjwDZjisOwv1w/featured" target="_blank" class="boxcolor2">在美國Shuai Li 「帥」
+                                <a href="https://www.womenshealthmag.com/tw/fitness/workoutroutine/g31719522/5-iger-glute-workout-routine/"
+                                    target="_blank" class="boxcolor2">硬舉幫助減脂，女生得練！
                                 </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
-                                <a href="https://www.youtube.com/channel/UCCgLoMYIyP0U56dEhEL1wXQ" target="_blank" class="boxcolor2">來自澳洲的Chloe Ting
+                                <a href="https://www.youtube.com/channel/UCFd-9jAfbuUjwDZjisOwv1w/featured"
+                                    target="_blank" class="boxcolor2">在美國Shuai Li 「帥」
+                                </a>
+                            </li>
+                            <li class=" list-group-item list-group-item-action ">
+                                <a href="https://www.youtube.com/channel/UCCgLoMYIyP0U56dEhEL1wXQ" target="_blank"
+                                    class="boxcolor2">來自澳洲的Chloe Ting
+                                </a>
+                            </li>
+                            <li class=" list-group-item list-group-item-action ">
+                                <a href="https://heho.com.tw/archives/59008" target="_blank"
+                                    class="boxcolor2">哈佛醫師!推薦的4個運動
                                 </a>
                             </li>
 
@@ -192,73 +211,26 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
 
                 </div>
                 <div>
-                    <a href="./sp_introduce.php" class="text-right font-weight-light">
+                    <a href="../html/sp_introduce.php<?php echo $url; ?>" class="text-right font-weight-light">
                         <p class=""> 觀看更多文章...</p>
                     </a>
                 </div>
             </div>
         </div>
 
+
         <div class="container mt-4" data-aos="fade-right">
             <div class="boxsp">
-                <h3 class="boxcolor2">健身小物</h3>
-                <hr>
-                <div class=" row">
-                    <div class="col-4 ">
-                        <a href="./goods_index.php" class=" ">
-                            <figure class="figure ">
-                                <img src="../img/gym/bottlesp01.webp" class="figure-img img-fluid rounded shadow-sm" alt="..." height="250">
-                                <figcaption class="figure-caption ">
-                                    <h5 class="boxcolor1">我不是胖虎冰壩杯(特別版)</h5>
-                                    <p class="">氣萌團子</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="col-4 ">
-                        <a href="./goods_index.php" class=" ">
-                            <figure class="figure ">
-                                <img src="../img/gym/foamroller00.webp" class="figure-img img-fluid rounded shadow-sm" alt="..." height="250">
-                                <figcaption class="figure-caption ">
-                                    <h5 class="boxcolor1">植纖瑜珈運動滾筒</h5>
-                                    <p class="">舒緩肌肉的好夥伴</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="col-4 ">
-                        <a href="./goods_index.php" class=" ">
-                            <figure class="figure ">
-                                <img src="../img/gym/resistanceband00.webp" class="figure-img img-fluid rounded shadow-sm" alt="..." height="250">
-                                <figcaption class="figure-caption ">
-                                    <h5 class="boxcolor1">環狀延展彈力帶</h5>
-                                    <p class="">一條帶子 練遍全身</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-
-                    </div>
-                </div>
-
-                <div class="">
-                    <a href="./goods_index.php" class="text-right font-weight-light">
-                        <p class=""> 更多健身小物...</p>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-        <div class="container mt-4 " data-aos="fade-right">
-            <div class="boxsp">
                 <h3 class="boxcolor2">健身地圖</h3>
-                <hr />
+                <hr>
                 <div class=" row ">
                     <table border="2px" class='gym_table col m-3'>
                         <tr>
                             <th class='gymTitle' colspan="2">Anytime Fitness 台中公益店</th>
                         </tr>
                         <tr>
-                            <td colspan="2"><img class="gympic" src='https://lh5.googleusercontent.com/p/AF1QipNH3rmkgnaBQ55rdZHW8HXb01sNpcnNmd4Wqan8=w408-h272-k-no'>
+                            <td colspan="2"><img class="gympic"
+                                    src='https://lh5.googleusercontent.com/p/AF1QipNH3rmkgnaBQ55rdZHW8HXb01sNpcnNmd4Wqan8=w408-h272-k-no'>
                             </td>
                         </tr>
                         <tr>
@@ -283,14 +255,65 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
                     <div id="mapid" class="col m-3"></div>
                 </div>
                 <div class="">
-                    <a href="./gym_map.php" class="text-right font-weight-light">
+                    <a href="../html/gym_map.php<?php echo $url; ?>" class="text-right font-weight-light">
                         <p class=""> 解鎖更多健身房...</p>
                     </a>
                 </div>
-
             </div>
         </div>
+        
+        <div class="container mt-4" data-aos="fade-right">
+            <div class="boxsp">
+                <h3 class="boxcolor2">健身小物</h3>
+                <hr>
+                <div class=" row">
+                    <div class="col-4 ">
+                        <a href="#" class=" ">
+                            <figure class="figure ">
+                                <img src="../img/gym/bottle01.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
+                                    height="250">
+                                <figcaption class="figure-caption ">
+                                    <h5 class="boxcolor1">我不是胖虎冰壩杯(特別版)</h5>
+                                    <p class="">氣萌團子</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="col-4 ">
+                        <a href="#" class=" ">
+                            <figure class="figure ">
+                                <img src="../img/gym/foamroller00.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
+                                    height="250">
+                                <figcaption class="figure-caption ">
+                                    <h5 class="boxcolor1">植纖瑜珈運動滾筒</h5>
+                                    <p class="">舒緩肌肉的好夥伴</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="col-4 ">
+                        <a href="#" class=" ">
+                            <figure class="figure ">
+                                <img src="../img/gym/resistanceband00.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
+                                    height="250">
+                                <figcaption class="figure-caption ">
+                                    <h5 class="boxcolor1">環狀延展彈力帶</h5>
+                                    <p class="">一條帶子 練遍全身</p>
+                                </figcaption>
+                            </figure>
+                        </a>
 
+                    </div>
+                </div>
+
+                <div class="">
+                    <a href="../html/goods_index.php<?php echo $url; ?>" class="text-right font-weight-light">
+                        <p class=""> 更多健身小物...</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 
