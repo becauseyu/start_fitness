@@ -1,0 +1,217 @@
+#container {
+    display: flex;
+    justify-content: center;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+
+#gameBox {
+    /* position: absolute; */
+    /* left: 100px; */
+    /* margin: 0 auto; */
+    /* min-width: 500px;
+    min-height: 500px; */
+    width: min(100vh, 100vw);
+    height: min(100vh, 100vw);
+    /* top: max(calc((90vh - 90vw) / 2), 5vh);
+    left: max(calc((90vw - 90vh) / 2), 5vw); */
+
+}
+
+#rulePage,
+#resultPage {
+    flex-grow: 1;
+}
+
+/* 先隱藏結束頁 */
+#resultPage {
+    margin: 0 auto;
+    /* display: none; */
+    text-align: center;
+    font-size: 22px;
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+
+#rulePage {
+    position: relative;
+    font-size: 20px;
+}
+
+
+#rulePage img {
+    height: 20px;
+}
+
+canvas {
+    margin-top: 3%;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #afd1fb;
+    background-color: #a5c9f5;
+    border-radius: 1%;
+}
+
+#start_button,
+#again_button {
+    position: relative;
+    top: -20%;
+    left: 50%;
+    width: 140px;
+    /* height: 50px; */
+    /* line-height : 50px; */
+
+    border: 2px solid #ed8c25;
+    color: #e78926;
+    cursor: pointer;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    padding: 1%;
+    /* border-radius: 5px; */
+    transform: translate(-50%, -50%);
+    text-shadow: 1px 1px 2px rgba(142, 139, 136, 0.7);
+    box-shadow: 3px 2px 3px 2px rgba(135, 109, 84, 0.7);
+}
+
+#again_button {
+    display: none;
+}
+
+#start_button:hover,
+#again_button:hover {
+    border: 2px solid #efb372;
+    background-color: #ffa94e;
+    color: #ffffff;
+    box-shadow: 3px 2px 3px 2px rgba(91, 73, 57, 0.7);
+
+}
+
+#initialWeight,
+#initialHeight {
+    width: 70px;
+    height: 30px;
+
+}
+
+#div_weightButtom_bag {
+    margin-top: 3%;
+}
+
+#div_weightButtom_bag>div {
+    border: 2px solid #3b4cb9;
+    color: #3b4cb9;
+    border-radius: 5px;
+    width: 150px;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 3px 3px 2px rgba(191, 191, 215, 0.7);
+
+}
+
+#div_weightButtom_bag>div {
+    font-size: 16px;
+    width: 30%;
+}
+
+#div_weightButtom_bag>div:hover {
+    background-color: #213fffe4;
+    border: 1px solid #697aed;
+    color: white;
+    box-shadow: 3px 3px 4px rgba(157, 157, 216, 0.7);
+
+}
+
+#errorLog_height,
+#errorLog_weight {
+    font-size: 16px;
+    color: rgb(235, 84, 104);
+    padding-top: -1%;
+    margin-top: 0%;
+
+}
+
+/* EVA加 */
+.b1 {
+    border: 3px solid #b04c86;
+    border-radius: 5px;
+    height: fit-content;
+}
+
+.b2 {
+    border: 2px solid #44bb66;
+    border-radius: 5px;
+}
+
+.try1 {
+    background-color: rgb(255, 196, 236)
+}
+
+.rule-head {
+    text-align: center;
+    text-shadow: 3px 3px 5px rgba(211, 211, 218, 0.7);
+
+}
+
+.rule-food {
+    margin-left: 3%;
+    /* margin-right: 3%; */
+    margin-bottom: 3%;
+}
+
+.div_input {
+    text-shadow: 3px 3px 3px rgba(211, 211, 218, 0.7);
+    text-align: center;
+    font-size: 22px;
+    color: #10142a;
+
+}
+
+.text-border {
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 2px rgba(199, 201, 203, 0.7);
+
+}
+
+#gamediscri {
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #3746a5;
+    text-shadow: 4px 3px 5px rgba(192, 192, 198, 0.7);
+}
+
+#gamediscri02 {
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 3px;
+    color: #3746a5;
+    text-shadow: 4px 3px 5px rgba(192, 192, 198, 0.7);
+}
+
+
+.box-left {
+    border: 3px solid #3a49a8;
+    border-radius: 5px;
+    height: fit-content;
+}
+
+.food-header01 {
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 5px rgba(211, 211, 218, 0.7);
+    color: #3b4cb9;
+}
+
+.food-header02 {
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 5px rgba(211, 211, 218, 0.7);
+    color: #dc4158;
+}
+
+.hrhr {
+    border-color: #3746a5;
+    box-shadow: 3px 3px 5px #8490dd;
+}
