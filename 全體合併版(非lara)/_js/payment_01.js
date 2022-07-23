@@ -1,4 +1,5 @@
-$('.footerpage').load('/MengYing/大專/LAB/footer.html')
+$('.footerpage').load('./footer.html')
+
 //把localStorage放進內容
 //確認localStorage是否有東西
 var myStorage = localStorage

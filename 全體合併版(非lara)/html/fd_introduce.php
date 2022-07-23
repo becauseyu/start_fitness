@@ -16,7 +16,7 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
     $pws = $data['psw'];
     $user = '';
     $url = "?mid={$mid}&psw={$psw}";
-    $memberPage = "./mb_update.php?mid={$mid}}&psw={$psw}";
+    $memberPage = "./mb_update.php?mid={$mid}&psw={$psw}";
 } else {
     $user = '訪客';
     $url = '';
