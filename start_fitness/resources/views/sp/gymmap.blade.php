@@ -188,6 +188,7 @@
             }
         };
 
+        // 不使用非同步功能
         xhttp.open('GET', url, false);
         //send請求
         xhttp.send();
