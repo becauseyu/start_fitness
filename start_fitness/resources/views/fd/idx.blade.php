@@ -148,7 +148,7 @@
 
     <!-- 購物車標誌 -->
     <div id="slide_buycart">
-        @include('front_side_frame.buyCartIcon.blade')
+        @include('front_side_frame.buyCartIcon')
     
       </div>
 
