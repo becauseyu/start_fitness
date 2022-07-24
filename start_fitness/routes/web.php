@@ -52,6 +52,15 @@ Route::get('/goods/data/{pid}','App\Http\Controllers\GoodsController@data');
 
 
 
+//--------------以下結帳流程------------------------------------------------
+Route::get('/payment','App\Http\Controllers\PaymentController@payment');
+Route::get('/payment/page01','App\Http\Controllers\PaymentController@payment');
+
+
+Route::post('/payment/page02','App\Http\Controllers\PaymentController@page02');
+Route::post('/payment/page03','App\Http\Controllers\PaymentController@page03');
+
+
 
 //---------------以下會員管理------------------------------------------------
 // 會員登入

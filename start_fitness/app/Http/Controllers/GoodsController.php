@@ -59,15 +59,6 @@ class GoodsController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
         return view('goods.data', compact('text','good','flavorList'));
     }
 

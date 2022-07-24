@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
 
 
-    {{-- 自己的css --}}
+    {{-- header的css --}}
     <link rel=stylesheet type="text/css" href="/css/head.css">
+
+     <!-- main.css -->
+    <link rel="stylesheet" href="/css/main.css">
 
     {{-- aos.js --}}
     <script src="/aos-master/dist/aos.js"></script>
@@ -22,3 +25,10 @@
 
     {{-- bootstrap.js --}}
     <script src="/bootstrap-4.6.1-dist/js/bootstrap.min.js"></script>
+
+   <!-- icon -->
+   <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
+
+   
+
+  

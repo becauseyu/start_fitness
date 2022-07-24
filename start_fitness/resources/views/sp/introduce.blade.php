@@ -242,12 +242,12 @@
     <div class="footerpage">
         @include('front_side_frame.footer')
     </div>
-
+    <!-- script 主要 -->
+    <script src="/js/main.js"></script>
     <script>
         AOS.init();
     </script>
-    <!-- script 主要 -->
-  <script src="/js/main.js"></script>
+
 </body>
 
 
