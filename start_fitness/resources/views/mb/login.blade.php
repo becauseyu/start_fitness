@@ -132,6 +132,11 @@
         </div>
 
     </div>
+    <!-- 購物車標誌 -->
+    <div id="slide_buycart">
+        @include('front_side_frame.buyCartIcon.blade')
+    
+      </div>
     <!-- 頁尾 -->
     <footer>
         @include('front_side_frame.footer')

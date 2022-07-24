@@ -48,6 +48,7 @@ Route::get('/sport/introduce',function() {return view('sp.introduce');});
 
 //---------------以下是商品頁面---------------------------------------------
 Route::get('/goods/index','App\Http\Controllers\GoodsController@index');
+Route::get('/goods/data/{pid}','App\Http\Controllers\GoodsController@data');
 
 
 
