@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sp_introduce</title>
 
-     
-     <link rel=stylesheet type="text/css" href="/css/sp.css">
-     <!-- 所有標頭需要的連結 -->
-     @include('front_side_frame.link')    
-    
+
+    <link rel=stylesheet type="text/css" href="/css/sp.css">
+    <!-- 所有標頭需要的連結 -->
+    @include('front_side_frame.link')
+
 
 
 
@@ -28,7 +28,7 @@
 
 
 
-    
+
     <div class="card-deck"></div>
     <div class="album py-5 ">
         <div class="container">
@@ -37,7 +37,7 @@
                     <div class="card mb-4 SP-box cen" data-aos="fade-up">
                         <div class="pt-2">
                             <a href="https://heho.com.tw/archives/59008" target="_blank">
-                                <img src="/image/sp_introduce/sp01.png" height="300" class="rounded" ></a>
+                                <img src="/image/sp_introduce/sp01.png" height="300" class="rounded"></a>
                         </div>
                         <div class="card-body">
                             <p class="head-font01 cen-brand">@Heho健康</p>
@@ -69,9 +69,9 @@
                             </p>
                             <div class="mt-4 d-flex justify-content-between">
                                 <a href="https://tw.news.yahoo.com/%E9%99%8D10-%E7%99%8C%E7%97%87%E6%AD%BB%E4%BA%A1%E7%8E%87-%E9%81%8B%E5%8B%959%E5%A4%A7%E5%A5%BD%E8%99%95%E6%9B%9D-043542688.html"
-                                target="_blank">
-                                <button type="button" class="btn button01">View</button>
-                            </a>
+                                    target="_blank">
+                                    <button type="button" class="btn button01">View</button>
+                                </a>
                                 <small class="text-muted01">6 mins</small>
                             </div>
 
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-    <!-- 第二行 -->
+                <!-- 第二行 -->
                 <div class="col-md-4">
                     <div class="card mb-4 SP-box01 cen" data-aos="fade-up">
                         <div class="mt-3">
@@ -148,7 +148,7 @@
                             </p>
                             <div class="mt-4 d-flex justify-content-between">
                                 <a href="https://www.womenshealthmag.com/tw/fitness/workoutroutine/g31719522/5-iger-glute-workout-routine/"
-                                target="_blank">
+                                    target="_blank">
                                     <button type="button" class="btn button02">View</button>
                                 </a>
                                 <small class="text-muted01">15 mins</small>
@@ -161,8 +161,7 @@
                 <div class="col-md-4">
                     <div class="card mb-4 SP-box01 cen" data-aos="fade-up">
                         <div class="mt-3">
-                            <a href="https://www.instagram.com/shuaisoserious/"
-                                target="_blank">
+                            <a href="https://www.instagram.com/shuaisoserious/" target="_blank">
                                 <img src="/image/sp_introduce/sp06.png" height="250" class="rounded">
                             </a>
                         </div>
@@ -186,8 +185,7 @@
                 <div class="col-md-4">
                     <div class="card mb-4 SP-box01 cen" data-aos="fade-up">
                         <div class="mt-3">
-                            <a href="https://www.instagram.com/chloe_t/"
-                                target="_blank">
+                            <a href="https://www.instagram.com/chloe_t/" target="_blank">
                                 <img src="/image/sp_introduce/sp07.png" height="250" class="rounded">
                             </a>
                         </div>
@@ -199,8 +197,7 @@
                                 &ensp;澳洲健身Youtuber Chloe Ting超過 2200 萬訂閱者，嬌小的她看不出來已經35歲，身材十分勻稱，擁有女生夢寐以求緊實的11字腹肌和性感的蜜桃臀。
                             </p>
                             <div class="mt-4 d-flex justify-content-between">
-                                <a href="https://www.youtube.com/channel/UCCgLoMYIyP0U56dEhEL1wXQ"
-                                    target="_blank">
+                                <a href="https://www.youtube.com/channel/UCCgLoMYIyP0U56dEhEL1wXQ" target="_blank">
                                     <button type="button" class="btn button02">View</button>
                                 </a>
                                 <small class="text-muted01">18 mins</small>
@@ -211,8 +208,7 @@
                 <div class="col-md-4">
                     <div class="card mb-4 SP-box01 cen" data-aos="fade-up">
                         <div class="mt-3">
-                            <a href="https://www.instagram.com/peeta.gege/"
-                                target="_blank">
+                            <a href="https://www.instagram.com/peeta.gege/" target="_blank">
                                 <img src="/image/sp_introduce/sp08.png" height="250" class="rounded">
                             </a>
                         </div>
@@ -237,14 +233,21 @@
             </div>
         </div>
     </div>
+    <!-- 購物車標誌 -->
+    <div id="slide_buycart">
+        @include('front_side_frame.buyCartIcon')
+
+    </div>
     <!-- 腳 -->
     <div class="footerpage">
         @include('front_side_frame.footer')
     </div>
-    
+
     <script>
         AOS.init();
     </script>
+    <!-- script 主要 -->
+  <script src="/js/main.js"></script>
 </body>
 
 

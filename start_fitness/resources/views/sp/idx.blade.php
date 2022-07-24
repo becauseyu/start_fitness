@@ -45,7 +45,8 @@
                     <div class="col-6 ">
                         <a href="https://heho.com.tw/archives/59008" target="_blank" class="stretched-link">
                             <figure class="figure ">
-                                <img src="/image/sp_introduce/sp01.png" height="350" class="figure-img rounded shadow-sm">
+                                <img src="/image/sp_introduce/sp01.png" height="350"
+                                    class="figure-img rounded shadow-sm">
                                 <figcaption class="figure-caption text-left">
 
                                     <p class="h5 font-weight-bold boxcolor1">哈佛醫師!推薦的4個運動</p>
@@ -61,34 +62,34 @@
                             <li class=" list-group-item list-group-item-action ">
                                 <a href="https://tw.news.yahoo.com/%E9%99%8D10-%E7%99%8C%E7%97%87%E6%AD%BB%E4%BA%A1%E7%8E%87-%E9%81%8B%E5%8B%959%E5%A4%A7%E5%A5%BD%E8%99%95%E6%9B%9D-043542688.html"
                                     target="_blank" class="boxcolor2">9大運動幫助降10%癌症死亡率
-                                </a> 
+                                </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
                                 <a href="https://www.womenshealthmag.com/tw/fitness/work-outs/g34296726/how-to-squat-correctly/"
                                     target="_blank" class="boxcolor2">初學者必讀「深蹲」教學！
-                                </a> 
+                                </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
                                 <a href="https://www.womenshealthmag.com/tw/fitness/workoutroutine/g31719522/5-iger-glute-workout-routine/"
                                     target="_blank" class="boxcolor2">「蜜桃臀養成」運動懶人包
-                                </a> 
+                                </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
                                 <a href="https://www.womenshealthmag.com/tw/fitness/workoutroutine/g31719522/5-iger-glute-workout-routine/"
                                     target="_blank" class="boxcolor2">硬舉幫助減脂，女生得練！
-                                </a> 
+                                </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
                                 <a href="https://www.youtube.com/channel/UCFd-9jAfbuUjwDZjisOwv1w/featured"
                                     target="_blank" class="boxcolor2">在美國Shuai Li 「帥」
-                                </a> 
+                                </a>
                             </li>
                             <li class=" list-group-item list-group-item-action ">
-                                <a href="https://www.youtube.com/channel/UCCgLoMYIyP0U56dEhEL1wXQ"
-                                    target="_blank" class="boxcolor2">來自澳洲的Chloe Ting
-                                </a> 
+                                <a href="https://www.youtube.com/channel/UCCgLoMYIyP0U56dEhEL1wXQ" target="_blank"
+                                    class="boxcolor2">來自澳洲的Chloe Ting
+                                </a>
                             </li>
-                            
+
                         </ul>
 
                     </div>
@@ -110,8 +111,8 @@
                     <div class="col-4 ">
                         <a href="#" class=" ">
                             <figure class="figure ">
-                                <img src="/image/AI/food/03.1.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
-                                    height="250">
+                                <img src="/image/AI/food/03.1.webp" class="figure-img img-fluid rounded shadow-sm"
+                                    alt="..." height="250">
                                 <figcaption class="figure-caption ">
                                     <h5 class="boxcolor1">飽米花‧椒鹽</h5>
                                     <p class="">淡淡鹽味，清爽少負擔</p>
@@ -122,8 +123,8 @@
                     <div class="col-4 ">
                         <a href="#" class=" ">
                             <figure class="figure ">
-                                <img src="/image/AI/food/00.1.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
-                                    height="250">
+                                <img src="/image/AI/food/00.1.webp" class="figure-img img-fluid rounded shadow-sm"
+                                    alt="..." height="250">
                                 <figcaption class="figure-caption ">
                                     <h5 class="boxcolor1">好好果乾水‧好心情</h5>
                                     <p class="">柑橘香，喝水好心情</p>
@@ -134,8 +135,8 @@
                     <div class="col-4 ">
                         <a href="#" class=" ">
                             <figure class="figure ">
-                                <img src="/image/AI/food/01.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
-                                    height="250">
+                                <img src="/image/AI/food/01.webp" class="figure-img img-fluid rounded shadow-sm"
+                                    alt="..." height="250">
                                 <figcaption class="figure-caption ">
                                     <h5 class="boxcolor1">飽飽凍</h5>
                                     <p class="">午後時光必備零食</p>
@@ -162,16 +163,24 @@
         </div>
 
     </div>
+    <!-- 購物車標誌 -->
+    <div id="slide_buycart">
+        @include('front_side_frame.buyCartIcon')
+
+    </div>
+
     <!-- 腳 -->
     <div class="footerpage">
         @include('front_side_frame.footer')
     </div>
 
-   
+
 
     <script>
         AOS.init();
     </script>
+    <!-- script 主要 -->
+  <script src="/js/main.js"></script>
 </body>
 
 
