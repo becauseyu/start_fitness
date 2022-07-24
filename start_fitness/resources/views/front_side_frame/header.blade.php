@@ -17,7 +17,7 @@
                 <a class="nav-link" href="/goods/index">健身小物</a>
             </li>
             <li class="nav-iteml px-1">
-                <a class="nav-link" href="#">健身地圖</a>
+                <a class="nav-link" href="/sport/gymmap">健身地圖</a>
             </li>
             <a class="d-none d-lg-block px-4" href="/index"><img width="60" height="60" style="display:block; margin:auto;"
                     src="/image/AI/LOGO.png"></a>

@@ -16,7 +16,7 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class MbLoginController extends Controller
 {
-
+    use PhpMailTrait;
 
     // 真的撈不到的時候使用原始mysqli撈資料
     function mysqli()
@@ -153,7 +153,6 @@ class MbLoginController extends Controller
 
 
     // 帳號登入檢查
-    use PhpMailTrait;
     function isMember(Request $request)
     {
 
