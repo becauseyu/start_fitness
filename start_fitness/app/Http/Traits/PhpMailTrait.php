@@ -24,7 +24,7 @@ trait PhpMailTrait
     // ========== [ Compose Email ] ================
     public function composeEmail($request)
     {
-        require base_path("vendor/autoload.php");
+        require_once base_path("vendor/autoload.php");
         $mail = new PHPMailer(true);     // Passing `true` enables exceptions
 
         // 寄信目前需要給
@@ -51,7 +51,6 @@ trait PhpMailTrait
 
             $mail->Subject = $request->subject; //郵件標題
             $mail->Body = $request->body;
-
             $mail->SMTPDebug = 0;
             $mail->isHTML(true);                // Set email content format to HTML
             $mail->AddAddress("$request->email"); //收件者email
