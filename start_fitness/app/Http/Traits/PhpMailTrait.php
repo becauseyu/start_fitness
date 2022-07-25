@@ -54,7 +54,6 @@ trait PhpMailTrait
             $mail->SMTPDebug = 0;
             $mail->isHTML(true);                // Set email content format to HTML
             $mail->AddAddress("$request->email"); //收件者email
-            $mail->Send();
 
 
 
