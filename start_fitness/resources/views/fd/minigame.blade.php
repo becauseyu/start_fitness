@@ -87,11 +87,11 @@
                 <div id="resultPage" class="rule-head">
                     <div class="" id="gamediscri02">遊戲結束</div>
                     <div>坐太久，該起來去喝水囉~<br />下午茶點心選飽米花如何? </div>
-                    <a href="/food/introduce">
-                        <img src="/image/gameIMG/popcron04.webp" width="360"  class="mx-2 my-4 img-fluid bigImage88" alt="">
+                    <a href="/goods/index">
+                        <img src="/image/gameIMG/popcron04.webp" width="400"  class="mx-2 my-4 img-fluid bigImage88" alt="">
                     </a>
                     <br />
-                    <a class="mb-2" href="/food/introduce">點我前往商品頁</a>
+                    <a class="mb-2" href="/goods/index">點我前往商品頁</a>
 
                 </div>
 
