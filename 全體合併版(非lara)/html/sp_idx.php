@@ -86,7 +86,7 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
                         <a class="nav-link" href="./goods_index.php<?php echo $url; ?>">健身小物</a>
                     </li>
                     <li class="nav-iteml px-1 mx-auto">
-                        <a class="nav-link" href="./gym_map.php<?php echo $url; ?>">預約地圖</a>
+                        <a class="nav-link" href="./gym_map.php<?php echo $url; ?>">健身地圖</a>
                     </li>
                     <a class="d-none d-lg-block px-4" href="./openindex.php<?php echo $url; ?>"><img width="60" height="60" style="display:block; margin:auto;" src="../img/LOGO.png"></a>
                     <li class="nav-itemr px-1 mx-auto">
@@ -221,7 +221,7 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
 
         <div class="container mt-4" data-aos="fade-right">
             <div class="boxsp">
-                <h3 class="boxcolor2">預約地圖</h3>
+                <h3 class="boxcolor2">健身地圖</h3>
                 <hr>
                 <div class=" row ">
                     <table border="2px" class='gym_table col m-3'>
