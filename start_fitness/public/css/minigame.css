@@ -62,8 +62,8 @@ canvas {
     /* height: 50px; */
     /* line-height : 50px; */
 
-    border: 6px solid #ffa94d;
-    color: #faa448;
+    border: 3px solid #ffa94d;
+    color: #ffae58;
     cursor: pointer;
     border-radius: 5px;
     align-items: center;
@@ -71,8 +71,8 @@ canvas {
     font-size: 50px;
     /* border-radius: 5px; */
     transform: translate(-50%, -50%);
-    text-shadow: 1px 1px 2px rgba(151, 135, 120, 0.7);
-    /* box-shadow: 3px 2px 3px 2px rgba(227, 223, 219, 0.7); */
+    text-shadow: 1px 1px 2px rgba(148, 133, 117, 0.7);
+    /* box-shadow: 3px 2px 3px rgba(250, 231, 207, 0.7); */
 }
 
 #again_button {
@@ -213,4 +213,17 @@ canvas {
 .hrhr {
     border-color: #3746a5;
     box-shadow: 3px 3px 5px #8490dd;
+}
+
+.bigImage88 {
+    /* width: 100%; */
+    /* height: 100%; */
+    /* object-fit: contain; */
+    border-radius: 5px;
+    box-shadow: 3px 3px 4px  rgba(215, 213, 211, 0.7);
+}
+
+.bigImage88:hover {
+    box-shadow: 3px 3px 3px  rgba(206, 196, 183, 0.7);
+  
 }

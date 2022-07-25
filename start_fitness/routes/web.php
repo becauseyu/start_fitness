@@ -45,10 +45,24 @@ Route::get('/sport',function() {return view('sp.idx');});
 
 Route::get('/sport/introduce',function() {return view('sp.introduce');});
 
+Route::get('/sport/gymmap','App\Http\Controllers\GymMapController@gymmap');
+Route::get('/sport/gymmap/list','App\Http\Controllers\GymMapController@list');
+Route::get('/sport/gymmap/default','App\Http\Controllers\GymMapController@getDefault');
+Route::post('/sport/gymmap/inbody','App\Http\Controllers\GymMapController@inbody');
 
 //---------------以下是商品頁面---------------------------------------------
 Route::get('/goods/index','App\Http\Controllers\GoodsController@index');
+Route::get('/goods/data/{pid}','App\Http\Controllers\GoodsController@data');
 
+
+
+//--------------以下結帳流程------------------------------------------------
+Route::get('/payment','App\Http\Controllers\PaymentController@payment');
+Route::get('/payment/page01','App\Http\Controllers\PaymentController@payment');
+
+
+Route::post('/payment/page02','App\Http\Controllers\PaymentController@page02');
+Route::post('/payment/page03','App\Http\Controllers\PaymentController@page03');
 
 
 
@@ -102,6 +116,9 @@ Route::get('/ld/member/list/{search}','App\Http\Controllers\LdMemberController@s
 // for log
 Route::get('/ld/log/list','App\Http\Controllers\LdLogController@list');
 Route::get('/ld/logout','App\Http\Controllers\LdLoginController@logout');
+
+// for goods
+Route::get('/ld/goods/list','App\Http\Controllers\LdGoodsController@list');
 
 
 // just test

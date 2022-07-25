@@ -146,6 +146,11 @@
 
     </div>
 
+    <!-- 購物車標誌 -->
+    <div id="slide_buycart">
+        @include('front_side_frame.buyCartIcon')
+    
+      </div>
 
 
     <!-- 腳 -->
@@ -158,6 +163,8 @@
     <script>
         AOS.init();
     </script>
+    <!-- script 主要 -->
+  <script src="/js/main.js"></script>
 </body>
 
 

@@ -32,23 +32,23 @@
         @foreach ($memberList as $member)
             <!--  單筆會員資料  -->
             <div class="card ">
-                <div class="card-header01" id="heading{{ $member->id }}">
+                <div class="card-header01" id="heading{{ $member->mid }}">
                     <button class="btn01 btn-block" type="button" data-toggle="collapse"
-                        data-target="#collapse{{ $member->id }}">
+                        data-target="#collapse{{ $member->mid }}">
                         <div class="row">
-                            <div class="col-1 text-center">{{ $member->id }}</div>
+                            <div class="col-1 text-center">{{ $member->mid }}</div>
                             <div class="col-4 text-center">{{ $member->name }}</div>
                             <div class="col-4 text-center">{{ $member->account }}</div>
                             <div class="col-3 text-center">{{ $member->status }}</div>
                         </div>
                     </button>
                 </div>
-                <div id="collapse{{ $member->id }}" class="collapse" data-parent="#accordionExample">
+                <div id="collapse{{ $member->mid }}" class="collapse" data-parent="#accordionExample">
                     <div class="card-body">
                         <table class="table table-striped">
                             <tr>
                                 <th> ID </th>
-                                <td> {{ $member->id }} </td>
+                                <td> {{ $member->mid }} </td>
                             </tr>
                             <tr>
                                 <th> 帳號 </th>

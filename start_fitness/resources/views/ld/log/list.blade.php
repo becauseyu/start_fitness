@@ -1,4 +1,4 @@
-@extends('ld.nav')
+@extends('ld.nav2')
 
 
 {{--  頁籤標題 --}}
@@ -13,8 +13,14 @@
 
 @section('h1')
 
-<h1 class="text-center"> 網站活動紀錄 </h1>
+<h1 class="text-center header01"> 網站活動紀錄</h1>
 
+@endsection
+
+
+@section('head')
+    <link rel="stylesheet" href="/css/ld/goods.css">
+    <link rel="stylesheet" href="/css/ld/member.css">
 @endsection
 
 

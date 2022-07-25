@@ -68,7 +68,7 @@
             
                 <div class='col-md-3 col-sm-6 col-6'>
                 <div class='m-2 image-sale'>
-                <a  href='/Eva/buycart/goods_data.php?pid={{$food->pid}}'>
+                <a  href='/goods/data/{{$food->pid}}'>
                 <img src='/image/asset/saleitem/food/{{$food->ppic}}' class='good_img food photoshadow imgee img-fluid mx-auto rounded'>
                 </a>
                 </div>
@@ -103,7 +103,7 @@
             
                 <div class='col-md-3 col-sm-6 col-6'>
                 <div class='m-2 image-sale'>
-                <a  href='/Eva/buycart/goods_data.php?pid={{$gym->pid}}'>
+                <a  href='/goods/data/{{$gym->pid}}'>
                 <img src='/image/asset/saleitem/gym/{{$gym->ppic}}' class='good_img gym photoshadow imgee img-fluid mx-auto rounded'>
                 </a>
                 </div>
@@ -125,23 +125,9 @@
     </div>
   </div>
 
+  <!-- 購物車標誌 -->
   <div id="slide_buycart">
-    <i class="fa-solid fa-circle-xmark" onclick="closebuycar()"></i>
-    <div id='slide_buycart_title' class="slide_buycart_title">
-      　|您的購物清單|
-    </div>
-    <div id='slide_buycart_content' class="slide_buycart_content">
-      <nav id='slide_buycart_goods'></nav>
-    </div>
-
-    <div id='slide_buycart_bottom' class="slide_buycart_bottom">
-      <hr>
-      <p id="totalCount" class="hide">0</p>
-      <p class="slide_buycart_total">總計 NT$<span id="slide_buycart_accounttotal">0</span></p>
-      <a href="/Maria/html/mb_login.php"><button id="slide_buycart_bottom_btn">立即結帳</button></a>
-
-
-    </div>
+    @include('front_side_frame.buyCartIcon')
 
   </div>
 

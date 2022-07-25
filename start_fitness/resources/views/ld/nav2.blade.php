@@ -39,10 +39,18 @@
             <ul class="col-6 navbar-nav justify-content-center">
 
                 <li class="nav-iteml ">
-                    <a class="nav-link font-nav" href="/ld/member/list">會員管理</a>
+                    <a class="nav-link font-nav 
+                    @if($focus == 1)
+                     active
+                    @endif
+                    " href="/ld/member/list">會員管理</a>
                 </li>
                 <li class="nav-iteml ">
-                    <a class="nav-link font-nav" href="#">文章管理</a>
+                    <a class="nav-link font-nav
+                    @if($focus == 2)
+                     active
+                    @endif
+                    " href="#">文章管理</a>
                 </li>
 
                 <div class="px-2 d-none d-lg-block ">
@@ -50,10 +58,18 @@
                 </div>
 
                 <li class="nav-itemr ">
-                    <a class="nav-link font-nav" href="#">訂單管理</a>
+                    <a class="nav-link font-nav
+                    @if($focus == 3)
+                     active
+                    @endif
+                    " href="#">訂單管理</a>
                 </li>
                 <li class="nav-itemr ">
-                    <a class="nav-link font-nav" href="#">庫存管理</a>
+                    <a class="nav-link font-nav
+                    @if($focus == 4)
+                     active
+                    @endif
+                    " href="/ld/goods/list">庫存管理</a>
                 </li>
 
             </ul>
@@ -61,8 +77,6 @@
                 <div><a class="font-nav01 mr-2" href="/ld/log/list">網站活動紀錄</a></div>
                 <div><a class="font-nav01 mr-2" href="/ld/logout">登出</a></div>
             </div>
-
-
         </div>
     </nav>
     <div class="container">
