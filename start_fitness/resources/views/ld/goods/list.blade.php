@@ -3,7 +3,7 @@
 
 
 @section('title')
-    <title>member</title>
+    <title>goods</title>
 @endsection
 
 
@@ -13,23 +13,28 @@
 
 
 @section('h1')
-    <h1 class="text-center header01"> 會員管理</h1>
+    <h1 class="text-center header01"> 庫存管理</h1>
 @endsection
 
 @section('content')
     <!--  表格首欄  -->
     <section class="mb-0 h4">
         <div class="row table-color m-0">
-            <div class="col-1 text-center">ID</div>
-            <div class="col-4 text-center">姓名</div>
-            <div class="col-4 text-center">帳號名稱</div>
-            <div class="col-3 text-center">狀態</div>
+            <div class="col text-center">大分類</div>
+            <div class="col text-center">商品名稱</div>
+            <div class="col text-center">品牌</div>
+            <div class="col text-center">口味</div>
+            <div class="col text-center">圖片</div>
+            <div class="col text-center">價格</div>
+            <div class="col text-center">庫存</div>
+            
+            
         </div>
     </section>
     <!--  表格單筆  -->
     <div class="accordion " id="accordionExample">
 
-        @foreach ($memberList as $member)
+        {{-- @foreach ($memberList as $member)
             <!--  單筆會員資料  -->
             <div class="card ">
                 <div class="card-header01" id="heading{{ $member->mid }}">
@@ -76,7 +81,7 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @endforeach --}}
 
 
 
@@ -86,10 +91,10 @@
 
 
 <!-- 上一頁/下一頁 -->
-@section('prevPageUrl')
+{{-- @section('prevPageUrl')
     {{ $memberList->previousPageUrl() }}
 @endsection
 
 @section('nextPageUrl')
     {{ $memberList->nextPageUrl() }}
-@endsection
+@endsection --}}
