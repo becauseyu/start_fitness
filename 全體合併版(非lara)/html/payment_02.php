@@ -77,7 +77,7 @@ if (isset($_REQUEST['mid'])) {
             <a class="nav-link" href="./goods_index.php<?php echo $url; ?>">健身小物</a>
           </li>
           <li class="nav-iteml px-1 mx-auto">
-            <a class="nav-link" href="./gym_map.php<?php echo $url; ?>">健身地圖</a>
+            <a class="nav-link" href="./gym_map.php<?php echo $url; ?>">預約地圖</a>
           </li>
           <a class="d-none d-lg-block px-4" href="./openindex.php<?php echo $url; ?>"><img width="60" height="60" style="display:block; margin:auto;" src="../img/LOGO.png"></a>
           <li class="nav-itemr px-1 mx-auto">
@@ -93,7 +93,7 @@ if (isset($_REQUEST['mid'])) {
         <div class=" col-2 col-sm-2 d-flex justify-content-end ">
           <a href="<?php echo $memberPage; ?>">
             <button type="button" class="btn ">
-              <i class="fa fa-user navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057"><?php echo $user; ?></span> </i>
+               <i  id="user_icon" class="fa fa-user navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057"><?php echo $user; ?></span> </i>
             </button>
           </a>
 
