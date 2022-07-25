@@ -45,6 +45,10 @@ Route::get('/sport',function() {return view('sp.idx');});
 
 Route::get('/sport/introduce',function() {return view('sp.introduce');});
 
+Route::get('/sport/gymmap','App\Http\Controllers\GymMapController@gymmap');
+Route::get('/sport/gymmap/list','App\Http\Controllers\GymMapController@list');
+Route::get('/sport/gymmap/default','App\Http\Controllers\GymMapController@getDefault');
+Route::post('/sport/gymmap/inbody','App\Http\Controllers\GymMapController@inbody');
 
 //---------------以下是商品頁面---------------------------------------------
 Route::get('/goods/index','App\Http\Controllers\GoodsController@index');

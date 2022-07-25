@@ -141,12 +141,12 @@ function isImageReady(total, callback) {
 
 var local_url = window.location.origin;
 
-junkFood_fries.image.src =     local_url + '/image/gameIMG/bsd_01.png';
-junkFood_burger.image.src =    local_url + '/image/gameIMG/bsd_02.png';
-junkFood_pizza.image.src =     local_url + '/image/gameIMG/bsd_03.png';
-healthFood_salmon.image.src =  local_url + '/image/gameIMG/good_01.png';
-healthFood_cabbage.image.src = local_url + '/image/gameIMG/good_02.png';
-healthFood_apple.image.src = local_url + '/image/gameIMG/good_03.png';
+junkFood_fries.image.src =     local_url + '/image/gameIMG/bsd_011.png';
+junkFood_burger.image.src =    local_url + '/image/gameIMG/bsd_021.png';
+junkFood_pizza.image.src =     local_url + '/image/gameIMG/bsd_031.png';
+healthFood_salmon.image.src =  local_url + '/image/gameIMG/good_011.png';
+healthFood_cabbage.image.src = local_url + '/image/gameIMG/good_021.png';
+healthFood_apple.image.src = local_url + '/image/gameIMG/good_031.png';
 
 playerData.image.w50.src = local_url + '/image/gameIMG/girl_50.png';
 playerData.image.w60.src = local_url + '/image/gameIMG/girl_60.png';

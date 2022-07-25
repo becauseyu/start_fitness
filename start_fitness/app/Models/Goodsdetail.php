@@ -16,6 +16,8 @@ class Goodsdetail extends Model
     public $timestamps = false;
     protected $fillable = ['ptype','bid','pstyle','pname','pcount','ppic','pprice'];
 
+
+    // 連動品牌
     public function branddetail()
     {
         return $this->belongsTo(Branddetail::class, 'bid', 'bid');
