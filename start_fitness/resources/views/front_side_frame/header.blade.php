@@ -8,7 +8,7 @@
 
 
     <div class="collapse navbar-collapse mx-auto row " id="myNavbarToggler7">
-        <div class=" col-1"></div>
+        <div class=" col-2 col-sm-2 ">　</div>
         <ul class="navbar-nav mx-auto nav-justif justify-content-around " style="align-items: end;">
             <li class="nav-iteml px-1">
                 <a class="nav-link " href="/sport/introduce">運動Tip</a>
