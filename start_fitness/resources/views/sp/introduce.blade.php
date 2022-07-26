@@ -31,7 +31,6 @@
 
 
 
-    <div class="card-deck"></div>
     <div class="album py-4 ">
         <div class="container">
             <div class="row center-box">
