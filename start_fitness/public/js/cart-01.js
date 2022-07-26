@@ -1,4 +1,4 @@
-$('.footerpage').load('/MengYing/大專/LAB/footer.html')
+
 //把localStorage放進內容
 //確認localStorage是否有東西
 var myStorage = localStorage
@@ -48,7 +48,7 @@ if (goodstList) {
 		</div>
 		<div class="col-5 col-sm-2 col-md-2 text-center">NT$ <span class="total">${data.totalPrice}</span></div>
 		<div class="col-1 col-sm-1 col-md-1 text-center">
-		  <a class="btn"><i class="fa fa-times" onclick='deleteGood(this)'></i></a>
+		  <a class="btn" onclick='deleteGood(this)'><i class="fa fa-times" ></i></a>
 		</div>
 	  </div>
 
@@ -76,6 +76,9 @@ if (goodstList) {
 	};
 	$('.fee').html('NT$'+fee);
 	$('.total03').html(sum + fee)
+	//把金額放入最後合計
+	$('#total_input').val(sum+fee)
+	
 }
 //先抓數量
 
@@ -121,9 +124,12 @@ $('[data-quantity="plus"]').on('click', function () {
 	if (bigTotal <= 2000) {
 		$('.fee').html('NT$60');
 		$('.total03').html(bigTotal + 60);
+		$('#total_input').val(bigTotal + 60)
 	} else {
 		$('.fee').html('免運');
 		$('.total03').html(bigTotal);
+		$('#total_input').val(bigTotal)
+
 	};
 	//更改數量加入localStorage
 	var good_name = $(this).closest('.table-item').find('h4').html()
@@ -140,9 +146,13 @@ $('[data-quantity="plus"]').on('click', function () {
 	if (bigtotal <= 2000) {
 		$('.fee').html('NT$60');
 		$('.total03').html(bigTotal + 60);
+		$('#total_input').val(bigTotal+60)
+
 	} else {
 		$('.fee').html('免運');
 		$('.total03').html(bigTotal);
+		$('#total_input').val(bigTotal)
+
 	};
 
 });
@@ -191,9 +201,13 @@ $('[data-quantity="minus"]').on('click', function () {
 	if (bigTotal <= 2000) {
 		$('.fee').html('NT$60');
 		$('.total03').html(bigTotal + 60);
+		$('#total_input').val(bigTotal+60)
+
 	} else {
 		$('.fee').html('免運');
 		$('.total03').html(bigTotal);
+		$('#total_input').val(bigTotal)
+
 	};
 	//更改數量加入localStorage
 	var good_name = $(this).closest('.table-item').find('h4').html()
@@ -210,9 +224,13 @@ $('[data-quantity="minus"]').on('click', function () {
 	if (bigtotal <= 2000) {
 		$('.fee').html('NT$60');
 		$('.total03').html(bigTotal + 60);
+		$('#total_input').val(bigTotal+60)
+
 	} else {
 		$('.fee').html('免運');
 		$('.total03').html(bigTotal);
+		$('#total_input').val(bigTotal)
+
 	};
 
 });
@@ -256,9 +274,13 @@ $('.qty').on('change', function () {
 	if (bigtotal <= 2000) {
 		$('.fee').html('NT$60');
 		$('.total03').html(bigTotal + 60);
+		$('#total_input').val(bigTotal+60)
+
 	} else {
 		$('.fee').html('免運');
 		$('.total03').html(bigTotal);
+		$('#total_input').val(bigTotal)
+
 	};
 
 });
@@ -283,6 +305,8 @@ function deleteGood(btn) {
 	$('.total02').html(parseInt(now_price) - parseInt(delete_price))
 	$('#cartQuantity').html(change_count1)
 	$('.total03').html(parseInt(order_price) - parseInt(delete_price))
+	$('#total_input').val(parseInt(order_price) - parseInt(delete_price))
+
 	$('.total_count').html(change_count2)
 	var myStorage = localStorage
 	myStorage.setItem('cartQuantity', parseInt(now_count) - parseInt(delete_count))
@@ -304,16 +328,16 @@ function deleteGood(btn) {
 	if (bigtotal <= 2000) {
 		$('.fee').html('NT$60');
 		$('.total03').html(bigTotal + 60);
+		$('#total_input').val(bigTotal+60)
+
+		
 	} else {
 		$('.fee').html('免運');
 		$('.total03').html(bigTotal);
+		$('#total_input').val(bigTotal)
+
 	};
 }
 
-//把總計放入localStorage
-function totalStorage(){
-	var total = $('.total03').html()
-	var myStorage = localStorage;
-	myStorage.setItem('total',total)
-}
+
 

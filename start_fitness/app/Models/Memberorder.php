@@ -21,7 +21,7 @@ class Memberorder extends Model
     // //         $mysqli->query($sql_addOrder);
 
     // 加入新訂單
-    function createNewOrder($memberId, $date, $address, $tel, $name, $did, $paid, $memo)
+    function createNewOrder($memberId, $date, $address, $tel, $name, $did, $paid, $memo,$total)
     {
         try {
 
@@ -33,7 +33,8 @@ class Memberorder extends Model
                 'delName' => $name,
                 'did' => $did,
                 'paid' => $paid,
-                'memo' => $memo
+                'memo' => $memo,
+                'total'=> $total
 
             ]);
             return $order;

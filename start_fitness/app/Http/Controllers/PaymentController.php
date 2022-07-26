@@ -139,11 +139,13 @@ class PaymentController extends Controller
         $paid = Payment::where('payment',$request->input('pay_method'))->first()->paid;
         // memmo 這是啥?
         $memo = $request->input('order_memo');
+        //total
+        $total = $request->input('total');
 
         // dd($mid,$date,$address,$tel,$name,$did,$paid);
         try {
             if ($mid && $date && $address && $tel && $name && $did && $paid){
-                $order = (new Memberorder)->createNewOrder($mid, $date, $address, $tel ,$name, $did ,$paid ,$memo);
+                $order = (new Memberorder)->createNewOrder($mid, $date, $address, $tel ,$name, $did ,$paid ,$memo,$total);
             }
             dd($order);
 

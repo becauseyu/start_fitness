@@ -126,9 +126,9 @@
 
 
           </div>
-          <input type="submit" class="mt-3 btn button09" value="前往結帳" onclick="totalStorage()" ></input>
+          <input type="submit" class="mt-3 btn button09" value="前往結帳" ></input>
         </div>
-
+        <input class='hidden' name="total" id='total_input'>
       </section>
     </div>
   </form>>
