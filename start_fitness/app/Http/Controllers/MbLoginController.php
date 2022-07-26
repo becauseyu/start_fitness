@@ -132,8 +132,12 @@ class MbLoginController extends Controller
 
 
                 // 寄信
+                
+                
                 $this->composeEmail($sendmail);
                 $text->body = '感謝您的註冊！請先至您　註冊的信箱　收取驗證信！';
+                // $result = $this->composeEmail($sendmail);
+                // $text->body = $result;
                 return view('mb.confirmAcc', compact('text'));
             } else {
                 $text->body = '註冊失敗，資料有問題';
