@@ -27,7 +27,7 @@
 
     <!-- 插入自己的css -->
     <link href="/css/gym_map.css" rel="stylesheet">
-    <title>{{ $text->title }}</title>
+    <title>健身地圖 |動吃動吃</title>
 </head>
 
 <body>

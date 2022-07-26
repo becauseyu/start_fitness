@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>吃得健康｜動吃動吃</title>
 
 
 
@@ -109,7 +109,7 @@
 
                 </div>
                 <div>
-                    <a href="./fd_introduce.html" class="text-right font-weight-light">
+                    <a href="food/introduce" class="text-right font-weight-light">
                         <p class=""> 觀看更多文章...</p>
                     </a>
                 </div>
@@ -122,12 +122,13 @@
                 <hr>
                 <img class='m-3' src="/image/minigame.jpg">
                 <h5 class="boxcolor1">用BMI小遊戲，做個遠離高熱量食物的想像訓練吧 ( ﾟдﾟ)▄︻┻┳═一</h5>
+                <div class="">
+                    <a href="food/minigame" class="text-right font-weight-light">
+                        <p class=""> 點我前往小遊戲...</p>
+                    </a>
+                </div>
             </div>
-            <div class="">
-                <a href="./fd_minigame.html" class="text-right font-weight-light">
-                    <p class=""> 點我前往小遊戲...</p>
-                </a>
-            </div>
+      
 
         </div>
 
@@ -176,7 +177,7 @@
                 </div>
 
                 <div class="">
-                    <a href="./fd_introduce.html" class="text-right font-weight-light">
+                    <a href="goods/index" class="text-right font-weight-light">
                         <p class=""> 更多小食商品...</p>
                     </a>
                 </div>

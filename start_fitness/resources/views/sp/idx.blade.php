@@ -119,7 +119,7 @@
 
                 </div>
                 <div>
-                    <a href="../html/sp_introduce.php" class="text-right font-weight-light">
+                    <a href="sport/introduce" class="text-right font-weight-light">
                         <p class=""> 觀看更多文章...</p>
                     </a>
                 </div>
@@ -163,7 +163,7 @@
                     <div id="mapid" class="col m-3"></div>
                 </div>
                 <div class="">
-                    <a href="./gymmap.html" class="text-right font-weight-light">
+                    <a href="sport/gymmap" class="text-right font-weight-light">
                         <p class=""> 解鎖更多健身房...</p>
                     </a>
                 </div>
@@ -215,7 +215,7 @@
                 </div>
 
                 <div class="">
-                    <a href="./fd_introduce.html" class="text-right font-weight-light">
+                    <a href="goods/index" class="text-right font-weight-light">
                         <p class=""> 更多健身小物...</p>
                     </a>
                 </div>
