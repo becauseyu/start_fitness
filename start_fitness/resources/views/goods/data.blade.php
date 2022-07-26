@@ -13,11 +13,7 @@
   <!-- My.css -->
   <link rel="stylesheet" href="/css/goods_data.css">
   <!-- main.css -->
-  <link rel="stylesheet" href="/css/main.css">
-
-  <!-- icon -->
-  <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
-  
+  <link rel="stylesheet" href="/css/main.css">  
 
 </head>
 <body class="" style="overflow-x:hidden">
@@ -34,7 +30,7 @@
     <div class="small-border col-lg-2 col-sm-3 col-3 ">
       <div class="sm-box center">
 
-       @foreach ($flavorList as $flavor)
+       @foreach ($flavorList_img as $flavor)
         <div class="smallImage mb-3">
         <img data-name='{{$flavor->pstyle}}' data-price='{{$flavor->pprice}}'  src="/image/{{$flavor->ptype}}/{{$flavor->ppic}}" class="smallImage01 img-fluid ">
         </div>
@@ -66,10 +62,8 @@
           @endif
         <span id='product_flaver' class="flaver">{{$good->pstyle}}</span></h5>
         <div class="d-flex item-box">
-          @foreach ($flavorList as $flavor)
-            @if ($flavor->pstyle != '放圖用')
+          @foreach ($flavorList_btn as $flavor)
             <button data-price={{$flavor->pprice}} data-type={{$flavor->ptype}} data-pic={{$flavor->ppic}} class='item-icon m-1 '>{{$flavor->pstyle}}</button>
-            @endif
             @endforeach
         </div>
         <div class="mt-4">

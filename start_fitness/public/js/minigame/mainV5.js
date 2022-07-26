@@ -236,7 +236,7 @@ function gameBox() {
 
         // 大標題
         
-        context.font = "150px Tahoma, Geneva, Verdana, sans-serif  ";
+        context.font = "150px monospace, Tahoma, Geneva, Verdana, sans-serif  ";
         context.textAlign = "center";
         context.fillText(`飲食控制遊戲`, canvas_width / 2, 0.2 * canvas_height);
 
@@ -461,7 +461,7 @@ function gameBox() {
     //  顯示參數
     function showText() {
         // 純粹測試用
-        context.font = "50px Tahoma, Geneva, Verdana, sans-serif ";
+        context.font = "50px monospace, Tahoma, Geneva, Verdana, sans-serif ";
         // context.textAlign = "center";
         // context.fillText("現在體重",10,50);
         context.fillText('剩餘時間 :', 10, 0.05 * canvas_height);
@@ -470,13 +470,13 @@ function gameBox() {
 
 
     function showTimeLeft(timeLeft) {
-        context.font = "50px Tahoma, Geneva, Verdana, sans-serif ";
+        context.font = "50px monospace, Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "left";
         context.fillText(`剩餘時間 : ${timeLeft.toFixed(2)} s`, 10, 0.05 * canvas_height);
     }
 
     function showTitle() {
-        context.font = "50px Tahoma, Geneva, Verdana, sans-serif ";
+        context.font = "50px monospace, Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "right";
         context.fillText(`飲控遊戲`, canvas_width - 10, 0.05 * canvas_height);
 
@@ -541,7 +541,7 @@ function gameBox() {
 
 
     function showWeight(player) {
-        context.font = "40px Tahoma, Geneva, Verdana, sans-serif ";
+        context.font = "40px monospace, Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "left";
         context.fillText(`現在體重 : ${player.weight.toFixed(0)} kg`, 10, 0.9 * canvas_height);
     }
@@ -653,7 +653,7 @@ function gameBox() {
 
         // 刻出bmi值
         var bmi = Math.floor((player.weight * 10000 / player.height / player.height));
-        context.font = "80px Tahoma, Geneva, Verdana, sans-serif ";
+        context.font = "80px monospace, Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "center";
         context.fillText(`您最後的bmi值為 : ${bmi}`, canvas_width / 2, 0.2 * canvas_height);
 
@@ -671,7 +671,7 @@ function gameBox() {
         } else {
             resultHTML = "很高興你把體重控制得不錯，但還可以更好";
         }
-        context.font = "30px Tahoma, Geneva, Verdana, sans-serif ";
+        context.font = "30px monospace, Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "center";
         context.fillText(resultHTML, canvas_width / 2, 0.6 * canvas_height);
 

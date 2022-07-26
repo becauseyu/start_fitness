@@ -54,12 +54,14 @@ class GoodsController extends Controller
 
 
         // 抓flavor 資料
-        $flavorList = Goodsdetail::where('pname',$good->pname)->get();
+        $flavorList_img = Goodsdetail::where('pname',$good->pname)->get();
+        $flavorList_btn = Goodsdetail::where('pname',$good->pname)->groupBy('pstyle')->get();
 
 
 
 
-        return view('goods.data', compact('text','good','flavorList'));
+
+        return view('goods.data', compact('text','good','flavorList_img','flavorList_btn'));
     }
 
 

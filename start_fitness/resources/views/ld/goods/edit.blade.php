@@ -3,7 +3,7 @@
 
 
 @section('title')
-    <title>goods</title>
+    <title>edit</title>
 @endsection
 
 
@@ -14,7 +14,7 @@
 
 
 @section('h1')
-    <h1 class="text-center header01"> 庫存管理</h1>
+    <h1 class="text-center header01"> 庫存編輯</h1>
 @endsection
 
 @section('content')
@@ -48,12 +48,12 @@
                     <button class="btn01 btn-block" type="button" data-toggle="collapse"
                         data-target="#collapse{{ $goods->pid }}">
                         <div class="row">
-                            <div class="col-1 text-center">{{ $goods->ptype }}</div>
+                            <input type="" class="col-1 text-center">{{ $goods->ptype }}</div>
                             <div class="col-3 text-center">{{ $goods->pname }}</div>
                             <div class="col-3 text-center">{{ $goods->branddetail->bname }}</div>
                             <div class="col-2 text-center"><img height="100" src="{{ $goods->url }}"></div>
                             <div class="col-3 text-center">
-                                <a href="/ld/goods/edit/{{$goods->pid}}" class="mr-1 btn01 btn-outline01 ">編輯</a> |
+                                <a href="/Todo/Edit/1" class="mr-1 btn01 btn-outline01 ">編輯</a> |
                                 <a href="/Todo/Delete/1" class="ml-1 btn01 btn-outline02">刪除</a>
                             </div>
                         </div>

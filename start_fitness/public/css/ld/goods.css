@@ -98,13 +98,15 @@
     font-weight: 500;
     box-shadow: rgba(188, 184, 184, 0.761) 1px 1px 2px;
     text-shadow: rgba(123, 122, 122, 0.24) 1px 2px 2px;
+    border-width: 5px;
+    background-color: rgba(43, 178, 19, .6) !important;
 
   }
   
   .btn-outline:hover {
     text-decoration: none;
     color: #fff;
-    background-color: #3bc24f;
+    background-color: #3bc24f !important;
     border-color: #21b73a;
   }
 

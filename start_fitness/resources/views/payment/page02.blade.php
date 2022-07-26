@@ -40,6 +40,8 @@
       <!-- 隱藏欄位 -->
       <input name='del_method' value="{{$member->del}}" style="display:none" />
       <input name='pay_method' value="{{$member->pay}}" style="display:none" />
+      <input name='total' value="{{$member->total}}" style="display:none" />
+
       <section class="col-sm-5 col-md-6">
         <p class="h5 section-header">
           1. <span>購買人資料</span>
