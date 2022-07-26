@@ -121,6 +121,9 @@ Route::get('/ld/member/list/{search}','App\Http\Controllers\LdMemberController@s
 Route::get('/ld/log/list','App\Http\Controllers\LdLogController@list');
 Route::get('/ld/logout','App\Http\Controllers\LdLoginController@logout');
 
+// for goods
+Route::get('/ld/goods/list','App\Http\Controllers\LdGoodsController@list');
+
 
 // just test
 Route::get('/test','App\Http\Controllers\TestController@index');

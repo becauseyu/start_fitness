@@ -8,6 +8,7 @@
 
 
 @section('head')
+    <link rel="stylesheet" href="/css/ld/goods.css">
     <link rel="stylesheet" href="/css/ld/member.css">
 @endsection
 
@@ -20,68 +21,61 @@
     <!--  表格首欄  -->
     <section class="mb-0 h4">
         <div class="row table-color m-0">
-            <div class="col text-center">大分類</div>
-            <div class="col text-center">商品名稱</div>
-            <div class="col text-center">品牌</div>
-            <div class="col text-center">口味</div>
-            <div class="col text-center">圖片</div>
+            <div class="col-1 text-center">大分類</div>
+            <div class="col-4 text-center">商品名稱</div>
+            <div class="col-4 text-center">品牌</div>
+            <div class="col-3 text-center">圖片</div>
+
+            {{-- <div class="col text-center">口味</div>
             <div class="col text-center">價格</div>
-            <div class="col text-center">庫存</div>
-            
-            
+            <div class="col text-center">庫存</div> --}}
+
+
         </div>
     </section>
     <!--  表格單筆  -->
     <div class="accordion " id="accordionExample">
 
-        {{-- @foreach ($memberList as $member)
+        @foreach ($goodsList as $goods)
             <!--  單筆會員資料  -->
             <div class="card ">
-                <div class="card-header01" id="heading{{ $member->mid }}">
+                <div class="card-header01" id="heading{{ $goods->pid }}">
                     <button class="btn01 btn-block" type="button" data-toggle="collapse"
-                        data-target="#collapse{{ $member->mid }}">
+                        data-target="#collapse{{ $goods->pid }}">
                         <div class="row">
-                            <div class="col-1 text-center">{{ $member->mid }}</div>
-                            <div class="col-4 text-center">{{ $member->name }}</div>
-                            <div class="col-4 text-center">{{ $member->account }}</div>
-                            <div class="col-3 text-center">{{ $member->status }}</div>
+                            <div class="col-1 text-center">{{ $goods->ptype }}</div>
+                            <div class="col-4 text-center">{{ $goods->pname }}</div>
+                            <div class="col-4 text-center">{{ $goods->branddetail->bname }}</div>
+                            <div class="col-3 text-center">{{ $goods->ppic }}</div>
+                        
                         </div>
                     </button>
                 </div>
-                <div id="collapse{{ $member->mid }}" class="collapse" data-parent="#accordionExample">
+                <div id="collapse{{ $goods->pid }}" class="collapse" data-parent="#accordionExample">
                     <div class="card-body">
                         <table class="table table-striped">
                             <tr>
-                                <th> ID </th>
-                                <td> {{ $member->mid }} </td>
+                                <th> 流水號 </th>
+                                <th> 口味 </th>
+                                <th> 數量 </th>
+                                <th> 圖片 </th>
+                                <th> 價格 </th>
                             </tr>
+                            @foreach ($goods->flavor as $flavor)
                             <tr>
-                                <th> 帳號 </th>
-                                <td> {{ $member->account }} </td>
+                                <th> {{$flavor->pid}} </th>
+                                <th> {{$flavor->pstyle}} </th>
+                                <th> {{$flavor->pcount}} </th>
+                                <th> {{$flavor->ppic}} </th>
+                                <th> {{$flavor->pprice}} </th>
                             </tr>
-                            <tr>
-                                <th> 姓名 </th>
-                                <td> {{ $member->name }} </td>
-                            </tr>
-                            <tr>
-                                <th> email </th>
-                                <td> {{ $member->email }} </td>
-                            </tr>
-
-                            <tr>
-                                <th> 電話 </th>
-                                <td> {{ $member->tel }} </td>
-                            </tr>
-                            <tr>
-                                <th> 登入狀況 </th>
-                                <td> 最後登入 : 2022-07-01 </td>
-                            </tr>
-
+                            @endforeach
+                           
                         </table>
                     </div>
                 </div>
             </div>
-        @endforeach --}}
+        @endforeach
 
 
 
@@ -92,9 +86,9 @@
 
 <!-- 上一頁/下一頁 -->
 {{-- @section('prevPageUrl')
-    {{ $memberList->previousPageUrl() }}
+    {{ $goodsList->previousPageUrl() }}
 @endsection
 
 @section('nextPageUrl')
-    {{ $memberList->nextPageUrl() }}
+    {{ $goodsList->nextPageUrl() }}
 @endsection --}}

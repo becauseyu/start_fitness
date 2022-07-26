@@ -49,7 +49,7 @@ if (goodstList) {
 		</div>
 		<div class="col-5 col-sm-2 col-md-2 text-center">NT$ <span class="total">${data.totalPrice}</span></div>
 		<div class="col-1 col-sm-1 col-md-1 text-center">
-		  <a class="btn"><i class="fa fa-times" onclick='deleteGood(this)'></i></a>
+		  <a class="btn" onclick='deleteGood(this)'><i class="fa fa-times" ></i></a>
 		</div>
 	  </div>
 

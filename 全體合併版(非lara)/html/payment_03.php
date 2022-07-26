@@ -134,7 +134,7 @@ if (isset($_REQUEST['mid'])) {
         <div class=" col-2 col-sm-2 d-flex justify-content-end ">
           <a href="<?php echo $memberPage; ?>">
             <button type="button" class="btn ">
-              <i class="fa fa-user navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057"><?php echo $user; ?></span> </i>
+               <i  id="user_icon" class="fa fa-user navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057"><?php echo $user; ?></span> </i>
             </button>
           </a>
 
