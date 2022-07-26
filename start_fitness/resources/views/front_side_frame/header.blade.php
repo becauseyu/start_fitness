@@ -34,7 +34,7 @@
         @if (isset($member))
             <div class=" col-2 d-flex justify-content-end">
                 <button class="btn " >
-                    <a href="/member/login"><i class="fa fa-user" aria-hidden="true"></i></a>
+                    <a href="/member/update"><i class="fa fa-user" aria-hidden="true"></i></a>
                 </button>
             <button class="btn btn-cart" data-toggle="dropdown" onclick="openbuycar()">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>

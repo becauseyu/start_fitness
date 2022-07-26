@@ -13,11 +13,7 @@
   <!-- My.css -->
   <link rel="stylesheet" href="/css/goods_data.css">
   <!-- main.css -->
-  <link rel="stylesheet" href="/css/main.css">
-
-  <!-- icon -->
-  <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
-  
+  <link rel="stylesheet" href="/css/main.css">  
 
 </head>
 <body class="" style="overflow-x:hidden">
