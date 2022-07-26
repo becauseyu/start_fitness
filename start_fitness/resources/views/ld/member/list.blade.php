@@ -69,7 +69,7 @@
                             </tr>
                             <tr>
                                 <th> 登入狀況 </th>
-                                <td> 最後登入 : 2022-07-01 </td>
+                                <td> 最後登入 : {{$member->lastLogin}} </td>
                             </tr>
 
                         </table>

@@ -27,6 +27,7 @@ class LdMemberController extends Controller
         
         foreach ($memberList as $member) {
             $member->status = '1' ?  '正常'  :  '停權';
+            $member->lastLogin =(new Member)->lastLogin($member->account);
         }
         return view('ld.member.list', compact('memberList'));
     }

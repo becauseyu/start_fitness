@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
     @include('front_side_frame.link')
     <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <!-- 插入自己的css -->
@@ -28,7 +27,7 @@
         @include('front_side_frame.header')
     </div>
     <div id="content" class="mt-5">
-        <div class="container">
+        <div class="container_mb">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content-tabset">

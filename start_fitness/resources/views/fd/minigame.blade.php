@@ -15,7 +15,7 @@
     @include('front_side_frame.link')
 
 
-    <title>minigame</title>
+    <title>minigame |動吃動吃</title>
 
 </head>
 
@@ -54,7 +54,7 @@
                         <div class='foodList' id="foodList02">
                             <div> &ensp;薯條 : <img src="/image/gameIMG/bsd_01.png" alt=""> + 3 kg </div>
                             <div> &ensp;漢堡 : <img src="/image/gameIMG/bsd_02.png" alt=""> + 10 kg </div>
-                            <div> &ensp;披薩 : <img src="/image/gameIMG/bsd_03.png" alt=""> + 20 kg，超極大pizza，肥仔必吃
+                            <div> &ensp;披薩 : <img src="/image/gameIMG/bsd_03.png" alt=""> + 20 kg，超級大pizza，肥仔必吃
                             </div>
                         </div>
                     </div>

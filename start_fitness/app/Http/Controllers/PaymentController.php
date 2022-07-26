@@ -75,9 +75,11 @@ class PaymentController extends Controller
         // 已經有會員資料
         // 還要上一頁資料
 
-        if ($request->input('payment') && $request->input('deliver')){
+        if ($request->input('payment') && $request->input('deliver') && $request->input('total')){
             $member->pay = $request->input('payment');
             $member->del = $request->input('deliver');
+            $member->total = $request->input('total');
+
         }else{
             // 資料不齊，跳回上一頁
             return redirect('/payment/page01');
@@ -138,12 +140,14 @@ class PaymentController extends Controller
         // 找到付款方式paid
         $paid = Payment::where('payment',$request->input('pay_method'))->first()->paid;
         // memmo 這是啥?
-        $memo = $request->input('order_memo');
+        $memo = $request->input('order_memo') || '無特殊備註';
+        //total
+        $total = $request->input('total');
 
         // dd($mid,$date,$address,$tel,$name,$did,$paid);
         try {
             if ($mid && $date && $address && $tel && $name && $did && $paid){
-                $order = (new Memberorder)->createNewOrder($mid, $date, $address, $tel ,$name, $did ,$paid ,$memo);
+                $order = (new Memberorder)->createNewOrder($mid, $date, $address, $tel ,$name, $did ,$paid ,$memo,$total);
             }
             dd($order);
 

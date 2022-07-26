@@ -1,0 +1,133 @@
+/* 這是自己加的 */
+.try {
+    background-color: rgb(210, 253, 222);
+}
+
+.try1 {
+    background-color: rgb(245, 233, 246);
+}
+
+.try2 {
+    background-color: rgb(252, 234, 224);
+}
+
+.try3 {
+    background-color: rgb(221, 252, 239);
+}
+
+.b1 {
+    border: 2px solid #5896f9;
+    border-radius: 5px;
+}
+
+
+img {
+    object-fit: contain;
+}
+
+.cen {
+    align-items: center;
+}
+
+.box01 {
+    width: 500px;
+    height: 300px;
+}
+
+.center-box {
+    justify-content: center;
+}
+
+.button-blue {
+    width: 140px;
+    font-weight: 500;
+    color:  rgb(31, 105, 185);
+    border-color: #3c90ea;
+}
+
+.button-blue:hover {
+    color: #fff;
+    background-color: rgb(31, 105, 185);
+    border-color: 2px solid #2e81da;
+    /* outline:  #2e81da; */
+}
+
+.button-blue02 {
+    width: 80px;
+    font-weight: 400;
+    color: rgb(31, 105, 185);
+    border-color: #3c90ea;
+}
+
+.button-blue02:hover {
+    color: #fff;
+    background-color: rgb(31, 105, 185);
+    border-color: #2e81da;
+}
+
+.SP-box {
+    box-shadow: #3b5c89 1px 3px 6px, #84a7e7 1px 3px 6px;
+    border-radius: 8px;
+}
+
+.SP-box01 {
+    box-shadow: #7c96ca 1px 3px 6px;
+    border-radius: 8px;
+}
+
+.text-muted01 {
+    color: #6a7682;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+
+
+.card-title {
+    margin-bottom: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #131518;
+}
+
+.card-title-row2 {
+    margin-bottom: 0.75rem;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #131518;
+}
+
+.card-text {
+    font-weight: 500;
+    margin-bottom: 0.75em;
+}
+
+.img-shadow {
+    box-shadow: rgba(8, 7, 7, 0.15) 3px 2px 2px;}
+
+.head-font01 {
+    font-weight: 600;
+    font-size: 16px;
+    width: 160px;
+    color: rgb(85, 72, 55);
+    box-shadow:2px 1px 2px 1px rgba(221, 216, 216, 0.7);
+}
+
+.head-font-row02 {
+    font-weight: 600;
+    font-size: 16px;
+    width: 160px;
+    color: rgb(85, 72, 55);
+    box-shadow:2px 1px 2px 1px rgba(221, 216, 216, 0.7);
+}
+
+.cen-brand {
+    text-align: center;
+    margin: 0px auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 16px;
+}
+

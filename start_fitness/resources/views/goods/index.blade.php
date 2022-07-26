@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{$text->title}}</title>
+  <title>推薦好物 |動吃動吃</title>
  
 
   
@@ -16,8 +16,6 @@
   <!-- main.css -->
   <link rel="stylesheet" href="/css/main.css">
 
-  <!-- icon -->
-  <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
 
 
 </head>
@@ -39,13 +37,13 @@
 
       <div class="dd carousel-inner  ">
         <div class="carousel-item active">
-          <img src="/image/asset/saleitem/carousal/02.webp" class="placeholder-img img-fluid" role="img">
+          <img src="/image/carousal/02.webp" class="placeholder-img img-fluid" role="img">
         </div>
         <div class="carousel-item">
-          <img src="/image/asset/saleitem/carousal/04.webp" class="placeholder-img  img-fluid" role="img">
+          <img src="/image/carousal/04.webp" class="placeholder-img  img-fluid" role="img">
         </div>
         <div class="carousel-item">
-          <img src="/image/asset/saleitem/carousal/002.jpg" class="placeholder-img  img-fluid" role="img">
+          <img src="/image/carousal/002.jpg" class="placeholder-img  img-fluid" role="img">
         </div>
 
       </div>
@@ -58,8 +56,8 @@
       <!--  飲食 -->
       <section class="mt-3 p-3 food-box col-md-12 " id="foodsell">
         <div class="mt-3 mb-4 food-title d-flex">
-          <img src="/image/asset/saleitem/FOOD.png" class="icon-box" />
-          <img src="/image/asset/saleitem/foodname.png" class="ml-2 icon-name" />
+          <img src="/image/FOOD.png" class="icon-box" />
+          <img src="/image/foodname.png" class="ml-2 icon-name" />
         </div>
         <div class="center-box mt-3 mb-3">
           <div class="row">
@@ -69,7 +67,7 @@
                 <div class='col-md-3 col-sm-6 col-6'>
                 <div class='m-2 image-sale'>
                 <a  href='/goods/data/{{$food->pid}}'>
-                <img src='/image/asset/saleitem/food/{{$food->ppic}}' class='good_img food photoshadow imgee img-fluid mx-auto rounded'>
+                <img src='/image/food/{{$food->ppic}}' class='good_img food photoshadow imgee img-fluid mx-auto rounded'>
                 </a>
                 </div>
                 <div class=' '>
@@ -90,8 +88,8 @@
       <!--  健身器材 -->
       <section class="mt-5 p-3 SP-box col-md-12" id="gymsell">
         <div class="mt-3 mb-4 SP-title d-flex">
-          <img src="/image/asset/saleitem/SP.png" class="icon-box" />
-          <img src="/image/asset/saleitem/SPtitle-01.png" class="mr-4 icon-name" />
+          <img src="/image/SP.png" class="icon-box" />
+          <img src="/image/SPtitle-01.png" class="mr-4 icon-name" />
           <!-- <h2 class="header-font">&ensp;動起來啊!</h2> -->
         </div>
 
@@ -104,7 +102,7 @@
                 <div class='col-md-3 col-sm-6 col-6'>
                 <div class='m-2 image-sale'>
                 <a  href='/goods/data/{{$gym->pid}}'>
-                <img src='/image/asset/saleitem/gym/{{$gym->ppic}}' class='good_img gym photoshadow imgee img-fluid mx-auto rounded'>
+                <img src='/image/gym/{{$gym->ppic}}' class='good_img gym photoshadow imgee img-fluid mx-auto rounded'>
                 </a>
                 </div>
                 <div class=' '>

@@ -26,8 +26,10 @@
     {{-- bootstrap.js --}}
     <script src="/bootstrap-4.6.1-dist/js/bootstrap.min.js"></script>
 
-   <!-- icon -->
-   <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
+
+   <!-- favicon -->
+   <link rel="icon" href="/image/favico.ico" type="image/x-icon">
+
 
    
 

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{$text->title}}</title>
+  <title>購物車瀏覽 |動吃動吃</title>
 
   
 
@@ -126,9 +126,9 @@
 
 
           </div>
-          <input type="submit" class="mt-3 btn button09" value="前往結帳" onclick="totalStorage()" ></input>
+          <input type="submit" class="mt-3 btn button09" value="前往結帳" ></input>
         </div>
-
+        <input class='hidden' name="total" id='total_input'>
       </section>
     </div>
   </form>>

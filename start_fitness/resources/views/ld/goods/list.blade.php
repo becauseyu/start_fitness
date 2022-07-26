@@ -22,10 +22,15 @@
     <section class="mb-0 h4">
         <div class="row table-color m-0">
             <div class="col-1 text-center">大分類</div>
-            <div class="col-4 text-center">商品名稱</div>
-            <div class="col-4 text-center">品牌</div>
-            <div class="col-3 text-center">圖片</div>
-
+            <div class="col-3 text-center">商品名稱</div>
+            <div class="col-3 text-center">品牌</div>
+            <div class="col-2 text-center">圖片</div>
+            <div class="col-3 text-center">
+                <a href="Create.html" class="btn01 btn-outline" style="color: black ;" >
+                    新增庫存資料
+                </a>
+            </div>
+            
             {{-- <div class="col text-center">口味</div>
             <div class="col text-center">價格</div>
             <div class="col text-center">庫存</div> --}}
@@ -44,10 +49,13 @@
                         data-target="#collapse{{ $goods->pid }}">
                         <div class="row">
                             <div class="col-1 text-center">{{ $goods->ptype }}</div>
-                            <div class="col-4 text-center">{{ $goods->pname }}</div>
-                            <div class="col-4 text-center">{{ $goods->branddetail->bname }}</div>
-                            <div class="col-3 text-center">{{ $goods->ppic }}</div>
-                        
+                            <div class="col-3 text-center">{{ $goods->pname }}</div>
+                            <div class="col-3 text-center">{{ $goods->branddetail->bname }}</div>
+                            <div class="col-2 text-center"><img height="100" src="{{ $goods->url }}"></div>
+                            <div class="col-3 text-center">
+                                <a href="/ld/goods/edit/{{$goods->pid}}" class="mr-1 btn01 btn-outline01 ">編輯</a> |
+                                <a href="/Todo/Delete/1" class="ml-1 btn01 btn-outline02">刪除</a>
+                            </div>
                         </div>
                     </button>
                 </div>
@@ -62,15 +70,15 @@
                                 <th> 價格 </th>
                             </tr>
                             @foreach ($goods->flavor as $flavor)
-                            <tr>
-                                <th> {{$flavor->pid}} </th>
-                                <th> {{$flavor->pstyle}} </th>
-                                <th> {{$flavor->pcount}} </th>
-                                <th> {{$flavor->ppic}} </th>
-                                <th> {{$flavor->pprice}} </th>
-                            </tr>
+                                <tr>
+                                    <th> {{ $flavor->pid }} </th>
+                                    <th> {{ $flavor->pstyle }} </th>
+                                    <th> {{ $flavor->pcount }} </th>
+                                    <th> <img height="150" src="{{ $flavor->url }}"> </th>
+                                    <th> $ {{ $flavor->pprice }} </th>
+                                </tr>
                             @endforeach
-                           
+
                         </table>
                     </div>
                 </div>

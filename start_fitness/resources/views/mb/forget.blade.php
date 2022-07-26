@@ -15,8 +15,6 @@
     
 
 
-    <!--加入Font Awesome-->
-    <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
    
     <!-- 插入自己的css -->
     <link href="/css/main.css" rel="stylesheet">
@@ -33,7 +31,7 @@
         @include('front_side_frame.header')
     </div>
     <div id="content" class="mt-5">
-        <div class="container">
+        <div class="container_mb">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content-tabset">

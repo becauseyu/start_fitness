@@ -1,4 +1,6 @@
-// 新增側邊購物車
+$('.footerpage').load('./footer.html')
+
+//新增側邊購物車
 //------------------點擊【x】關閉購物車-----------------------------//
 function closebuycar() {
   $('#slide_buycart').css('visibility', 'hidden')
@@ -40,7 +42,7 @@ if (goodstList) {
     //先把已經有的品項放進購物車
     $('#slide_buycart_goods').append($ul)
     var total = parseInt($('#slide_buycart_accounttotal').html())
-    total += parseInt(data.totalPrice)
+    total += parseInt(data.totalPrice) 
     $('#slide_buycart_accounttotal').html(total)
 
 
@@ -49,13 +51,16 @@ if (goodstList) {
   var count = myStorage.getItem('cartQuantity')
   $('#cartQuantity').html(count)
 
+} else {
+  wantList = []; //設定一個願望清單(要放到localStroage)
 }
 //===================點擊觸發購物車與增加品項=======================//
 
 
 $('.fa-cart-shopping').on('click', function () {
   $('#slide_buycart').css('visibility', 'visible')
-  var goods_name = $(this).parent().text()
+  var goods_name = $(this).parent().parent().find('p').eq(0).text()
+  // console.log(goods_name)
   var goods_img = $(this).parent().parent().parent().find('img').prop('src')
   var goods_single_price = $(this).parent().parent().find('p').find('span').text()
   var uls = ($('#slide_buycart_goods ul'))
@@ -65,15 +70,15 @@ $('.fa-cart-shopping').on('click', function () {
   })
   var $ul = $( //新增商品後的html //單價不顯示，僅計算用，在購物車頁面會顯示
     `<ul style="list-style: none;">
-          <li align="center"class="slide_buycart_goodsTitle">${goods_name}</li>
-          <li align="center"><img class="slide_buycart_image" src=${goods_img}></img></li>
-          <li ><input type="number" value="1" id="slide_buycart_count" "></input></li>
-          <li id="slide_buycart_total"align="center">NT$ <span>${goods_single_price}</span></li>
-          <li class="hide">${goods_single_price}</li>
-          <li><button class='delete_goods' onclick=delete_goods(this) >移除商品</button></li>
-          <hr>
-       </ul>
-          `
+        <li align="center"class="slide_buycart_goodsTitle">${goods_name}</li>
+        <li align="center"><img class="slide_buycart_image" src=${goods_img}></img></li>
+        <li ><input type="number" value="1" class="slide_buycart_count" id="slide_buycart_count" "></input></li>
+        <li id="slide_buycart_total"align="center">NT$ <span>${goods_single_price}</span></li>
+        <li class="hide">${goods_single_price}</li>
+        <li><button class='delete_goods' onclick=delete_goods(this) >移除商品</button></li>
+        <hr>
+     </ul>
+        `
   )
 
   //確認商品是否已存在購物車
@@ -114,7 +119,7 @@ $('.fa-cart-shopping').on('click', function () {
 
   //-------------inputNumber 觸發單品加減與總數量加減-----------------------------//
 
-  $("#slide_buycart_count").on('input', function () {
+  $(".slide_buycart_count").on('input', function () {
     var btn_count = $(this).val()
 
     if (btn_count >= 0) {  //設定如果val()小於零時，自動刪除
@@ -190,6 +195,64 @@ $('.fa-cart-shopping').on('click', function () {
 
 })
 
+
+$(".slide_buycart_count").on('input', function () {
+  var btn_count = $(this).val()
+
+  if (btn_count >= 0) {  //設定如果val()小於零時，自動刪除
+    var btn_price = $(this).closest('ul').find('li').eq(4).text()
+    var btn_total = btn_count * btn_price
+    Number.parseInt(btn_total)
+    $(this).closest('ul').find('li').eq(3).html(`NT$<span>${btn_total}</span>`)
+
+    var sum = 0
+    $('#slide_buycart_content').find('ul').each(function (idx, elm) {
+      var goodsTotalAcount = $(elm).find('span').html();
+      sum = parseInt(sum) + parseInt(goodsTotalAcount)
+      console.log(sum)
+    })
+    $('#slide_buycart_accounttotal').html(sum)
+
+    var count = 0
+    $('#slide_buycart_content').find('ul').each(function (idx, elm) {
+      var goodsTotalcount = $(elm).find(':input').val();
+      count = parseInt(count) + parseInt(goodsTotalcount)
+    })
+    $('#totalCount').html(count)
+    $('#cartQuantity').html(count) //透過點擊改變購物車圖標上數字
+    //把購物車數量存到localStorage
+    var myStorage = localStorage
+    myStorage.setItem('cartQuantity', count)
+
+  }
+
+  else {
+    //刪除畫面
+    var a = $(this).closest('ul')
+    a.remove()
+    //歸零時刪除localStorage
+    var goods_name = $(this).closest('ul').find('li').eq(0).html()
+    var myStorage = localStorage
+    myStorage.removeItem(goods_name)
+    //從wantList刪除商品並推回localStorage
+    wantList = myStorage.getItem('wantList').split(',')
+    wantList = wantList.filter(deleteGoods);
+    function deleteGoods(name) {
+      return name != goods_name;
+    }
+    myStorage.setItem('wantList', wantList)
+  }
+
+  //更改數量加入localStorage
+  var btn_name = $(this).closest('ul').find('li').eq(0).text()
+  var myStorage = localStorage
+  var goodJson = myStorage.getItem(btn_name)
+  var goodsData = JSON.parse(goodJson)
+  goodsData.count = parseInt(btn_count)
+  goodsData.totalPrice = parseInt(btn_total)
+  myStorage.setItem(btn_name, JSON.stringify(goodsData))
+})
+
 function delete_goods(btn) {
   var now_price = $('#slide_buycart_accounttotal').html()
   var now_count = $('#cartQuantity').html()
@@ -212,5 +275,22 @@ function delete_goods(btn) {
     return name != btn_name;
   }
   myStorage.setItem('wantList', wantList)
+
+}
+//判斷是否顯示登出按鈕
+var user = $('#user').html()
+if(user == '登入'){
+  $('#userlogout').addClass('hidden')
+  $('#user_icon').addClass('fa-user-o')
+  $('#user_icon').removeClass('fa-user')
+
+
+
+
+}else{
+  $('#userlogout').removeClass('hidden')
+  $('#user_icon').addClass('fa-user')
+  $('#user_icon').removeClass('fa-user-o')
+
 
 }
