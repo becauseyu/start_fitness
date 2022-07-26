@@ -14,7 +14,7 @@ $('.item-icon').on('click', function () {
   var type = $(this).data('type')
   var price = $(this).data('price')
   //更換大圖
-  $('#bigImage').attr('src', '../img/' + type + '/' + img)
+  $('#bigImage').attr('src', '/image/' + type + '/' + img)
   //更換價格
   $('.pprice').html(price)
 

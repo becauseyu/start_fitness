@@ -28,7 +28,7 @@
         @include('front_side_frame.header')
     </div>
     <div id="content" class="mt-5">
-        <div class="container">
+        <div class="container_mb">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content-tabset">

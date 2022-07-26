@@ -20,9 +20,14 @@
   
 
 </head>
-
+<body class="" style="overflow-x:hidden">
+  <!-- 頁首  -->
+  <div class='headerpage'>
+    @include('front_side_frame.header')
+  </div>
 <div class="text-border mb-5 py-2 container " style="margin-top: 100px;">
   <div class="row pt-3">
+
 
     <!--  小圖列 -->
     

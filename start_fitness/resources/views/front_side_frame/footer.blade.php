@@ -3,8 +3,8 @@
       <div class="bg-inner p-3">
         <div class="footerlogo mx-auto ">
   
-        <a class="" href="/image/mail"><img class="mx-auto img-fluid"  style="display:block; margin:auto;"
-            src="/image/mailTitle.png"></a></div>
+        <a class="" href="openidx.html"><img class="mx-auto img-fluid"  style="display:block; margin:auto;"
+            src="/image/LOGO.png"></a></div>
   
       </div>
   

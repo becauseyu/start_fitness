@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
     <a class="navbar-brand d-lg-none" href="/index"><img width="60" height="60" style="display:block; margin:auto;"
-            src="/image/AI/LOGO.png"></a>
+            src="/image/LOGO.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
         aria-controls="myNavbarToggler7" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
