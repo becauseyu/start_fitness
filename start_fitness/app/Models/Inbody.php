@@ -21,7 +21,7 @@ class Inbody extends Model
         try {
 
             $inbody = $this::create([
-                'naem' => $name,
+                'name' => $name,
                 'tel' => $tel,
                 'email' => $email,
                 'gym' => $gym,
@@ -31,7 +31,7 @@ class Inbody extends Model
             ]);
             return $inbody;
         } catch (\Throwable $th) {
-            return $th;
+            return  false;
         }
     }
 }

@@ -17,7 +17,7 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
     $url = "?mid={$mid}&psw={$psw}";
     $memberPage = "./mb_update.php?mid={$mid}&psw={$psw}";
 } else {
-    $user = '訪客';
+    $user = '登入';
     $url = '';
     $memberPage = "./mb_login.php";
 }
@@ -90,7 +90,7 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
                 <div class=" col-2 col-sm-2 d-flex justify-content-end ">
                     <a href="<?php echo $memberPage; ?>">
                         <button type="button" class="btn ">
-                            <i class="fa fa-user navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057"><?php echo $user; ?></span> </i>
+                            <i id="user_icon" class="fa  navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057"><?php echo $user; ?></span> </i>
                         </button>
                     </a>
 

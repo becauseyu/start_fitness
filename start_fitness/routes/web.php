@@ -31,19 +31,21 @@ Route::view('/test2', 'test');
 Route::view('/', 'openindex');
 Route::view('/index', 'openindex');
 
+//訪客模式
+
 
 // food側
-Route::get('/food/index',function() {return view('fd.idx');});
-Route::get('/food',function() {return view('fd.idx');});
+Route::get('/food/index','App\Http\Controllers\GuestController@checkmember');
+Route::get('/food','App\Http\Controllers\GuestController@checkmember');
 
-Route::get('/food/introduce',function() {return view('fd.introduce');});
-Route::get('/food/minigame',function() {return view('fd.minigame');});
+Route::get('/food/introduce','App\Http\Controllers\GuestController@checkmember');
+Route::get('/food/minigame','App\Http\Controllers\GuestController@checkmember');
 
 // sport側
-Route::get('/sport/index',function() {return view('sp.idx');});
-Route::get('/sport',function() {return view('sp.idx');});
+Route::get('/sport/index','App\Http\Controllers\GuestController@checkmember');
+Route::get('/sport','App\Http\Controllers\GuestController@checkmember');
 
-Route::get('/sport/introduce',function() {return view('sp.introduce');});
+Route::get('/sport/introduce','App\Http\Controllers\GuestController@checkmember');
 
 Route::get('/sport/gymmap','App\Http\Controllers\GymMapController@gymmap');
 Route::get('/sport/gymmap/list','App\Http\Controllers\GymMapController@list');
@@ -71,12 +73,14 @@ Route::post('/payment/page03','App\Http\Controllers\PaymentController@page03');
 Route::get('/member/login',function() {return view('mb.login');});
 Route::post('/member/login','App\Http\Controllers\MbLoginController@isMember');
 
+//會員登出
+Route::get('/member/logout','App\Http\Controllers\MbLoginController@logout');
 
 // 帳號註冊
 Route::get('/member/login/{account}','App\Http\Controllers\MbLoginController@isNewAccount');
 Route::post('member/register','App\Http\Controllers\MbLoginController@register');
 
-// 忘記密碼
+// 忘記密碼MbLoginController@
 Route::get('/member/forget',  'App\Http\Controllers\MbLoginController@forget');
 Route::post('/member/forget', 'App\Http\Controllers\MbLoginController@forget');
 
@@ -116,6 +120,9 @@ Route::get('/ld/member/list/{search}','App\Http\Controllers\LdMemberController@s
 // for log
 Route::get('/ld/log/list','App\Http\Controllers\LdLogController@list');
 Route::get('/ld/logout','App\Http\Controllers\LdLoginController@logout');
+
+// for goods
+Route::get('/ld/goods/list','App\Http\Controllers\LdGoodsController@list');
 
 
 // just test

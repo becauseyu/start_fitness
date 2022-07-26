@@ -23,5 +23,9 @@ class Goodsdetail extends Model
         return $this->belongsTo(Branddetail::class, 'bid', 'bid');
     }
 
-
+    // 
+    public function flavor(){
+        return $this->hasMany(Goodsdetail::class,'pname','pname');
+    }
+        
 }

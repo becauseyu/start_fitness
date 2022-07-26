@@ -11,7 +11,7 @@ var isPlaying = false;
 
 
 // -------遊戲參數(s)--------------------------------------------------
-var gameTime = 10;  // 單次總時間
+var gameTime = 60;  // 單次總時間
 var canvas_update_time = 0.02; // canvas刷新頻率(秒)
 
 // 大小設置

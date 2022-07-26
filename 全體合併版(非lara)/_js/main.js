@@ -279,10 +279,18 @@ function delete_goods(btn) {
 }
 //判斷是否顯示登出按鈕
 var user = $('#user').html()
-if(user == '訪客'){
+if(user == '登入'){
   $('#userlogout').addClass('hidden')
+  $('#user_icon').addClass('fa-user-o')
+  $('#user_icon').removeClass('fa-user')
+
+
+
 
 }else{
   $('#userlogout').removeClass('hidden')
+  $('#user_icon').addClass('fa-user')
+  $('#user_icon').removeClass('fa-user-o')
+
 
 }
