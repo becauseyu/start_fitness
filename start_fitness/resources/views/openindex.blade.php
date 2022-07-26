@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>動吃！動吃！</title>
     <link rel="stylesheet" href="/bootstrap-4.6.1-dist/css/bootstrap.min.css">
     <link href="/aos-master/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
@@ -15,6 +15,8 @@
     <script src="/jQuery3.5.1/jquery.js"></script>
     <script src="/bootstrap-4.6.1-dist/js/bootstrap.bundle.min.js"></script>
     <script src="/bootstrap-4.6.1-dist/js/bootstrap.min.js"></script>
+    <link rel="icon" href="/image/favico.ico" type="image/x-icon">
+
     <style>
         .index {
             width: 100%;
@@ -75,7 +77,7 @@
     <a href="/food">
         <div onclick="" class="fd animate__animated animate__slideRight"></div>
     </a>
-    <div class="index "><img src="/image/AI/LOGO.png" height="300vh" alt=""></div>
+    <div class="index "><img src="/image/LOGO.png" height="300vh" alt=""></div>
 
     <!-- <img  style="z-index:102 ;" src="../AI/LOGO.png" height="300vh" alt=""> -->
 

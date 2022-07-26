@@ -74,7 +74,7 @@ if(isset($_REQUEST['mid']) && $_REQUEST['psw']){
                 <div class=" col-2 col-sm-2 d-flex justify-content-end ">
                     <a href="./mb_login.php">
                         <button type="button" class="btn ">
-                            <i class="fa fa-user navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057">訪客</span> </i>
+                            <i class="fa fa-user-o navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057">登入</span> </i>
                         </button>
                     </a>
 

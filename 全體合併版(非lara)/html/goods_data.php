@@ -17,7 +17,7 @@ if (isset($_REQUEST['mid']) && $_REQUEST['psw']) {
   $url = "?mid={$mid}&psw={$psw}";
   $memberPage = "./mb_update.php?mid={$mid}&psw={$psw}";
 } else {
-  $user = '訪客';
+  $user = '登入';
   $url = '';
   $memberPage = "./mb_login.php";
 }
@@ -96,7 +96,7 @@ if (isset($goods)) {
         <div class=" col-2 col-sm-2 d-flex justify-content-end ">
           <a href="<?php echo $memberPage; ?>">
             <button type="button" class="btn ">
-              <i class="fa fa-user navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057"><?php echo $user; ?></span> </i>
+               <i  id="user_icon" class="fa fa-user navbar_fa" aria-hidden="true"> <span id='user' style="color: #495057"><?php echo $user; ?></span> </i>
             </button>
           </a>
 
@@ -154,7 +154,17 @@ if (isset($goods)) {
         </div>
         <div>
           <h4 class="mb-3">NT$<span id='product_price' class='pprice'><?php echo $row->pprice; ?></span></h4>
-          <h5 class="mt-1">口味 | <span id='product_flaver' class="flaver"><?php echo $row->pstyle; ?></span></h5>
+          <h5 class="mt-1">
+            <?php  
+            $style = $row->ptype;
+            if($style == 'food'){
+              echo '口味|';
+            }
+            else{
+              echo '種類|';
+
+            } ?>
+          <span id='product_flaver' class="flaver"><?php echo $row->pstyle; ?></span></h5>
           <div class="d-flex item-box">
             <?php
             $sql_flavor = "SELECT * FROM goodsdetail WHERE pname ='{$row->pname}'";
