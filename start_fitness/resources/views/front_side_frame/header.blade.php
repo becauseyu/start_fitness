@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
+<nav class="fixed-top navbar navbar-expand-lg navbar-light " style="background-color: #E5D9CE;">
     <a class="navbar-brand d-lg-none" href="/index"><img width="60" height="60" style="display:block; margin:auto;"
             src="/image/LOGO.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarToggler7"
@@ -31,7 +31,7 @@
                 <a class="nav-link" href="/food/minigame">Mini game</a>
             </li>
         </ul>
-        {{-- @if (isset($member))
+        @if (isset($member))
             <div class=" col-2 d-flex justify-content-end">
                 <button class="btn " >
                     <a href="/member/login"><i class="fa fa-user" aria-hidden="true"></i></a>
@@ -56,8 +56,9 @@
             
         </div>
 
-        @endif --}}
+        @endif
         
     </div>
 </nav>
+<div class="" style="width: 100%; height :75px;"></div>
 

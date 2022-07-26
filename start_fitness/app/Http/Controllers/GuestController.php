@@ -30,29 +30,29 @@ class GuestController extends Controller
         }
         switch ($request->path()) {
             case 'food/index':
-                return view('fd.idx', compact('text'));
+                return view('fd.idx', compact('text','member'));
                 break;
             case 'food':
-                return view('fd.idx', compact('text'));
+                return view('fd.idx', compact('text','member'));
                 break;
 
             case 'food/introduce':
-                return view('fd.introduce', compact('text'));
+                return view('fd.introduce', compact('text','member'));
                 break;
 
             case 'food/minigame':
-                return view('fd.minigame', compact('text'));
+                return view('fd.minigame', compact('text','member'));
                 break;
 
             case 'sport/index':
-                return view('sp.idx', compact('text'));
+                return view('sp.idx', compact('text','member'));
                 break;
 
             case 'sport':
-                return view('sp.idx', compact('text'));
+                return view('sp.idx', compact('text','member'));
                 break;
             case 'sport/introduce':
-                return view('sp.introduce', compact('text'));
+                return view('sp.introduce', compact('text','member'));
                 break;
         }
 
