@@ -14,9 +14,7 @@ $('.item-icon').on('click', function () {
   var type = $(this).data('type')
   var price = $(this).data('price')
   //更換大圖
-
-  var url = window.location.origin + '/image/asset/saleitem/' + type + '/' + img;
-  $('#bigImage').attr('src',url)
+  $('#bigImage').attr('src', '../img/' + type + '/' + img)
   //更換價格
   $('.pprice').html(price)
 

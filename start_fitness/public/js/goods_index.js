@@ -1,13 +1,15 @@
-$('.footerpage').load('/MengYing/大專/LAB/footer.html')
 
 // 圖片hover
 
 $('.good_img').hover(hoverIn, hoverout)
 
 function hoverIn(img) {
-    //得到該圖片的路徑
+    // //得到該圖片的路徑
     var url = $(this).prop('src'); //圖片的完整路徑
-    var pic_url = (url.split('/'))[7]; //得到圖片檔案完整名稱
+
+    var pic_url = (url.split('/'))[5]; //得到圖片檔案完整名稱
+    // console.log(pic_url)
+
     var pic_name = (pic_url.split('.'))[0]; //得到檔案名稱+數字
     var url_road = (url.split(pic_url))[0];//得到前面剩餘路徑
     var pic_num = parseInt(pic_name.replace(/[^0-9]/ig, "")); //得檔案的數字
@@ -27,7 +29,7 @@ function hoverIn(img) {
 function hoverout(img) {
     //  //得到該圖片的路徑
     var url = $(this).prop('src'); //圖片的完整路徑
-    var pic_url = (url.split('/')[7]); //得到圖片檔案完整名稱
+    var pic_url = (url.split('/')[5]); //得到圖片檔案完整名稱
     var pic_name = (pic_url.split('.'))[0]; //得到檔案名稱+數字
     var url_road = (url.split(pic_url))[0];//得到前面剩餘路徑
     var pic_num = parseInt(pic_name.replace(/[^0-9]/ig, "")); //得檔案的數字

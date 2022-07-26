@@ -17,10 +17,10 @@
                 <a class="nav-link" href="/goods/index">健身小物</a>
             </li>
             <li class="nav-iteml px-1">
-                <a class="nav-link" href="/sport/gymmap">健身地圖</a>
+                <a class="nav-link" href="/sport/gymmap">預約地圖</a>
             </li>
             <a class="d-none d-lg-block px-4" href="/index"><img width="60" height="60" style="display:block; margin:auto;"
-                    src="/image/AI/LOGO.png"></a>
+                    src="/image/LOGO.png"></a>
             <li class="nav-itemr px-1">
                 <a class="nav-link" href="/food/introduce">飲食Tip</a>
             </li>
@@ -31,15 +31,33 @@
                 <a class="nav-link" href="/food/minigame">Mini game</a>
             </li>
         </ul>
-        <div class=" col-1 d-flex justify-content-end">
-            <button class="btn ">
-                <a href="/member/login"><i class="fa fa-user" aria-hidden="true"></i></a>
+        {{-- @if (isset($member))
+            <div class=" col-2 d-flex justify-content-end">
+                <button class="btn " >
+                    <a href="/member/login"><i class="fa fa-user" aria-hidden="true"></i></a>
+                </button>
+            <button class="btn btn-cart" data-toggle="dropdown" onclick="openbuycar()">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span id="cartQuantity" class="badge badge-pill badge-danger" >0</span>
+            </button>
+            <button class="btn " >
+                <a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+            </button>
+        </div>
+        @else 
+        <div class=" col-2 d-flex justify-content-end">
+            <button class="btn " >
+                <a href="/member/login"><i class="fa fa-user-o" aria-hidden="true"></i>登入</a>
             </button>
             <button class="btn btn-cart" data-toggle="dropdown" onclick="openbuycar()">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span id="buycart_count" class="badge badge-pill badge-danger" >0</span>
+                <span id="cartQuantity" class="badge badge-pill badge-danger" >0</span>
             </button>
+            
         </div>
+
+        @endif --}}
+        
     </div>
 </nav>
 

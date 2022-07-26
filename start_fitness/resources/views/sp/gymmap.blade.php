@@ -172,28 +172,7 @@
     // // console.log(centerList) //得到物件
 
 
-    function getGymData(url) {
-        var xhttp = new XMLHttpRequest();
-        //如果當xhttp發生改變時，發生後面的callback(回乎函式) //閉包
-        xhttp.onreadystatechange = function() {
-            //200 :畫面載入成功(404是失敗)
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
 
-                if (xhttp.responseText != 0) { //帳號無重複 //xhttp.responseText 來自後端
-                    console.log('get gym data')
-                    
-                } else {
-                    console.log('get nothing')
-                }
-            }
-        };
-
-        // 不使用非同步功能
-        xhttp.open('GET', url, false);
-        //send請求
-        xhttp.send();
-        return JSON.parse(xhttp.responseText);
-    }
 
 
 </script>

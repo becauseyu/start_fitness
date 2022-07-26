@@ -254,7 +254,8 @@ class MbLoginController extends Controller
             }
 
             // 帳密錯誤跳轉回去
-            return redirect('/member/login');
+            $text->body = '帳號密碼輸入錯誤，請重新輸入。';
+            return view('mb.confirmAcc', compact('text'));
         }
 
 
@@ -493,5 +494,14 @@ class MbLoginController extends Controller
             $text->body = '修改失敗，密碼有誤3';
             return view($view, compact('text'));
         }
+    }
+    function logout(Request $request){
+        Session::flush();
+        $text = (object)[];
+        $text->title = '會員登出';
+        $text->body = '>您已完成登出，將為您跳轉回登入畫面。';
+        $text->memberStatus = false;
+       return view('mb.confirmAcc', compact('text'));
+
     }
 }
