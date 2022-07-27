@@ -113,7 +113,7 @@
     </div>
 
 
-
+@yield('script')
 
 
 

@@ -123,6 +123,10 @@ Route::get('/ld/logout','App\Http\Controllers\LdLoginController@logout');
 
 // for goods
 Route::get('/ld/goods/list','App\Http\Controllers\LdGoodsController@list');
+Route::get('/ld/branddetail/list','App\Http\Controllers\LdGoodsController@brandList');
+Route::get('/ld/ptype/list','App\Http\Controllers\LdGoodsController@ptypeList');
+
+
 
 
 // just test
