@@ -34,8 +34,8 @@ if (isset($acc)) {
             $mail->Host = "smtp.gmail.com";             //Gamil的SMTP主機
             $mail->Port = 465;                                 //Gamil的SMTP主機的埠號(Gmail為465)。
             $mail->CharSet = "utf-8";
-            $mail->Username = "1102136108@gm.kuas.edu.tw"; //Gamil帳號
-            $mail->Password = "bynaaenzrlbquvio";                 //Gmail密碼(要去申請應用程式密碼)
+            $mail->Username = ""; //Gamil帳號
+            $mail->Password = "";                 //Gmail密碼(要去申請應用程式密碼)
             $mail->From = "startfitness0809@gmail.com";        //寄件者信箱
             $mail->FromName = "動吃!動吃!";                  //寄件者姓名
             $mail->Subject = "請認證您在『動吃！動吃！』的會員註冊"; //郵件標題
