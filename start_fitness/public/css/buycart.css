@@ -98,7 +98,7 @@
 
 .progress {
     /* 這裡使用了事先定義的已完成進度顏色 */
-    background-color: #fdb280;
+    background-color: #fdb280 !important;
 
     /* height 一樣 4px，width在切版時可以先放成 50%，調整好再改回進度為 0% 的狀態 */
     /* 附圖為 50% 的狀態 */
