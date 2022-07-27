@@ -93,20 +93,24 @@
         let count = data.count
         let oid =  parseInt($('#oid').html()) 
         let url = window.location.origin;
-        let addurl = 'name='+name+"&style="+style+'&count='+count+'&oid='+oid;
-        let xhttp = new XMLHttpRequest;
-
-        // post方法
-        // xhttp.open('POST', url+'/payment/addOrder', true);
-        // xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-        // // send請求
-        // xhttp.send(addurl);
-        //get方法
         
-        xhttp.open('GET', url+'/payment/addOrder?'+addurl, true);
-        //send請求
-        var a = xhttp.send();
-        console.log(url+'/payment/addOrder?'+addurl)
+        let xhttp = new XMLHttpRequest;
+        let token = '@csrf';
+        token = token.substr(42, 40);
+        console.log(token);
+        let addurl = `_token=${token}`+'&name='+name+"&style="+style+'&count='+count+'&oid='+oid;
+        // post方法
+        xhttp.open('POST', url+'/payment/addOrder', true);
+
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+        // send請求
+        xhttp.send(addurl);
+        // get方法
+        
+        // xhttp.open('GET', url+'/payment/addOrder?'+addurl, true);
+        // //send請求
+        // var a = xhttp.send();
+        // console.log(url+'/payment/addOrder?'+addurl)
 
     }
 

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+
 use App\Models\Member;
 use App\Models\Log;
-use PhpParser\Node\Expr\AssignOp\Concat;
+use App\Models\Branddetail;
+
+
+use Illuminate\Support\Facades\Session;
 
 class LdLoginController extends Controller
 {
