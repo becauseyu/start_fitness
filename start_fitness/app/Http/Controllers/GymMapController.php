@@ -5,30 +5,53 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TaiChung_gym;
 use App\Models\Inbody;
+use App\Models\Member;
+
 use App\Http\Traits\PhpMailTrait;
+use Illuminate\Support\Facades\Session;
 
 class GymMapController extends Controller
 {
-    function gymmap() {
+    function gymmap()
+    {
         $text = (object) [];
         $text->title = '健身地圖';
+        $compact_var = ['text'];
 
 
 
+        //會員身分驗證
+        // 會員驗證----------------------------------------------------
+        try {
+            $acc = Session::get('account');
+            $verify = Session::get('verify');
 
-        
-        return view('sp.gymmap',compact('text'));
+            $member = Member::where('account', $acc)->first();
+            if (md5($member->psw . $acc) == $verify) {
+                $text->memberStatus = true;
+                array_push($compact_var, 'member');
+            } else {
+                $text->memberStatus = false;
+            }
+        } catch (\Throwable $th) {
+            $text->memberStatus = false;
+        }
+
+
+        return view('sp.gymmap', compact($compact_var));
     }
 
     // 撈全部
-    function list() {
+    function list()
+    {
         $gymList = TaiChung_gym::all()->toArray();
         return $gymList;
     }
 
     // 撈預設地點
-    function getDefault() {
-        $gymList = TaiChung_gym::where('name','Anytime Fitness 台中公益店')->first();
+    function getDefault()
+    {
+        $gymList = TaiChung_gym::where('name', 'Anytime Fitness 台中公益店')->first();
         return $gymList;
     }
 
@@ -36,45 +59,46 @@ class GymMapController extends Controller
 
 
     use PhpMailTrait;
-    function inbody(Request $request) {
+    function inbody(Request $request)
+    {
         // inbody 總覺得不登入不怎麼安全，容易被亂用
 
         // 資料檢查
-        $name ='';
+        $name = '';
         $phone = '';
         $gym = '';
-        $email ='';
-        $date ='';
-        $time ='';
+        $email = '';
+        $date = '';
+        $time = '';
 
         if ($request->input('resName')) {
-            $name =$request->input('resName');
-        } 
+            $name = $request->input('resName');
+        }
 
         if ($request->input('resTel')) {
-            $phone =$request->input('resTel');
-        } 
+            $phone = $request->input('resTel');
+        }
 
         if ($request->input('resGym')) {
-            $gym =$request->input('resGym');
-        } 
+            $gym = $request->input('resGym');
+        }
 
         if ($request->input('resEmail')) {
-            $email =$request->input('resEmail');
-        } 
+            $email = $request->input('resEmail');
+        }
 
         if ($request->input('resDate')) {
-            $date =$request->input('resDate');
-        } 
+            $date = $request->input('resDate');
+        }
 
         if ($request->input('resTime')) {
-            $time =$request->input('resTime');
-        } 
+            $time = $request->input('resTime');
+        }
 
 
-        if ($name && $phone && $gym  && $email && $date && $time){
+        if ($name && $phone && $gym  && $email && $date && $time) {
             // 全部都有才做
-            $gymData = TaiChung_gym::where('name',$gym)->first();
+            $gymData = TaiChung_gym::where('name', $gym)->first();
 
             // 預約數量少1
             $gymData->res = $gymData->res - 1;
@@ -83,8 +107,8 @@ class GymMapController extends Controller
             // 新增inbody
             $inbody = (new Inbody)->createNewInbody($name, $phone, $email, $gym, $date, $time);
             if ($inbody) {
-                
-                
+
+
                 // 成功後開始寄信
                 $addr = $gymData->town . $gymData->addr;
                 $tel = $gymData->tel;
@@ -136,34 +160,17 @@ class GymMapController extends Controller
             
             </table>
             
-                " ; //郵件內容
+                "; //郵件內容
                 $this->composeEmail($sendmail);
                 return redirect('/sport/gymmap');
-                
-
-
-
-            }else{
+            } else {
                 // 預約失敗
                 return redirect('/sport/gymmap');
             }
-            
-        
-
-    
-    
-
-
-
-
-        }else{
+        } else {
             return redirect('/sport/gymmap');
         }
-
-        
-
     }
-
 }
 
 

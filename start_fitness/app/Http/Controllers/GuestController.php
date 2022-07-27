@@ -23,11 +23,12 @@ class GuestController extends Controller
             $member = Member::where('account', $acc)->first();
             if (md5($member->psw . $acc) == $verify) {
                 $text->memberStatus = true;
+                array_push($compact_var,'member');
             } else {
                 $text->memberStatus = false;
             }
 
-            array_push($compact_var,'member');
+            
         } catch (\Throwable $th) {
             $text->memberStatus = false;
             
