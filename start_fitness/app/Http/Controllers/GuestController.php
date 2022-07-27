@@ -14,6 +14,7 @@ class GuestController extends Controller
         //會員身分驗證
         $text = (object) [];
         $text->title = '更新資料';
+        $compact_var = ['text'];
         // 會員驗證----------------------------------------------------
         try {
             $acc = Session::get('account');
@@ -25,34 +26,37 @@ class GuestController extends Controller
             } else {
                 $text->memberStatus = false;
             }
+
+            array_push($compact_var,'member');
         } catch (\Throwable $th) {
             $text->memberStatus = false;
+            
         }
         switch ($request->path()) {
             case 'food/index':
-                return view('fd.idx', compact('text','member'));
+                return view('fd.idx', compact($compact_var));
                 break;
             case 'food':
-                return view('fd.idx', compact('text','member'));
+                return view('fd.idx', compact($compact_var));
                 break;
 
             case 'food/introduce':
-                return view('fd.introduce', compact('text','member'));
+                return view('fd.introduce', compact($compact_var));
                 break;
 
             case 'food/minigame':
-                return view('fd.minigame', compact('text','member'));
+                return view('fd.minigame', compact($compact_var));
                 break;
 
             case 'sport/index':
-                return view('sp.idx', compact('text','member'));
+                return view('sp.idx', compact($compact_var));
                 break;
 
             case 'sport':
-                return view('sp.idx', compact('text','member'));
+                return view('sp.idx', compact($compact_var));
                 break;
             case 'sport/introduce':
-                return view('sp.introduce', compact('text','member'));
+                return view('sp.introduce', compact($compact_var));
                 break;
         }
 
