@@ -44,8 +44,9 @@ class GoodsController extends Controller
         // 撈資料庫
 
         try {
-            $foodList = Goodsdetail::where('ptype', 'food')->where('ppic', 'like', '%00%')->get();
-            $gymList = Goodsdetail::where('ptype', 'gym')->where('ppic', 'like', '%00%')->get();
+            // 20220727 新增過濾刪除功能
+            $foodList = Goodsdetail::where('ptype', 'food')->where('ppic', 'like', '%00%')->where('staid','!=','2')->get();
+            $gymList = Goodsdetail::where('ptype', 'gym')->where('ppic', 'like', '%00%')->where('staid','!=','2')->get();
             
         } catch (\Throwable $th) {
 
@@ -91,9 +92,9 @@ class GoodsController extends Controller
 
 
 
-        // 抓flavor 資料
-        $flavorList_img = Goodsdetail::where('pname', $good->pname)->get();
-        $flavorList_btn = Goodsdetail::where('pname', $good->pname)->groupBy('pstyle')->get();
+        // 抓flavor 資料 // 20220727 新增過濾刪除功能
+        $flavorList_img = Goodsdetail::where('pname', $good->pname)->where('staid','!=','2')->get();
+        $flavorList_btn = Goodsdetail::where('pname', $good->pname)->where('staid','!=','2')->groupBy('pstyle')->get();
 
 
 

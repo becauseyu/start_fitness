@@ -14,7 +14,7 @@
 
 
 @section('h1')
-    <h1 class="text-center header01"> 庫存管理</h1>
+    <h1 class="text-center header01"> 庫存管理<span class="h3">(如要編輯請先下架產品)</span></h1>
 @endsection
 
 @section('content')
@@ -56,9 +56,26 @@
                                 <div class="col-3 text-center bname">{{ $goods->branddetail->bname }}</div>
                                 <div class="col-2 text-center "><img height="100" src="{{ $goods->url }}"></div>
                                 <div class="col-3 text-center button_bag">
-                                    <div class="mr-1 btn01 btn-outline01" onclick="bigEdit('a{{ $goods->pid }}')">編輯</div>
-                                    |
-                                    <div class="ml-1 btn01 btn-outline02">刪除</div>
+
+                                    @if ($goods->staid == '1')
+                                        <a href="/ld/goods/takeDown/{{ $goods->pid }}" onclick="cancelBub(event)">
+                                            <div class="mr-1 btn01 btn-outline">下架</div>
+                                        </a>
+                                    @else
+                                        <a href="/ld/goods/onShelf/{{ $goods->pid }}" onclick="cancelBub(event)">
+                                            <div class="mr-1 btn01 btn-outline">上架</div>
+                                        </a>
+                                        |
+                                        <div class="mr-1 btn01 btn-outline01" onclick="bigEdit('a{{ $goods->pid }}')">編輯
+                                        </div>
+                                        |
+                                        <a href="/ld/goods/delete/{{ $goods->pid }}" onclick="cancelBub(event)">
+                                            <div class="ml-1 btn01 btn-outline02">刪除</div>
+                                        </a>
+                                    @endif
+
+
+
                                 </div>
                             </div>
                         </button>
@@ -79,7 +96,7 @@
                                     </a>
                                 </th>
                             </tr>
-                            @foreach ($goods->flavor as $flavor)
+                            @foreach ($goods->flavor->where('staid', '!=', '2') as $flavor)
                                 <form id="a{{ $flavor->pid }}" action="/flavor/edit" enctype="multipart/form-data"
                                     method="POST">
                                     @csrf
@@ -91,10 +108,13 @@
                                         <th> <img height="150" src="{{ $flavor->url }}"> </th>
                                         <th> $ <span class="pprice">{{ $flavor->pprice }}</span> </th>
                                         <th>
-                                            <div class="mr-1 btn01 btn-outline01"
-                                                onclick="smaillEdit('a{{ $goods->pid }}')">編輯
-                                            </div> |
-                                            <div class="ml-1 btn01 btn-outline02">刪除</div>
+                                            @if (!$flavor->staid)
+                                                <div class="mr-1 btn01 btn-outline01"
+                                                    onclick="smaillEdit('a{{ $goods->pid }}')">編輯
+                                                </div> |
+                                                <div class="ml-1 btn01 btn-outline02">刪除</div>
+                                            @endif
+
                                         </th>
                                     </tr>
                                 </form>
@@ -154,8 +174,8 @@
             // pname----------------
             pname = getForm.querySelector('.pname');
             pname.innerHTML = `<input name='pname' value ='${pname.innerText}'>`;
-           
-             // bname
+
+            // bname
             bname = getForm.querySelector('.bname');
             bname_html = `<select name='bid' value = '${bname.innerText}'>`;
             brandList.forEach((option) => {
@@ -174,7 +194,7 @@
                 <input type="submit" class="mr-1 btn01 btn-outline01" value='完成'></div> |
                 <a href='/ld/goods/list' class="ml-1 btn01 btn-outline02">取消編輯</a>
             `;
-            
+
 
             // 其他不相干表單隱藏
             getAllForm = document.querySelectorAll(`form`);
@@ -353,6 +373,16 @@
             // <input accept = "image/*" type = 'file'id = "imgInp" / >
             // <img id = "blah" src = "#" alt = "your image" / >
             // </form>
+        }
+
+
+
+
+
+
+        // 取消bubble
+        cancelBub = (e) => {
+            e.stopPropagation();
         }
     </script>
 @endsection

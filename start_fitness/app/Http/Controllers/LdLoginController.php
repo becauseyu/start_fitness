@@ -15,6 +15,41 @@ class LdLoginController extends Controller
 {
     function index()
     {
+        // 管理員驗證
+        //會員身分驗證
+        $text = (object) [];
+        $text->title = '會員管理';
+        $compact_var = ['text'];
+        // 會員驗證----------------------------------------------------
+        try {
+            $acc = Session::get('account');
+            $verify = Session::get('verify');
+
+            $member = Member::where('account', $acc)->first();
+            if (md5($member->psw . $acc) == $verify) {
+                if ((new Member)->isController($acc)) {
+                    $text->memberStatus = true;
+                    array_push($compact_var, 'member');
+                    return redirect('/ld/member/list');
+                } else {
+                    return redirect('/ld/login');
+                }
+            } else {
+                $text->memberStatus = false;
+                return redirect('/ld/login');
+            }
+        } catch (\Throwable $th) {
+            $text->memberStatus = false;
+            return redirect('/ld/login');
+        }
+        //------------------------------------------------------
+
+
+
+
+
+
+
         $data = [
             'account' => '',
             'error' => '',
@@ -54,12 +89,8 @@ class LdLoginController extends Controller
                         $verify = md5(md5($psw) . $account);
                         Session::put('verify', $verify);
                         Session::forget('loginError');
-                        
+
                         return redirect('/ld/member/list');
-
-
-
-
                     } else {
                         $text->body = '您不是管理員，請移至前台登入';
                         return view('mb.confirmScc', compact('text'));

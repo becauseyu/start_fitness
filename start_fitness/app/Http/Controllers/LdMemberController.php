@@ -29,16 +29,12 @@ class LdMemberController extends Controller
 
             $member = Member::where('account', $acc)->first();
             if (md5($member->psw . $acc) == $verify) {
-                if((new Member)->isController($acc)) {
+                if ((new Member)->isController($acc)) {
                     $text->memberStatus = true;
                     array_push($compact_var, 'member');
-
-
-                }else{
+                } else {
                     return redirect('/ld/login');
                 }
-
-                
             } else {
                 $text->memberStatus = false;
                 return redirect('/ld/login');
@@ -47,7 +43,7 @@ class LdMemberController extends Controller
             $text->memberStatus = false;
             return redirect('/ld/login');
         }
-
+        //------------------------------------------------------
 
 
 

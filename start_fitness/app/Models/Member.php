@@ -141,10 +141,10 @@ class Member extends Model
             if ($member->statusdetail->staName == '管理員') {
                 return $member;
             }else{
-                return false;
+                return 1;
             }
         } catch (\Throwable $th) {
-            return false;
+            return 2;
         }
     }
     //會員訂單

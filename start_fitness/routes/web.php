@@ -130,8 +130,14 @@ Route::get('/ld/goods/list','App\Http\Controllers\LdGoodsController@list');
 Route::get('/ld/branddetail/list','App\Http\Controllers\LdGoodsController@brandList');
 Route::get('/ld/ptype/list','App\Http\Controllers\LdGoodsController@ptypeList');
 
+// 編輯
 Route::post('/ld/goods/bigEdit','App\Http\Controllers\LdGoodsController@bigEdit');
 Route::post('/ld/goods/smallEdit','App\Http\Controllers\LdGoodsController@smallEdit');
+
+//上下架
+Route::get('/ld/goods/takeDown/{id}','App\Http\Controllers\LdGoodsController@takeDown');
+Route::get('/ld/goods/onShelf/{id}','App\Http\Controllers\LdGoodsController@onShelf');
+Route::get('/ld/goods/delete/{id}','App\Http\Controllers\LdGoodsController@delete');
 
 
 
