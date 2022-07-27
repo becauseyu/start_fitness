@@ -10,6 +10,8 @@
 
   
   @include('front_side_frame.link')
+  <!--加入Font Awesome-->
+  <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
   
   <!-- My.css -->
   <link rel="stylesheet" href="/css/goods_index.css">
