@@ -44,8 +44,9 @@
         @foreach ($goodsList as $goods)
             <!--  單筆會員資料  -->
             <div class="card ">
-                <form id="a{{ $goods->pid }}" action="/goods/edit" enctype="multipart/form-data" method="POST">
+                <form id="a{{ $goods->pid }}" action="/ld/goods/bigEdit" enctype="multipart/form-data" method="POST">
                     @csrf
+                    <input type="hidden" name="pid" value="{{ $goods->pid }}" />
                     <div class="card-header01" id="heading{{ $goods->pid }}">
                         <button class="btn01 btn-block headButton" type="button" data-toggle="collapse"
                             data-target="#collapse{{ $goods->pid }}">
@@ -153,13 +154,8 @@
             // pname----------------
             pname = getForm.querySelector('.pname');
             pname.innerHTML = `<input name='pname' value ='${pname.innerText}'>`;
-            // pid------------------
-            getForm.querySelectorAll('.pid').forEach((pid) => {
-                pid.innerHTML = `<input name='pid' value ='${pid.innerText}' disabled>`;
-            })
-
-
-            // bname
+           
+             // bname
             bname = getForm.querySelector('.bname');
             bname_html = `<select name='bid' value = '${bname.innerText}'>`;
             brandList.forEach((option) => {
@@ -173,55 +169,12 @@
             bname_html += `</select>`;
             bname.innerHTML = bname_html;
 
-
-            // pstyle
-            getForm.querySelectorAll('.pstyle').forEach((pstyle) => {
-                pstyle.innerHTML = `<input name='pstyle[]' value ='${pstyle.innerText}'>`;
-            })
-
-
-            // pcount
-            getForm.querySelectorAll('.pcount').forEach((pcount) => {
-                pcount.innerHTML = `<input name='pcount[]' value ='${pcount.innerText}'>`;
-            })
-
-
-            // pprice
-            getForm.querySelectorAll('.pprice').forEach((pprice) => {
-                pprice.innerHTML = `<input name='pprice[]' value ='${pprice.innerText}'>`;
-            })
-
-
             // button_bag
             getForm.querySelector('.button_bag').innerHTML = `
                 <input type="submit" class="mr-1 btn01 btn-outline01" value='完成'></div> |
                 <a href='/ld/goods/list' class="ml-1 btn01 btn-outline02">取消編輯</a>
-            `
-
-
-
-
-            // pid ptype pname bname pstyle pcount pprice
-
-
-
-            // getAllInput.forEach(($element)=>{
-            //     $element.innerHTML = `<input value ='${$element.innerHTML}'' ></input>`
-            // } )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            `;
+            
 
             // 其他不相干表單隱藏
             getAllForm = document.querySelectorAll(`form`);
@@ -382,6 +335,24 @@
             //send請求
             xhttp.send();
             return JSON.parse(xhttp.responseText);
+        }
+
+
+
+
+
+        // 預覽圖片(照抄別人)
+        function showUploadImage() {
+            imgInp.onchange = evt => {
+                const [file] = imgInp.files
+                if (file) {
+                    blah.src = URL.createObjectURL(file)
+                }
+            }
+            // <form runat = "server" >
+            // <input accept = "image/*" type = 'file'id = "imgInp" / >
+            // <img id = "blah" src = "#" alt = "your image" / >
+            // </form>
         }
     </script>
 @endsection

@@ -126,6 +126,8 @@ Route::get('/ld/goods/list','App\Http\Controllers\LdGoodsController@list');
 Route::get('/ld/branddetail/list','App\Http\Controllers\LdGoodsController@brandList');
 Route::get('/ld/ptype/list','App\Http\Controllers\LdGoodsController@ptypeList');
 
+Route::post('/ld/goods/bigEdit','App\Http\Controllers\LdGoodsController@bigEdit');
+Route::post('/ld/goods/smallEdit','App\Http\Controllers\LdGoodsController@smallEdit');
 
 
 
