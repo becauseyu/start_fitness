@@ -10,8 +10,7 @@
     @include('front_side_frame.link')
     <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
    
-    <!--加入Font Awesome-->
-    <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
+    
  
     <!-- 插入自己的css -->
     <link href="/css/main.css" rel="stylesheet">

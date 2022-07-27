@@ -34,23 +34,23 @@
         @if (isset($member))
             <div class=" col-2 d-flex justify-content-end">
                 <button class="btn " >
-                    <a href="/member/update"><i class="fa fa-user" aria-hidden="true"></i></a>
+                    <a href="/member/update"><i class="fa fa-user nav_icon" aria-hidden="true"></i></a>
                 </button>
             <button class="btn btn-cart" data-toggle="dropdown" onclick="openbuycar()">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <i class="fa fa-shopping-cart nav_icon" aria-hidden="true"></i>
                 <span id="cartQuantity" class="badge badge-pill badge-danger" >0</span>
             </button>
             <button class="btn " >
-                <a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                <a href="/member/logout"><i class="fa fa-sign-out nav_icon" aria-hidden="true"></i></a>
             </button>
         </div>
         @else 
         <div class=" col-2 d-flex justify-content-end">
             <button class="btn " >
-                <a href="/member/login"><i class="fa fa-user-o" aria-hidden="true"></i>登入</a>
+                <a href="/member/login" class='nav_icon'><i class="fa fa-user-o nav_icon" aria-hidden="true"></i>登入</a>
             </button>
             <button class="btn btn-cart" data-toggle="dropdown" onclick="openbuycar()">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <i class="fa fa-shopping-cart nav_icon" aria-hidden="true"></i>
                 <span id="cartQuantity" class="badge badge-pill badge-danger" >0</span>
             </button>
             

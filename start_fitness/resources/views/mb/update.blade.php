@@ -9,8 +9,7 @@
 
     @include('front_side_frame.link')
     <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-        <!--加入Font Awesome-->
-    <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
+   
     <!-- 插入自己的css -->
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/mb_update.css" rel="stylesheet">
@@ -120,72 +119,7 @@
                                     <th scope="col">訂單金額</th>
                                 </tr>
                             </table>
-                            a
-                            while ($order = $result_order->fetch_array()) {
-                                $start++;
-                                echo '<div class="accordion" id="accordionExample">';
-                                echo    '<div class="card">';
-                                echo        '<div class="card-header order_tr" id="heading' . $start . '">';
-                                echo                '<div class="" data-toggle="collapse" data-target="#collapse' . $start . '" aria-expanded="true" aria-controls="collapse' . $start . '">';
-                                echo '<table class="order_data" >';
-                                echo "<tr>";
-                                //把訂單時間處理一下
-                                $datetime = $order['orderdate'];
-                                $date = (mb_split('\s', $datetime))[0];
-                                $a = (mb_split('-', $date));
-                                $date = "{$a[0]}{$a[1]}{$a[2]}";
-                                echo "<td >{$date}00{$order['oid']}</td>";
-                                echo "<td >{$order['orderdate']}</td>";
-                                echo "<td>{$order['deliver']}</td>";
-                                echo "<td >{$order['payment']}</td>";
-                                echo "<td >$<span class='total_per'>{$order['total']}</sapn></td>";
-                                echo "</tr>";
-                                echo '</table>';
-                                echo                '</div>';
-                                echo       ' </div>';
-                                echo        '<div id="collapse' . $start . '" class="collapse" aria-labelledby="heading' . $start . '" data-parent="#accordionExample">';
-                                echo            '<div class="card-body">';
-                                echo '<table class="table order_data " border="1px">';
-                                echo '<tr>';
-                                echo "<td colspan='2'>收件人大名</td>";
-                                echo "<td colspan='3'>{$order['delName']}</td>";
-                                echo '</tr>';
-                                echo '<tr>';
-                                echo "<td colspan='2'>收件人電話</td>";
-                                echo "<td colspan='3'>{$order['delTel']}</td>";
-                                echo '</tr>';
-                                echo '<tr>';
-                                echo "<td colspan='2'>收件人地址</td>";
-                                echo "<td colspan='3'>{$order['delAddr']}</td>";
-                                echo '</tr>';
-                                echo '<tr>';
-                                echo '<th scope="col">產品圖示</th>';
-                                echo '<th scope="col">產品名稱</th>';
-                                echo '<th scope="col">產品單價</th>';
-                                echo ' <th scope="col">購買數量</th>';
-                                echo '<th scope="col">小計</th>';
-                                echo ' </tr>';
-                                //依照訂單編號找到對應的產品
-                                $sql_detail = "SELECT * FROM orderdetail INNER JOIN goodsdetail ON orderdetail.pid = goodsdetail.pid WHERE oid={$order['oid']}";
-                                $result_detail = $mysqli->query($sql_detail);
-                                //把結果變成li
-                                while ($orderDetail = $result_detail->fetch_object()) {
-                                    echo '<tr>';
-                                    echo "<td><img class='detail_img' src='/Eva/asset/saleitem/{$orderDetail->ptype}/{$orderDetail->ppic}' /></td>";
-                                    echo "<td>{$orderDetail->pname}-<br/>{$orderDetail->pstyle}</td>";
-                                    echo "<td>{$orderDetail->pprice}</td>";
-                                    echo "<td>{$orderDetail->amount}</td>";
-                                    $total = ($orderDetail->pprice) * ($orderDetail->amount);
-                                    echo "<td>$ {$total}</td>";
-                                    echo '</tr>';
-                                }
-                                echo '</table>';
-                                echo            '</div>';
-                                echo       ' </div>';
-                                echo    '</div>';
-                                echo '</div>';
-                            }
-                            ?>
+                            
                         </form>
 
                     </div>

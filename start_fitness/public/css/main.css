@@ -2,6 +2,16 @@
 body {
     font-family: monospace, Tahoma, Geneva, Verdana, sans-serif;
 }
+/*  ======== navbar_icon  ==================*/
+
+.nav_icon{
+    color: black;
+}
+.nav_icon:hover{
+    color: rgb(146, 73, 0);
+}
+
+
 /*  ======== slide_buycart  ==================*/
 
 #slide_buycart{
@@ -29,8 +39,8 @@ body {
     color: white;
 }
 
-.fa-solid:hover{
-    color:gray;
+.fa-circle-xmark:hover{
+    color:rgb(185, 126, 67);
 }
 
 #slide_buycart_title{

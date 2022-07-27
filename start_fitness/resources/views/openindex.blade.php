@@ -18,7 +18,7 @@
     <link rel="icon" href="/image/favico.ico" type="image/x-icon">
 
     <style>
-        .index {
+  .index {
             width: 100%;
             min-height: 100vh;
             background: linear-gradient(to right,
@@ -31,39 +31,45 @@
             align-items: center;
             z-index: 100;
             position: absolute;
+
+        }
+
+        .logo {
+            z-index: 999;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .fd {
             position: absolute;
             z-index: 101;
-            /* background: lightgreen; */
+            background: white;
             width: 50%;
             left: 50%;
             top: 0px;
             height: 100%;
-            opacity: 0.9;
+            opacity: 0.6;
         }
 
         .fd:hover {
-            background: lightblue;
-            opacity: 0.1;
-
+            opacity: 0;
         }
 
         .sp {
             position: absolute;
             z-index: 101;
-            /* background: lightgreen; */
+            background: white;
             width: 50%;
             right: 50%;
             top: 0px;
             height: 100%;
-            opacity: 0.9;
+            opacity: 0.6;
         }
 
         .sp:hover {
-            background: lightyellow;
-            opacity: 0.1;
+            opacity: 0;
         }
 
     </style>

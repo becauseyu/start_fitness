@@ -1,4 +1,4 @@
-<i class="fa-solid fa-circle-xmark" onclick="closebuycar()"></i>
+<i class="fa fa-times-circle fa-circle-xmark" onclick="closebuycar()"></i>
     <div id='slide_buycart_title' class="slide_buycart_title">
       　|您的購物清單|
     </div>
