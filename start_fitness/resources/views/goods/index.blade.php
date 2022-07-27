@@ -11,7 +11,7 @@
   
   @include('front_side_frame.link')
   <!--加入Font Awesome-->
-  {{-- <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script> --}}
+  <script src="https://kit.fontawesome.com/587cbd6750.js" crossorigin="anonymous"></script>
   
   <!-- My.css -->
   <link rel="stylesheet" href="/css/goods_index.css">
@@ -77,7 +77,7 @@
                 <div>{{$food->branddetail->bname}}</div>
                 </div>
                 <p class='head-font'>{{$food->pname}}-{{$food->pstyle}}</p>
-                <p class='price-font'>NT$<span id='single_price'>{{$food->pprice}}</span><i class='mx-2 fa fa-solid fa-shopping-cart'></i></p>
+                <p class='price-font'>NT$<span id='single_price'>{{$food->pprice}}</span><i class='mx-2 fa-solid fa-cart-shopping'></i></p>
                 </div>
                 </div>
   
@@ -112,7 +112,7 @@
                 <div>{{$gym->branddetail->bname}}</div>
                 </div>
                 <p class='head-font'>{{$gym->pname}}-{{$gym->pstyle}}</p>
-                <p class='price-font'>NT$<span id='single_price'>{{$gym->pprice}}</span><i class='mx-2 fa fa-solid fa-shopping-cart'></i></p>
+                <p class='price-font'>NT$<span id='single_price'>{{$gym->pprice}}</span><i class='mx-2 fa-solid fa-cart-shopping'></i></p>
                 </div>
                 </div>
   
