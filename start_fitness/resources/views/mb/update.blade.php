@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
 
     @include('front_side_frame.link')
     <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-   
+
     <!-- 插入自己的css -->
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/mb_update.css" rel="stylesheet">
@@ -44,8 +44,8 @@
                         <form id='update_form' class="m-5" action="/member/updateData" method="post">
                             @csrf
                             <p align="left"><i class="fa fa-id-card-o" aria-hidden="true"></i>
-                                <span id="who">{{$member->account}}</span>
-                                <span class='mb_status'>{{$member->staId}}</span>
+                                <span id="who">{{ $member->account }}</span>
+                                <span class='mb_status'>{{ $member->staId }}</span>
                             </p>
                             <p align="left"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 修改會員資料：
@@ -53,19 +53,25 @@
                             <p class="validUpdate"></p>
                             <div class="input-group mb-3">
                                 <span>姓名：</span>
-                                <input id="up_name" name="up_name" type="text" class="form-control ml-5 mr-5" value="{{$member->name}}" aria-label="Username" aria-describedby="basic-addon1" required>
+                                <input id="up_name" name="up_name" type="text" class="form-control ml-5 mr-5"
+                                    value="{{ $member->name }}" aria-label="Username" aria-describedby="basic-addon1"
+                                    required>
                                 <span id='cor_name' class="confirmSpan"></span>
                             </div>
                             <div class="input-group mb-3">
                                 <span>手機：</span>
-                                <input id="up_tel" name="up_tel" type="text" class="form-control ml-5 mr-5" value="{{$member->tel}}" placeholder="{{$member->tel_text}}" aria-label="Username" aria-describedby="basic-addon1">
+                                <input id="up_tel" name="up_tel" type="text" class="form-control ml-5 mr-5"
+                                    value="{{ $member->tel }}" placeholder="{{ $member->tel_text }}"
+                                    aria-label="Username" aria-describedby="basic-addon1">
                                 <span id='cor_tel' class="confirmSpan"></span>
                             </div>
                             <div class="input-group mb-3">
                                 <span>信箱：</span>
-                                <input id="up_email" name="fg_email" type="text" class="form-control ml-5 mr-5" value={{$member->email}} aria-label="Username" aria-describedby="basic-addon1" disabled>
+                                <input id="up_email" name="fg_email" type="text" class="form-control ml-5 mr-5"
+                                    value={{ $member->email }} aria-label="Username" aria-describedby="basic-addon1"
+                                    disabled>
                                 <span id='cor_email' class="confirmSpan"></span>
-                                <input name="up_account" type="text" class="hidden" value="a echo $acc; ?>">
+                                <input name="up_account" type="text" class="hidden" value="a  $acc; ?>">
 
                             </div>
 
@@ -80,27 +86,35 @@
                             </p>
                             <p class="validUpdate"></p>
                             <div class="input-group mb-3 ">
-                                <input id="old_password" name="old_password" type="text" class="password2 form-control ml-5 mr-5" placeholder="舊密碼" aria-label="Password" aria-describedby="basic-addon1" required onchange=confirmPsw()>
+                                <input id="old_password" name="old_password" type="text"
+                                    class="password2 form-control ml-5 mr-5" placeholder="舊密碼" aria-label="Password"
+                                    aria-describedby="basic-addon1" required onchange=confirmPsw()>
                                 <i class="checkEye2 fas fa-eye"></i>
                                 <span id='old_password' class="confirmSpan"></span>
                             </div>
                             <span class="memo ml-5 mt-2 ">*請輸入6~16位英數字組合而成的密碼，請至少含一個英文大寫*</span>
                             <div class="input-group mb-1">
-                                <input id="up_password" name="fg_password" type="text" class="password2 form-control ml-5 mr-5" placeholder="新密碼" aria-label="Password" aria-describedby="basic-addon1" required>
+                                <input id="up_password" name="fg_password" type="text"
+                                    class="password2 form-control ml-5 mr-5" placeholder="新密碼" aria-label="Password"
+                                    aria-describedby="basic-addon1" required>
                                 <i class="checkEye2 fas fa-eye"></i>
                                 <span id='cor_password' class="confirmSpan"></span>
 
                             </div>
                             <div class="input-group mb-3 ">
-                                <input id="new_password2" name="new_password2" type="text" class="password2 form-control ml-5 mr-5" placeholder="請再次輸入新密碼" aria-label="Password" aria-describedby="basic-addon1" required>
+                                <input id="new_password2" name="new_password2" type="text"
+                                    class="password2 form-control ml-5 mr-5" placeholder="請再次輸入新密碼"
+                                    aria-label="Password" aria-describedby="basic-addon1" required>
                                 <i class="checkEye2 fas fa-eye"></i>
                                 <span id='cor_password2' class="confirmSpan"></span>
                             </div>
-                            <input id="fg_email" name="fg_email" type="text" class="form-control ml-5 mr-5 hidden" value="a echo $email; ?>" aria-label="Username" aria-describedby="basic-addon1">
+                            <input id="fg_email" name="fg_email" type="text"
+                                class="form-control ml-5 mr-5 hidden" value="a  $email; ?>" aria-label="Username"
+                                aria-describedby="basic-addon1">
                             <div class="input-group mb-3">
                                 <input class='btn-block ml-5 mr-5 btn btn-success' type="submit" value="更新密碼">
                             </div>
-                            <input name="id" type="text" class="hidden" value="{{$member->mid}}" />
+                            <input name="id" type="text" class="hidden" value="{{ $member->mid }}" />
                             <input name="view" type="text" class="hidden" value="mb.updateData" />
                         </form>
                         <!-- <form id='point_form' class="m-5 hidden" action="../php/updateData.php" method="post">
@@ -119,7 +133,42 @@
                                     <th scope="col">訂單金額</th>
                                 </tr>
                             </table>
-                            
+                            @foreach ($memberOrder as $Order)
+                                <div class="accordion" id="accordionExample">
+                                    <div class="card">
+                                        <div class="card-header order_tr" id="heading{{ $Order->oid }}">
+                                            <div class="" data-toggle="collapse"
+                                                data-target="#collapse{{ $Order->oid }} " aria-expanded="true"
+                                                aria-controls="collapse{{ $Order->oid }} ">
+                                                <table class="order_data">
+                                                    <tr>
+                                                        <td>{{ $Order->oid }}</td>
+                                                        <td>{{ $Order->orderdate }}</td>
+                                                        <td>{{ $Order->payment->payment }}</td>
+                                                        <td>{{ $Order->deliver->deliver }}</td>
+                                                        <td><span class=total_per>{{ $Order->total }}</span></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="collapse{{ $Order->oid }}" class="collapse"
+                                            aria-labelledby="heading{{ $Order->oid }}"
+                                            data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                @foreach
+                                                
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                </table>
+                            @endforeach
+
+                            </table>
+
                         </form>
 
                     </div>
@@ -128,12 +177,12 @@
         </div>
     </div>
 
-    
+
     <!-- 購物車標誌 -->
     <div id="slide_buycart">
         @include('front_side_frame.buyCartIcon')
-    
-      </div>
+
+    </div>
     <!-- 頁尾 -->
     <div class='footerpage'>
         @include('front_side_frame.footer')

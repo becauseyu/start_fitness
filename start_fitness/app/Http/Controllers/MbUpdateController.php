@@ -59,8 +59,19 @@ class MbUpdateController extends Controller
             $member->tel_text = '';
         }
 
-        return view('mb.update', compact('text', 'member'));
+        //訂單
+        $memberOrder = $member->memberOrder;
+
+
+
+
+
+        return view('mb.update', compact('text', 'member','memberOrder'));
+     
+
+
     }
+
 
 
 

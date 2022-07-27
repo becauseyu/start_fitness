@@ -65,6 +65,10 @@ Route::get('/payment/page01','App\Http\Controllers\PaymentController@payment');
 
 Route::post('/payment/page02','App\Http\Controllers\PaymentController@page02');
 Route::post('/payment/page03','App\Http\Controllers\PaymentController@page03');
+Route::post('/payment/addOrder','App\Http\Controllers\PaymentController@addorder');
+Route::get('/payment/addOrder','App\Http\Controllers\PaymentController@addorder');
+
+
 
 
 

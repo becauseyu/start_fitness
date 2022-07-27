@@ -76,7 +76,7 @@
                 <div>{{$food->branddetail->bname}}</div>
                 </div>
                 <p class='head-font'>{{$food->pname}}-{{$food->pstyle}}</p>
-                <p class='price-font'>NT$<span id='single_price'>{{$food->pprice}}</span><i class='mx-2 fa-solid fa-cart-shopping'></i></p>
+                <p class='price-font'>NT$<span id='single_price'>{{$food->pprice}}</span><i class='mx-2 fa-solid fa fa-shopping-cart'></i></p>
                 </div>
                 </div>
   
@@ -111,7 +111,7 @@
                 <div>{{$gym->branddetail->bname}}</div>
                 </div>
                 <p class='head-font'>{{$gym->pname}}-{{$gym->pstyle}}</p>
-                <p class='price-font'>NT$<span id='single_price'>{{$gym->pprice}}</span><i class='mx-2 fa-solid fa-cart-shopping'></i></p>
+                <p class='price-font'>NT$<span id='single_price'>{{$gym->pprice}}</span><i class='mx-2 fa-solid fa fa-shopping-cart'></i></p>
                 </div>
                 </div>
   

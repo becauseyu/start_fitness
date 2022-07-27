@@ -11,6 +11,7 @@ use App\Models\Branddetail;
 use App\Models\Payment;
 use App\Models\Deliver;
 use App\Models\Memberorder;
+use App\Models\OrderDeatail;
 use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
@@ -75,23 +76,22 @@ class PaymentController extends Controller
         // 已經有會員資料
         // 還要上一頁資料
 
-        if ($request->input('payment') && $request->input('deliver') && $request->input('total')){
+        if ($request->input('payment') && $request->input('deliver') && $request->input('total')) {
             $member->pay = $request->input('payment');
             $member->del = $request->input('deliver');
             $member->total = $request->input('total');
-
-        }else{
+        } else {
             // 資料不齊，跳回上一頁
             return redirect('/payment/page01');
         }
 
-        return view('payment.page02', compact('text','member'));
-
+        return view('payment.page02', compact('text', 'member'));
     }
 
 
 
-    function page03(Request $request) {
+    function page03(Request $request)
+    {
         $text = (object) [];
         $text->title = '(3)已送出-購物車';
 
@@ -111,19 +111,7 @@ class PaymentController extends Controller
             $text->body = '連線逾時，請重新登入';
             return view('mb.confirmAcc', compact('text'));
         }
-        //---------------------------------------------------------------
-        // 設定時區
-    //     "_token" => "kagKKETb9a9quQtzDJRzGj1xOsBPPk8sUTkZGCHB"
-    //   "del_method" => "新竹物流宅配"
-    //   "pay_method" => "貨到付款"
-    //   "customer_name" => "Lai"
-    //   "customer_email" => "stfs0723@gmail.com"
-    //   "customer_tel" => "0988888877"
-    //   "order_memo" => null
-    //   "del_name" => "222"
-    //   "del_tel" => "0922222222"
-    //   "del_addr" => "wwwwwww"
-    //   "isAgree" => null
+
         date_default_timezone_set('Asia/Taipei');
         // 訂購人id
         $mid = $member->mid;
@@ -136,9 +124,9 @@ class PaymentController extends Controller
         // 收件人名字
         $name = $request->input('del_name');
         //找到送貨did
-        $did = Deliver::where('deliver',$request->input('del_method'))->first()->did;
+        $did = Deliver::where('deliver', $request->input('del_method'))->first()->did;
         // 找到付款方式paid
-        $paid = Payment::where('payment',$request->input('pay_method'))->first()->paid;
+        $paid = Payment::where('payment', $request->input('pay_method'))->first()->paid;
         // memmo 這是啥?
         $memo = $request->input('order_memo') || '無特殊備註';
         //total
@@ -146,30 +134,52 @@ class PaymentController extends Controller
 
         // dd($mid,$date,$address,$tel,$name,$did,$paid);
         try {
-            if ($mid && $date && $address && $tel && $name && $did && $paid){
-                $order = (new Memberorder)->createNewOrder($mid, $date, $address, $tel ,$name, $did ,$paid ,$memo,$total);
+            if ($mid && $date && $address && $tel && $name && $did && $paid) {
+                $order = (new Memberorder)->createNewOrder($mid, $date, $address, $tel, $name, $did, $paid, $memo, $total);
+                return view('payment.page03', compact('order'));
+            } else {
+                return redirect('/payment/page01');
             }
-            dd($order);
-
-
         } catch (\Throwable $th) {
-            
+
             // 有任何錯誤，回去第1步
             return redirect('/payment/page01');
         }
+        //---------------------------------------------------------------
+        // 設定時區
+        //     "_token" => "kagKKETb9a9quQtzDJRzGj1xOsBPPk8sUTkZGCHB"
+        //   "del_method" => "新竹物流宅配"
+        //   "pay_method" => "貨到付款"
+        //   "customer_name" => "Lai"
+        //   "customer_email" => "stfs0723@gmail.com"
+        //   "customer_tel" => "0988888877"
+        //   "order_memo" => null
+        //   "del_name" => "222"
+        //   "del_tel" => "0922222222"
+        //   "del_addr" => "wwwwwww"
+        //   "isAgree" => null
 
+
+
+        return view('payment.page03', compact('text'));
+    }
+
+    function addorder(Request $request)
+    {
+        $oid = $request->input('oid');
+        $name = $request->input('name');
+        $style = $request->input('style');
+        $count = $request->input('count');
+        $pid = Goodsdetail::where('pname',$name)->where('pstyle',$style)->first()->pid;
+        // dd($oid,$name,$style,$count,$pid);
+        $addOrder = (new OrderDeatail)->createNewOrderDetail($oid,$pid,$count);
+        dd($addOrder);
         
 
-
-        
-    
-
-        
-        return view('payment.page03',compact('text'));
 
     }
 
-
+    
 
 
 
@@ -287,6 +297,3 @@ class PaymentController extends Controller
 // } else {
 //     header("Location:/Maria/html/mb_login.php");
 // }
-
-
-

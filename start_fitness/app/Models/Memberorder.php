@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Payment;
 use App\Models\Deliver;
+use App\Models\OrderDeatail;
 
 class Memberorder extends Model
 {
@@ -54,5 +55,10 @@ class Memberorder extends Model
     public function deliver()
     {
         return $this->belongsTo(Deliver::class, 'did', 'did');
+    }
+        // 連動送貨方法
+    public function orderDetail()
+    {
+        return $this->hasMany(OrderDeatail::class, 'oid', 'oid');
     }
 }
