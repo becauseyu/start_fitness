@@ -1,4 +1,4 @@
-$('.footerpage').load('./footer.html')
+// $('.footerpage').load('./footer.html')
 
 //新增側邊購物車
 //------------------點擊【x】關閉購物車-----------------------------//

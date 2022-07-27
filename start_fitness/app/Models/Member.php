@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Log;
+use App\Models\Statusdetail;
 
 class Member extends Model
 {
@@ -20,7 +21,26 @@ class Member extends Model
     // }
 
 
+    // 連結Staid
+    function statusdetail() {
+        return $this->belongsTo(Statusdetail::class,'staId','staId');
+    }
 
+    // 連結log
+    function lastLogin($account) {
+        try {
+            $lastLogin =Log::where('body','like','會員登入%')->where('body','like','%'.$account)->orderBy('id','desc')->first();
+            if ($lastLogin) {
+                return $lastLogin->date;
+            }else{
+                return '尚無登入1';
+            }
+            
+        } catch (\Throwable $th) {
+            return '尚無登入2';
+        }
+        return Log::where('body','like','會員登入%')->where('body','like','%'.$account)->last();
+    }
 
     // 用帳號驗證
     function accountCheck($account, $password)
@@ -106,6 +126,23 @@ class Member extends Model
 
             $member = $this::where('email', $email)->first();
             return $member;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
+
+
+    // 管理員驗證
+    function isController($account){
+        try {
+            
+            $member = Member::where('account',$account)->firts();
+            if ($member->statusdetail->staName == '管理員') {
+                return $member;
+            }else{
+                return false;
+            }
         } catch (\Throwable $th) {
             return false;
         }

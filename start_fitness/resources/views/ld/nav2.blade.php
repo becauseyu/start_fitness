@@ -40,14 +40,14 @@
 
                 <li class="nav-iteml ">
                     <a class="nav-link font-nav 
-                    @if($focus == 1)
+                    @if(Request::is('ld/member/list'))
                      active
                     @endif
                     " href="/ld/member/list">會員管理</a>
                 </li>
                 <li class="nav-iteml ">
                     <a class="nav-link font-nav
-                    @if($focus == 2)
+                    @if(Request::is('ld/artile/list'))
                      active
                     @endif
                     " href="#">文章管理</a>
@@ -59,14 +59,14 @@
 
                 <li class="nav-itemr ">
                     <a class="nav-link font-nav
-                    @if($focus == 3)
+                    @if(Request::is('ld/order/list'))
                      active
                     @endif
                     " href="#">訂單管理</a>
                 </li>
                 <li class="nav-itemr ">
                     <a class="nav-link font-nav
-                    @if($focus == 4)
+                    @if(Request::is('ld/goods/list'))
                      active
                     @endif
                     " href="/ld/goods/list">庫存管理</a>
@@ -113,7 +113,7 @@
     </div>
 
 
-
+@yield('script')
 
 
 

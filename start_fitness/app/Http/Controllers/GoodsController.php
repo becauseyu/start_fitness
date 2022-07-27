@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Goodsdetail;
 use App\Models\Branddetail;
+use App\Models\Member;
+
+use Illuminate\Support\Facades\Session;
 
 class GoodsController extends Controller
 {
@@ -13,12 +16,47 @@ class GoodsController extends Controller
     {
         $text = (object) [];
         $text->title = 'goods_index';
+        $compact_var = ['text'];
+
+
+
+        //會員身分驗證
+        // 會員驗證----------------------------------------------------
+        try {
+            $acc = Session::get('account');
+            $verify = Session::get('verify');
+
+            $member = Member::where('account', $acc)->first();
+            if (md5($member->psw . $acc) == $verify) {
+                $text->memberStatus = true;
+                array_push($compact_var, 'member');
+            } else {
+                $text->memberStatus = false;
+            }
+        } catch (\Throwable $th) {
+            $text->memberStatus = false;
+        }
+
+
+
+
+
         // 撈資料庫
 
+        try {
+            $foodList = Goodsdetail::where('ptype', 'food')->where('ppic', 'like', '%00%')->get();
+            $gymList = Goodsdetail::where('ptype', 'gym')->where('ppic', 'like', '%00%')->get();
+            
+        } catch (\Throwable $th) {
 
-        $foodList = Goodsdetail::where('ptype', 'food')->where('ppic', 'like', '%00%')->get();
-        $gymList = Goodsdetail::where('ptype', 'gym')->where('ppic', 'like', '%00%')->get();
-        return view('goods.index', compact('text', 'foodList', 'gymList'));
+            // 資料庫死掉的時候不會出錯
+            $foodList = (object) [];
+            $gymList  = (object) [];
+        }
+        array_push($compact_var, 'foodList','gymList');
+
+
+        return view('goods.index', compact($compact_var));
     }
 
 
@@ -54,14 +92,14 @@ class GoodsController extends Controller
 
 
         // 抓flavor 資料
-        $flavorList_img = Goodsdetail::where('pname',$good->pname)->get();
-        $flavorList_btn = Goodsdetail::where('pname',$good->pname)->groupBy('pstyle')->get();
+        $flavorList_img = Goodsdetail::where('pname', $good->pname)->get();
+        $flavorList_btn = Goodsdetail::where('pname', $good->pname)->groupBy('pstyle')->get();
 
 
 
 
 
-        return view('goods.data', compact('text','good','flavorList_img','flavorList_btn'));
+        return view('goods.data', compact('text', 'good', 'flavorList_img', 'flavorList_btn'));
     }
 
 
