@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Goodsdetail;
 
 class OrderDeatail extends Model
 {
@@ -28,5 +29,8 @@ class OrderDeatail extends Model
         }
     }
 
+    function goodsdetail(){
+        return $this->belongsTo(Goodsdetail::class, 'pid', 'pid');
+    }
 
 }

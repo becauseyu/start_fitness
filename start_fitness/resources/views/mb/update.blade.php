@@ -120,7 +120,7 @@
                         <!-- <form id='point_form' class="m-5 hidden" action="../php/updateData.php" method="post">
                             購物金
                         </form> -->
-                        <form id='order_form' class="m-3 hidden " action="../php/updateData.php" method="post">
+                        <form id='order_form' class="m-3 hidden ">
                             <!-- 訂單時間<input type="date" class="m-2" />至<input type="date" class="m-2" />
                             <input type="button" value="搜尋">
                             <i class="fa fa-search" aria-hidden="true"></i><span class="memo">請輸入欲查詢的區間，訂單效期為6個月</span> -->
@@ -155,9 +155,45 @@
                                             aria-labelledby="heading{{ $Order->oid }}"
                                             data-parent="#accordionExample">
                                             <div class="card-body">
-                                                @foreach
-                                                
-                                                
+                                                <table class="table order_data " border="1px">
+                                                    <tr>
+                                                        <td colspan='2'>收件人大名</td>
+                                                        <td colspan='3'>{{ $Order->delName }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan='2'>收件人電話</td>
+                                                        <td colspan='3'>{{ $Order->delTel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan='2'>收件人地址</td>
+                                                        <td colspan='3'>{{ $Order->delAddr }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="col">產品圖示</th>
+                                                        <th scope="col">產品名稱</th>
+                                                        <th scope="col">產品單價</th>
+                                                        <th scope="col">購買數量</th>
+                                                        <th scope="col">小計</th>
+                                                    </tr>
+
+                                                    @foreach ($Order->orderDetail as $detail)
+                                                        <tr>
+                                                            <td><img class='detail_img'
+                                                                    src='/image/{{ $detail->goodsdetail->ptype }}/{{ $detail->goodsdetail->ppic }}' />
+                                                            </td>
+                                                            <td>{{ $detail->goodsdetail->pname }}<br />{{ $detail->goodsdetail->pstyle }}
+                                                            </td>
+                                                            <td>{{ $detail->goodsdetail->pprice }}</td>
+                                                            <td>{{ $detail->amount }}</td>
+                                                            <td>{{ $detail->amount * $detail->goodsdetail->pprice }}</td>
+                                                        </tr>
+                                                        </tr>
+                                                    @endforeach
+
+
+                                                </table>
+
+
 
                                             </div>
                                         </div>
