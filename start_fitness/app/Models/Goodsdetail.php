@@ -23,9 +23,33 @@ class Goodsdetail extends Model
         return $this->belongsTo(Branddetail::class, 'bid', 'bid');
     }
 
-    // 
+    // 撈同名口味
     public function flavor(){
         return $this->hasMany(Goodsdetail::class,'pname','pname');
     }
+
+    // 創建新商品
+    function createNewGoods($ptype,$bid,$pstyle,$pname,$pcount,$ppic,$pprice) {
+        {
+            try {
+    
+                $goods = $this::create([
+                    'ptype' => $ptype,
+                    'bid' => $bid,
+                    'pstyle' => $pstyle,
+                    'pname' => $pname,
+                    'pcount' => $pcount,
+                    'ppic' => $ppic, 
+                    'pprice' => $pprice
+                ]);
+                return $goods;
+            } catch (\Throwable $th) {
+                return false;
+            }
+        }
+    }
+
+
+
         
 }

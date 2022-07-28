@@ -116,17 +116,23 @@
             </div>
         </div>
 
+
+
+
         <div class="container mt-4" data-aos="fade-right">
             <div class="boxfd">
                 <h3 class="boxcolor2">Mini game</h3>
                 <hr>
-                <img class='m-3' src="/image/minigame.jpg">
-                <h5 class="boxcolor1">用BMI小遊戲，做個遠離高熱量食物的想像訓練吧 ( ﾟдﾟ)▄︻┻┳═一</h5>
-                <div class="">
-                    <a href="food/minigame" class="text-right font-weight-light">
-                        <p class=""> 點我前往小遊戲...</p>
-                    </a>
+
+                <div class="row">
+                    <img  class="img-fluid rounded col-6" src="/image/minigame.jpg" alt="" height="100">
+                    <h5 class="boxcolor1 col-6">用BMI小遊戲，做個遠離高熱量食物的想像訓練吧!! <br><br> 一═┳┻︻▄( ﾟдﾟ)▄︻┻┳═一</h5>
                 </div>
+                
+                <a href="food/minigame" class="text-right font-weight-light">
+                    <p class=""> 點我前往小遊戲...</p>
+                </a>
+
             </div>
       
 
@@ -138,7 +144,7 @@
                 <hr>
                 <div class=" row">
                     <div class="col-4 ">
-                        <a href="#" class=" ">
+                        
                             <figure class="figure ">
                                 <img src="/image/food/popcron03.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
                                     height="250">
@@ -147,10 +153,10 @@
                                     <p class="">淡淡鹽味，清爽少負擔</p>
                                 </figcaption>
                             </figure>
-                        </a>
+                        
                     </div>
                     <div class="col-4 ">
-                        <a href="#" class=" ">
+                        
                             <figure class="figure ">
                                 <img src="/image/food/fruitwater02.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
                                     height="250">
@@ -159,10 +165,10 @@
                                     <p class="">柑橘香，喝水好心情</p>
                                 </figcaption>
                             </figure>
-                        </a>
+                        
                     </div>
                     <div class="col-4 ">
-                        <a href="#" class=" ">
+                        
                             <figure class="figure ">
                                 <img src="/image/food/jelly03.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
                                     height="250">
@@ -171,7 +177,7 @@
                                     <p class="">午後時光必備零食</p>
                                 </figcaption>
                             </figure>
-                        </a>
+                        
 
                     </div>
                 </div>

@@ -176,7 +176,7 @@
                 <hr>
                 <div class=" row">
                     <div class="col-4 ">
-                        <a href="#" class=" ">
+                        
                             <figure class="figure ">
                                 <img src="/image/gym/bottle01.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
                                     height="250">
@@ -185,10 +185,10 @@
                                     <p class="">氣萌團子</p>
                                 </figcaption>
                             </figure>
-                        </a>
+                        
                     </div>
                     <div class="col-4 ">
-                        <a href="#" class=" ">
+                        
                             <figure class="figure ">
                                 <img src="/image/gym/foamroller00.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
                                     height="250">
@@ -197,10 +197,10 @@
                                     <p class="">舒緩肌肉的好夥伴</p>
                                 </figcaption>
                             </figure>
-                        </a>
+                        
                     </div>
                     <div class="col-4 ">
-                        <a href="#" class=" ">
+                        
                             <figure class="figure ">
                                 <img src="/image/gym/resistanceband00.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
                                     height="250">
@@ -209,7 +209,7 @@
                                     <p class="">一條帶子 練遍全身</p>
                                 </figcaption>
                             </figure>
-                        </a>
+                        
 
                     </div>
                 </div>
