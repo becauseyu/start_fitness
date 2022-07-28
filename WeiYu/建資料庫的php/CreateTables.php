@@ -138,7 +138,7 @@ function create_goodsdetail_table($mysqli) {
     `pcount` INT NOT NULL,
     `ppic` VARCHAR(128) NOT NULL,
     `pprice` INT NOT NULL ,
-    `staid` SMALLINT NOT NULL DEFAULT 0,
+    `staid` SMALLINT NOT NULL DEFAULT 1,
     PRIMARY KEY (`pid`)) ENGINE = InnoDB;";
     $result = $mysqli->query($sql);
     if ($result) { echo 'table goodsdetail is created';}else{echo 'Have error when create table goodsdetail, or it is exist';};
