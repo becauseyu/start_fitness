@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Traits\PhpMailTrait;
 use App\Models\Member;
 use App\Models\Log;
-
+use App\Models\Memberorder;
 use Illuminate\Support\Facades\Session;
 
 
@@ -61,6 +61,11 @@ class MbUpdateController extends Controller
 
         //訂單
         $memberOrder = $member->memberOrder;
+        
+        foreach ($memberOrder as $order) {
+            $order->orderNumber =(new Memberorder)->createOrderNumber($order->oid);
+        }
+        
 
 
 

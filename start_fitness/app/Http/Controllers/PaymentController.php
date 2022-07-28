@@ -139,7 +139,7 @@ class PaymentController extends Controller
                 $order = (new Memberorder)->createNewOrder($mid, $date, $address, $tel, $name, $did, $paid, $memo, $total);
                 $order->orderNumber = (new Memberorder)->createOrderNumber($order->oid);
                 
-                (new Log)->writeLoginNewOrder($order->oid);
+                (new Log)->writeLoginNewOrder($order->orderNumber);
                 
                 return view('payment.page03', compact('order','text','member'));
             } else {
