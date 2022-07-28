@@ -41,51 +41,47 @@
                 </div>
                 <li class="nav-itemr ">
                     <a class="nav-link font-nav 
-                    @if(Request::is('ld/member/list'))
-                     active
-                    @endif
-                    " href="/ld/member/list">會員管理</a>
+                    @if (Request::is('ld/member/list')) active @endif
+                    "
+                        href="/ld/member/list">會員管理</a>
                 </li>
                 <li class="nav-itemr">
                     <a class="nav-link font-nav
-                    @if(Request::is('ld/goods/list'))
-                     active
-                    @endif
-                    " href="/ld/goods/list">庫存管理</a>
+                    @if (Request::is('ld/goods/list')) active @endif
+                    "
+                        href="/ld/goods/list">庫存管理</a>
                 </li>
                 <li class="nav-itemr">
                     <a class="nav-link font-nav
-                    @if(Request::is('/ld/log/list'))
-                     active
-                    @endif
-                    " href="/ld/log/list">網站活動紀錄</a>
+                    @if (Request::is('/ld/log/list')) active @endif
+                    "
+                        href="/ld/log/list">網站活動紀錄</a>
                 </li>
             </div>
 
-                {{-- <li class="nav-iteml ">
+            {{-- <li class="nav-iteml ">
                     <a class="nav-link font-nav
-                    @if(Request::is('ld/artile/list'))
+                    @if (Request::is('ld/artile/list'))
                      active
                     @endif
                     " href="#">文章管理</a>
                 </li> --}}
 
-                {{-- <li class="nav-itemr ">
+            {{-- <li class="nav-itemr ">
                     <a class="nav-link font-nav
-                    @if(Request::is('ld/order/list'))
+                    @if (Request::is('ld/order/list'))
                      active
                     @endif
                     " href="#">訂單管理</a>
                 </li> --}}
- 
+
 
             <div class="col-2 navbar-nav justify-content-end">
                 <li class="nav-iteml">
                     <a class="nav-link font-nav
-                    @if(Request::is('/ld/logout'))
-                     active
-                    @endif
-                    " href="/ld/logout">登出</a>
+                    @if (Request::is('/ld/logout')) active @endif
+                    "
+                        href="/ld/logout">登出</a>
                 </li>
             </div>
         </div>
@@ -96,15 +92,20 @@
 
 
         <!-- 上一頁/下一頁/快速搜尋 -->
-        <div class="d-flex justify-content-center ">
-            <a class="button01 mr-3" href=@yield('prevPageUrl')>上一頁</a>
-            <a class="button01" href=@yield('nextPageUrl')>下一頁</a>
-            <form action="/ld/member/list/search" method="GET">
-                @csrf
-                <label for="search">快速搜尋</label>
-                <input type="text" placeholder="Search.." name="search" id="search">
-                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-            </form>
+        <div class="mb-2 d-flex cen "style="line-height:20px">
+            <div class="mr-3">
+                <form action="/ld/member/list/search" method="GET" class="search">
+                    @csrf
+                    <label for="search" class="label01">快速搜尋:</label>
+                    <input type="text" placeholder="Search..." name="search" id="search">
+                    <button  class="button02" type="submit" ><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>
+            <div class="ml-2 d-flex ">
+                <a class="button01 mr-3" href=@yield('prevPageUrl')>上一頁</a>
+                <a class="button01" href=@yield('nextPageUrl')>下一頁</a>
+            </div>
+
         </div>
 
 
@@ -112,9 +113,9 @@
 
 
 
-        <div class="mt-4 d-flex justify-content-center">
-            <a  class="button01 mr-3" href=@yield('prevPageUrl')>上一頁</a>
-            <a  class="button01" href=@yield('nextPageUrl')>下一頁</a>
+        <div class="mt-3 d-flex justify-content-center">
+            <a class="button01 mr-3" href=@yield('prevPageUrl')>上一頁</a>
+            <a class="button01" href=@yield('nextPageUrl')>下一頁</a>
         </div>
 
 
@@ -124,7 +125,7 @@
     </div>
 
 
-@yield('script')
+    @yield('script')
 
 
 
