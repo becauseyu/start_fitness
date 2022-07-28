@@ -364,3 +364,14 @@
 
 
 /* -------------------- */
+
+.cart-size {
+    font-size: 18px; 
+    font-weight: 500;
+}
+
+.money-size {
+    font-size: 16px; 
+    font-weight: 500;
+
+}
