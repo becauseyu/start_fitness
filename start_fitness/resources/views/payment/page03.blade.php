@@ -25,7 +25,7 @@
     <div class="">
       <div class="progress-container">
         <!-- 進度條本體 -->
-        <div class="progress" id="progress" style="width: 100%;"></div>
+        <div class="progress10" id="progress" style="width: 100%;"></div>
         <!-- 進度條的圈圈（Steps） -->
         <div class="circle active">1</div>
         <div class="circle active">2</div>
@@ -41,7 +41,7 @@
         <div class="order-form-content1">
           <div class="section-header1"></div>
           <div class="checkicon">
-            <i class="fa-solid fa-circle-check checkiocn1"></i>
+            <i class="fa-solid fa fa-check-circle checkiocn1"></i>
             <p class="check-text">
               您的訂單已成功送出
             </p>
