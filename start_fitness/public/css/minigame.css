@@ -45,12 +45,12 @@
 }
 
 canvas {
-
     width: 100%;
     height: 100%;
-    border: 1px solid #afd1fb;
-    background-color: #a5c9f5;
+    border: 1px solid #cce3ff;
+    background-color: #a0c9f9;
     border-radius: 1%;
+    box-shadow: 1px 1px 2px rgba(186, 206, 219, 0.935);
 }
 
 #start_button,
@@ -62,8 +62,8 @@ canvas {
     /* height: 50px; */
     /* line-height : 50px; */
 
-    border: 3px solid #ffa94d;
-    color: #ffae58;
+    border: 4px solid #f09a3e;
+    color: #ff9e35;
     cursor: pointer;
     border-radius: 5px;
     align-items: center;
@@ -71,8 +71,7 @@ canvas {
     font-size: 50px;
     /* border-radius: 5px; */
     transform: translate(-50%, -50%);
-    text-shadow: 1px 1px 2px rgba(148, 133, 117, 0.7);
-    /* box-shadow: 3px 2px 3px rgba(250, 231, 207, 0.7); */
+    text-shadow: 1px 1px 2px rgba(123, 111, 97, 0.7);
 }
 
 #again_button {
@@ -220,10 +219,10 @@ canvas {
     /* height: 100%; */
     /* object-fit: contain; */
     border-radius: 5px;
-    box-shadow: 3px 3px 4px  rgba(215, 213, 211, 0.7);
+    box-shadow: 3px 3px 4px rgba(215, 213, 211, 0.7);
 }
 
 .bigImage88:hover {
-    box-shadow: 3px 3px 3px  rgba(206, 196, 183, 0.7);
-  
+    box-shadow: 3px 3px 3px rgba(206, 196, 183, 0.7);
+
 }

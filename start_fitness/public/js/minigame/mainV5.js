@@ -87,9 +87,9 @@ var junkFood_burger = {
 }
 
 var junkFood_pizza = {
-    radius: 70,
+    radius: 120,
     weight: 20,
-    speed: 8,
+    speed: 18,
     liveTime: 10,
     image: new Image(),
 }
