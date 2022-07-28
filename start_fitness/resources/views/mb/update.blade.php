@@ -142,7 +142,23 @@
                                                 aria-controls="collapse{{ $Order->oid }} ">
                                                 <table class="order_data">
                                                     <tr>
-                                                        <td>{{ $Order->oid }}</td>
+                                                        @if($Order->oid < 10)
+                                                        <td>0000000{{$Order->oid}}</td>
+                                                          @elseif($Order->oid >=10 && $Order->oid<100)
+                                                          <td>000000{{$Order->oid}}</td>
+                                                          @elseif($Order->oid >=100 && $Order->oid<1000)
+                                                          <td>00000{{$Order->oid}}</td>
+                                                          @elseif($Order->oid >=1000 && $Order->oid<10000)
+                                                          <td>0000{{$Order->oid}}</td>
+                                                          @elseif($Order->oid >=10000 && $Order->oid<100000)
+                                                          <td>000{{$Order->oid}}</td>
+                                                          @elseif($Order->oid >=100000 && $Order->oid<1000000)
+                                                          <td>00{{$Order->oid}}</td>
+                                                            @elseif($Order->oid >=1000000 && $Order->oid<10000000)
+                                                            <td>0{{$Order->oid}}</td>
+                                                              @else
+                                                              <td>{{$Order->oid}}</span></span>
+                                                          @endif
                                                         <td>{{ $Order->orderdate }}</td>
                                                         <td>{{ $Order->payment->payment }}</td>
                                                         <td>{{ $Order->deliver->deliver }}</td>
