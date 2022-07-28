@@ -231,7 +231,7 @@ body {
 .iconcenterr{
     position: absolute;
     top: 51%;
-    /* right: 85%; */
+    right: 85%;
     justify-content: center;
     align-items: center;
 }
@@ -293,7 +293,7 @@ body {
 .iconcenter1{
     position: absolute;
     top: 51%;
-    /* left: 85%; */
+    left: 85%;
     justify-content: center;
     align-items: center;
 }
