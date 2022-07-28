@@ -44,7 +44,7 @@ class PaymentController extends Controller
 
 
 
-        return view('payment.page01', compact('text'));
+        return view('payment.page01', compact('text','member'));
     }
 
     // 商品確認頁
@@ -82,6 +82,7 @@ class PaymentController extends Controller
             $member->total = $request->input('total');
         } else {
             // 資料不齊，跳回上一頁
+            // dd($request);
             return redirect('/payment/page01');
         }
 
@@ -136,7 +137,7 @@ class PaymentController extends Controller
         try {
             if ($mid && $date && $address && $tel && $name && $did && $paid) {
                 $order = (new Memberorder)->createNewOrder($mid, $date, $address, $tel, $name, $did, $paid, $memo, $total);
-                return view('payment.page03', compact('order'));
+                return view('payment.page03', compact('order','text','member'));
             } else {
                 return redirect('/payment/page01');
             }
@@ -161,7 +162,7 @@ class PaymentController extends Controller
 
 
 
-        return view('payment.page03', compact('text'));
+        return view('payment.page03', compact('text','member'));
     }
 
     function addorder(Request $request)

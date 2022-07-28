@@ -56,7 +56,7 @@ if (goodstList) {
 //===================點擊觸發購物車與增加品項=======================//
 
 
-$('.fa-shopping-cart').on('click', function () {
+$('.cart2').on('click', function () {
   $('#slide_buycart').css('visibility', 'visible')
   var goods_name = $(this).parent().parent().find('p').eq(0).text()
   // console.log(goods_name)
