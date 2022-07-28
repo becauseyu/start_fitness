@@ -34,6 +34,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        {{-- 瀏覽列 --}}
         <div class=" collapse navbar-collapse row" id="myNavbarToggler7">
             <div class="col-10 navbar-nav ">
                 <div class="ml-5 mr-3 d-none d-lg-block">
@@ -92,7 +93,7 @@
 
 
         <!-- 上一頁/下一頁/快速搜尋 -->
-        <div class="mb-2 d-flex cen "style="line-height:20px">
+        {{-- <div class="mb-2 d-flex cen "style="line-height:20px">
             <div class="mr-3">
                 <form action="/ld/member/list/search" method="GET" class="search">
                     @csrf
@@ -101,11 +102,10 @@
                     <button  class="button02" type="submit" ><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>
-            <div class="ml-2 d-flex ">
-                <a class="button01 mr-3" href=@yield('prevPageUrl')>上一頁</a>
-                <a class="button01" href=@yield('nextPageUrl')>下一頁</a>
-            </div>
-
+        </div> --}}
+        <div class="d-flex cen mt-0">
+            <a class="button01 mr-3" href=@yield('prevPageUrl')>上一頁</a>
+            <a class="button01" href=@yield('nextPageUrl')>下一頁</a>
         </div>
 
 
