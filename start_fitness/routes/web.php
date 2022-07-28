@@ -142,6 +142,9 @@ Route::get('/ld/goods/onShelf/{id}','App\Http\Controllers\LdGoodsController@onSh
 Route::get('/ld/goods/deleteAll/{id}','App\Http\Controllers\LdGoodsController@deleteAll');
 Route::get('/ld/goods/deleteOne/{id}','App\Http\Controllers\LdGoodsController@deleteOne');
 
+// 新增
+Route::get('/ld/goods/create','App\Http\Controllers\LdGoodsController@bigCreateList');
+Route::post('/ld/goods/create','App\Http\Controllers\LdGoodsController@bigCreate');
 
 // just test
 Route::get('/test','App\Http\Controllers\TestController@index');
