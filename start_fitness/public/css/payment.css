@@ -115,6 +115,25 @@
    transition: 0.4s ease;
 }
 
+.progress10 {
+   /* 這裡使用了事先定義的已完成進度顏色 */
+   background-color: #fdb280 !important;
+
+   /* height 一樣 4px，width在切版時可以先放成 50%，調整好再改回進度為 0% 的狀態 */
+   /* 附圖為 50% 的狀態 */
+   height: 6px;
+   width: 0%;
+
+   /* 一樣使用 relative-absolute把已完成進度條也放到正確位置上 */
+   position: absolute;
+   top: 50%;
+   left: 0;
+   transform: translateY(-50%);
+
+   /* 這裡用 transition 做出一點動畫效果*/
+   transition: 0.4s ease;
+}
+
 
 .btnr {
    background-color: var(--line-border-fill);
@@ -307,7 +326,7 @@
 /* 結帳第三頁 */
 
 .checkiocn1 {
-   font-size:100px; 
+   font-size:100px !important; 
 }
 
 .checkicon{

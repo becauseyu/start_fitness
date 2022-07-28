@@ -24,10 +24,10 @@ if (goodstList) {
 		<div class="col-8 col-sm-4 col-md-4 text-center d-flex">
 		  <div class="col-sm-6  cart-items"><img src="${data.img}" class="image float-right"></div>
 		  <div class="col-sm-6  text-left">
-			<h4>${data.name}</h4>
+			<p class="cart-size">${data.name}</p>
 		  </div>
 		</div>
-		<div class="col-4 col-sm-2 col-md-2 text-center ">NT$${data.singlePrice}
+		<div class="col-4 col-sm-2 col-md-2 text-center money-size">NT$${data.singlePrice}
 		  <input class="price" type="hidden" value="${data.singlePrice}">
 		</div>
 		<div class="col-6 col-sm-3 col-md-3 text-center ">
@@ -37,7 +37,7 @@ if (goodstList) {
 				<i class="fa fa-minus"></i>
 			  </button>
 			</div>
-			<input class="input-group-field input-width qty" type="text" name="quantity" value="${data.count}">
+			<input class="input-group-field input-width qty " type="text" name="quantity" value="${data.count}">
 			<div class="input-group-button">
 			  <button type="button" class="btn btn-number plus" data-quantity="plus" data-field="quantity">
 				<i class="fa fa-plus"></i>
@@ -46,7 +46,7 @@ if (goodstList) {
 		  </div>
 
 		</div>
-		<div class="col-5 col-sm-2 col-md-2 text-center">NT$ <span class="total">${data.totalPrice}</span></div>
+		<div class="col-5 col-sm-2 col-md-2 text-center">NT$ <span class="total money-size">${data.totalPrice}</span></div>
 		<div class="col-1 col-sm-1 col-md-1 text-center">
 		  <a class="btn" onclick='deleteGood(this)'><i class="fa fa-times" ></i></a>
 		</div>

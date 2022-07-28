@@ -67,18 +67,16 @@ class LdLoginController extends Controller
         $text->body = '';
         //簡易帳號驗證完成       
         if ($request->input('account') &&  $request->input('password')) {
-
+            
             $account = $request->input('account');
             $data['account'] = $account;
 
-
             $psw = $request->input('password');
-
-
             if ((new Member)->accountCheck($account, $psw)) {
                 try {
+                    
                     $member = (new Member)->isController($account);
-
+                    
                     if ($member) {
 
 

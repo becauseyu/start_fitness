@@ -25,7 +25,7 @@
     <div class="">
       <div class="progress-container">
         <!-- 進度條本體 -->
-        <div class="progress" id="progress" style="width: 100%;"></div>
+        <div class="progress10" id="progress" style="width: 100%;"></div>
         <!-- 進度條的圈圈（Steps） -->
         <div class="circle active">1</div>
         <div class="circle active">2</div>
@@ -41,30 +41,16 @@
         <div class="order-form-content1">
           <div class="section-header1"></div>
           <div class="checkicon">
-            <i class="fa-solid fa-circle-check checkiocn1"></i>
+            <i class="fa-solid fa fa-check-circle checkiocn1"></i>
             <p class="check-text">
               您的訂單已成功送出
             </p>
           </div>
           <div class="text-size">
             訂單編號: 
-              @if($order->oid < 10)
-              <span id='ooid'>0000000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=10 && $order->oid<100)
-                <span id='ooid'>000000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=100 && $order->oid<1000)
-                <span id='ooid'>00000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=1000 && $order->oid<10000)
-                <span id='ooid'>0000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=10000 && $order->oid<100000)
-                <span id='ooid'>000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=100000 && $order->oid<1000000)
-                <span id='ooid'>00<span id='oid'>{{$order->oid}}<span></span>
-                  @elseif($order->oid >=1000000 && $order->oid<10000000)
-                  <span id='ooid'>0<span id='oid'>{{$order->oid}}<span></span>
-                    @else
-                    <span id='ooid'><span id='oid'>{{$order->oid}}</span></span>
-                @endif
+              
+              <span id='ooid'>{{$order->orderNumber}}</span>
+              <span id='oid' style="display: none">{{$order->oid}}</span>
               
           </div>
           <div class="text-size1">

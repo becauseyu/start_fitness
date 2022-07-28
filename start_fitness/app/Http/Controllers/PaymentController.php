@@ -137,6 +137,10 @@ class PaymentController extends Controller
         try {
             if ($mid && $date && $address && $tel && $name && $did && $paid) {
                 $order = (new Memberorder)->createNewOrder($mid, $date, $address, $tel, $name, $did, $paid, $memo, $total);
+                $order->orderNumber = (new Memberorder)->createOrderNumber($order->oid);
+                
+                (new Log)->writeLoginNewOrder($order->orderNumber);
+                
                 return view('payment.page03', compact('order','text','member'));
             } else {
                 return redirect('/payment/page01');

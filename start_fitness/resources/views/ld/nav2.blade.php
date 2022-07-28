@@ -45,25 +45,25 @@
                     @endif
                     " href="/ld/member/list">會員管理</a>
                 </li>
-                <li class="nav-iteml ">
+                {{-- <li class="nav-iteml ">
                     <a class="nav-link font-nav
                     @if(Request::is('ld/artile/list'))
                      active
                     @endif
                     " href="#">文章管理</a>
-                </li>
+                </li> --}}
 
                 <div class="px-2 d-none d-lg-block ">
                     <img width="60" height="60" class="box-img" src="/image/ld/member/LOGO.png">
                 </div>
 
-                <li class="nav-itemr ">
+                {{-- <li class="nav-itemr ">
                     <a class="nav-link font-nav
                     @if(Request::is('ld/order/list'))
                      active
                     @endif
                     " href="#">訂單管理</a>
-                </li>
+                </li> --}}
                 <li class="nav-itemr ">
                     <a class="nav-link font-nav
                     @if(Request::is('ld/goods/list'))

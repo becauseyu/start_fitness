@@ -56,9 +56,28 @@ class Memberorder extends Model
     {
         return $this->belongsTo(Deliver::class, 'did', 'did');
     }
-        // 連動送貨方法
+    // 連動細項方法
     public function orderDetail()
     {
         return $this->hasMany(OrderDeatail::class, 'oid', 'oid');
     }
+
+
+    // 產生訂單編號
+    function createOrderNumber($id) {
+
+        $OrderNumber = sprintf('%08s', $id);
+        if (strlen($OrderNumber) >= 8) {
+            $OrderNumber = substr($OrderNumber,-8,8);
+        }
+        return $OrderNumber;
+    
+
+
+    }
+
+    
+
+
+
 }

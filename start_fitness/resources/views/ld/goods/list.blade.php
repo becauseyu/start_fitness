@@ -26,9 +26,6 @@
             <div class="col-3 text-center">品牌</div>
             <div class="col-2 text-center">圖片</div>
             <div class="col-3 text-center">
-                <a href="Create.html" class="btn01 btn-outline" style="color: black ;">
-                    新增商品
-                </a>
             </div>
 
             {{-- <div class="col text-center">口味</div>
@@ -91,9 +88,6 @@
                                 <th> 圖片 </th>
                                 <th> 價格 </th>
                                 <th>
-                                    <a href="Create.html" class="btn01 btn-outline" style="color: black ;">
-                                        新增口味
-                                    </a>
                                 </th>
                             </tr>
                             @foreach ($goods->flavor->where('staid', '!=', '2') as $flavor)
