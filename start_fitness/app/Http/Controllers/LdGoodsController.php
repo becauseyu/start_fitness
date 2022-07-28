@@ -164,6 +164,92 @@ class LdGoodsController extends Controller
     // 小項編輯
     function smallEdit(Request $request)
     {
+           // 管理員驗證
+        //會員身分驗證
+        $text = (object) [];
+        $text->title = '會員管理';
+        $compact_var = ['text'];
+        // 會員驗證----------------------------------------------------
+        try {
+            $acc = Session::get('account');
+            $verify = Session::get('verify');
+
+            $member = Member::where('account', $acc)->first();
+            if (md5($member->psw . $acc) == $verify) {
+                if ((new Member)->isController($acc)) {
+                    $text->memberStatus = true;
+                } else {
+                    return redirect('/ld/login');
+                }
+            } else {
+                $text->memberStatus = false;
+                return redirect('/ld/login');
+            }
+        } catch (\Throwable $th) {
+            $text->memberStatus = false;
+            return redirect('/ld/login');
+        }
+        //------------------------------------------------------
+
+
+
+
+
+
+        // 撈到 pid 、 pstyle 、 pcount 、 pprice
+        $pid = $request->input('pid');
+        $new_pstyle = $request->input('pstyle');
+        $new_pcount = $request->input('pcount');
+        $new_pprice = $request->input('pprice');
+
+        $goods = Goodsdetail::find($pid);
+        $old_pstyle = $goods->pstyle;
+        $old_pcount = $goods->pcount;
+        $old_pprice = $goods->pprice;
+
+
+        // 檢查資料有沒有不同
+        $isUpdate = 0;
+
+        if ($new_pstyle != $old_pstyle) {
+                $goods->pstyle = $new_pstyle;
+                $isUpdate = 1;
+        }
+
+        if ($new_pcount != $old_pcount) {
+                $goods->pcount = $new_pcount;
+                $isUpdate = 1;
+        }
+
+        if ($new_pprice != $old_pprice) {
+                $goods->pprice = $new_pprice;
+                $isUpdate = 1;
+        }
+
+
+        // 檢查有沒有圖片
+        if($request->file('file'.$pid)) {
+            // 有的話搬移
+            $img = $request->file('file'.$pid);
+            $imgName = $img->getClientOriginalName();
+            $imgPath = '/image/'.$goods->ptype; 
+            $img->move(public_path($imgPath), $imgName);
+
+            $goods->ppic = $imgName;
+            $isUpdate = 1;
+        }
+        
+       
+
+
+
+        // 如果有改動就儲存
+        if ($isUpdate) {
+                $goods->save();
+        }
+
+        // 完成後跳轉回去
+        return redirect('/ld/goods/list');
     }
 
 
@@ -208,7 +294,7 @@ class LdGoodsController extends Controller
         $bid = $goods_first->bid;
 
 
-        $goodsList = Goodsdetail::where('pname', $pname)->where('ptype', $ptype)->where('bid', $bid)->get();
+        $goodsList = Goodsdetail::where('pname', $pname)->where('ptype', $ptype)->where('bid', $bid)->where('staid','0')->get();
 
         foreach ($goodsList as $goods) {
             $goods->staid = 1;
@@ -256,7 +342,7 @@ class LdGoodsController extends Controller
         $bid = $goods_first->bid;
 
 
-        $goodsList = Goodsdetail::where('pname', $pname)->where('ptype', $ptype)->where('bid', $bid)->get();
+        $goodsList = Goodsdetail::where('pname', $pname)->where('ptype', $ptype)->where('bid', $bid)->where('staid','1')->get();
 
         foreach ($goodsList as $goods) {
             $goods->staid = 0;
@@ -268,8 +354,8 @@ class LdGoodsController extends Controller
     }
 
 
-    // 刪除
-    function delete(Request $request)
+    // 多項刪除
+    function deleteAll(Request $request)
     {
 
         // 管理員驗證
@@ -315,4 +401,51 @@ class LdGoodsController extends Controller
         // 完成後跳轉回去
         return redirect('/ld/goods/list');
     }
+
+
+    // 單項刪除
+    function deleteOne(Request $request)
+    {
+
+        // 管理員驗證
+        //會員身分驗證
+        $text = (object) [];
+        $text->title = '會員管理';
+        $compact_var = ['text'];
+        // 會員驗證----------------------------------------------------
+        try {
+            $acc = Session::get('account');
+            $verify = Session::get('verify');
+
+            $member = Member::where('account', $acc)->first();
+            if (md5($member->psw . $acc) == $verify) {
+                if ((new Member)->isController($acc)) {
+                    $text->memberStatus = true;
+                } else {
+                    return redirect('/ld/login');
+                }
+            } else {
+                $text->memberStatus = false;
+                return redirect('/ld/login');
+            }
+        } catch (\Throwable $th) {
+            $text->memberStatus = false;
+            return redirect('/ld/login');
+        }
+        //------------------------------------------------------
+        $pid = $request->id;
+        $goods = Goodsdetail::find($pid);
+        
+            $goods->staid = 2;
+            $goods->save();
+
+        // 完成後跳轉回去
+        return redirect('/ld/goods/list');
+    }
+
+
+
+
+
+
 }

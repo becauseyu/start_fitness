@@ -69,7 +69,7 @@
                                         <div class="mr-1 btn01 btn-outline01" onclick="bigEdit('a{{ $goods->pid }}')">編輯
                                         </div>
                                         |
-                                        <a href="/ld/goods/delete/{{ $goods->pid }}" onclick="cancelBub(event)">
+                                        <a href="/ld/goods/deleteAll/{{ $goods->pid }}" onclick="cancelBub(event)">
                                             <div class="ml-1 btn01 btn-outline02">刪除</div>
                                         </a>
                                     @endif
@@ -97,35 +97,57 @@
                                 </th>
                             </tr>
                             @foreach ($goods->flavor->where('staid', '!=', '2') as $flavor)
-                                <form id="a{{ $flavor->pid }}" action="/flavor/edit" enctype="multipart/form-data"
-                                    method="POST">
-                                    @csrf
+                                <tr>
+                                    <form id="b{{ $flavor->pid }}" action="/ld/goods/smallEdit"
+                                        enctype="multipart/form-data" method="POST">
+                                        @csrf
+                                        <th><input id="pid{{ $flavor->pid }}" name='pid' form="b{{ $flavor->pid }}"
+                                                value="{{ $flavor->pid }}" width="100" size='10' disabled />
+                                        </th>
 
-                                    <tr>
-                                        <th class="pid"> {{ $flavor->pid }} </th>
-                                        <th class="pstyle"> {{ $flavor->pstyle }} </th>
-                                        <th class="pcount"> {{ $flavor->pcount }} </th>
-                                        <th> <img height="150" src="{{ $flavor->url }}"> </th>
-                                        <th> $ <span class="pprice">{{ $flavor->pprice }}</span> </th>
-                                        <th>
+                                        <th><input id="pstyle{{ $flavor->pid }}" name='pstyle'
+                                                form="b{{ $flavor->pid }}" value="{{ $flavor->pstyle }}"
+                                                size='10'disabled />
+                                        </th>
+
+
+                                        <th><input id="pcount{{ $flavor->pid }}" name='pcount'
+                                                form="b{{ $flavor->pid }}" value="{{ $flavor->pcount }}" size='10'
+                                                disabled />
+                                        </th>
+
+
+                                        <th id="ppic{{ $flavor->pid }}"> <img height="150" src="{{ $flavor->url }}" id="img{{$flavor->pid}}" />
+                                        </th>
+
+
+
+                                        <th> $ <span><input id="pprice{{ $flavor->pid }}" name='pprice'
+                                                    orm="b{{ $flavor->pid }}" value="{{ $flavor->pprice }}"
+                                                    size='10' disabled /></span> 
+                                        </th>
+
+
+                                        <th id="button_bag{{ $flavor->pid }}">
                                             @if (!$flavor->staid)
                                                 <div class="mr-1 btn01 btn-outline01"
-                                                    onclick="smaillEdit('a{{ $goods->pid }}')">編輯
+                                                    onclick="smallEdit('{{ $flavor->pid }}')">編輯
                                                 </div> |
-                                                <div class="ml-1 btn01 btn-outline02">刪除</div>
+                                                <a href="/ld/goods/deleteOne/{{ $flavor->pid }}"
+                                                    onclick="cancelBub(event)">
+                                                    <div class="ml-1 btn01 btn-outline02">刪除</div>
+                                                </a>
                                             @endif
 
                                         </th>
-                                    </tr>
-                                </form>
+                                    </form>
+                                </tr>
                             @endforeach
 
                         </table>
                     </div>
                 </div>
-
             </div>
-            </form>
         @endforeach
 
 
@@ -208,91 +230,61 @@
         }
 
 
-        function smaillEdit(id) {
-            // 取得品牌資料
-            var brandList_url = window.location.origin + '/ld/branddetail/list';
-            var brandList = getList(brandList_url);
-
-            // 取得大分類資料
-            var ptypeList_url = window.location.origin + '/ld/ptype/list';
-            var ptypeList = getList(ptypeList_url);
 
 
+
+        // 小口味修改
+        function smallEdit(id) {
             // 先取得目標表單
-            getForm = document.getElementById(id);
-
+            // getForm = document.getElementById(id);
+            // console.log(getForm)
             // 鎖住原本的表格不要亂動
-            getForm.querySelector('.headButton').setAttribute("data-target", '');
-            getForm.querySelector('.body').classList.remove("collapse");
+            // getForm.querySelector('.headButton').setAttribute("data-target", '');
+            // getForm.querySelector('.body').classList.remove("collapse");
 
 
             // 所有可輸入值置換成input
-
+            // pid 、 pstyle 、 pcount 、 pprice
             // ptype----------------
-            ptype = getForm.querySelector('.ptype');
-            ptype_html = `<select name='ptype' value = '${ptype.innerText}'>`;
-            ptypeList.forEach((option) => {
-                if (ptype.innerText == option.ptype) {
-                    ptype_html += `<option value='${option.ptype}' selected>${option.ptype}</option>`;
-                } else {
-                    ptype_html += `<option value='${option.ptype}' >${option.ptype}</option>`;
-                }
 
-            })
-            ptype_html += `</select>`;
-
-            ptype.innerHTML = ptype_html;
-
-            // pname----------------
-            pname = getForm.querySelector('.pname');
-            pname.innerHTML = `<input name='pname' value ='${pname.innerText}'>`;
             // pid------------------
-            getForm.querySelectorAll('.pid').forEach((pid) => {
-                pid.innerHTML = `<input name='pid' value ='${pid.innerText}' disabled>`;
-            })
-
-
-            // bname
-            bname = getForm.querySelector('.bname');
-            bname_html = `<select name='bid' value = '${bname.innerText}'>`;
-            brandList.forEach((option) => {
-                if (bname.innerText == option.bname) {
-                    bname_html += `<option value='${option.bid}' selected>${option.bname}</option>`;
-                } else {
-                    bname_html += `<option value='${option.bid}'>${option.bname}</option>`;
-                }
-
-            })
-            bname_html += `</select>`;
-            bname.innerHTML = bname_html;
-
+            document.getElementById('pid' + id).disabled = false;
+            document.getElementById('pid' + id).readOnly = true;
 
             // pstyle
-            getForm.querySelectorAll('.pstyle').forEach((pstyle) => {
-                pstyle.innerHTML = `<input name='pstyle[]' value ='${pstyle.innerText}'>`;
-            })
+            document.getElementById('pstyle' + id).disabled = false;
 
 
             // pcount
-            getForm.querySelectorAll('.pcount').forEach((pcount) => {
-                pcount.innerHTML = `<input name='pcount[]' value ='${pcount.innerText}'>`;
-            })
+            document.getElementById('pcount' + id).disabled = false;
+
 
 
             // pprice
-            getForm.querySelectorAll('.pprice').forEach((pprice) => {
-                pprice.innerHTML = `<input name='pprice[]' value ='${pprice.innerText}'>`;
-            })
+            document.getElementById('pprice' + id).disabled = false;
+
 
 
             // button_bag
-            getForm.querySelector('.button_bag').innerHTML = `
-                <input type="submit" class="mr-1 btn01 btn-outline01" value='完成'></div> |
-                <a href='/ld/goods/list' class="ml-1 btn01 btn-outline02">取消編輯</a>
+            document.getElementById('button_bag' + id).innerHTML = `
+                <input form='b${id}' type="submit" class="mr-1 btn01 btn-outline01" value='完成'></div> |
+                <a href='' onClick='window.location.reload' class="ml-1 btn01 btn-outline02">取消編輯</a>
             `
 
 
+            // 插入圖片
+            document.getElementById('ppic' + id).innerHTML += 
+            `<input accept = "image/*" type = 'file'  form='b${id}' name="file${id}"  id = "file${id}" / >`;
 
+
+            // 加入預覽事件
+            document.getElementById('file' + id).onchange = evt => {
+            const [file] = document.getElementById('file' + id).files
+            if (file) {
+                document.getElementById('img' + id).src = URL.createObjectURL(file)
+
+            }
+        }
 
             // pid ptype pname bname pstyle pcount pprice
 
@@ -320,7 +312,7 @@
             getAllForm = document.querySelectorAll(`form`);
             getAllForm.forEach(($element) => {
                 if ($element.id != id) {
-                    console.log($element);
+
                     $element.style.visibility = 'hidden';
                     $element.style.position = 'fixed';
                 }
@@ -362,18 +354,17 @@
 
 
         // 預覽圖片(照抄別人)
-        function showUploadImage() {
-            imgInp.onchange = evt => {
-                const [file] = imgInp.files
-                if (file) {
-                    blah.src = URL.createObjectURL(file)
-                }
-            }
-            // <form runat = "server" >
-            // <input accept = "image/*" type = 'file'id = "imgInp" / >
-            // <img id = "blah" src = "#" alt = "your image" / >
-            // </form>
-        }
+        // imgInp.onchange = evt => {
+        //     const [file] = imgInp.files
+        //     if (file) {
+        //         blah.src = URL.createObjectURL(file)
+        //     }
+        // }
+        // <form runat = "server" >
+        // <input accept = "image/*" type = 'file'id = "imgInp" / >
+        // <img id = "blah" src = "#" alt = "your image" / >
+        // </form>
+
 
 
 

@@ -32,15 +32,13 @@ class LdLoginController extends Controller
                     array_push($compact_var, 'member');
                     return redirect('/ld/member/list');
                 } else {
-                    return redirect('/ld/login');
+                    
                 }
             } else {
-                $text->memberStatus = false;
-                return redirect('/ld/login');
+                
             }
         } catch (\Throwable $th) {
-            $text->memberStatus = false;
-            return redirect('/ld/login');
+            
         }
         //------------------------------------------------------
 

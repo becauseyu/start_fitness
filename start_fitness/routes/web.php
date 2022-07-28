@@ -137,8 +137,10 @@ Route::post('/ld/goods/smallEdit','App\Http\Controllers\LdGoodsController@smallE
 //上下架
 Route::get('/ld/goods/takeDown/{id}','App\Http\Controllers\LdGoodsController@takeDown');
 Route::get('/ld/goods/onShelf/{id}','App\Http\Controllers\LdGoodsController@onShelf');
-Route::get('/ld/goods/delete/{id}','App\Http\Controllers\LdGoodsController@delete');
 
+// 刪除
+Route::get('/ld/goods/deleteAll/{id}','App\Http\Controllers\LdGoodsController@deleteAll');
+Route::get('/ld/goods/deleteOne/{id}','App\Http\Controllers\LdGoodsController@deleteOne');
 
 
 // just test
