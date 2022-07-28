@@ -33,11 +33,11 @@ class Member extends Model
             if ($lastLogin) {
                 return $lastLogin->date;
             }else{
-                return '尚無登入1';
+                return '尚無登入';
             }
             
         } catch (\Throwable $th) {
-            return '尚無登入2';
+            return '尚無登入';
         }
         return Log::where('body','like','會員登入%')->where('body','like','%'.$account)->last();
     }
@@ -137,14 +137,14 @@ class Member extends Model
     function isController($account){
         try {
             
-            $member = Member::where('account',$account)->firts();
+            $member = $this::where('account',$account)->first();
             if ($member->statusdetail->staName == '管理員') {
                 return $member;
             }else{
-                return 1;
+                return false;
             }
         } catch (\Throwable $th) {
-            return 2;
+            return false;
         }
     }
     //會員訂單

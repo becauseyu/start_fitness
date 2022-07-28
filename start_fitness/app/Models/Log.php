@@ -28,4 +28,11 @@ class Log extends Model
     }
 
 
+    function writeLoginNewOrder($orderid) {
+        $this->insert([
+            'body' => "新增訂單，訂單編號 : {$orderid}"
+        ]);
+    }
+
+
 }
