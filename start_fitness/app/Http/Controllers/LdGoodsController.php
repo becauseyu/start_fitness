@@ -46,7 +46,7 @@ class LdGoodsController extends Controller
         //------------------------------------------------------
 
 
-        $goodsList = Goodsdetail::where('ppic', 'like', '%00%')->where('staid','!=','2')->paginate(15);
+        $goodsList = Goodsdetail::where('ppic', 'like', '%00%')->where('staid', '!=', '2')->paginate(15);
         foreach ($goodsList as $goods) {
             $goods->url = url('/') . '/image/' . $goods->ptype . '/' . $goods->ppic;
             foreach ($goods->flavor as $flavor) {
@@ -164,7 +164,7 @@ class LdGoodsController extends Controller
     // 小項編輯
     function smallEdit(Request $request)
     {
-           // 管理員驗證
+        // 管理員驗證
         //會員身分驗證
         $text = (object) [];
         $text->title = '會員管理';
@@ -212,40 +212,40 @@ class LdGoodsController extends Controller
         $isUpdate = 0;
 
         if ($new_pstyle != $old_pstyle) {
-                $goods->pstyle = $new_pstyle;
-                $isUpdate = 1;
+            $goods->pstyle = $new_pstyle;
+            $isUpdate = 1;
         }
 
         if ($new_pcount != $old_pcount) {
-                $goods->pcount = $new_pcount;
-                $isUpdate = 1;
+            $goods->pcount = $new_pcount;
+            $isUpdate = 1;
         }
 
         if ($new_pprice != $old_pprice) {
-                $goods->pprice = $new_pprice;
-                $isUpdate = 1;
+            $goods->pprice = $new_pprice;
+            $isUpdate = 1;
         }
 
 
         // 檢查有沒有圖片
-        if($request->file('file'.$pid)) {
+        if ($request->file('file' . $pid)) {
             // 有的話搬移
-            $img = $request->file('file'.$pid);
+            $img = $request->file('file' . $pid);
             $imgName = $img->getClientOriginalName();
-            $imgPath = '/image/'.$goods->ptype; 
+            $imgPath = '/image/' . $goods->ptype;
             $img->move(public_path($imgPath), $imgName);
 
             $goods->ppic = $imgName;
             $isUpdate = 1;
         }
-        
-       
+
+
 
 
 
         // 如果有改動就儲存
         if ($isUpdate) {
-                $goods->save();
+            $goods->save();
         }
 
         // 完成後跳轉回去
@@ -294,7 +294,7 @@ class LdGoodsController extends Controller
         $bid = $goods_first->bid;
 
 
-        $goodsList = Goodsdetail::where('pname', $pname)->where('ptype', $ptype)->where('bid', $bid)->where('staid','0')->get();
+        $goodsList = Goodsdetail::where('pname', $pname)->where('ptype', $ptype)->where('bid', $bid)->where('staid', '0')->get();
 
         foreach ($goodsList as $goods) {
             $goods->staid = 1;
@@ -342,7 +342,7 @@ class LdGoodsController extends Controller
         $bid = $goods_first->bid;
 
 
-        $goodsList = Goodsdetail::where('pname', $pname)->where('ptype', $ptype)->where('bid', $bid)->where('staid','1')->get();
+        $goodsList = Goodsdetail::where('pname', $pname)->where('ptype', $ptype)->where('bid', $bid)->where('staid', '1')->get();
 
         foreach ($goodsList as $goods) {
             $goods->staid = 0;
@@ -435,17 +435,123 @@ class LdGoodsController extends Controller
         //------------------------------------------------------
         $pid = $request->id;
         $goods = Goodsdetail::find($pid);
-        
-            $goods->staid = 2;
-            $goods->save();
+
+        $goods->staid = 2;
+        $goods->save();
 
         // 完成後跳轉回去
         return redirect('/ld/goods/list');
     }
 
 
+    // 拿到新增表單
+    function bigCreateList(Request $request)
+    {
+        // 管理員驗證
+        //會員身分驗證
+        $text = (object) [];
+        $text->title = '會員管理';
+        $compact_var = ['text'];
+        // 會員驗證----------------------------------------------------
+        try {
+            $acc = Session::get('account');
+            $verify = Session::get('verify');
+
+            $member = Member::where('account', $acc)->first();
+            if (md5($member->psw . $acc) == $verify) {
+                if ((new Member)->isController($acc)) {
+                    $text->memberStatus = true;
+                } else {
+                    return redirect('/ld/login');
+                }
+            } else {
+                $text->memberStatus = false;
+                return redirect('/ld/login');
+            }
+        } catch (\Throwable $th) {
+            $text->memberStatus = false;
+            return redirect('/ld/login');
+        }
+        //------------------------------------------------------
+
+
+
+        // 表單需要 ptype bname
+        $brandList = Branddetail::all();
+        $ptypeList =  Goodsdetail::groupBy('ptype')->get('ptype');
+
+
+
+        return view('ld.goods.create', compact('brandList', 'ptypeList'));
+    }
+
+
+    // 新增表單接收處理
+    function bigCreate(Request $request)
+    {
+        // 管理員驗證
+        //會員身分驗證
+        $text = (object) [];
+        $text->title = '會員管理';
+        $compact_var = ['text'];
+        // 會員驗證----------------------------------------------------
+        try {
+            $acc = Session::get('account');
+            $verify = Session::get('verify');
+
+            $member = Member::where('account', $acc)->first();
+            if (md5($member->psw . $acc) == $verify) {
+                if ((new Member)->isController($acc)) {
+                    $text->memberStatus = true;
+                } else {
+                    return redirect('/ld/login');
+                }
+            } else {
+                $text->memberStatus = false;
+                return redirect('/ld/login');
+            }
+        } catch (\Throwable $th) {
+            $text->memberStatus = false;
+            return redirect('/ld/login');
+        }
+        //------------------------------------------------------
 
 
 
 
+        // 表單應該要有 單一: ptype pname bid
+        //  多列 : pstyle pcount pprice ppic
+
+    
+        $ptype = $request->input('ptype') ?? '';
+        $pname = $request->input('pname') ?? '';
+        $bid = $request->input('bid') ?? '';
+
+        for ($i = 0; $i <= count($request->pstyle); $i++) {
+            $pstyle = $request->input('pstyle')[$i] ?? '';
+            $pcount = $request->input('pcount')[$i] ?? '';
+            $pprice = $request->input('pprice')[$i] ?? '';
+
+
+
+
+            // 檢查有沒有圖片
+            if (isset($request->file('file')[$i])) {
+                // 有的話搬移
+                $img = $request->file('file')[$i];
+                $ppic = $img->getClientOriginalName();
+                $imgPath = '/image/' . $ptype;
+                $img->move(public_path($imgPath), $ppic);
+            } else {
+                $ppic = '';
+            }
+            (new Goodsdetail)->createNewGoods($ptype,$bid,$pstyle,$pname,$pcount,$ppic,$pprice);
+            
+            
+
+            return redirect('/ld/goods/list');
+
+        }
+
+    }
 }
