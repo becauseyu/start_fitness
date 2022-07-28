@@ -144,7 +144,7 @@
                 <hr>
                 <div class=" row">
                     <div class="col-4 ">
-                        <a href="#" class=" ">
+                        
                             <figure class="figure ">
                                 <img src="/image/food/popcron03.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
                                     height="250">
@@ -153,10 +153,10 @@
                                     <p class="">淡淡鹽味，清爽少負擔</p>
                                 </figcaption>
                             </figure>
-                        </a>
+                        
                     </div>
                     <div class="col-4 ">
-                        <a href="#" class=" ">
+                        
                             <figure class="figure ">
                                 <img src="/image/food/fruitwater02.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
                                     height="250">
@@ -165,10 +165,10 @@
                                     <p class="">柑橘香，喝水好心情</p>
                                 </figcaption>
                             </figure>
-                        </a>
+                        
                     </div>
                     <div class="col-4 ">
-                        <a href="#" class=" ">
+                        
                             <figure class="figure ">
                                 <img src="/image/food/jelly03.webp" class="figure-img img-fluid rounded shadow-sm" alt="..."
                                     height="250">
@@ -177,7 +177,7 @@
                                     <p class="">午後時光必備零食</p>
                                 </figcaption>
                             </figure>
-                        </a>
+                        
 
                     </div>
                 </div>
