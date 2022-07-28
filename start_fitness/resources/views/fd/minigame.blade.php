@@ -35,7 +35,7 @@
             <div class="box-left mr-4 mt-3 px-3">
                 <div class="mt-3" id="rulePage">
                     {{-- 規則說明 --}}
-                    <div class="rule-head">
+                    <div class="rule-head  mt-3">
                         <h1 id="gamediscri">遊戲規則 </h1>
                         <p>以碰到的食物好壞，進行增重或減重<br />計時60秒，請控制好您的體重! </p>
                     </div>
@@ -99,7 +99,7 @@
 
 
             <!--- 這邊是遊戲畫面 --->
-            <div id='gameBox'>
+            <div id='gameBox' class="mt-3">
                 <canvas id="canvas"></canvas>
                 <div id="start_button">
                     <p>start</p>
