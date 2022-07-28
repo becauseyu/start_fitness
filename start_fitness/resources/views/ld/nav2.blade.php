@@ -34,17 +34,34 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse row" id="myNavbarToggler7">
-            <div class="col-3"></div>
-            <ul class="col-6 navbar-nav justify-content-center">
-
-                <li class="nav-iteml ">
+        <div class=" collapse navbar-collapse row" id="myNavbarToggler7">
+            <div class="col-10 navbar-nav ">
+                <div class="ml-5 mr-3 d-none d-lg-block">
+                    <img width="70" height="70" class="box-img  " src="/image/ld/member/LOGO.png">
+                </div>
+                <li class="nav-itemr ">
                     <a class="nav-link font-nav 
                     @if(Request::is('ld/member/list'))
                      active
                     @endif
                     " href="/ld/member/list">會員管理</a>
                 </li>
+                <li class="nav-itemr">
+                    <a class="nav-link font-nav
+                    @if(Request::is('ld/goods/list'))
+                     active
+                    @endif
+                    " href="/ld/goods/list">庫存管理</a>
+                </li>
+                <li class="nav-itemr">
+                    <a class="nav-link font-nav
+                    @if(Request::is('/ld/log/list'))
+                     active
+                    @endif
+                    " href="/ld/log/list">網站活動紀錄</a>
+                </li>
+            </div>
+
                 {{-- <li class="nav-iteml ">
                     <a class="nav-link font-nav
                     @if(Request::is('ld/artile/list'))
@@ -53,10 +70,6 @@
                     " href="#">文章管理</a>
                 </li> --}}
 
-                <div class="px-2 d-none d-lg-block ">
-                    <img width="60" height="60" class="box-img" src="/image/ld/member/LOGO.png">
-                </div>
-
                 {{-- <li class="nav-itemr ">
                     <a class="nav-link font-nav
                     @if(Request::is('ld/order/list'))
@@ -64,18 +77,16 @@
                     @endif
                     " href="#">訂單管理</a>
                 </li> --}}
-                <li class="nav-itemr ">
+ 
+
+            <div class="col-2 navbar-nav justify-content-end">
+                <li class="nav-iteml">
                     <a class="nav-link font-nav
-                    @if(Request::is('ld/goods/list'))
+                    @if(Request::is('/ld/logout'))
                      active
                     @endif
-                    " href="/ld/goods/list">庫存管理</a>
+                    " href="/ld/logout">登出</a>
                 </li>
-
-            </ul>
-            <div class="col-3 d-flex justify-content-end">
-                <div><a class="font-nav01 mr-2" href="/ld/log/list">網站活動紀錄</a></div>
-                <div><a class="font-nav01 mr-2" href="/ld/logout">登出</a></div>
             </div>
         </div>
     </nav>
