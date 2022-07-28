@@ -48,23 +48,9 @@
           </div>
           <div class="text-size">
             訂單編號: 
-              @if($order->oid < 10)
-              <span id='ooid'>0000000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=10 && $order->oid<100)
-                <span id='ooid'>000000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=100 && $order->oid<1000)
-                <span id='ooid'>00000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=1000 && $order->oid<10000)
-                <span id='ooid'>0000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=10000 && $order->oid<100000)
-                <span id='ooid'>000<span id='oid'>{{$order->oid}}<span></span>
-                @elseif($order->oid >=100000 && $order->oid<1000000)
-                <span id='ooid'>00<span id='oid'>{{$order->oid}}<span></span>
-                  @elseif($order->oid >=1000000 && $order->oid<10000000)
-                  <span id='ooid'>0<span id='oid'>{{$order->oid}}<span></span>
-                    @else
-                    <span id='ooid'><span id='oid'>{{$order->oid}}</span></span>
-                @endif
+              
+              <span id='ooid'>{{$order->orderNumber}}</span>
+              <span id='oid' style="display: none">{{$order->oid}}</span>
               
           </div>
           <div class="text-size1">
