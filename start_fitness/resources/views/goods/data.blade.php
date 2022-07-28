@@ -74,7 +74,7 @@
                 <i class="fa fa-minus"></i>
               </button>
             </div>
-            <input id='product_count' class="input-group-field input-width qty" type="text" name="quantity" value="0">
+            <input id='product_count' class="input-group-field input-width qty" type="text" name="quantity" value="1">
             <div class="input-group-button">
               <button type="button" class="btn btn-number plus" data-quantity="plus" data-field="quantity">
                 <i class="fa fa-plus"></i>

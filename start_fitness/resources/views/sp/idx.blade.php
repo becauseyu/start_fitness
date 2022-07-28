@@ -46,7 +46,7 @@
 
    
     <!-- 中間文字框 -->
-    <div class="" style="width: 100%; height :75px;"></div>
+
     <div class="">
         <div class="container mt-4 " data-aos="fade-right">
         <div class="boxsp">

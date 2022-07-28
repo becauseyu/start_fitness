@@ -38,7 +38,7 @@
 
 
     <div class="">
-        <div class="" style="width: 100%; height :75px;"></div>
+
         <div class="container mt-4 " data-aos="fade-right">
             <div class="boxfd">
                 <h3 class="boxcolor2">飲食Tip</h3>

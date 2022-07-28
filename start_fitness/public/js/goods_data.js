@@ -116,7 +116,7 @@ $('.button08').on('click', function () {
   $(".slide_buycart_count").on('input', function () {
     var btn_count = $(this).val()
 
-    if (btn_count >= 0) {  //設定如果val()小於零時，自動刪除
+    if (btn_count > 0) {  //設定如果val()小於零時，自動刪除
       var btn_price = $(this).closest('ul').find('li').eq(4).text()
       var btn_total = btn_count * btn_price
       Number.parseInt(btn_total)
