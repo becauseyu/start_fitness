@@ -257,16 +257,16 @@
 
             // pstyle
             document.getElementById('pstyle' + id).disabled = false;
-
+            document.getElementById('pstyle' + id).classList.remove('f-input');
 
             // pcount
             document.getElementById('pcount' + id).disabled = false;
-
+            document.getElementById('pcount' + id).classList.remove('f-input');
 
 
             // pprice
             document.getElementById('pprice' + id).disabled = false;
-
+            document.getElementById('pprice' + id).classList.remove('f-input');
 
 
             // button_bag
