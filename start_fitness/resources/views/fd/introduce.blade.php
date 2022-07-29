@@ -35,7 +35,7 @@
     @include('front_side_frame.sidebar_left')
 
     <div class="card-deck card-group"></div>
-    <div class="album py-5 ">
+    <div class="album py-4 ">
         <div class="container">
             <div class="row ">
 
