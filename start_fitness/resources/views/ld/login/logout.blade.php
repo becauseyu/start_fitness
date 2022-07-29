@@ -14,19 +14,21 @@
 </head>
 
 <body>
-    <div>
-        <div class="cen" id="mark">
-        <p class="header01">登出成功</p>
-        <p class="header-font">於3秒後跳轉回登入畫面</p>
+    <div class="location">
+        <div class="outside-out">
+            <div class="cen" id="mark">
+                <p class="header-out">登出成功!</p>
+                <p class="header-out01">於3秒後,跳轉回登入畫面</p>
 
-        <img src="/image/ld/login/opindex00.png" width="500" class="rounded">
+                <img class="mt-4"  src="/image/ld/login/opindex00.png" width="500" class="rounded">
+            </div>
         </div>
-
         <script>
-            // setTimeout(() => {
-            //     window.location = "/ld/login";
-            // }, 3000);
+            setTimeout(() => {
+                window.location = "/ld/login";
+            }, 3000);
         </script>
+        </div>
 </body>
 
 </html>
