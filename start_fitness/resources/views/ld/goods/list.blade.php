@@ -87,8 +87,8 @@
                 </form>
                 <div id="collapse{{ $goods->pid }}" class="collapse body" data-parent="#accordionExample">
                     <div class="card-body">
-                        <table class="table table-striped cen">
-                            <tr class="f-header">
+                        <table class="table table-striped">
+                            <tr class="f-headr">
                                 <th> 流水號 </th>
                                 <th> 口味 </th>
                                 <th> 數量 </th>
@@ -101,17 +101,17 @@
                                     <form class="h5" id="b{{ $flavor->pid }}" action="/ld/goods/smallEdit"
                                         enctype="multipart/form-data" method="POST">
                                         @csrf
-                                        <th><input class="f-input " id="pid{{ $flavor->pid }}" name='pid' form="b{{ $flavor->pid }}"
+                                        <th><input class="f-input  f-size " id="pid{{ $flavor->pid }}" name='pid' form="b{{ $flavor->pid }}"
                                                 value="{{ $flavor->pid }}" size="1" disabled />
                                         </th>
 
-                                        <th><input class="f-input " id="pstyle{{ $flavor->pid }}" name='pstyle'
+                                        <th><input class="f-input  f-size " id="pstyle{{ $flavor->pid }}" name='pstyle'
                                                 form="b{{ $flavor->pid }}" value="{{ $flavor->pstyle }}"
                                                 size='10'disabled />
                                         </th>
 
 
-                                        <th><input class="f-input "  id="pcount{{ $flavor->pid }}" name='pcount'
+                                        <th><input class="f-input  f-size "  id="pcount{{ $flavor->pid }}" name='pcount'
                                                 form="b{{ $flavor->pid }}" value="{{ $flavor->pcount }}" size='10'
                                                 disabled />
                                         </th>
@@ -123,7 +123,7 @@
 
 
 
-                                        <th>  <span><input class="f-input " id="pprice{{ $flavor->pid }}" name='pprice'
+                                        <th>  <span><input class="f-input  f-size " id="pprice{{ $flavor->pid }}" name='pprice'
                                                     orm="b{{ $flavor->pid }}" value="${{ $flavor->pprice }}"
                                                     size='10' disabled /></span>
                                         </th>
@@ -215,7 +215,7 @@
             // button_bag
             getForm.querySelector('.button_bag').innerHTML = `
                 <input type="submit" class="mr-1 btn-ok01" value='完成'></div> |
-                <a href='/ld/goods/list' class="ml-1 btn-delete01">取消編輯</a>
+                <a href='/ld/goods/list' class="ml-1 btn-delete01">取消</a>
             `;
 
 
@@ -269,13 +269,20 @@
             // button_bag
             document.getElementById('button_bag' + id).innerHTML = `
                 <input form='b${id}' type="submit" class="mr-1 btn-ok01" value='完成'></div> |
-                <a href='' onClick='window.location.reload' class="ml-1 btn-delete01">取消編輯</a>
+                <a href='' onClick='window.location.reload' class="ml-1 btn-delete01">取消</a>
             `
 
 
             // 插入圖片
             document.getElementById('ppic' + id).innerHTML +=
-                `<input accept = "image/*" type = 'file'  form='b${id}' name="file${id}"  id = "file${id}" / >`;
+                `
+                <label class="btn btn-info fileinput">
+                <span>更新圖片</span>
+                    <input accept = "image/*" class="b1 img-up " type = 'file'  form='b${id}' name="file${id}"  id = "file${id}" / >
+                </label >
+                `;
+
+            // 
 
 
             // 加入預覽事件

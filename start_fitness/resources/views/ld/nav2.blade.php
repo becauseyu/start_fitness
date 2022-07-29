@@ -113,7 +113,7 @@
 
 
 
-        <div class="mt-3 d-flex justify-content-center">
+        <div class="mt-3 mb-5 d-flex justify-content-center">
             <a class="button01 mr-3" href=@yield('prevPageUrl')>上一頁</a>
             <a class="button01" href=@yield('nextPageUrl')>下一頁</a>
         </div>

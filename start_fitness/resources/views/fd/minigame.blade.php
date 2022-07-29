@@ -75,9 +75,9 @@
                         <div id="errorLog_height"> </div>
                         <div id="errorLog_weight"> </div>
                         <div id="div_weightButtom_bag" class="d-flex justify-content-between">
-                            <div class="initialWeight" id="easy"> 建議(簡單) kg </div>
-                            <div class="initialWeight" id="normal"> 建議(中等) kg </div>
-                            <div class="initialWeight" id="hard"> 建議(困難) kg </div>
+                            <div class="initialWeight" id="easy">挑戰簡單kg</div>
+                            <div class="initialWeight" id="normal">挑戰中等kg</div>
+                            <div class="initialWeight" id="hard">挑戰困難kg</div>
                         </div>
 
                     </div>
@@ -161,9 +161,9 @@
                 var bmi_40_weight = Math.floor(40 * height * height / 10000);
 
                 // 畫面新增按鈕
-                document.getElementById('easy').innerHTML = `建議(簡單) ${bmi_18_weight} kg`;
-                document.getElementById('normal').innerHTML = `建議(中等) ${bmi_26_weight} kg`;
-                document.getElementById('hard').innerHTML = `建議(困難) ${bmi_40_weight} kg`;
+                document.getElementById('easy').innerHTML = `挑戰簡單: ${bmi_18_weight} kg`;
+                document.getElementById('normal').innerHTML = `挑戰中等: ${bmi_26_weight} kg`;
+                document.getElementById('hard').innerHTML = `挑戰困難: ${bmi_40_weight} kg`;
 
 
                 // 3個按鈕點擊事件

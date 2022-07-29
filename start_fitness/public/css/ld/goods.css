@@ -42,10 +42,9 @@
 
 .notice {
   color: rgb(230, 75, 44);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   margin-top: 10px;
-
 }
 
 .card-header01:hover {
@@ -71,11 +70,9 @@
   color: rgb(255, 251, 251);
   font-size: 20px;
   font-weight: 600;
-  letter-spacing: 2px;
-  padding: 10px;
-  background-color:#b38049;
+  letter-spacing: 1px;
+  background-color:#d39757;
   text-shadow: rgba(235, 232, 232, 0.24) 1px 1px 5px;
-
 }
 
 
@@ -280,13 +277,60 @@
 
 
 .f-input {
+  border: 0;  
+  outline: none; 
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.f-size {
   text-align: center;
   text-decoration: none;
   letter-spacing: 1px;
   color: #291010;
-  font-size: 22px;
-  border: 0;  
-  outline: none; 
-  background-color: rgba(0, 0, 0, 0);
+  font-size: 20px;
+}
 
+.img-up {
+  width: 150px;
+}
+
+.fileinput {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.fileinput input{
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+ }
+
+ .table-log {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background-color:#d39757;
+  text-shadow: rgba(235, 232, 232, 0.24) 1px 1px 5px;
+}
+
+.log-content {
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: rgba(235, 232, 232, 0.24) 1px 1px 5px;
+}
+
+.log-content:hover {
+  background-color:#fbf0dd;
+}
+
+.dd {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.ff {
+  width: 100%;
 }

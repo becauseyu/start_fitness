@@ -38,14 +38,12 @@
 
 
     <br />
-    <table class="table table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">活動內容</th>
-                <th scope="col">紀錄時間</th>
-
-
+    <table class="table cen">
+        <thead class="">
+            <tr class="row table-log">
+                <th class="col-2">Id</th>
+                <th class="col-5">活動內容</th>
+                <th class="col-5">紀錄時間</th>
             </tr>
         </thead>
         <tbody>
@@ -53,10 +51,10 @@
 
 
             @foreach ($logList as $log)
-            <tr>
-                <th scope="row">{{$log->id}}</th>
-                <td> {{$log->body}}</td>
-                <td>{{$log->date}}</td>
+            <tr class="row log-content">
+                <th class="col-2">{{$log->id}}</th>
+                <td class="col-5"> {{$log->body}}</td>
+                <td class="col-5">{{$log->date}}</td>
             </tr> 
             @endforeach
             

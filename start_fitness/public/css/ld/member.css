@@ -44,8 +44,9 @@
 .button01 {
     font-size: 18px;
     font-weight: 600;
-    color:rgba(248, 149, 45, 0.969);
-    border:2px solid #ffa03af7;
+    color:rgba(252, 252, 252, 0.969);
+    background-color: #fd9c34;
+    border:2px solid #fc9a31f7;
     border-radius: 5px;
     padding: 6px;
     text-decoration: none;
@@ -56,8 +57,8 @@
     text-decoration: none;    
     font-weight: 600;
     color: #fff;
-    background-color: #ffa340;
-    border-color: #ffac54f7;
+    background-color: #d87810;
+    border:2px solid #d87810;
     box-shadow: rgba(218, 218, 218, 0.761) 1px 1px 2px;
 }
 
