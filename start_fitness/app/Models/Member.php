@@ -147,7 +147,8 @@ class Member extends Model
             return false;
         }
     }
-    //會員訂單
+
+    //連結會員訂單
     function memberOrder(){
         return $this->hasMany(Memberorder::class,'mid','mid');
     }

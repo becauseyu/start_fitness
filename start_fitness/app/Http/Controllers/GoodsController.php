@@ -45,16 +45,15 @@ class GoodsController extends Controller
 
         try {
             // 20220727 新增過濾下架功能
-            $foodList = Goodsdetail::where('ptype', 'food')->where('ppic', 'like', '%00%')->where('staid','1')->get();
-            $gymList = Goodsdetail::where('ptype', 'gym')->where('ppic', 'like', '%00%')->where('staid','1')->get();
-            
+            $foodList = Goodsdetail::where('ptype', 'food')->where('ppic', 'like', '%00%')->where('staid', '1')->get();
+            $gymList = Goodsdetail::where('ptype', 'gym')->where('ppic', 'like', '%00%')->where('staid', '1')->get();
         } catch (\Throwable $th) {
 
             // 資料庫死掉的時候不會出錯
             $foodList = (object) [];
             $gymList  = (object) [];
         }
-        array_push($compact_var, 'foodList','gymList');
+        array_push($compact_var, 'foodList', 'gymList');
 
 
         return view('goods.index', compact($compact_var));
@@ -93,8 +92,8 @@ class GoodsController extends Controller
 
 
         // 抓flavor 資料 // 20220727 新增過濾下架功能
-        $flavorList_img = Goodsdetail::where('pname', $good->pname)->where('staid','1')->get();
-        $flavorList_btn = Goodsdetail::where('pname', $good->pname)->where('staid','1')->groupBy('pstyle')->get();
+        $flavorList_img = Goodsdetail::where('pname', $good->pname)->where('staid', '1')->get();
+        $flavorList_btn = Goodsdetail::where('pname', $good->pname)->where('staid', '1')->groupBy('pstyle')->get();
 
 
 
@@ -104,9 +103,51 @@ class GoodsController extends Controller
     }
 
 
-    function nothing()
-    {
+// 取得隨機商品頁(給用minigame用)
+function getRandomGoods(Request $request)
+{
+    $text = (object) [];
+    $text->title = 'goods_index';
+    $compact_var = ['text'];
+
+
+
+    //會員身分驗證
+    // 會員驗證----------------------------------------------------
+    try {
+        $acc = Session::get('account');
+        $verify = Session::get('verify');
+
+        $member = Member::where('account', $acc)->first();
+        if (md5($member->psw . $acc) == $verify) {
+            $text->memberStatus = true;
+            array_push($compact_var, 'member');
+        } else {
+            $text->memberStatus = false;
+        }
+    } catch (\Throwable $th) {
+        $text->memberStatus = false;
     }
+
+
+
+    // 隨機產生變數
+    $idList = Goodsdetail::where('ptype','food')->where('staid',1)->get('pid');
+    $rand = rand(0,count($idList)-1);
+    // dd($rand);
+
+    $goods = Goodsdetail::find($idList[$rand]->pid);
+    
+
+    // 必要東西打包，其他不要給出去
+    $data = (object) [];
+    $data->pname = $goods->pname;
+    $data->ppic =  '/image/'.$goods->ptype.'/'.$goods->ppic;
+    $data->href = '/goods/data/'.$goods->pid;
+    
+    return $data;
+}
+    
 }
 
 

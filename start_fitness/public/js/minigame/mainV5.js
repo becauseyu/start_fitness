@@ -11,7 +11,7 @@ var isPlaying = false;
 
 
 // -------遊戲參數(s)--------------------------------------------------
-var gameTime = 15;  // 單次總時間
+var gameTime = 15;  // 單次總時間(正常60秒，錄影用15秒)
 var canvas_update_time = 0.02; // canvas刷新頻率(秒)
 
 // 大小設置
@@ -141,10 +141,10 @@ function isImageReady(total, callback) {
 
 var local_url = window.location.origin;
 
-junkFood_fries.image.src =     local_url + '/image/gameIMG/bsd_011.png';
-junkFood_burger.image.src =    local_url + '/image/gameIMG/bsd_021.png';
-junkFood_pizza.image.src =     local_url + '/image/gameIMG/bsd_031.png';
-healthFood_salmon.image.src =  local_url + '/image/gameIMG/good_011.png';
+junkFood_fries.image.src = local_url + '/image/gameIMG/bsd_011.png';
+junkFood_burger.image.src = local_url + '/image/gameIMG/bsd_021.png';
+junkFood_pizza.image.src = local_url + '/image/gameIMG/bsd_031.png';
+healthFood_salmon.image.src = local_url + '/image/gameIMG/good_011.png';
 healthFood_cabbage.image.src = local_url + '/image/gameIMG/good_021.png';
 healthFood_apple.image.src = local_url + '/image/gameIMG/good_031.png';
 
@@ -235,7 +235,7 @@ function gameBox() {
         context.clearRect(0, 0, canvas.width, canvas.height);
 
         // 大標題
-        
+
         context.font = "150px monospace, Tahoma, Geneva, Verdana, sans-serif  ";
         context.textAlign = "center";
         context.fillText(`飲食控制遊戲`, canvas_width / 2, 0.2 * canvas_height);
@@ -251,11 +251,15 @@ function gameBox() {
         // 顯示start button
         document.getElementById('start_button').style.display = 'block';
         document.getElementById('again_button').style.display = 'none';
-        
+
         // 顯示規則頁
         // change_page(1);
         document.getElementById('rulePage').style.display = 'block';
         document.getElementById('resultPage').style.display = 'none';
+
+
+
+
     }
 
 
@@ -674,6 +678,57 @@ function gameBox() {
         context.font = "30px monospace, Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "center";
         context.fillText(resultHTML, canvas_width / 2, 0.6 * canvas_height);
+
+
+
+
+
+
+
+        //----------------讀取遊戲結束畫面的圖片----------------------------------------------------
+        var localUrl = window.location.origin;
+        var promise = new Promise((resolve, reject) => {
+
+            // 取得頁尾資料
+            var xhttp = new XMLHttpRequest();
+            //如果當xhttp發生改變時，發生後面的callback(回乎函式) //閉包
+            xhttp.onreadystatechange = function () {
+                //200 :畫面載入成功(404是失敗)
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+
+                    if (xhttp.responseText != 0) { //帳號無重複 //xhttp.responseText 來自後端
+                        console.log('get data')
+                        console.log(xhttp.responseText)
+
+                    } else {
+                        console.log('get nothing')
+                    }
+                }
+            }
+
+            // 用非同步功能
+            xhttp.open('GET', localUrl + '/goods/randomGoods', false);
+            //send請求
+            xhttp.send();
+            resolve(JSON.parse(xhttp.responseText));
+            // resolve('hi')
+
+        })
+
+        var changeGoods = async function () {
+            var data = await promise;
+            document.getElementById('gameOverGoods').innerText = data.pname;
+            document.getElementById('gameOverImage').src = data.ppic;
+            document.getElementsByClassName('gameOverHref')[0].href = data.href;
+            document.getElementsByClassName('gameOverHref')[1].href = data.href;
+        }
+
+        changeGoods();
+
+
+
+
+
 
 
 

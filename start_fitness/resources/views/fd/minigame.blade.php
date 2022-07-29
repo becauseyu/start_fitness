@@ -75,9 +75,9 @@
                         <div id="errorLog_height"> </div>
                         <div id="errorLog_weight"> </div>
                         <div id="div_weightButtom_bag" class="d-flex justify-content-between">
-                            <div class="initialWeight" id="easy"> 建議(簡單) kg </div>
-                            <div class="initialWeight" id="normal"> 建議(中等) kg </div>
-                            <div class="initialWeight" id="hard"> 建議(困難) kg </div>
+                            <div class="initialWeight" id="easy">挑戰簡單kg</div>
+                            <div class="initialWeight" id="normal">挑戰中等kg</div>
+                            <div class="initialWeight" id="hard">挑戰困難kg</div>
                         </div>
 
                     </div>
@@ -86,12 +86,12 @@
 
                 <div id="resultPage" class="rule-head">
                     <div class="" id="gamediscri02">遊戲結束</div>
-                    <div>坐太久，該起來去喝水囉~<br />下午茶點心選飽米花如何? </div>
-                    <a href="/goods/index">
-                        <img src="/image/gameIMG/popcron04.webp" width="400"  class="mx-2 my-4 img-fluid bigImage88" alt="">
+                    <div>坐太久，該起來去喝水囉~<br />下午茶點心選<span id="gameOverGoods">飽米花</span>如何? </div>
+                    <a class="gameOverHref" href="/goods/index">
+                        <img id="gameOverImage" src="/image/gameIMG/popcron04.webp" width="400"  class="mx-2 my-4 img-fluid bigImage88" alt="">
                     </a>
                     <br />
-                    <a class="mb-2" href="/goods/index">點我前往商品頁</a>
+                    <a class="mb-2 gameOverHref" href="/goods/index">點我前往商品頁</a>
 
                 </div>
 
@@ -161,9 +161,9 @@
                 var bmi_40_weight = Math.floor(40 * height * height / 10000);
 
                 // 畫面新增按鈕
-                document.getElementById('easy').innerHTML = `建議(簡單) ${bmi_18_weight} kg`;
-                document.getElementById('normal').innerHTML = `建議(中等) ${bmi_26_weight} kg`;
-                document.getElementById('hard').innerHTML = `建議(困難) ${bmi_40_weight} kg`;
+                document.getElementById('easy').innerHTML = `挑戰簡單: ${bmi_18_weight} kg`;
+                document.getElementById('normal').innerHTML = `挑戰中等: ${bmi_26_weight} kg`;
+                document.getElementById('hard').innerHTML = `挑戰困難: ${bmi_40_weight} kg`;
 
 
                 // 3個按鈕點擊事件

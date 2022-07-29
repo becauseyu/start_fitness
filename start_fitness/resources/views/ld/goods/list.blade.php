@@ -14,28 +14,30 @@
 
 
 @section('h1')
-    <h1 class="text-center header01"> 庫存管理<span class="h3">(如要編輯請先下架產品)</span></h1>
+    <div class="text-center">
+        <h5 class="header01"> 庫存管理
+            <p class="notice">*如要編輯產品請先下架</p>
+        </h5>
+    </div>
 @endsection
 
 @section('content')
+    <div class="mb-2 ">
+        <a href="/ld/goods/create" class="btn-add">
+            新增商品
+        </a>
+    </div>
     <!--  表格首欄  -->
     <section class="mb-0 h4">
         <div class="row table-color m-0">
-            <div class="col-1 text-center">大分類</div>
+            <div class="col-1 text-center">分類</div>
             <div class="col-3 text-center">商品名稱</div>
             <div class="col-3 text-center">品牌</div>
             <div class="col-2 text-center">圖片</div>
-            <div class="col-3 text-center">
-                <a href="/ld/goods/create" class="btn01 btn-outline" style="color: black ;" >
-                    新增商品
-                </a>
-            </div>
-
+            <div class="col-3 text-center">功能</div>
             {{-- <div class="col text-center">口味</div>
             <div class="col text-center">價格</div>
             <div class="col text-center">庫存</div> --}}
-
-
         </div>
     </section>
     <!--  表格單筆  -->
@@ -50,27 +52,29 @@
                     <div class="card-header01" id="heading{{ $goods->pid }}">
                         <button class="btn01 btn-block headButton" type="button" data-toggle="collapse"
                             data-target="#collapse{{ $goods->pid }}">
-                            <div class="row">
+                            <div class="row cen10">
                                 <div class="col-1 text-center ptype">{{ $goods->ptype }}</div>
                                 <div class="col-3 text-center pname">{{ $goods->pname }}</div>
                                 <div class="col-3 text-center bname">{{ $goods->branddetail->bname }}</div>
-                                <div class="col-2 text-center "><img height="100" src="{{ $goods->url }}"></div>
-                                <div class="col-3 text-center button_bag">
+                                <div class="col-2 text-center "><img height="100" src="{{ $goods->url }}"
+                                        class="rounded"></div>
+                                <div class="col-3 cen text-center button_bag">
 
                                     @if ($goods->staid == '1')
                                         <a href="/ld/goods/takeDown/{{ $goods->pid }}" onclick="cancelBub(event)">
-                                            <div class="mr-1 btn01 btn-outline">下架</div>
+                                            <div class="mr-1 btn-off">下架</div>
                                         </a>
                                     @else
-                                        <a href="/ld/goods/onShelf/{{ $goods->pid }}" onclick="cancelBub(event)">
-                                            <div class="mr-1 btn01 btn-outline">上架</div>
+                                        <a href="/ld/goods/onShelf/{{ $goods->pid }}" onclick="cancelBub(event)"
+                                            style="text-decoration: none;">
+                                            <div class="mr-1 btn-on">上架</div>
                                         </a>
                                         |
-                                        <div class="mr-1 btn01 btn-outline01" onclick="bigEdit('a{{ $goods->pid }}')">編輯
+                                        <div class="mr-1 btn-edit" onclick="bigEdit('a{{ $goods->pid }}')">編輯
                                         </div>
                                         |
                                         <a href="/ld/goods/deleteAll/{{ $goods->pid }}" onclick="cancelBub(event)">
-                                            <div class="ml-1 btn01 btn-outline02">刪除</div>
+                                            <div class="ml-1 btn-delete">刪除</div>
                                         </a>
                                     @endif
 
@@ -83,56 +87,56 @@
                 </form>
                 <div id="collapse{{ $goods->pid }}" class="collapse body" data-parent="#accordionExample">
                     <div class="card-body">
-                        <table class="table table-striped">
-                            <tr>
+                        <table class="table-striped cen-table">
+                            <tr class="f-header">
                                 <th> 流水號 </th>
                                 <th> 口味 </th>
                                 <th> 數量 </th>
                                 <th> 圖片 </th>
                                 <th> 價格 </th>
-                                <th>
-                                </th>
+                                <th></th>
                             </tr>
                             @foreach ($goods->flavor->where('staid', '!=', '2') as $flavor)
                                 <tr>
-                                    <form id="b{{ $flavor->pid }}" action="/ld/goods/smallEdit"
+                                    <form class="h5" id="b{{ $flavor->pid }}" action="/ld/goods/smallEdit"
                                         enctype="multipart/form-data" method="POST">
                                         @csrf
-                                        <th><input id="pid{{ $flavor->pid }}" name='pid' form="b{{ $flavor->pid }}"
-                                                value="{{ $flavor->pid }}" width="100" size='10' disabled />
+                                        <th><input class="f-input  f-size " id="pid{{ $flavor->pid }}" name='pid' form="b{{ $flavor->pid }}"
+                                                value="{{ $flavor->pid }}" size="1" disabled />
                                         </th>
 
-                                        <th><input id="pstyle{{ $flavor->pid }}" name='pstyle'
+                                        <th><input class="f-input  f-size " id="pstyle{{ $flavor->pid }}" name='pstyle'
                                                 form="b{{ $flavor->pid }}" value="{{ $flavor->pstyle }}"
                                                 size='10'disabled />
                                         </th>
 
 
-                                        <th><input id="pcount{{ $flavor->pid }}" name='pcount'
+                                        <th><input class="f-input  f-size "  id="pcount{{ $flavor->pid }}" name='pcount'
                                                 form="b{{ $flavor->pid }}" value="{{ $flavor->pcount }}" size='10'
                                                 disabled />
                                         </th>
 
 
-                                        <th id="ppic{{ $flavor->pid }}"> <img height="150" src="{{ $flavor->url }}" id="img{{$flavor->pid}}" />
+                                        <th id="ppic{{ $flavor->pid }}"> <img  height="120" src="{{ $flavor->url }}"
+                                                id="img{{ $flavor->pid }}" class="rounded "/>
                                         </th>
 
 
 
-                                        <th> $ <span><input id="pprice{{ $flavor->pid }}" name='pprice'
-                                                    orm="b{{ $flavor->pid }}" value="{{ $flavor->pprice }}"
-                                                    size='10' disabled /></span> 
+                                        <th>  <span><input class="f-input  f-size " id="pprice{{ $flavor->pid }}" name='pprice'
+                                                    orm="b{{ $flavor->pid }}" value="${{ $flavor->pprice }}"
+                                                    size='10' disabled /></span>
                                         </th>
 
 
                                         <th id="button_bag{{ $flavor->pid }}">
                                             @if (!$flavor->staid)
-                                                <div class="mr-1 btn01 btn-outline01"
+                                                <div class="mr-1 btn-edit01"
                                                     onclick="smallEdit('{{ $flavor->pid }}')">編輯
                                                 </div> |
                                                 <a href="/ld/goods/deleteOne/{{ $flavor->pid }}"
                                                     onclick="cancelBub(event)">
-                                                    <div class="ml-1 btn01 btn-outline02">刪除</div>
+                                                    <div class="ml-1 btn-delete01">刪除</div>
                                                 </a>
                                             @endif
 
@@ -210,8 +214,8 @@
 
             // button_bag
             getForm.querySelector('.button_bag').innerHTML = `
-                <input type="submit" class="mr-1 btn01 btn-outline01" value='完成'></div> |
-                <a href='/ld/goods/list' class="ml-1 btn01 btn-outline02">取消編輯</a>
+                <input type="submit" class="mr-1 btn-ok01" value='完成'></div> |
+                <a href='/ld/goods/list' class="ml-1 btn-delete01">取消</a>
             `;
 
 
@@ -264,24 +268,31 @@
 
             // button_bag
             document.getElementById('button_bag' + id).innerHTML = `
-                <input form='b${id}' type="submit" class="mr-1 btn01 btn-outline01" value='完成'></div> |
-                <a href='' onClick='window.location.reload' class="ml-1 btn01 btn-outline02">取消編輯</a>
+                <input form='b${id}' type="submit" class="mr-1 btn-ok01" value='完成'></div> |
+                <a href='' onClick='window.location.reload' class="ml-1 btn-delete01">取消</a>
             `
 
 
             // 插入圖片
-            document.getElementById('ppic' + id).innerHTML += 
-            `<input accept = "image/*" type = 'file'  form='b${id}' name="file${id}"  id = "file${id}" / >`;
+            document.getElementById('ppic' + id).innerHTML +=
+                `
+                <label class="btn btn-info fileinput">
+                <span>更新圖片</span>
+                    <input accept = "image/*" class="b1 img-up " type = 'file'  form='b${id}' name="file${id}"  id = "file${id}" / >
+                </label >
+                `;
+
+            // 
 
 
             // 加入預覽事件
             document.getElementById('file' + id).onchange = evt => {
-            const [file] = document.getElementById('file' + id).files
-            if (file) {
-                document.getElementById('img' + id).src = URL.createObjectURL(file)
+                const [file] = document.getElementById('file' + id).files
+                if (file) {
+                    document.getElementById('img' + id).src = URL.createObjectURL(file)
 
+                }
             }
-        }
 
             // pid ptype pname bname pstyle pcount pprice
 

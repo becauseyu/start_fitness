@@ -42,33 +42,35 @@
 }
 
 .button01 {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
-    color: #fff;
-    background-color: #dc9344f7;
-    border-color: #dc9344f7;
-    border-radius: 2px;
+    color:rgba(252, 252, 252, 0.969);
+    background-color: #fd9c34;
+    border:2px solid #fc9a31f7;
+    border-radius: 5px;
     padding: 6px;
     text-decoration: none;
-    box-shadow: rgba(131, 120, 120, 0.761) 1px 1px 2px;
+    box-shadow: rgba(230, 227, 223, 0.761) 1px 1px 4px;
 }
 
 .button01:hover {
     text-decoration: none;    
     font-weight: 600;
     color: #fff;
-    background-color:#d38838f7;
-    border-color: #af9c7a;
-    box-shadow: rgba(130, 126, 126, 0.761) 1px 1px 2px;
+    background-color: #d87810;
+    border:2px solid #d87810;
+    box-shadow: rgba(218, 218, 218, 0.761) 1px 1px 2px;
 }
 
 .table-color {
     color: rgb(255, 251, 251);
     font-size: 20px;
     font-weight: 600;
+    letter-spacing: 2px;
     padding: 10px;
-    background-color: #826949f7;
-    text-shadow: rgba(123, 122, 122, 0.24)  
+    background-color:#b38049;
+    text-shadow: rgba(235, 232, 232, 0.24) 1px 1px 5px;
+
 
 }
 
