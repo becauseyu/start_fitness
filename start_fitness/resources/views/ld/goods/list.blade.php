@@ -101,8 +101,9 @@
                                     <form class="h5" id="b{{ $flavor->pid }}" action="/ld/goods/smallEdit"
                                         enctype="multipart/form-data" method="POST">
                                         @csrf
-                                        <th><input class="f-input  f-size " id="pid{{ $flavor->pid }}" name='pid' form="b{{ $flavor->pid }}"
-                                                value="{{ $flavor->pid }}" size="1" disabled />
+                                        <th><input class="f-input  f-size " id="pid{{ $flavor->pid }}" name='pid'
+                                                form="b{{ $flavor->pid }}" value="{{ $flavor->pid }}" size="1"
+                                                disabled />
                                         </th>
 
                                         <th><input class="f-input  f-size " id="pstyle{{ $flavor->pid }}" name='pstyle'
@@ -111,27 +112,27 @@
                                         </th>
 
 
-                                        <th><input class="f-input  f-size "  id="pcount{{ $flavor->pid }}" name='pcount'
+                                        <th><input class="f-input  f-size " id="pcount{{ $flavor->pid }}" name='pcount'
                                                 form="b{{ $flavor->pid }}" value="{{ $flavor->pcount }}" size='10'
                                                 disabled />
                                         </th>
 
 
-                                        <th id="ppic{{ $flavor->pid }}"> <img  height="120" src="{{ $flavor->url }}"
-                                                id="img{{ $flavor->pid }}" class="rounded "/>
+                                        <th id="ppic{{ $flavor->pid }}"> <img height="120" src="{{ $flavor->url }}"
+                                                id="img{{ $flavor->pid }}" class="rounded " />
                                         </th>
 
 
 
-                                        <th>  <span><input class="f-input  f-size " id="pprice{{ $flavor->pid }}" name='pprice'
-                                                    orm="b{{ $flavor->pid }}" value="${{ $flavor->pprice }}"
-                                                    size='10' disabled /></span>
+                                        <th> <span><input class="f-input  f-size " id="pprice{{ $flavor->pid }}"
+                                                    name='pprice' orm="b{{ $flavor->pid }}"
+                                                    value="${{ $flavor->pprice }}" size='10' disabled /></span>
                                         </th>
 
 
                                         <th id="button_bag{{ $flavor->pid }}">
                                             @if (!$flavor->staid)
-                                                <div class="mr-1 btn-edit01"
+                                                <div class="mr-1 btn-edit01 css-edit"
                                                     onclick="smallEdit('{{ $flavor->pid }}')">編輯
                                                 </div> |
                                                 <a href="/ld/goods/deleteOne/{{ $flavor->pid }}"
@@ -159,6 +160,8 @@
 
 @section('script')
     <script>
+
+
         // 大標題修改
         function bigEdit(id) {
             // 取得品牌資料
@@ -372,10 +375,6 @@
         // <input accept = "image/*" type = 'file'id = "imgInp" / >
         // <img id = "blah" src = "#" alt = "your image" / >
         // </form>
-
-
-
-
 
 
 
