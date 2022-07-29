@@ -40,6 +40,7 @@ Route::get('/food','App\Http\Controllers\GuestController@checkmember');
 
 Route::get('/food/introduce','App\Http\Controllers\GuestController@checkmember');
 Route::get('/food/minigame','App\Http\Controllers\GuestController@checkmember');
+Route::get('/goods/randomGoods','App\Http\Controllers\GoodsController@getRandomGoods');
 
 // sport側
 Route::get('/sport/index','App\Http\Controllers\GuestController@checkmember');
@@ -147,7 +148,7 @@ Route::get('/ld/goods/create','App\Http\Controllers\LdGoodsController@bigCreateL
 Route::post('/ld/goods/create','App\Http\Controllers\LdGoodsController@bigCreate');
 
 // just test
-Route::get('/test','App\Http\Controllers\TestController@index');
+Route::get('/test','App\Http\Controllers\TestController@getRandomGoods');
 
 
 
