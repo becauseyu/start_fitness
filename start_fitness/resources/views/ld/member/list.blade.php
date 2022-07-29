@@ -68,8 +68,24 @@
                                 <td> {{ $member->tel }} </td>
                             </tr>
                             <tr>
+
+                                <th> 現有訂單 </th>
+
+                                <td>
+                                    
+                                        @foreach ($member->memberOrder as $order)
+                                            訂單編號 : {{ $order->orderNumber }} <br/>
+                                        @endforeach
+
+                                </td>
+
+
+
+
+                            </tr>
+                            <tr>
                                 <th> 登入狀況 </th>
-                                <td> 最後登入 : {{$member->lastLogin}} </td>
+                                <td> 最後登入 : {{ $member->lastLogin }} </td>
                             </tr>
 
                         </table>
