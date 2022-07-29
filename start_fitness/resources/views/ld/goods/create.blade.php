@@ -21,7 +21,7 @@
     <!--  表格首欄  -->
     <section class="mb-0 h4">
         <div class="row table-color m-0">
-            <div class="col-1 text-center">大分類</div>
+            <div class="col-1 text-center">分類</div>
             <div class="col-3 text-center">商品名稱</div>
             <div class="col-3 text-center">品牌</div>
             <div class="col-2 text-center"></div>
@@ -65,21 +65,21 @@
                                 </select>
                             </div>
                             <div class="col-5 text-center button_bag">
-                                <input type="submit" class="mr-1 btn01 btn-outline01" value='完成'>
+                                <input type="submit" class="mr-1 btn-on" value='完成'>
                                 |
-                                <a href='/ld/goods/list' class="ml-1 btn01 btn-outline02">取消編輯</a>
+                                <a href='/ld/goods/list' class="ml-1 btn-delete">取消編輯</a>
                                 |
-                                <div class="ml-1 btn01 btn-outline" onclick="newRow()">新增一列</div>
+                                <div class="ml-1 btn-edit" onclick="newRow()">新增一列</div>
                             </div>
 
                         </div>
                 </div>
                 </button>
             </div>
-            <div class="body" data-parent="#accordionExample">
+            <div class="body mb-3" data-parent="#accordionExample">
                 <div class="card-body">
-                    <table class="table table-striped" id="table">
-                        <tr>
+                    <table class="table-striped cen-table" id="table">
+                        <tr class="f-header">
                             <th> 流水號 </th>
                             <th> 口味 </th>
                             <th> 數量 </th>
