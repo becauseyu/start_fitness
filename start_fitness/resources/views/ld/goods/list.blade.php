@@ -87,8 +87,8 @@
                 </form>
                 <div id="collapse{{ $goods->pid }}" class="collapse body" data-parent="#accordionExample">
                     <div class="card-body">
-                        <table class="table table-striped">
-                            <tr class="f-headr">
+                        <table class="table-striped cen-table">
+                            <tr class="f-header">
                                 <th> 流水號 </th>
                                 <th> 口味 </th>
                                 <th> 數量 </th>
