@@ -267,6 +267,7 @@
             // pprice
             document.getElementById('pprice' + id).disabled = false;
             document.getElementById('pprice' + id).classList.remove('f-input');
+            document.getElementById('pprice' + id).value = document.getElementById('pprice' + id).value.replace('$','');
 
 
             // button_bag
