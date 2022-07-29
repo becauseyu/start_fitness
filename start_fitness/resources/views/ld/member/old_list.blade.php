@@ -76,6 +76,22 @@
                                     <td> {{ $member->tel }} </td>
                                 </tr>
                                 <tr>
+
+                                    <th> 現有訂單 </th>
+                                    
+                                    <td> 
+                                        <ul>
+                                            @foreach ($member->memberOrder as $order)
+                                            <li>{{ $order->oerderNumber }}</li>     
+                                            @endforeach
+                                            
+                                        </td>
+
+
+
+
+                                </tr>
+                                <tr>
                                     <th> 登入狀況 </th>
                                     <td> 最後登入 : 2022-07-01 </td>
                                 </tr>

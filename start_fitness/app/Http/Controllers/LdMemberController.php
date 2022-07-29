@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Member;
 use App\Models\Log;
+use App\Models\Memberorder;
 use Illuminate\Auth\Events\Login;
 
 class LdMemberController extends Controller
@@ -63,8 +64,19 @@ class LdMemberController extends Controller
 
 
         foreach ($memberList as $member) {
+
             $member->status = '1' ?  '正常'  :  '停權';
             $member->lastLogin = (new Member)->lastLogin($member->account);
+
+
+            foreach ($member->memberOrder as $order) {
+                try {
+
+                    $order->orderNumber = (new Memberorder)->createOrderNumber($order->oid);
+                } catch (\Throwable $th) {
+                    $order->orderNumber = '無訂單';
+                }
+            }
         }
         return view('ld.member.list', compact('memberList'));
     }
