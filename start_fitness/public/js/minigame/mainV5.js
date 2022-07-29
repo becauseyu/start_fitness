@@ -671,13 +671,13 @@ function gameBox() {
         } else if ((bmi <= 24) && (bmi >= 18)) {
             resultHTML = "恭喜你，你是一個控制飲食達人";
         } else if (bmi <= 13) {
-            resultHTML = "我知道你很厲害，但老實說太瘦也不是甚麼好事，之後努力增胖吧";
+            resultHTML = "老實說太瘦也不是甚麼好事，之後努力增胖吧~";
         } else {
             resultHTML = "很高興你把體重控制得不錯，但還可以更好";
         }
-        context.font = "30px monospace, Tahoma, Geneva, Verdana, sans-serif ";
+        context.font = "44px monospace, Tahoma, Geneva, Verdana, sans-serif ";
         context.textAlign = "center";
-        context.fillText(resultHTML, canvas_width / 2, 0.6 * canvas_height);
+        context.fillText(resultHTML, canvas_width / 2, 0.45 * canvas_height);
 
 
 
