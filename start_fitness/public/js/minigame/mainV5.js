@@ -41,7 +41,7 @@ var healthFood_salmon = {
 }
 
 var healthFood_cabbage = {
-    radius: 35,
+    radius: 40,
     weight: 5,
     speed: 0,
     liveTime: 5,
@@ -49,7 +49,7 @@ var healthFood_cabbage = {
 }
 
 var healthFood_apple = {
-    radius: 25,
+    radius: 30,
     weight: 1,
     speed: 0,
     liveTime: 5,

@@ -226,3 +226,10 @@ canvas {
     box-shadow: 3px 3px 3px rgba(206, 196, 183, 0.7);
 
 }
+
+.snack {
+    font-size: 26px;
+    color: #f7af1e;
+    text-shadow: 1px 1px 2px rgba(192, 179, 159, 0.7);
+
+}

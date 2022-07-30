@@ -54,7 +54,7 @@
                         <div class='foodList' id="foodList02">
                             <div> &ensp;薯條 : <img src="/image/gameIMG/bsd_01.png" alt=""> + 3 kg </div>
                             <div> &ensp;漢堡 : <img src="/image/gameIMG/bsd_02.png" alt=""> + 10 kg </div>
-                            <div> &ensp;披薩 : <img src="/image/gameIMG/bsd_03.png" alt=""> + 20 kg，超級大pizza，肥仔必吃
+                            <div> &ensp;披薩 : <img src="/image/gameIMG/bsd_03.png" alt=""> + 20 kg，超大pizza，肥仔必吃
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
 
                 <div id="resultPage" class="rule-head">
                     <div class="" id="gamediscri02">遊戲結束</div>
-                    <div>坐太久，該起來去喝水囉~<br />下午茶點心選<span id="gameOverGoods">飽米花</span>如何? </div>
+                    <div>坐太久，該起來去喝水囉~<br />下午茶點心選<span id="gameOverGoods" class="snack mx-2">飽米花</span>如何? </div>
                     <a class="gameOverHref" href="/goods/index">
                         <img id="gameOverImage" src="/image/gameIMG/popcron04.webp" width="400"  class="mx-2 my-4 img-fluid bigImage88" alt="">
                     </a>
