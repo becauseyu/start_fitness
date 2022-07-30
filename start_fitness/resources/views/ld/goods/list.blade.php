@@ -390,9 +390,9 @@
 
 <!-- 上一頁/下一頁 -->
 @section('prevPageUrl')
-    {{ $goodsList->previousPageUrl() }}
+    {{ $goodsNameList->previousPageUrl() }}
 @endsection
 
 @section('nextPageUrl')
-    {{ $goodsList->nextPageUrl() }}
+    {{ $goodsNameList->nextPageUrl() }}
 @endsection

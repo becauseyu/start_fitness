@@ -44,9 +44,20 @@ class LdGoodsController extends Controller
             return redirect('/ld/login');
         }
         //------------------------------------------------------
+        // $goodsList = Goodsdetail::where('ppic', 'like', '%00%')->where('staid', '!=', '2')->paginate(15);
+
+        $goodsNameList =  Goodsdetail::where('staid', '!=', '2')->groupBy('pname')->orderBy('pid')->paginate(15);
+        $goodsList = [];
+        foreach ($goodsNameList as $key => $goodsName) {
+            $temp = Goodsdetail::where('pname', $goodsName->pname)->where('staid','!=', '2')->first();
+
+            if (!is_null($temp)) {
+                $goodsList[] = $temp;
+            }
+        }
 
 
-        $goodsList = Goodsdetail::where('ppic', 'like', '%00%')->where('staid', '!=', '2')->paginate(15);
+
         foreach ($goodsList as $goods) {
             $goods->url = url('/') . '/image/' . $goods->ptype . '/' . $goods->ppic;
             foreach ($goods->flavor as $flavor) {
@@ -55,7 +66,7 @@ class LdGoodsController extends Controller
         }
 
 
-        return view('ld.goods.list', compact('goodsList'));
+        return view('ld.goods.list', compact('goodsList','goodsNameList'));
     }
 
 
@@ -522,12 +533,12 @@ class LdGoodsController extends Controller
         // 表單應該要有 單一: ptype pname bid
         //  多列 : pstyle pcount pprice ppic
 
-    
+
         $ptype = $request->input('ptype') ?? '';
         $pname = $request->input('pname') ?? '';
         $bid = $request->input('bid') ?? '';
 
-        for ($i = 0; $i <= count($request->pstyle); $i++) {
+        for ($i = 0; $i < count($request->pstyle); $i++) {
             $pstyle = $request->input('pstyle')[$i] ?? '';
             $pcount = $request->input('pcount')[$i] ?? '';
             $pprice = $request->input('pprice')[$i] ?? '';
@@ -545,13 +556,52 @@ class LdGoodsController extends Controller
             } else {
                 $ppic = '';
             }
-            (new Goodsdetail)->createNewGoods($ptype,$bid,$pstyle,$pname,$pcount,$ppic,$pprice);
-            
-            
-
-            return redirect('/ld/goods/list');
-
+            (new Goodsdetail)->createNewGoods($ptype, $bid, $pstyle, $pname, $pcount, $ppic, $pprice);
         }
 
+        return redirect('/ld/goods/list');
+    }
+
+
+    // 拿到編輯表單(未完成)
+    function bigEdit2(Request $request)
+    {
+        // 管理員驗證
+        //會員身分驗證
+        $text = (object) [];
+        $text->title = '會員管理';
+        $compact_var = ['text'];
+        // 會員驗證----------------------------------------------------
+        try {
+            $acc = Session::get('account');
+            $verify = Session::get('verify');
+
+            $member = Member::where('account', $acc)->first();
+            if (md5($member->psw . $acc) == $verify) {
+                if ((new Member)->isController($acc)) {
+                    $text->memberStatus = true;
+                } else {
+                    return redirect('/ld/login');
+                }
+            } else {
+                $text->memberStatus = false;
+                return redirect('/ld/login');
+            }
+        } catch (\Throwable $th) {
+            $text->memberStatus = false;
+            return redirect('/ld/login');
+        }
+        //------------------------------------------------------
+
+
+        $request->id;
+
+        // 表單需要 ptype bname
+        $brandList = Branddetail::all();
+        $ptypeList =  Goodsdetail::groupBy('ptype')->get('ptype');
+
+
+
+        return view('ld.goods.create', compact('brandList', 'ptypeList'));
     }
 }

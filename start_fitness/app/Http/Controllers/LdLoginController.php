@@ -86,6 +86,8 @@ class LdLoginController extends Controller
                         Session::put('verify', $verify);
                         Session::forget('loginError');
 
+                        (new Log)->writeLoginBack($account);
+
                         return redirect('/ld/member/list');
                     } else {
                         $text->body = '您不是管理員，請移至前台登入';

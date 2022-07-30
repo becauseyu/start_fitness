@@ -34,5 +34,11 @@ class Log extends Model
         ]);
     }
 
+    function writeLoginBack($account) {
+        $this->insert([
+            'body' => "後台登入，帳號 : {$account}"
+        ]);
+    }
+
 
 }
