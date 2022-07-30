@@ -54,10 +54,19 @@ class GoodsController extends Controller
             $foodList = [];
 
             foreach($foodNameList as $key => $foodName){
-                $temp = Goodsdetail::where('pname',$foodName->pname)->where('staid','1')->first();
+                $temp = Goodsdetail::where('pname',$foodName->pname)->where('staid','1')->get();
                 
-                if(!is_null($temp)){
-                    $foodList[] = $temp;
+                if(count($temp) > 0){
+                    $foodList[$key] = $temp[0];
+                    $foodList[$key]->url = '/image/'.$temp[0]->ptype.'/'.$temp[0]->ppic;
+
+                    if (count($temp) > 1){
+                        $foodList[$key]->hover = '/image/'.$temp[1]->ptype.'/'.$temp[1]->ppic;
+
+                    }else{
+                        $foodList[$key]->hover = $foodList[$key]->url;
+                    }
+
                 }
             }
 
@@ -66,11 +75,22 @@ class GoodsController extends Controller
             $gymList = [];
 
             foreach($gymNameList as $key => $gymName){
-                $temp = Goodsdetail::where('pname',$gymName->pname)->where('staid','1')->first();
+                $temp = Goodsdetail::where('pname',$gymName->pname)->where('staid','1')->get();
                 
-                if(!is_null($temp)){
-                    $gymList[] = $temp;
+                if(count($temp) > 0){
+                    $gymList[$key] = $temp[0];
+                    $gymList[$key]->url = '/image/'.$temp[0]->ptype.'/'.$temp[0]->ppic;
+
+
+
+                    if (count($temp) > 1){
+                        $gymList[$key]->hover = '/image/'.$temp[1]->ptype.'/'.$temp[1]->ppic;
+
+                    }else{
+                        $gymList[$key]->hover = $gymList[$key]->url;
+                    }
                 }
+
             }
 
 
@@ -81,10 +101,9 @@ class GoodsController extends Controller
             // 資料庫死掉的時候不會出錯
             $foodList = (object) [];
             $gymList  = (object) [];
+            dd('so sad');
         }
         array_push($compact_var, 'foodList', 'gymList');
-
-
         return view('goods.index', compact($compact_var));
     }
 

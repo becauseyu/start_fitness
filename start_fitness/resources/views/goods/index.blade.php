@@ -68,7 +68,8 @@
                 <div class='col-md-3 col-sm-6 col-6'>
                 <div class='m-2 image-sale'>
                 <a  href='/goods/data/{{$food->pid}}'>
-                <img src='/image/food/{{$food->ppic}}' class='good_img food photoshadow imgee img-fluid mx-auto rounded'>
+                <img src='/image/food/{{$food->ppic}}' class='good_img food photoshadow imgee img-fluid mx-auto rounded' 
+                data-url ='{{$food->url}}' data-hover = '{{$food->hover}}'>
                 </a>
                 </div>
                 <div class=' '>
@@ -103,7 +104,8 @@
                 <div class='col-md-3 col-sm-6 col-6'>
                 <div class='m-2 image-sale'>
                 <a  href='/goods/data/{{$gym->pid}}'>
-                <img src='/image/gym/{{$gym->ppic}}' class='good_img gym photoshadow imgee img-fluid mx-auto rounded'>
+                <img src='/image/gym/{{$gym->ppic}}' class='good_img gym photoshadow imgee img-fluid mx-auto rounded' 
+                data-url ='{{$gym->url}}' data-hover = '{{$gym->hover}}'>
                 </a>
                 </div>
                 <div class=' '>
