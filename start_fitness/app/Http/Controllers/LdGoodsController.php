@@ -9,7 +9,7 @@ use App\Models\Branddetail;
 use App\Models\Member;
 
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\Storage;
 
 class LdGoodsController extends Controller
 {
@@ -155,6 +155,9 @@ class LdGoodsController extends Controller
         if ($new_ptype != $old_ptype) {
             foreach ($goodsList as $goods) {
                 $goods->ptype = $new_ptype;
+                
+                
+                Storage::disk('image')->move('/'.$old_ptype.'/'.$goods->ppic, '/'.$new_ptype.'/'.$goods->ppic);
                 $isUpdate = 1;
             }
         }

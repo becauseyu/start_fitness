@@ -56,6 +56,13 @@ return [
             'throw' => false,
         ],
 
+        'image' => [
+            'driver' => 'local',
+            'root' => public_path('/image'),
+            'url' => env('APP_URL').'/storage',
+            'throw' => false,
+        ],
+
     ],
 
     /*
