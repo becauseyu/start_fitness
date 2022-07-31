@@ -140,6 +140,9 @@ $('.cart2').on('click', function () {
         var goodsTotalcount = $(elm).find(':input').val();
         count = parseInt(count) + parseInt(goodsTotalcount)
       })
+      if(count<=0){
+        count = 0;
+      }
       $('#totalCount').html(count)
       $('#cartQuantity').html(count) //透過點擊改變購物車圖標上數字
       //把購物車數量存到localStorage
