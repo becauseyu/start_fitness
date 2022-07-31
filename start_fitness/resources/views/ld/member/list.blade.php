@@ -3,7 +3,7 @@
 
 
 @section('title')
-    <title>member</title>
+    <title>會員管理</title>
 @endsection
 
 
