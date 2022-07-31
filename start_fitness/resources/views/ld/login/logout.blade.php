@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/ld/ld_login.css">
 
     <link rel="stylesheet" href="/bootstrap-4.6.1-dist/css/bootstrap.min.css">
-    <title>logout</title>
+    <title>管理員登出</title>
 </head>
 
 <body>

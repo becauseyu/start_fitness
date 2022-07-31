@@ -14,6 +14,9 @@
 
     {{-- my css --}}
     <link rel="stylesheet" href="/css/ld/backhead.css">
+    
+    {{--  favicon --}}
+   <link rel="icon" href="/image/favico.ico" type="image/x-icon">
 
 
     @yield('head')

@@ -4,7 +4,7 @@
 {{--  頁籤標題 --}}
 @section('title')
 
-<title>order</title>
+<title>log活動記錄</title>
 
 @endsection
 

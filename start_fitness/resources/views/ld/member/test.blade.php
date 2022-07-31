@@ -10,7 +10,7 @@
     <script src="/bootstrap-4.6.1-dist/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-    <title>member</title>
+    <title>會員管理</title>
 
     <!-- mycss -->
     <link rel="stylesheet" href="/css/ld/backhead.css">

@@ -3,7 +3,7 @@
 
 
 @section('title')
-    <title>goods</title>
+    <title>商品庫存管理</title>
 @endsection
 
 

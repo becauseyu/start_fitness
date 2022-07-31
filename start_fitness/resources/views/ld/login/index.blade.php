@@ -9,7 +9,7 @@
     @include('front_side_frame.link')
     <link rel="stylesheet" href="/css/ld/ld_login.css">
 
-    <title>後台login</title>
+    <title>管理員登入</title>
 </head>
 
 <body>

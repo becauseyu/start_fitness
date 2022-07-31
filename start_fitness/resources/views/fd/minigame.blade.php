@@ -15,7 +15,7 @@
     @include('front_side_frame.link')
 
 
-    <title>minigame |動吃動吃</title>
+    <title>Mini Game |動吃動吃</title>
 
 </head>
 
