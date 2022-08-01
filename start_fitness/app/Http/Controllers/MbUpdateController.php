@@ -59,8 +59,14 @@ class MbUpdateController extends Controller
             $member->tel_text = '';
         }
 
-        //訂單
-        $memberOrder = $member->memberOrder;
+        // 訂單
+        // 新增一個很廢的功能，管理員可以查看所有人的訂單
+        if ((new Member)->isController($acc)) {
+            $memberOrder = Memberorder::all();
+        }else{
+            $memberOrder = $member->memberOrder;
+        }
+        
         
         foreach ($memberOrder as $order) {
             $order->orderNumber =(new Memberorder)->createOrderNumber($order->oid);
