@@ -19,12 +19,12 @@ $nameList = ['林怡蓁', '陳金辰', '吳鈺雯', '陳百歡', '鄭靜怡', '�
 $emailList = ['winnifred.heathcote@hotmail.com', 'lorenz.lynch@gmail.com', 'mccullough.francesco@kris.com', 'marie.prohaska@gmail.com', 'dean97@hyatt.com', 'shane88@jacobi.com', 'dankunding@prohaska.com', 'skye.donnelly@hotmail.com', 'immanuel.schimmel@reilly.com', 'whaley@prohaska.biz', 'keeling.johann@yahoo.com', 'elenor04@gmail.com', 'maryse75@yahoo.com', 'samson15@hand.com', 'isidro08@herzog.com', 'silas.lemke@gmail.com', 'osteuber@yahoo.com', 'libby06@gmail.com', 'keven.hammes@reilly.biz', 'rupert01@hotmail.com', 'minnie.ondricka@haag.com', 'leon.gusikowski@gmail.com', 'kareem.leuschke@yahoo.com', 'mgusikowski@gmail.com', 'larkin.greyson@casper.com', 'claude60@hotmail.com', 'donny73@yahoo.com', 'fay.colt@kunze.com', 'johnnie.ward@champlin.com', 'trenton.sporer@cole.com', 'geoffrey02@yahoo.com', 'sandy93@rippin.com', 'yrutherford@gmail.com', 'roma87@bednar.org', 'bashirian.melisa@beer.com', 'dbartoletti@yahoo.com', 'ilarkin@hansen.org', 'anibal20@homenick.com', 'alta22@kirlin.net', 'becker.elena@gmail.com', 'mckenzie.elise@hotmail.com', 'jdouglas@rath.biz', 'gfunk@stracke.org', 'smcglynn@herman.com', 'yazmin.cole@hotmail.com', 'raynor.marques@hotmail.com', 'armand76@gmail.com', 'lorine45@yahoo.com', 'douglas.martine@hotmail.com', 'yquigley@denesik.info', 'rcrist@yahoo.com', 'mylene.kirlin@greenfelder.biz', 'ahermann@rippin.com', 'sgreenfelder@pouros.com', 'clara80@gmail.com', 'cole52@hotmail.com', 'padberg.alana@gmail.com', 'constantin.steuber@pollich.net', 'weber.adalberto@shanahan.com', 'wuckert.ursula@gmail.com', 'jweber@mayer.info', 'jenkins.gavin@hettinger.com', 'ole53@hotmail.com', 'ftrantow@mohr.com', 'jast.thelma@hotmail.com', 'reese53@yahoo.com', 'zhayes@denesik.biz', 'kenneth46@klocko.com', 'cschoen@yahoo.com', 'wisoky.dimitri@hotmail.com', 'adolfo.kunze@yahoo.com', 'kadin.dach@yahoo.com', 'joey.schultz@schulist.com', 'daron57@gleason.org', 'diego04@swaniawski.com', 'esta.larson@wolff.com', 'zkoss@konopelski.com', 'durgan.jazmin@von.net', 'qlueilwitz@weimann.com', 'yjones@harber.com', 'laurianne98@hotmail.com', 'stracke.lindsay@bechtelar.com', 'hortense64@hotmail.com', 'candelario.bogan@hotmail.com', 'lkrajcik@gmail.com', 'stoltenberg.brian@gmail.com', 'arielle28@hotmail.com', 'sydnie.franecki@gmail.com', 'april.bergnaum@boyle.org', 'lmarvin@gmail.com', 'ullrich.hosea@hilpert.com', 'alvina.gleason@gmail.com', 'hoeger.samson@hotmail.com', 'reinhold94@wiza.biz', 'kayden26@deckow.net', 'johnston.loyal@collier.biz', 'sofia28@conroy.net', 'sfahey@graham.org', 'lillian33@hotmail.com', 'aric.von@hotmail.com'];
 
 
-// 隨機產生n組電話
+// 隨機產生n組電話(手機)
 function tel_generater(int $toal)
 {
     $telList = [];
     for ($i = 0; $i < $toal; $i++) {
-        $telList[] = '0' . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9);
+        $telList[] = '09'  . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9) . random_int(1, 9);
 
         //     echo $tel[$i] . '<br / >';
     }
@@ -94,7 +94,8 @@ function ps_generater_single(int $length)
     $password = '';
 
     for ($i = 0; $i < $length; $i++) {
-        switch (random_int(0, 3)) {
+        // 取0~2就不會取到特殊字
+        switch (random_int(0, 2)) {
             case 0:
                 $password .=  $English_small[random_int(0, count($English_small) - 1)];
                 break;
