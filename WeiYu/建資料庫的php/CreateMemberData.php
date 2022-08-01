@@ -225,7 +225,7 @@ function member_generater(int $time_perData = 10)
     }
 }
 
-
+member_generater(0);
 
 
 
