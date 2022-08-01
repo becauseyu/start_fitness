@@ -40,5 +40,11 @@ class Log extends Model
         ]);
     }
 
+    function writeNewGoods($pname) {
+        $this->insert([
+            'body' => "新品上架，商品名稱 : {$pname}"
+        ]);
+    }
+
 
 }

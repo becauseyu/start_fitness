@@ -60,7 +60,7 @@ class LdMemberController extends Controller
         // }
 
 
-        $memberList = Member::paginate(15);
+        $memberList = Member::orderBy('mid','desc')->paginate(15);
 
 
         foreach ($memberList as $member) {

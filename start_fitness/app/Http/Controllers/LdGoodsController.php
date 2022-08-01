@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Goodsdetail;
 use App\Models\Branddetail;
+use App\Models\Log;
 use App\Models\Member;
 
 use Illuminate\Support\Facades\Session;
@@ -46,7 +47,7 @@ class LdGoodsController extends Controller
         //------------------------------------------------------
         // $goodsList = Goodsdetail::where('ppic', 'like', '%00%')->where('staid', '!=', '2')->paginate(15);
 
-        $goodsNameList =  Goodsdetail::where('staid', '!=', '2')->groupBy('pname')->orderBy('pid')->paginate(15);
+        $goodsNameList =  Goodsdetail::where('staid', '!=', '2')->groupBy('pname')->orderBy('pid','desc')->paginate(15);
         $goodsList = [];
         foreach ($goodsNameList as $key => $goodsName) {
             $temp = Goodsdetail::where('pname', $goodsName->pname)->where('staid','!=', '2')->first();
@@ -560,6 +561,7 @@ class LdGoodsController extends Controller
                 $ppic = '';
             }
             (new Goodsdetail)->createNewGoods($ptype, $bid, $pstyle, $pname, $pcount, $ppic, $pprice);
+            (new Log)->writeNewGoods($pname);
         }
 
         return redirect('/ld/goods/list');
