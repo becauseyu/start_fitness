@@ -1,7 +1,7 @@
 <?php 
 
 // 新創會員
-function insertMember($name , $email , $tel , $account , $password , $point = 0, $staId = 1) {
+function insertMember($name , $email , $tel , $account , $password , $point = 0, $staId = 2) {
     include('mysql.php');
     $sql = "INSERT INTO member (`account`, `psw`, `name`, `email`, `tel`, `point`, `staId` ) VALUES (?,?,?,?,?,?,?);";
     $stmt = $mysqli->prepare($sql);
