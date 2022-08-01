@@ -58,6 +58,9 @@ Route::get('/goods/index','App\Http\Controllers\GoodsController@index');
 Route::get('/goods/data/{pid}','App\Http\Controllers\GoodsController@data');
 
 
+Route::get('/goods/getGoodsData','App\Http\Controllers\GoodsController@getGoodsData');
+
+
 
 //--------------以下結帳流程------------------------------------------------
 Route::get('/payment','App\Http\Controllers\PaymentController@payment');

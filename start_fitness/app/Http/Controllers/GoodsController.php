@@ -53,20 +53,18 @@ class GoodsController extends Controller
             $foodNameList = Goodsdetail::where('ptype', 'food')->groupBy('pname')->orderBy('pid')->get('pname');
             $foodList = [];
 
-            foreach($foodNameList as $key => $foodName){
-                $temp = Goodsdetail::where('pname',$foodName->pname)->where('staid','1')->get();
-                
-                if(count($temp) > 0){
+            foreach ($foodNameList as $key => $foodName) {
+                $temp = Goodsdetail::where('pname', $foodName->pname)->where('staid', '1')->get();
+
+                if (count($temp) > 0) {
                     $foodList[$key] = $temp[0];
-                    $foodList[$key]->url = '/image/'.$temp[0]->ptype.'/'.$temp[0]->ppic;
+                    $foodList[$key]->url = '/image/' . $temp[0]->ptype . '/' . $temp[0]->ppic;
 
-                    if (count($temp) > 1){
-                        $foodList[$key]->hover = '/image/'.$temp[1]->ptype.'/'.$temp[1]->ppic;
-
-                    }else{
+                    if (count($temp) > 1) {
+                        $foodList[$key]->hover = '/image/' . $temp[1]->ptype . '/' . $temp[1]->ppic;
+                    } else {
                         $foodList[$key]->hover = $foodList[$key]->url;
                     }
-
                 }
             }
 
@@ -74,28 +72,22 @@ class GoodsController extends Controller
             $gymNameList = Goodsdetail::where('ptype', 'gym')->groupBy('pname')->orderBy('pid')->get('pname');
             $gymList = [];
 
-            foreach($gymNameList as $key => $gymName){
-                $temp = Goodsdetail::where('pname',$gymName->pname)->where('staid','1')->get();
-                
-                if(count($temp) > 0){
+            foreach ($gymNameList as $key => $gymName) {
+                $temp = Goodsdetail::where('pname', $gymName->pname)->where('staid', '1')->get();
+
+                if (count($temp) > 0) {
                     $gymList[$key] = $temp[0];
-                    $gymList[$key]->url = '/image/'.$temp[0]->ptype.'/'.$temp[0]->ppic;
+                    $gymList[$key]->url = '/image/' . $temp[0]->ptype . '/' . $temp[0]->ppic;
 
 
 
-                    if (count($temp) > 1){
-                        $gymList[$key]->hover = '/image/'.$temp[1]->ptype.'/'.$temp[1]->ppic;
-
-                    }else{
+                    if (count($temp) > 1) {
+                        $gymList[$key]->hover = '/image/' . $temp[1]->ptype . '/' . $temp[1]->ppic;
+                    } else {
                         $gymList[$key]->hover = $gymList[$key]->url;
                     }
                 }
-
             }
-
-
-
-
         } catch (\Throwable $th) {
 
             // 資料庫死掉的時候不會出錯
@@ -194,6 +186,32 @@ class GoodsController extends Controller
         $data->href = '/goods/data/' . $goods->pid;
 
         return $data;
+    }
+
+
+
+
+    // 取得特定商品數據(給未來購物車使用，記得在javascript用xttp請求)
+    function getGoodsData(Request $request)
+    {
+        $pname = $request->input('pname') ?? '';
+        $pstyle = $request->input('pstyle') ?? '';
+        try {
+            if ($pname && $pstyle) {
+                
+                $goods = Goodsdetail::where('staid','1')->where('pname',$pname)->where('pstyle',$pstyle)->first();
+                if ($goods) {
+                    return $goods->toArray();
+                }else{
+                    return '找不到商品';
+                }
+            }else{
+                return '找不到商品';    
+            }
+        } catch (\Throwable $th) {
+            return '找不到商品';
+        }
+        
     }
 }
 
