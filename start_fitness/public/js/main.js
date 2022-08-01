@@ -118,7 +118,7 @@ $('.cart2').on('click', function () {
 
   //-------------inputNumber 觸發單品加減與總數量加減-----------------------------//
 
-  $(".slide_buycart_count").on('input', function () {
+  $(".slide_buycart_count").on('change', function () {
     var btn_count = $(this).val()
 
     if (btn_count > 0) {  //設定如果val()小於零時，自動刪除
@@ -140,9 +140,7 @@ $('.cart2').on('click', function () {
         var goodsTotalcount = $(elm).find(':input').val();
         count = parseInt(count) + parseInt(goodsTotalcount)
       })
-      if(count<=0){
-        count = 0;
-      }
+      
       $('#totalCount').html(count)
       $('#cartQuantity').html(count) //透過點擊改變購物車圖標上數字
       //把購物車數量存到localStorage
@@ -155,6 +153,10 @@ $('.cart2').on('click', function () {
       //刪除畫面
       var a = $(this).closest('ul')
       a.remove()
+      //改變購物車數量
+      var count = $('#cartQuantity').html();
+      $('#cartQuantity').html(parseInt(count)-1);
+
       //歸零時刪除localStorage
       var goods_name = $(this).closest('ul').find('li').eq(0).html()
       var myStorage = localStorage
@@ -232,6 +234,9 @@ $(".slide_buycart_count").on('input', function () {
     //刪除畫面
     var a = $(this).closest('ul')
     a.remove()
+    //改變購物車數量
+          var count = $('#cartQuantity').html();
+          $('#cartQuantity').html(parseInt(count)-1);
     //歸零時刪除localStorage
     var goods_name = $(this).closest('ul').find('li').eq(0).html()
     var myStorage = localStorage
