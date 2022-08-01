@@ -57,7 +57,7 @@
                 </li>
                 <li class="nav-itemr">
                     <a class="nav-link font-nav
-                    @if (Request::is('/ld/log/list')) active @endif
+                    @if (Request::is('ld/log/list')) active @endif
                     "
                         href="/ld/log/list">網站活動紀錄</a>
                 </li>

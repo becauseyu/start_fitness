@@ -52,7 +52,7 @@
                                 <input id="lg_password" name="lg_password" type="password"
                                     class="form-control ml-5 mr-5" placeholder="密碼" aria-label="Password"
                                     aria-describedby="basic-addon1" required>
-                                <i id="checkEye" class="fas fa-eye-slash"></i>
+                                <i id="checkEye" class="fa fa-eye-slash"></i>
                             </div>
                             <input id="remember" type="checkbox" class="ml-5">記住我
                             <div class="input-group mb-3">
@@ -78,7 +78,7 @@
                                 <input id="re_password" name="re_password" type="text"
                                     class="password2 form-control ml-5 mr-5" placeholder="密碼" aria-label="Password"
                                     aria-describedby="basic-addon1" required>
-                                <i class="checkEye2 fas fa-eye"></i>
+                                <i class="checkEye2 fa fa-eye"></i>
                                 <span id='cor_password' class="confirmSpan"></span>
 
                             </div>
@@ -86,7 +86,7 @@
                                 <input id="re_password2" name="re_password2" type="text"
                                     class="password2 form-control ml-5 mr-5" placeholder="請再次輸入密碼" aria-label="Password"
                                     aria-describedby="basic-addon1" required>
-                                <i class="checkEye2 fas fa-eye"></i>
+                                <i class="checkEye2 fa fa-eye"></i>
                                 <span id='cor_password2' class="confirmSpan"></span>
                             </div>
                             <div class="input-group mb-3">

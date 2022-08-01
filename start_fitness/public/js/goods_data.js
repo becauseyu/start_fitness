@@ -54,7 +54,7 @@ $('.button08').on('click', function () {
   //得到產品完整名稱，去檢查是否存在購物車
   var name = $('#product_name').html()
   var flavor = $('#product_flaver').html()
-  var fullname = $.trim(name) + '－' + $.trim(flavor)
+  var fullname = $.trim(name) + '-' + $.trim(flavor)
   var img = $('#bigImage').prop('src')
   var single_price = $('#product_price').html()
   var count = $('#product_count').val()
