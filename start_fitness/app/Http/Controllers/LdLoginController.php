@@ -30,7 +30,7 @@ class LdLoginController extends Controller
                 if ((new Member)->isController($acc)) {
                     $text->memberStatus = true;
                     array_push($compact_var, 'member');
-                    return redirect('/ld/member/list');
+                    return redirect('/ld/log/list');
                 } else {
                     
                 }
@@ -88,14 +88,14 @@ class LdLoginController extends Controller
 
                         (new Log)->writeLoginBack($account);
 
-                        return redirect('/ld/member/list');
+                        return redirect('/ld/log/list');
                     } else {
                         $text->body = '您不是管理員，請移至前台登入';
                         return view('mb.confirmScc', compact('text'));
                     }
                 } catch (\Throwable $th) {
                     $data['error'] = '登入有問題';
-                    return redirect('/ld/member/list');
+                    return view('ld.login.index', compact('data'));
                 }
             } else {
                 $loginError = Session::get('loginError') | 0;
