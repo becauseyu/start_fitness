@@ -15,3 +15,4 @@ yarn-error.log
 /.vscode
 /WeiYu/\345\273\272\350\263\207\346\226\231\345\272\253\347\232\204php/log.txt
 /WeiYu/建資料庫的php/log.txt
+.env
